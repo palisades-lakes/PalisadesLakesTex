@@ -1,0 +1,1328 @@
+%-----------------------------------------------------------------
+% PalisadesLakes --- latex defs for palisades-lakes projects.
+% https://github.com/palisades-lakes
+% palisades-lakes at gmail dot com
+% no guarantees or support.
+% no copyright or license (yet).
+%-----------------------------------------------------------------
+% not bothering with dtx (formatted documentation):
+%  extra processing step not worth while,
+%    especially in development.
+%  dtx format not supported by texlipse
+%  package intended for 'internal', unsupported use only.
+%  latex + comments is readable enough.
+%
+% Note well: this is my first attempt at a latex class.
+%
+% This is an experiment;
+% the idea is to capture most of what I want in one package,
+% rather than having dependencies on hundreds of other latex
+% packages that often conflict, and, in particular, 
+% often conflict in ways that make it difficult to tell
+% where the problem is. 
+%
+% For \url{https://github.com/palisades-lakes}.
+%
+% General idea: document is a collection of chunks (better word?)
+% containing paragraph text, math notation, formatted code, 
+% graphics, tables, etc.. 
+% Document layout determines where and how each chunk is rendered.
+% This should be done to minimize a cost subject to constraints.
+% The constraints include ordering (chunk A before chunk B),
+% alignment (eg margin notes aligned to body text, 
+% side-by-side figures, tables, etc.),
+% and more complex constraints for math notation and labeled
+% graphics. 
+%-----------------------------------------------------------------
+
+\NeedsTeXFormat {LaTeX2e} [2020-10-01]
+\ProvidesPackage{PalisadesLakes}[2021-02-05]
+
+\errorcontextlines 10000
+
+%-----------------------------------------------------------------
+% package options
+%-----------------------------------------------------------------
+
+% none at present
+
+% TODO: control printing of list of listings, etc., with package
+% options rather than toggles?
+
+\DeclareOption*{\PackageWarning{PalisadesLakes}%
+%\DeclareOption*{\PackageError{PalisadesLakes}%
+{Unknown option ‘\CurrentOption’}}
+\ProcessOptions\relax
+
+%-----------------------------------------------------------------
+% general dependencies
+%-----------------------------------------------------------------
+\RequirePackage{etoolbox}[2020/10/05]
+\RequirePackage{expl3}[2020/10/27]
+\RequirePackage{xparse}[2020/10/27]
+\RequirePackage{import}[2020/04/01]
+% Work-around for tex limit to 16 open output files.
+\RequirePackage{morewrites}[2018/12/29]
+\RequirePackage[dvipsnames,svgnames,x11names,rgb]{xcolor}
+[2016/05/11]
+\definecolor{citecolor}{rgb}{0.05,0.3,0.05}
+\RequirePackage{graphicx}[2020/09/09]
+% TODO: is ulem needed?
+\PassOptionsToPackage{normalem}{ulem}
+%\RequirePackage{ulem}[2019/11/18]
+\RequirePackage{url}[2013/09/16]
+ % just for babel:
+\RequirePackage{csquotes}[2019-12-06]
+\RequirePackage[english]{babel}[2020/10/27]
+% category theory diagrams
+\RequirePackage{tikz-cd}[2018/11/19]
+%-----------------------------------------------------------------
+% date/time formatting
+%-----------------------------------------------------------------
+\RequirePackage{datetime}[2015/03/20]
+\renewcommand{\dateseparator}{-}
+\renewcommand{\today}{
+\the\year \dateseparator \twodigit\month \dateseparator \twodigit\day}
+%-----------------------------------------------------------------
+% geometry commands --- make it easy to switch page layouts
+%-----------------------------------------------------------------
+\RequirePackage{geometry}[2020/01/02]
+
+\NewDocumentCommand {\geomDefault} {} {
+ \geometry{twoside=false,margin=2cm,columnsep=2.5cm,} }
+
+\NewDocumentCommand {\geomKindlePaperWhite} {} {
+ \geomDefault
+ \geometry{margin=2mm,paperheight=160mm,paperwidth=120mm,
+           twocolumn=false,landscape=false,} }
+
+\NewDocumentCommand {\geomLegal} {} {
+ \geomDefault
+ \geometry{margin=2cm,paperheight=356mm,paperwidth=216mm,} }
+\NewDocumentCommand {\geomLetter} {} {
+ \geomDefault
+ \geometry{margin=2cm,paperheight=279mm,paperwidth=216mm,} }
+\NewDocumentCommand {\geomLedger} {} {
+ \geomDefault
+ \geometry{margin=2cm,paperheight=432mm,paperwidth=279mm,} }
+\NewDocumentCommand {\geomAfour} {} {
+ \geomDefault
+ \geometry{margin=2cm,paperheight=297mm,paperwidth=210mm,} }
+\NewDocumentCommand {\geomHDTV} {} {
+ \geomDefault
+ \geometry{margin=2cm,paperheight=352mm,paperwidth=198mm,} }
+
+\NewDocumentCommand {\geomLandscape} {} {
+ \geometry{twocolumn=true,landscape=true,} }
+\NewDocumentCommand {\geomPortraitTwoColumn} {} {
+ \geometry{twocolumn=true,landscape=false,columnsep=2.0cm,} }
+\NewDocumentCommand {\geomPortraitOneColumn} {} {
+ \geometry{twocolumn=false,landscape=false,} }
+
+%-----------------------------------------------------------------
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\RequirePackage[parfill]{parskip}[2020-06-15]
+%-----------------------------------------------------------------
+% fonts
+%-----------------------------------------------------------------
+\RequirePackage{fontspec}[2020/02/21]
+\RequirePackage{yfonts}[2019/04/04]
+%-----------------------------------------------------------------
+% main font
+%-----------------------------------------------------------------
+%\setmainfont{Baskerville Old Face}
+%\setmainfont{Libre Caslon Text}[Scale=0.85]
+%\setmainfont{Centaur}
+%\setmainfont{Georgia}
+%\setmainfont{Perpetua}
+%\setmainfont{Poor Richard}
+
+% http://www.impallari.com/projects/overview/libre-caslon-display-and-text
+%\setmainfont{Libre Caslon Text}[Scale=0.85]
+%\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
+
+% http://iginomarini.com/fell/the-revival-fonts/
+% \fontspec[
+%  SmallCapsFont=IM FELL English SC,
+%  SmallCapsFeatures={Letters=SmallCaps},
+% ]{IM FELL English}
+% \setmainfont{IM FELL English}
+ 
+% https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
+
+%\setmainfont{Garamond}
+
+% http://www.georgduffner.at/ebgaramond/download.html
+% \fontspec[
+%  SmallCapsFeatures={Letters=SmallCaps},
+% ]{EB Garamond}
+
+\setmainfont[
+Path,
+UprightFont = *12-Regular,
+ItalicFont  = *12-Italic,
+BoldFont    = *08-Regular,
+BoldItalicFont = *08-Italic ]
+{EBGaramond}
+
+% https://www.microsoft.com/typography/fonts/family.aspx?FID=134
+% \fontspec[
+%  SmallCapsFeatures={Letters=SmallCaps},
+% ]{Garamond}
+% \setmainfont{Garamond}
+%\setmainfont{Palatino Linotype}
+%\setmainfont{Perpetua}[Scale=1.1]
+%\setmainfont{Times New Roman}
+%-----------------------------------------------------------------
+% sans font
+%-----------------------------------------------------------------
+% https://www.microsoft.com/typography/fonts/family.aspx?FID=155
+\setsansfont{Gill Sans MT} 
+
+% http://arkandis.tuxfamily.org/adffonts.html
+% \setsansfont{Gillius ADF}
+%-----------------------------------------------------------------
+% cjk fonts
+%-----------------------------------------------------------------
+% \usepackage{xeCJK}
+% \setCJKmainfont{SimHei}
+% \setCJKsansfont{SimHei}
+% \setCJKmonofont{Lucida Sans Typewriter}
+%-----------------------------------------------------------------
+% math fonts
+%-----------------------------------------------------------------
+% conflicts with amssymb
+%\usepackage{xfrac,unicode-math}
+%\defaultfontfeatures{Scale=MatchLowercase}
+
+% \setmathfont{Latin Modern Math}[version=lm]
+% \setmathfont{XITS Math}[version=xits]
+% \setmathfont{Stix Math}[version=stix]
+% \setmathfont{Stix Two Math}[version=stix2]  % https://github.com/stipub/stixfonts/
+% \setmathfont{Stix Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
+% \setmathfont{TeX Gyre Termes Math}[version=termes]
+
+% with Windows 10
+%\setmathfont{Cambria Math}[version=cambria]
+
+% \setmathfont{TeX Gyre Pagella Math}[version=pagella]
+
+% https://www.ctan.org/tex-archive/fonts/Asana-Math/
+% loading fails with many metafont errors
+% conflicts with amsfonts
+% \setmathfont{Asana Math}[version=asana]
+
+% \setmathfont{Libertinus Math}[version=libertinus]
+% \setmathfont{TeX Gyre DejaVu Math}[version=dejavu]
+
+%-----------------------------------------------------------------
+% math packages
+%-----------------------------------------------------------------
+\RequirePackage{amsmath}[2020/09/23]
+\RequirePackage{amssymb}[2013/01/14]
+\RequirePackage{mathtools}[2020/03/24]
+%-----------------------------------------------------------------
+% local symbol defs --- should these be replaced by glossary
+% entries?
+%-----------------------------------------------------------------
+% category graphs
+\NewDocumentCommand{\vertices} {} 
+{\ensuremath{\mathsf{vertices}} \index{vertices@\textsf{vertices}}}
+\NewDocumentCommand{\edges}{}{
+\ensuremath{\mathsf{edges}}\index{edges@\textsf{edges}} }
+\NewDocumentCommand{\compose}{}{
+\ensuremath{\mathsf{compose}}\index{compose@\textsf{compose}} }
+\NewDocumentCommand{\comop}{}{\ensuremath{\circ}\index{compose operation $\circ$} }
+\NewDocumentCommand{\identity}{}{
+\ensuremath{\mathsf{identity}}\index{identity@\textsf{identity}} }
+\NewDocumentCommand{\head}{}{\ensuremath{\mathsf{head}}\index{head@\textsf{head}} }
+\NewDocumentCommand{\tail}{}{\ensuremath{\mathsf{tail}}\index{tail@\textsf{tail}} }
+\NewDocumentCommand{\pvalue}{}{
+\ensuremath{\mathsf{value}\index{value@(path) \textsf{value}}} }
+\NewDocumentCommand{\concatenate}{}{\ensuremath{
+\mathsf{concatenate}}\index{concatenate@\textsf{concatenate}} }
+\NewDocumentCommand{\conop}{}{\ensuremath{\odot}\index{concat operation $\odot$} } 
+\NewDocumentCommand{\peq}{}{\ensuremath{\simeq}\index{path equivalence $\simeq$} }
+%-----------------------------------------------------------------
+% logic
+%\NewDocumentCommand{\implies}{}{\ensuremath{\Rightarrow} }
+\NewDocumentCommand{\liff}{}{\ensuremath{\Leftrightarrow} }
+%\NewDocumentCommand{\land}{}{\ensuremath{\wedge} }
+%\NewDocumentCommand{\lor}{}{\ensuremath{\vee} }
+%\NewDocumentCommand{\lnot}{}{\ensuremath{\vee} }
+%-----------------------------------------------------------------
+% linear spaces
+\NewDocumentCommand{\scalars}{}{\ensuremath{\mathsf{scalars}} }
+\NewDocumentCommand{\vectors}{}{\ensuremath{\mathsf{vectors}} }
+%-----------------------------------------------------------------
+\NewDocumentCommand{\OneToOne}{}{\ensuremath{1{\!}{-}{\!}1}}
+\NewDocumentCommand{\Godel}{}{G\"{o}del}
+\NewDocumentCommand{\Set}{m}{\ensuremath{\mathcal{#1}}}
+\NewDocumentCommand{\Space}{m}{\ensuremath{\mathbb{#1}}}
+\NewDocumentCommand{\Vector}{m}{\ensuremath{\mathsf{#1}}}
+\NewDocumentCommand{\Point}{m}{\ensuremath{\mathbf{#1}}}
+\NewDocumentCommand{\SetSpec}{m m}
+{\ensuremath{ \left\{ #1 \, | \, #2 \right\} }}
+\NewDocumentCommand{\PowerSet}{m}{\ensuremath{ \wp \left( #1 \right) }}
+\NewDocumentCommand{\Boundary}{}{\partial}
+% automate use of greek letters for flexible symbol typing, 
+% eg: \Vertex(a) -> \alpha or \Vertex(a) -> \mathsf{a}
+\ExplSyntaxOn
+\NewDocumentCommand{\toGreek}{m}
+ {
+  \str_case:nn { #1 }
+   {
+    {a}{\alpha}
+    {b}{\beta}
+    {c}{\varsigma}
+    {d}{\delta}
+    {e}{\varepsilon}
+    {f}{\varphi}
+    {g}{\gamma}
+    {h}{\eta}
+    {i}{\iota}
+    {j}{\vartheta}
+    {k}{\kappa}
+    {l}{\lambda}
+    {m}{\mu}
+    {n}{\nu}
+    {o}{o}
+    {p}{\pi}
+    {q}{\chi}
+    {r}{\rho}
+    {s}{\sigma}
+    {t}{\tau}
+    {u}{\upsilon}
+    %{v}{}
+    {w}{\omega}
+    {x}{\xi}
+    {y}{\psi}
+    {z}{\zeta}
+    {A}{\mathrm{A}}
+    {B}{\mathrm{B}}
+    {C}{\Sigma}
+    {D}{\Delta}
+    {E}{\mathrm{E}}
+    {F}{\Phi}
+    {G}{\Gamma}
+    {H}{\mathrm{H}}
+    {I}{\mathrm{I}}
+    {J}{\Theta}
+    {K}{\mathrm{K}}
+    {L}{\Lambda}
+    {M}{\mathrm{M}}
+    {N}{\mathrm{N}}
+    {O}{\mathrm{O}}
+    {P}{\Pi}
+    {Q}{\mathrm{X}}
+    {R}{\mathrm{P}}
+    {S}{\Sigma}
+    {T}{\mathrm{T}}
+    {U}{\Upsilon}
+    %{V}{}
+    {W}{\Omega}
+    {X}{\Xi}
+    {Y}{\Psi}
+    {Z}{\mathrm{Z}}
+   }
+ }
+\ExplSyntaxOff
+
+\NewDocumentCommand{\Vertex}{m}{\toGreek{#1}}
+\NewDocumentCommand{\Simplex}{m}{\toGreek{#1}}
+\NewDocumentCommand{\Facet}{m}{\toGreek{#1}}
+\NewDocumentCommand{\Edge}{m}{\toGreek{#1}}
+\NewDocumentCommand{\SimplicialComplex}{m}{\mathcal{#1}}
+\NewDocumentCommand{\Mesh}{m}{\mathcal{#1}}
+
+\NewDocumentCommand{\Integers}{}{\Space{Z}}
+\NewDocumentCommand{\Reals}{}{\Space{R}}    % Real numbers
+\NewDocumentCommand{\Quaternions}{}{\Space{Q}}    % set of Quaternions
+
+\NewDocumentCommand{\Identity}{}{\mathsf{I}}
+
+\NewDocumentCommand{\union}{}{\cup}
+\NewDocumentCommand{\intersection}{}{\cap}
+\NewDocumentCommand{\Union}{}{\bigcup}
+\NewDocumentCommand{\Intersection}{}{\bigcap}
+
+\DeclareMathOperator{\Transpose}{\mathsf{transpose}}
+\DeclareMathOperator{\LTL}{\mathsf{LTL}}   % a-transpose-a
+\DeclareMathOperator{\Inverse}{\mathsf{inverse}}
+\DeclareMathOperator{\Pseudoinverse}{\mathsf{pseudoinverse}}
+
+\DeclareMathOperator{\dimension}{dim}
+%\DeclareMathOperator*{\Projection}{\Pi} % doesn't work
+\NewDocumentCommand{\Projection}{}{\Pi}
+
+\DeclareMathOperator{\kernel}{\mathsf{ker}}
+\DeclareMathOperator{\range}{\mathsf{ran}}
+\DeclareMathOperator{\linearspan}{\mathsf{span}} 
+\DeclareMathOperator{\affinespan}{\mathsf{aff}}
+\DeclareMathOperator{\convexspan}{\mathsf{hull}} 
+\DeclareMathOperator{\linearCombination}{\Vector{linear-combination}} 
+\DeclareMathOperator{\affineCombination}{\Point{affine-combination}} 
+\DeclareMathOperator{\convexCombination}{\Point{convex-combination}} 
+
+\DeclareMathOperator{\volume}{\mathsf{volume}}
+
+% derivative operators
+% TODO: fewer operators, distinguish by optional args
+\NewDocumentCommand{\Da}{m}{\operatorname{\Vector{D}}{#1}}
+\NewDocumentCommand{\Db}{m m}{\Da{#1}_{\mid_{#2}}}
+\NewDocumentCommand{\Dc}{m m m}{\Db{#1}{#2}({#3})}
+\NewDocumentCommand{\Df}{m m}{\Vector{D}_{#1}{#2}}
+\NewDocumentCommand{\De}{m m m}{\Df{#1}{#2}_{\mid_{#3}}}
+\NewDocumentCommand{\Dd}{m m m m}{\De{#1}{#2}{#3}({#4})}
+
+\NewDocumentCommand{\da}{m m}{\operatorname{\partial_{#1}}{#2}}
+\NewDocumentCommand{\db}{m m m}{\da{#1}{#2}_{\mid_{#3}}}
+
+\NewDocumentCommand{\Ga}{m}{\Vector{\nabla}{#1}}
+\NewDocumentCommand{\Gb}{m m}{\Vector{\nabla}{#1}_{\mid_{#2}}}
+\NewDocumentCommand{\Gc}{m m m}{\Vector{\nabla}_{#1}{{#2}}_{\mid_{#3}}}
+\NewDocumentCommand{\Gf}{m m}{\Vector{\nabla}_{#1}{#2}}
+
+\NewDocumentCommand{\Edges}{}{\Set{E}}
+\NewDocumentCommand{\Faces}{}{\Set{F}}
+%-----------------------------------------------------------------
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\defeq}
+{\overset{\underset{\mathrm{def}}{}}{=}}
+%\DeclareMathOperator*{\cdf}{cdf}
+%\DeclareMathOperator*{\quantile}{quantile}
+
+\NewDocumentCommand {\bigforall} {}
+{\mbox{\Large $\mathsurround0pt\forall$}} 
+
+% https://tex.stackexchange.com/questions/14071/how-can-i-increase-the-line-spacing-in-a-matrix
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+
+% https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end/42728#42728
+\NewDocumentCommand{\numberthis}{}
+  {\addtocounter{equation}{1}\tag{\theequation}}
+%-----------------------------------------------------------------
+\ifundef{\thechapter}
+ {\numberwithin{equation}{section}}
+ {\numberwithin{equation}{chapter}}
+%-----------------------------------------------------------------
+% glossary
+%-----------------------------------------------------------------
+\RequirePackage[
+xindy,
+toc=false,
+style=alttreehypergroup,
+nolong,
+nosuper,
+numberedsection=nolabel,]
+{glossaries}[2020/03/19]
+
+% control whether glossary is printed or not; default false.
+% needs to be set true soon after this file (plHead) is loaded.
+% TODO: what about custom, multiple glossaries?
+\newtoggle{printglossary}
+\togglefalse{printglossary}
+
+% TODO: redefine glossary commands? so that glossaary doesn't 
+% have to be loaded if it isn't printed? Or have it work more like 
+% bib files?
+
+%-----------------------------------------------------------------
+% bibliography
+%-----------------------------------------------------------------
+\RequirePackage[
+bibencoding=utf8,
+backend=biber, 
+citestyle=numeric-comp, 
+bibstyle=numeric,
+%bibstyle=verbose,
+%entrykey=false,
+labelnumber=true,
+sortcites=true,
+maxnames=1000,
+maxitems=1000,
+block=nbpar,
+abbreviate=false,
+seconds=true,
+date=iso,
+alldates=iso,
+datezeros=true,
+timezeros=true,
+hyperref=true,
+isbn=false,
+backref=true,
+]{biblatex}[2020/08/23]
+
+\renewcommand\mkbibnamefamily[1]{\textsc{#1}}
+
+\DeclareCiteCommand{\citeAuthorTitle}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}%
+  {\ifciteindex{\indexnames{labelname}}{}%
+  \printtext[bibhyperref]{%
+   \printnames{labelname}\space%
+   \printfield[citetitle]{labeltitle}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+
+% \DeclareCiteCommand{\citeAuthorTitleYear}{
+%    \boolfalse{citetracker}%
+%    \boolfalse{pagetracker}%
+%    \usebibmacro{prenote}}%
+%   {\ifciteindex{\indexnames{labelname}}{}%
+%   \printtext[bibhyperref]{%
+%    \printnames{labelname}, %
+%    \printfield[citetitle]{labeltitle}, %
+%    \printfield{year}}}%
+%   {\multicitedelim}%
+%   {\usebibmacro{postnote}}%
+
+\DeclareCiteCommand{\citeAuthorYear}{
+   \boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}%
+  {\ifciteindex{\indexnames{labelname}}{}%
+  \printtext[bibhyperref]{%
+   \printnames{labelname}\space(\printfield{year})}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+
+\DeclareCiteCommand{\citeAuthorYearTitle}{
+   \boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}%
+  {\ifciteindex{\indexnames{labelname}}{}%
+  \printtext[bibhyperref]{%
+   \printnames{labelname}\space(\printfield{year})%
+   \space\printfield[citetitle]{labeltitle}%
+   }}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+
+% \DeclareCiteCommand{\citeAuthor}
+%   {\boolfalse{citetracker}%
+%    \boolfalse{pagetracker}%
+%    \usebibmacro{prenote}}%
+%   {\ifciteindex{\indexnames{labelname}}{}%
+%    \printtext[bibhyperref]{\printnames{labelname}}}%
+%   {\multicitedelim}%
+%   {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\citetitle}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}%
+  {\ifciteindex{\indexfield{indextitle}}{}%
+   \printtext[bibhyperref]{\printnames{labelname}}}%
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% control whether bibliography is printed or not; default true
+\newtoggle{printbibliography}
+\toggletrue{printbibliography}
+%-----------------------------------------------------------------
+% index
+%-----------------------------------------------------------------
+\RequirePackage{imakeidx}[2016/10/15]
+\newcommand*{\ding}[2][\dingentry]{%
+  \def\dingentry{#2}\emph{#2}\index{#1}}
+
+\indexsetup{level=\nosection,noclearpage=true}
+\makeindex[columns=1]
+
+% control whether index is printed or not; default false
+\newtoggle{printindex}
+\togglefalse{printindex}
+%-----------------------------------------------------------------
+% titles
+%-----------------------------------------------------------------
+\RequirePackage{titling}[2009/09/04]
+%\newfontfamily\titlefont[Scale=MatchUppercase]{Gill Sans MT}
+%\renewcommand{\maketitlehooka}{\titlefont}
+%\pretitle{\begin{flushright}\Huge\sffamily\bfseries}
+\pretitle{\begin{flushright}\Huge\scshape\bfseries}
+\posttitle{\par\end{flushright}\vskip 0.25em}
+%\preauthor{\begin{flushright}\sffamily\scshape\mdseries}
+\preauthor{\begin{flushright}\scshape\mdseries}
+\postauthor{\par\end{flushright}}
+%\predate{\begin{flushright}\sffamily\scshape\mdseries}
+\predate{\begin{flushright}\scshape\mdseries}
+\postdate{\par\end{flushright}}
+\setlength{\droptitle}{-80pt}
+%-----------------------------------------------------------------
+% Sectioning
+%-----------------------------------------------------------------
+% used to disable automatic section generation by imakeidx, etc.
+\def\nosection#1{}
+%-----------------------------------------------------------------
+% section title formatting
+%-----------------------------------------------------------------
+% TODO: high level (eg chapters only) toc and 
+% complete sectioning outline toc.
+\RequirePackage[sc,bf,medium,compact,nobottomtitles*]
+  {titlesec}[2019/10/16]
+\RequirePackage[titletoc]{appendix}[2020/02/08]
+
+% TODO: better handling of part/chapter/section as highest level.
+% TODO: consistent font size across sections and other chunks
+% TODO: spacing should be relative to font size
+
+\titleformat{\part}[hang]{\huge\scshape\bfseries}
+  {\thepart}{0.5em}{}
+
+\titleformat{\chapter}[hang]{\LARGE\scshape\bfseries}
+  {\thechapter}{0.5em}{}
+
+\titleformat{\section}[hang]{\Large\scshape\bfseries}
+  {\thesection}{0.5em}{}
+\titlespacing\section{0pt}
+  {16pt plus 16pt minus 2pt}
+  {5pt plus 5pt minus 2pt}
+
+\titleformat{\subsection}[hang]{\large\scshape\bfseries}
+  {\thesubsection}{0.5em}{}
+\titlespacing\subsection{0pt}
+  {14pt plus 14pt minus 2pt}
+  {5pt plus 5pt minus 2pt}
+
+\titleformat{\subsubsection}[hang]{\large\scshape\bfseries}
+  {\thesubsubsection}{0.5em}{}
+\titlespacing\subsubsection{0pt}
+  {12pt plus 12pt minus 2pt}
+  {5pt plus 5pt minus 2pt}
+
+\titleformat{\paragraph}[hang]{\normalsize\scshape\bfseries}
+{\theparagraph}{0.5em}{}
+\titlespacing\paragraph{0pt}
+  {12pt plus 12pt minus 2pt}
+  {5pt plus 5pt minus 2pt}
+
+\titleformat{\subparagraph}[hang]{\normalsize\scshape\bfseries}
+{\thesubparagraph}{0.5em}{}
+\setcounter{secnumdepth}{7}
+\titlespacing\subparagraph{0pt}
+  {12pt plus 12pt minus 2pt}
+  {5pt plus 5pt minus 2pt}
+
+%-----------------------------------------------------------------
+% \renewpagestyle{plain}{
+% \sethead[][\scshape\chaptertitle][] % even
+% {} {\scshape\chaptertitle} {} % odd
+% \setfoot[][\thepage][] % even
+% {}{\thepage}{} % odd
+% }
+% \newpagestyle{front}{
+% \sethead[][\scshape\chaptertitle][] % even
+% {} {\scshape\chaptertitle} {} % odd
+% \setfoot[][\thepage][] % even
+% {}{\thepage}{} % odd
+% }
+% \newpagestyle{back}{
+% \sethead[][\scshape\chaptertitle][] % even
+% {} {\scshape\chaptertitle}{} % odd
+% \setfoot[][\thepage][] % even
+% {}{\thepage}{} % odd
+% }
+% \renewpagestyle{empty}{
+% \sethead[][][] % even
+% {} {} {}% odd
+% }
+% \pagestyle{empty}
+%-----------------------------------------------------------------
+% tables of contents
+% TODO: put everything in detailed table of of contents,
+% vs lists of % figures, listings, theorems, etc?
+% and: put everything in one toc file!
+% and: remove need for morewrites package
+%-----------------------------------------------------------------
+%\RequirePackage{etoc}[2020/05/15]
+%-----------------------------------------------------------------
+% TODO: what was this for?
+\ifundef{\thechapter}
+{
+\let\oldl@section\l@section
+\def\l@section#1#2{\oldl@section{#1}{\textrm{#2}}}
+\let\old@dottedcontentsline\@dottedtocline
+\def\@dottedtocline#1#2#3#4#5{%
+\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
+}
+{
+\let\oldl@chapter\l@chapter
+\def\l@chapter#1#2{\oldl@chapter{#1}{\textrm{#2}}}
+\let\old@dottedcontentsline\@dottedtocline
+\def\@dottedtocline#1#2#3#4#5{%
+\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
+}
+%-----------------------------------------------------------------
+% TODO: get toc fonts from titlesec \titleformats
+% match shape and series and, ideally, relative size
+\NewDocumentCommand{\PalisadesLakesTableOfContents}{}{
+\begingroup
+\let\onecolumn\twocolumn
+\scshape 
+\renewcommand{\contentsname}{Chapters/sections}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\renewcommand{\contentsname}{Outline}
+\setcounter{tocdepth}{6}%{\value{secnumdepth}}
+\tableofcontents
+\endgroup
+}
+%-----------------------------------------------------------------
+% nested/scoped sections
+%-----------------------------------------------------------------
+% TODO: better handling of part/chapter/section as highest level.
+% TODO: section levels should be numbers, starting 0 or 1 for
+%  top/outermost, with no hard bound on depth.
+%  'Part', 'chapter', 'section', etc., should be defined via 
+%  a list of strings plus code to handle case of section depth
+%  exceeding number of names. One options is to just call 
+%  everything a 'Section' with numbering indicating depth.
+%
+% TODO: put some of this in class definitions?
+%
+% I had been using \texttt{coseoul} 
+% (\url{https://ctan.org/pkg/coseoul}
+% to manage section levels across multiple, reused section files,
+% where a given input file may be a chapter in one case,
+% a subsection in another, etc., depending on the context 
+% in which it is input.
+% What I want is sections defined with something  like
+% \verb!\begin{section}! \ldots \verb!\end{section}!,
+% where the level of the section dependes on the level of nesting.
+%
+% Will Robertson's unfinished \texttt{newsec} package
+% (\url{https://github.com/wspr/will2e/tree/master/newsec})
+% provdes (a beginning for) this as his \texttt{sect} environment:
+% ``While more verbose, this method is easy to use 
+% (nesting is a logical mapping to `subsection') and provides 
+% a couple of other small advantages 
+% (including better scoping for bookmarks 
+% and easy support for code folding in a text editor).''
+% 
+% Example:
+% \begin{plSection}{Beginning}
+% ...
+%   \begin{plSection}{Introduction}
+%   ...
+%     \begin{plSection}{Outline}
+%     ...
+%     \end{plSection}
+%   \end{plSection}
+%   \begin{plSection}{Body}
+%   ...
+%   \end{plSection}
+% \end{plSection}
+%-----------------------------------------------------------------
+% define starred versions of section commands 
+% for starred environments.
+% TODO: is this a good idea; can we do without?
+
+\newif\if@ss@in@sect@
+\newcommand\ss@starenv[1]{%
+  \newenvironment{#1*}{\@nameuse{#1}*}{\par}}
+\ss@starenv{part}
+\ss@starenv{chapter}
+\ss@starenv{section}
+\ss@starenv{subsection}
+\ss@starenv{subsubsection}
+\ss@starenv{paragraph}
+\ss@starenv{subparagraph}
+\newcount\ss@sec
+\def\ss@reset{\let\ss@in\@empty}
+\ss@reset
+
+\newenvironment{plSection}
+ {\if@ss@in@sect@
+    \advance\ss@sec\@ne
+  \else
+    \@ss@in@sect@true
+  \fi
+  \ss@rel}
+ {\par}
+
+\newenvironment{plSection*}{\plSection*}{\endplSection*}
+\providecommand\g@let@co[2]{%
+  \expandafter\global\expandafter\let\csname #1\expandafter\endcsname#2}
+\providecommand\string@o{\expandafter\string}
+\def\ss@levels#1{%
+  \begingroup
+  \escapechar\m@ne
+  \@tempcnta\z@
+  \let\ss@case@levels\@empty
+  \@tfor\@ii:=#1\do{%
+    \g@let@co{ss@\string@o\@ii}{\@ii}%
+    \expandafter\xdef\@ii{%
+      \noexpand\ss@sec\number\@tempcnta
+      \expandafter\noexpand\csname ss@\string@o\@ii\endcsname}%
+    \expandafter\ss@addto@case\expandafter{\csname ss@\string@o\@ii\endcsname}%
+    \advance\@tempcnta\@ne}%
+  \endgroup}
+\def\ss@addto@case#1{%
+  \expandafter\ss@addto@case@i\expandafter{\ss@case@levels}{#1}}
+\def\ss@addto@case@i#1#2{%
+  \gdef\ss@case@levels{#1\ss@in\expandafter#2\or}}
+
+% Clumsy handling of highest level section
+% Disable \verb!\part!.
+% TODO: option to use \verb!\part!.
+% In the meantime, can invoke \verb!\part{Foo}! directly
+\ifdefined\thechapter%
+  \ss@levels{%
+  \chapter\section\subsection\subsubsection\paragraph\subparagraph}%
+\else%
+  \ss@levels{%
+  \section\subsection\subsubsection\paragraph\subparagraph}%
+\fi%
+\newcommand\ss@rel{%
+  \expandafter
+  \ifcase\expandafter\ss@sec
+    \ss@case@levels
+  \else
+    \PackageError{pLakes}{No section level \number\ss@sec\space defined.}
+      {You'll need to define more section levels to go this high or deep.}%
+  \fi}
+%-----------------------------------------------------------------
+% TODO: can this be replaced with use of plChunks?
+\RequirePackage{enumitem}[2019/06/20]
+\setlist[description]{font=\scshape}
+\setlist[itemize]{style=unboxed,itemindent=0cm}
+\setlist[enumerate]{style=unboxed,itemindent=0cm}
+%-----------------------------------------------------------------
+% code and pseudo-code
+%-----------------------------------------------------------------
+% TODO: no version in package; do we really need this?
+\RequirePackage{algpseudocode}
+\RequirePackage{algorithm}[2009/08/24]
+\RequirePackage{algorithmicx}[2005/04/27]
+%-----------------------------------------------------------------
+\RequirePackage{listings}[2020/03/24]
+
+\lstset{%
+backgroundcolor={\color{GhostWhite}},
+basicstyle={\ttfamily\small},
+breaklines=false,
+captionpos=b,
+%frame=tblr,
+mathescape=true,
+escapechar=\%,
+keywordstyle={\ttfamily\color{Sepia}}}
+
+\lstdefinelanguage{clojure}%
+{morekeywords={
+%Math,Random,List,ArrayList,
+deftest,testing,is,defrecord,
+*,*1,*2,*3,*agent*,*allow-unresolved-vars*,*assert*,
+*clojure-version*,*command-line-args*,%
+*compile-files*,*compile-path*,*e,*err*,*file*,
+*flush-on-newline*,*in*,*macro-meta*,%
+*math-context*,*ns*,*out*,*print-dup*,*print-length*,
+*print-level*,*print-meta*,*print-readably*,%
+*read-eval*,*source-path*,*use-context-classloader*,
+*warn-on-reflection*,+,-,->,->>,..,
+%/,
+:else,%
+<,<=,=,==,>,>=,@,accessor,aclone,add-classpath,add-watch,
+agent,agent-errors,aget,alength,alias,%
+all-ns,alter,alter-meta!,alter-var-root,amap,ancestors,
+and,apply,areduce,array-map,aset,%
+aset-boolean,aset-byte,aset-char,aset-double,aset-float,
+aset-int,aset-long,aset-short,assert,%
+assoc,assoc!,assoc-in,associative?,atom,await,await-for,
+await1,bases,bean,bigdec,bigint,binding,%
+bit-and,bit-and-not,bit-clear,bit-flip,bit-not,bit-or,bit-set,
+bit-shift-left,bit-shift-right,bit-test,bit-xor,boolean,
+boolean-array,booleans,bound-fn,bound-fn*,butlast,byte,
+byte-array,%
+bytes,cast,char,char-array,char-escape-string,char-name-string,
+char?,chars,chunk,chunk-append,%
+chunk-buffer,chunk-cons,chunk-first,chunk-next,chunk-rest,
+chunked-seq?,class,class?,%
+clear-agent-errors,clojure-version,coll?,comment,commute,comp,
+comparator,compare,compare-and-set!,%
+compile,complement,concat,cond,condp,conj,conj!,cons,constantly,
+construct-proxy,contains?,count,%
+counted?,create-ns,create-struct,cycle,dec,decimal?,declare,def,
+definline,defmacro,defmethod,%
+defmulti,defn,defn-,defonce,defprotocol,defstruct,deftype,delay,
+delay?,deliver,deref,derive,%
+descendants,destructure,disj,disj!,dissoc,dissoc!,distinct,
+distinct?,do,do-template,doall,doc,%
+dorun,doseq,dosync,dotimes,doto,double,double-array,doubles,drop,
+drop-last,drop-while,empty,empty?,%
+ensure,enumeration-seq,eval,even?,every?,false,false?,ffirst,
+file-seq,filter,finally,find,find-doc,%
+find-ns,find-var,first,float,float-array,float?,floats,flush,
+fn,fn?,fnext,for,force,format,future,%
+future-call,future-cancel,future-cancelled?,future-done?,future?,
+gen-class,gen-interface,gensym,%
+get,get-in,get-method,get-proxy-class,get-thread-bindings,
+get-validator,hash,hash-map,hash-set,%
+identical?,identity,if,if-let,if-not,ifn?,import,in-ns,inc,
+init-proxy,instance?,int,int-array,%
+integer?,interleave,intern,interpose,into,into-array,ints,io!,
+isa?,iterate,iterator-seq,juxt,%
+key,keys,keyword,keyword?,last,lazy-cat,lazy-seq,let,letfn,
+line-seq,list,list*,list?,load,load-file,%
+load-reader,load-string,loaded-libs,locking,long,long-array,
+longs,loop,macroexpand,macroexpand-1,%
+make-array,make-hierarchy,map,map?,mapcat,max,max-key,memfn,
+memoize,merge,merge-with,meta,%
+method-sig,methods,min,min-key,mod,monitor-enter,monitor-exit,
+name,namespace,neg?,new,newline,%
+next,nfirst,nil,nil?,nnext,not,not-any?,not-empty,not-every?,
+not=,ns,ns-aliases,ns-imports,%
+ns-interns,ns-map,ns-name,ns-publics,ns-refers,ns-resolve,
+ns-unalias,ns-unmap,nth,nthnext,num,%
+number?,odd?,or,parents,partial,partition,pcalls,peek,persistent!,
+pmap,pop,pop!,pop-thread-bindings,%
+pos?,pr,pr-str,prefer-method,prefers,primitives-classnames,print,
+print-ctor,print-doc,print-dup,%
+print-method,print-namespace-doc,print-simple,print-special-doc,
+print-str,printf,println,println-str,%
+prn,prn-str,promise,proxy,proxy-call-with-super,proxy-mappings,
+proxy-name,proxy-super,%
+push-thread-bindings,pvalues,quot,rand,rand-int,range,ratio?,
+rational?,rationalize,re-find,%
+re-groups,re-matcher,re-matches,re-pattern,re-seq,read,read-line,
+read-string,recur,reduce,ref,%
+ref-history-count,ref-max-history,ref-min-history,ref-set,refer,
+refer-clojure,reify,%
+release-pending-sends,rem,remove,remove-method,remove-ns,
+remove-watch,repeat,repeatedly,%
+replace,replicate,require,reset!,reset-meta!,resolve,rest,
+resultset-seq,reverse,reversible?,%
+rseq,rsubseq,second,select-keys,send,send-off,seq,seq?,seque,
+sequence,sequential?,set,set!,%
+set-validator!,set?,short,short-array,shorts,shutdown-agents,
+slurp,some,sort,sort-by,sorted-map,%
+sorted-map-by,sorted-set,sorted-set-by,sorted?,
+special-form-anchor,special-symbol?,split-at,%
+split-with,str,stream?,string?,struct,struct-map,subs,subseq,
+subvec,supers,swap!,symbol,symbol?,%
+sync,syntax-symbol-anchor,take,take-last,take-nth,take-while,
+test,the-ns,throw,time,to-array,%
+to-array-2d,trampoline,transient,tree-seq,true,true?,try,type,
+unchecked-add,unchecked-dec,%
+unchecked-divide,unchecked-inc,unchecked-multiply,
+unchecked-negate,unchecked-remainder,%
+unchecked-subtract,underive,unquote,unquote-splicing,update-in,
+update-proxy,use,val,vals,%
+var,var-get,var-set,var?,vary-meta,vec,vector,vector?,when,
+when-first,when-let,when-not,%
+while,with-bindings,with-bindings*,with-in-str,
+with-loading-context,with-local-vars,%
+with-meta,with-open,with-out-str,with-precision,xml-seq,zero?,
+zipmap
+},%
+   sensitive,% ???
+   alsodigit=-,%
+   morecomment=[l];,%
+   morestring=[b]"%
+  }[keywords,comments,strings]%
+
+%-----------------------------------------------------------------
+% cross references / hyperlinks
+%-----------------------------------------------------------------
+% 'Generally, hyperref should be loaded last,
+% though there are some exceptions'
+% https://tex.stackexchange.com/questions/22012/hyperref-and-imakeidx-do-not-work-together
+%https://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
+\RequirePackage[%
+unicode=true,
+pdfencoding=auto,
+psdextra= true,
+pdfusetitle,
+bookmarks=true,
+bookmarksnumbered=false,
+bookmarksopen=true,
+bookmarksopenlevel=1,
+breaklinks=false,
+pdfborder={0 0 0},
+pdftoolbar=false,
+pdffitwindow=true,
+backref=false,
+naturalnames=true,
+colorlinks=true]{hyperref}[2020-05-15]
+
+% can these be options to RequirePackage?
+\hypersetup{
+unicode=true,
+colorlinks=true,
+% TODO: should these be left to user settings in the pdf reader?
+pdfpagemode=UseOutlines,
+pdfpagelayout=SinglePage,
+pdfstartview=Fit,
+linkcolor=MidnightBlue,
+urlcolor=Sepia,
+citecolor=citecolor,
+}
+
+%\RequirePackage{bookmark}[2020-11-06]
+% for upper/lower case references
+\RequirePackage[nameinlink,noabbrev]{cleveref}[2018/03/27]
+\crefname{paragraph}{section}{sections}
+\Crefname{paragraph}{Section}{Sections}
+
+%-----------------------------------------------------------------
+% plChunk environments using tcolorbox
+%-----------------------------------------------------------------
+\RequirePackage[breakable,theorems]{tcolorbox}[2020/10/04]
+
+\def\@plChunkTitle#1#2#3{%
+  \ifstrempty{#1}%
+    {\setbox\z@=\color@hbox{}\color@endbox}%
+    {\def\pl@tmp{\textbf{#2}}%
+     \ifx\pl@tmp\@empty\relax%
+       \setbox\z@=\color@hbox{{\small\textsc{#1}}}\color@endbox%
+     \else%  
+       \setbox\z@=\hbox{{\small\textsc{#1}}~{\large\textbf{#2}}}%
+     \fi}%
+  \ifstrempty{#3}%
+    {\unhbox\z@}%
+    {\ifdim\wd\z@=0pt%
+       \textbf{#3}%
+     \else%
+       {\setbox\z@=\hbox{\unhbox\z@{:\space}}%
+        \hangindent\wd\z@%
+        \hangafter=1%
+        \mbox{\unhbox\z@}{\textbf{#3}}}%
+     \fi}}
+ 
+\def\@plChunkLabel#1#2{%
+  \notblank{#1}
+    {\notblank{#2}{\tcbset{label={#1:#2},}} {}}
+    {}}
+
+% TODO: elimintate unnumbered (*) environments?
+\newcommand{\@plNewChunk}[5][]{%
+  % control whether list of chunks is printed or not; 
+  % default false.
+  % needs to be set true soon after this file is loaded,
+  % most likely in class file that loads this package.
+  \newtoggle{#2}
+  \togglefalse{#2}
+
+  \newtcolorbox[auto counter,#1]{#2}[3][]{#4,%
+    title={\@plChunkTitle{#3}{\thetcbcounter}{##2}},%
+    list entry={\hbox{{\small\textsc{#3}}\space}{\large\textbf{\thetcbcounter:\space}}##2},%
+%    list entry={\protect\numberline{\thetcbcounter}{\hbox{\textsc{#3}:\space}##2}},%
+%    list entry={\protect\numberline{\thetcbcounter}##2},%
+    nameref={##2},%
+    code={\@plChunkLabel{#5}{##3}},%
+    ##1}%
+  % Note: cross ref label ignored
+  \newtcolorbox[#1,no counter,list inside=]{#2*}[3][]{#4,%
+    title={\@plChunkTitle{#3}{}{##2}},%
+    ##1}}
+    
+%-----------------------------------------------------------------
+\ExplSyntaxOn
+%-----------------------------------------------------------------
+
+%\msg_new:nnn {pl} {insideA} {inside~pl_NewChunkA:nnnnn\\#1\\#2\\#3}
+
+\cs_new:Nn \pl_NewChunkA:nnnnn {
+%  \msg_info:nnxxx {pl} {insideA} {#2} {#3} {#5} 
+  \@plNewChunk[#1]{#2}{#3}{#4}{#5}}
+
+%\cs_generate_variant:Nn \pl_NewChunkA:nnnnn {xVVnV}
+\cs_generate_variant:Nn \pl_NewChunkA:nnnnn {xVVxV}
+%=----------------------------------
+\msg_new:nnn {pl} {insideB} {inside~pl_NewChunkB:nnn\\#1}
+
+\prop_new:N \l__plNewChunk_prop
+\tl_new:N \l__ChunkBackgroundColor_tl
+\tl_new:N \l__ChunkHead_tl
+\tl_new:N \l__ChunkType_tl
+\tl_new:N \l__CapChunkType_tl
+\tl_new:N \l__plCapChunkType_tl
+\tl_new:N \l__ChunkParent_tl
+\tl_new:N \l__ChunkCounter_tl
+\tl_new:N \l__Chunkcref_tl
+\tl_new:N \l__ChunkCref_tl
+\tl_new:N \l__ChunkNumberWithin_tl
+\ifundef{\thechapter}
+ {\tl_set:Nn \l__ChunkNumberWithin_tl {section}}
+ {\tl_set:Nn \l__ChunkNumberWithin_tl {chapter}}
+
+\cs_generate_variant:Nn \text_lowercase:n {V}
+\cs_generate_variant:Nn \text_titlecase:n {V}
+\cs_generate_variant:Nn \text_titlecase_first:n {V}
+\cs_generate_variant:Nn \msg_info:nnn {nnV}
+
+\cs_new:Nn \pl_NewChunkB:nnn {
+%  \msg_info:nnx {pl} {insideB} {#3}
+  \prop_set_from_keyval:Nn \l__plNewChunk_prop {#3}
+  \prop_get:NnN \l__plNewChunk_prop 
+    {ChunkType} 
+    \l__ChunkType_tl
+
+  \tl_set:Nx \l__CapChunkType_tl 
+    {\text_titlecase_first:V \l__ChunkType_tl}
+  \tl_set:Nx \l__plCapChunkType_tl 
+    {pl\l__CapChunkType_tl}
+
+  \prop_get:NnN \l__plNewChunk_prop
+    {ChunkHead}
+    \l__ChunkHead_tl
+  \tl_if_eq:NNTF \q_no_value \l__ChunkHead_tl
+    {\tl_set:NV \l__ChunkHead_tl \l__CapChunkType_tl}
+    {}
+
+  \tl_set:Nx \l__Chunkcref_tl
+    {\text_lowercase:V \l__ChunkHead_tl}
+    
+  \tl_set:Nx \l__ChunkCref_tl
+    {\text_titlecase:V \l__ChunkHead_tl}
+    
+  \prop_get:NnN \l__plNewChunk_prop 
+    {ChunkBackgroundColor} 
+    \l__ChunkBackgroundColor_tl
+  \tl_if_eq:NNTF \q_no_value \l__ChunkBackgroundColor_tl
+    {\tl_set:Nn \l__ChunkBackgroundColor_tl {GhostWhite}}
+    {\tl_set:NV \l__ChunkBackgroundColor_tl \l__ChunkBackgroundColor_tl}
+
+  \prop_get:NnN \l__plNewChunk_prop
+    {ChunkParent}
+    \l__ChunkParent_tl
+  \tl_if_eq:NNTF \q_no_value \l__ChunkParent_tl
+    {\tl_set:NV \l__ChunkParent_tl \l__plCapChunkType_tl
+     \tl_set:Nn \l__ChunkCounter_tl {auto~counter}}
+    {\tl_set:NV \l__ChunkParent_tl \l__ChunkParent_tl
+     \tl_set:Nn \l__ChunkCounter_tl 
+     {use~counter~from={\l__ChunkParent_tl}}}
+
+ %\msg_info:nnV {pl} {insideB} \l__ChunkParent_tl
+
+  \pl_NewChunkA:xVVxV 
+    { number~within=\l__ChunkNumberWithin_tl,
+      crefname={\l__Chunkcref_tl}{\l__Chunkcref_tl s},
+      Crefname={\l__ChunkCref_tl}{\l__ChunkCref_tl s},
+      list~inside={\l__ChunkParent_tl},
+      \l__ChunkCounter_tl,
+      #1,}
+    \l__plCapChunkType_tl
+    \l__ChunkHead_tl
+    { oversize,
+      breakable,
+      sharp~corners,
+      width=\linewidth,
+      text~width=\linewidth,
+      coltitle=black,
+      coltext=black,
+      colback=\l__ChunkBackgroundColor_tl,
+      colframe=\l__ChunkBackgroundColor_tl,
+      colbacktitle=\l__ChunkBackgroundColor_tl,
+      titlerule=0mm,
+      #2}
+    \l__ChunkType_tl
+  }
+%-----------------------------------------------------------------
+\NewDocumentCommand {\plNewChunk} {O{} O{} m} {
+ \pl_NewChunkB:nnn {#1}{#2}{#3} }
+%-----------------------------------------------------------------
+\colorlet{quoteBackground}{Tan!16!white}
+\plNewChunk[][]
+{ChunkType=quote,
+ %ChunkHead={},
+ ChunkBackgroundColor=quoteBackground}
+
+\colorlet{dataBackground}{gray!3!white}
+\plNewChunk[][]
+{ChunkType=data,
+ ChunkBackgroundColor=dataBackground}
+
+\plNewChunk[][]
+{ChunkType=plot,
+  ChunkBackgroundColor=dataBackground,
+  ChunkParent=plData,
+  }
+
+\plNewChunk[][]
+{ChunkType=table,
+  ChunkBackgroundColor=dataBackground,
+  ChunkParent=plData,
+  }
+
+\colorlet{codeBackground}{LightCyan1!25!white}
+\plNewChunk[][]
+{ChunkType=code,
+ ChunkBackgroundColor=code}
+
+
+\plNewChunk[][]
+{ChunkType=algorithm,
+ ChunkBackgroundColor=codeBackground,
+ ChunkParent=plCode,
+ }
+
+\plNewChunk[][]
+{ChunkType=listing,
+ ChunkHead={Code},
+ ChunkBackgroundColor=codeBackground,
+ ChunkParent=plCode,
+ }
+\lstset{backgroundcolor=\color{codeBackground}}
+
+\plNewChunk[][]
+{ChunkType=screen,
+ ChunkBackgroundColor=codeBackground,
+ ChunkParent=plCode,
+ ChunkHead={Screen~shot},
+ }
+
+\colorlet{noteBackground}{AliceBlue!35!white}
+\plNewChunk[][]
+{ChunkType=note,
+ ChunkBackgroundColor=noteBackground}%
+
+\colorlet{exerciseBackground}{Lavender!25!white}
+\plNewChunk[][]
+{ChunkType=exercise,
+ ChunkBackgroundColor=exerciseBackground}
+
+\colorlet{mathBackground}{AntiqueWhite!25!white}
+\plNewChunk[][]
+{ChunkType=math,
+ ChunkBackgroundColor=mathBackground}
+
+\plNewChunk[][]
+{ChunkType=definition,
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }
+
+\plNewChunk[][]
+{ChunkType=example,
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }
+
+\plNewChunk[][]
+{ChunkType=axiom,
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }
+
+\plNewChunk[][]
+{ChunkType=axiomSchema,
+ ChunkHead={Axiom~Schema},
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }
+ 
+\plNewChunk[][]
+{ChunkType=theorem,
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }%
+
+\plNewChunk[][]
+{ChunkType=lemma,
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }%
+
+\plNewChunk[][]
+{ChunkType=corollary,
+ ChunkBackgroundColor=mathBackground,
+ ChunkParent=plMath,
+ }%
+ 
+ \plNewChunk[][]
+ {ChunkType=diagram,
+  ChunkBackgroundColor=mathBackground,
+  ChunkParent=plMath,
+  }
+\tikzcdset{background~color=mathBackground}
+ 
+%-----------------------------------------------------------------
+\ExplSyntaxOff
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+% standard document endings
+% TODO: move to document classes?
+%-----------------------------------------------------------------
+\NewDocumentCommand {\FinishArticle} {} {
+\iftoggle{printbibliography}{
+\begin{plSection}{References}
+\printbibliography[heading=none,]
+\end{plSection}%{References}
+}
+{}
+
+\iftoggle{printindex}{%
+\begin{plSection}{Index}
+\printindex
+\end{plSection}%{Index}
+}
+{}
+}
+
+\NewDocumentCommand {\FinishReport} {} {
+\iftoggle{printglossary}{%
+% \newglossarystyle{mystyle}{%
+%  \setglossarystyle{altlist}%
+%  \renewcommand*{\glossentry}[2]{%
+%  \item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}]
+%  \ifglshaslong{##1}%
+%    { (\abbrtype{##1}: \glsentrylong{##1})\space}{}%
+%  \glossentrydesc{##1}\glspostdescription\space ##2}% 
+% }
+%
+% prevent \printglossary from defining its own section
+\renewcommand{\glossarysection}[2][]{}%
+%
+\begin{plSection}{Glossary}%
+\printglossary%
+\end{plSection}%{Glossary}
+}
+{}
+\FinishArticle}
+
+
+\NewDocumentCommand {\FinishBook} {} {
+\glsaddallunused
+\iftoggle{plData} {
+\begin{plSection}{Plots, Tables, etc.}
+\tcblistof[\nosection]{plData}{}
+\end{plSection}%{Figures}
+}{}
+\iftoggle{plCode} {
+\begin{plSection}{Algorithms, Code, Pseudo-code, etc.}
+\tcblistof[\nosection]{plCode}{}
+\end{plSection}%{Algorithms}
+}{}
+\iftoggle{plMath} {
+  \begin{plSection}{Definitions, Theorems, etc.}
+  \tcblistof[\nosection]{plMath}{}
+  \end{plSection}%{Definitions}
+  }{}
+\iftoggle{plNote} {
+\begin{plSection}{Notes}
+\tcblistof[\nosection]{plNote}{}
+\end{plSection}%{Notes}
+}{}
+\iftoggle{plExercise} {
+\begin{plSection}{Exercises}
+\tcblistof[\nosection]{plExercise}{}
+\end{plSection}%{Exercises}
+}{}
+\iftoggle{plQuote} {
+\begin{plSection}{Quotes}
+\tcblistof[\nosection]{plQuote}{}
+\end{plSection}%{Quotes}
+}{}
+
+\FinishReport
+}
