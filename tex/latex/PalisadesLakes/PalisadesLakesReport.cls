@@ -38,8 +38,8 @@
 \RequirePackage{PalisadesLakes}[2021-02-05]
 
 %-----------------------------------------------------------------
-\def \sharedFolder {../shared/}
-\import{\sharedFolder}{glossary}
+% \def \sharedFolder {../shared/}
+\input{glossary}
 %\toggletrue{printglossary}
 
 \toggletrue{printindex}

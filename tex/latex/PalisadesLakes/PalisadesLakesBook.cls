@@ -48,8 +48,8 @@
 % TODO: do I really want glossaries? is index and/or list of
 % definitions enough or even better?
 \toggletrue{printglossary}
-\def \sharedFolder {../shared/}
-\import{\sharedFolder}{glossary}
+% \def \sharedFolder {../shared/}
+\input{glossary}
 
 \toggletrue{printindex}
 

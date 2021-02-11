@@ -39,7 +39,7 @@
 
 %-----------------------------------------------------------------
 \def \sharedFolder {../shared/}
-\import{\sharedFolder}{glossary}
+\input{glossary}
 
 \AtEndDocument {\appendix\FinishArticle}
 %-----------------------------------------------------------------
