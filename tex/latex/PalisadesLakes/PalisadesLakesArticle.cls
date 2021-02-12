@@ -38,7 +38,6 @@
 \RequirePackage{PalisadesLakes}[2021-02-05]
 
 %-----------------------------------------------------------------
-\def \sharedFolder {../shared/}
 \input{glossary}
 
 \AtEndDocument {\appendix\FinishArticle}
