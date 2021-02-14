@@ -265,7 +265,8 @@ BoldItalicFont = *08-Italic ]
 \NewDocumentCommand{\SetSpec}{m m}
 {\ensuremath{ \left\{ #1 \, | \, #2 \right\} }}
 \NewDocumentCommand{\PowerSet}{m}{\ensuremath{ \wp \left( #1 \right) }}
-\NewDocumentCommand{\Boundary}{}{\partial}
+%\NewDocumentCommand{\Boundary}{}{\partial}
+\DeclareMathOperator{\Boundary}{\partial}
 % automate use of greek letters for flexible symbol typing, 
 % eg: \Vertex(a) -> \alpha or \Vertex(a) -> \mathsf{a}
 \ExplSyntaxOn
@@ -294,7 +295,7 @@ BoldItalicFont = *08-Italic ]
     {s}{\sigma}
     {t}{\tau}
     {u}{\upsilon}
-    %{v}{}
+    {v}{\nu}
     {w}{\omega}
     {x}{\xi}
     {y}{\psi}
@@ -330,9 +331,10 @@ BoldItalicFont = *08-Italic ]
 \ExplSyntaxOff
 
 \NewDocumentCommand{\Vertex}{m}{\toGreek{#1}}
+\NewDocumentCommand{\Edge}{m}{\toGreek{#1}}
+\NewDocumentCommand{\Face}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Simplex}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Facet}{m}{\toGreek{#1}}
-\NewDocumentCommand{\Edge}{m}{\toGreek{#1}}
 \NewDocumentCommand{\SimplicialComplex}{m}{\mathcal{#1}}
 \NewDocumentCommand{\Mesh}{m}{\mathcal{#1}}
 
@@ -356,8 +358,8 @@ BoldItalicFont = *08-Italic ]
 %\DeclareMathOperator*{\Projection}{\Pi} % doesn't work
 \NewDocumentCommand{\Projection}{}{\Pi}
 
-\DeclareMathOperator{\kernel}{\mathsf{ker}}
-\DeclareMathOperator{\range}{\mathsf{ran}}
+\DeclareMathOperator{\kernel}{\mathsf{kernel}}
+\DeclareMathOperator{\range}{\mathsf{range}}
 \DeclareMathOperator{\linearspan}{\mathsf{span}} 
 \DeclareMathOperator{\affinespan}{\mathsf{aff}}
 \DeclareMathOperator{\convexspan}{\mathsf{hull}} 
@@ -386,6 +388,10 @@ BoldItalicFont = *08-Italic ]
 
 \NewDocumentCommand{\Edges}{}{\Set{E}}
 \NewDocumentCommand{\Faces}{}{\Set{F}}
+\NewDocumentCommand{\Normal}{m}{\Vector{#1}}
+\NewDocumentCommand{\DNormal}{m}{\delta\Normal{#1}} % change in normal
+\NewDocumentCommand{\NormalDot}{m}{\Normal{#1}^\bullet} % dot product of adjacent normals
+
 %-----------------------------------------------------------------
 \DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator*{\argmax}{argmax}
