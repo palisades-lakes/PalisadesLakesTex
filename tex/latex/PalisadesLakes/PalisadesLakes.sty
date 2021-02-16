@@ -360,9 +360,9 @@ BoldItalicFont = *08-Italic ]
 
 \DeclareMathOperator{\kernel}{\mathsf{kernel}}
 \DeclareMathOperator{\range}{\mathsf{range}}
-\DeclareMathOperator{\linearspan}{\mathsf{span}} 
-\DeclareMathOperator{\affinespan}{\mathsf{aff}}
-\DeclareMathOperator{\convexspan}{\mathsf{hull}} 
+\DeclareMathOperator{\linearspan}{\Vector{span}} 
+\DeclareMathOperator{\affinespan}{\Point{aff}}
+\DeclareMathOperator{\convexspan}{\Point{hull}} 
 \DeclareMathOperator{\linearCombination}{\Vector{linear-combination}} 
 \DeclareMathOperator{\affineCombination}{\Point{affine-combination}} 
 \DeclareMathOperator{\convexCombination}{\Point{convex-combination}} 
@@ -377,6 +377,17 @@ BoldItalicFont = *08-Italic ]
 \NewDocumentCommand{\Df}{m m}{\Vector{D}_{#1}{#2}}
 \NewDocumentCommand{\De}{m m m}{\Df{#1}{#2}_{\mid_{#3}}}
 \NewDocumentCommand{\Dd}{m m m m}{\De{#1}{#2}{#3}({#4})}
+
+\NewDocumentCommand{\DerivativeA}{o}
+ {\operatorname{\Vector{D}}\IfNoValueF{#1}{_{#1}}}
+
+\NewDocumentCommand{\DerivativeB}{o m o}
+  {\IfNoValueTF {#3} 
+    {\DerivativeA[#1]{#2}}
+    {\DerivativeA[#1]{#2}}_{\mid_{#3}}}
+
+\NewDocumentCommand{\Derivative}{o m o o}
+ {\DerivativeB[#1]{#2}[#3] \IfNoValueF{#4}{({#4})}}
 
 \NewDocumentCommand{\da}{m m}{\operatorname{\partial_{#1}}{#2}}
 \NewDocumentCommand{\db}{m m m}{\da{#1}{#2}_{\mid_{#3}}}
@@ -984,6 +995,8 @@ citecolor=citecolor,
 \RequirePackage[nameinlink,noabbrev]{cleveref}[2018/03/27]
 \crefname{paragraph}{section}{sections}
 \Crefname{paragraph}{Section}{Sections}
+\crefname{subparagraph}{section}{sections}
+\Crefname{subparagraph}{Section}{Sections}
 
 %-----------------------------------------------------------------
 % plChunk environments using tcolorbox
