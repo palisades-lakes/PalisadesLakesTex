@@ -131,6 +131,16 @@
 %-----------------------------------------------------------------
 % main font
 %-----------------------------------------------------------------
+
+% XITS fonts are distributed 
+% under the Open Font License, version 1.1.
+% https://github.com/alif-type/xits
+
+% https://www.stixfonts.org/
+% STIX fonts are available for download at 
+% https://github.com/stipub/stixfonts 
+% and distributed under the SIL Open Font License, Version 1.1
+
 %\setmainfont{Baskerville Old Face}
 %\setmainfont{Libre Caslon Text}[Scale=0.85]
 %\setmainfont{Centaur}
@@ -222,6 +232,14 @@ BoldItalicFont = *08-Italic ]
 \RequirePackage{amsmath}[2020/09/23]
 \RequirePackage{amssymb}[2013/01/14]
 \RequirePackage{mathtools}[2020/03/24]
+
+\RequirePackage{bm}[2019-07-24]
+% \DeclareSymbolFont{extras} {OMS}{xyz}{m}{n}
+% \SetSymbolFont{extras}{bold}{OMS}{xyz}{bx}{n}
+% % At this point the symbols will be available 
+% % in the normal math version, and their
+% % bold variants in \boldmath. If you also declare:
+% \DeclareSymbolFont{boldextras}{OMS}{xyz}{bx}{n}
 %-----------------------------------------------------------------
 % local symbol defs --- should these be replaced by glossary
 % entries?
@@ -377,19 +395,16 @@ BoldItalicFont = *08-Italic ]
 \NewDocumentCommand{\Derivative}{o m o o}
  {\plDerivativeB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
+\DeclareBoldMathCommand\BoldNabla{\nabla}
 \NewDocumentCommand{\plGradientA}{o}
- {\operatorname{\nabla}\IfValueT{#1}{_{#1}}}
+ {\BoldNabla\IfValueT{#1}{_{#1}}}
 \NewDocumentCommand{\plGradientB}{o m o}
   {\plGradientA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Gradient}{o m o o}
  {\plGradientB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
-\NewDocumentCommand{\da}{m m}{\operatorname{\partial_{#1}}{#2}}
-\NewDocumentCommand{\db}{m m m}{\da{#1}{#2}_{\mid_{#3}}}
-
-\NewDocumentCommand{\Gb}{m m}{\Vector{\nabla}{#1}_{\mid_{#2}}}
-\NewDocumentCommand{\Gc}{m m m}{\Vector{\nabla}_{#1}{{#2}}_{\mid_{#3}}}
-\NewDocumentCommand{\Gf}{m m}{\Vector{\nabla}_{#1}{#2}}
+\NewDocumentCommand{\Partial}{m m o}
+  {\operatorname{\partial_{#1}}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 
 \NewDocumentCommand{\Edges}{}{\Set{E}}
 \NewDocumentCommand{\Faces}{}{\Set{F}}
