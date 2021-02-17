@@ -370,24 +370,12 @@ BoldItalicFont = *08-Italic ]
 \DeclareMathOperator{\volume}{\mathsf{volume}}
 
 % derivative operators
-% TODO: fewer operators, distinguish by optional args
-\NewDocumentCommand{\Da}{m}{\operatorname{\Vector{D}}{#1}}
-\NewDocumentCommand{\Db}{m m}{\Da{#1}_{\mid_{#2}}}
-\NewDocumentCommand{\Dc}{m m m}{\Db{#1}{#2}({#3})}
-\NewDocumentCommand{\Df}{m m}{\Vector{D}_{#1}{#2}}
-\NewDocumentCommand{\De}{m m m}{\Df{#1}{#2}_{\mid_{#3}}}
-\NewDocumentCommand{\Dd}{m m m m}{\De{#1}{#2}{#3}({#4})}
-
-\NewDocumentCommand{\DerivativeA}{o}
+\NewDocumentCommand{\plDerivativeA}{o}
  {\operatorname{\Vector{D}}\IfNoValueF{#1}{_{#1}}}
-
-\NewDocumentCommand{\DerivativeB}{o m o}
-  {\IfNoValueTF {#3} 
-    {\DerivativeA[#1]{#2}}
-    {\DerivativeA[#1]{#2}}_{\mid_{#3}}}
-
+\NewDocumentCommand{\plDerivativeB}{o m o}
+  {\plDerivativeA[#1]{#2}{\IfNoValueF{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Derivative}{o m o o}
- {\DerivativeB[#1]{#2}[#3] \IfNoValueF{#4}{({#4})}}
+ {\plDerivativeB[#1]{#2}[#3]\IfNoValueF{#4}{({#4})}}
 
 \NewDocumentCommand{\da}{m m}{\operatorname{\partial_{#1}}{#2}}
 \NewDocumentCommand{\db}{m m m}{\da{#1}{#2}_{\mid_{#3}}}
