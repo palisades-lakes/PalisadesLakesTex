@@ -371,16 +371,22 @@ BoldItalicFont = *08-Italic ]
 
 % derivative operators
 \NewDocumentCommand{\plDerivativeA}{o}
- {\operatorname{\Vector{D}}\IfNoValueF{#1}{_{#1}}}
+ {\operatorname{\Vector{D}}\IfValueT{#1}{_{#1}}}
 \NewDocumentCommand{\plDerivativeB}{o m o}
-  {\plDerivativeA[#1]{#2}{\IfNoValueF{#3}{_{\mid_{#3}}}}}
+  {\plDerivativeA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Derivative}{o m o o}
- {\plDerivativeB[#1]{#2}[#3]\IfNoValueF{#4}{({#4})}}
+ {\plDerivativeB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
+
+\NewDocumentCommand{\plGradientA}{o}
+ {\operatorname{\nabla}\IfValueT{#1}{_{#1}}}
+\NewDocumentCommand{\plGradientB}{o m o}
+  {\plGradientA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
+\NewDocumentCommand{\Gradient}{o m o o}
+ {\plGradientB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
 \NewDocumentCommand{\da}{m m}{\operatorname{\partial_{#1}}{#2}}
 \NewDocumentCommand{\db}{m m m}{\da{#1}{#2}_{\mid_{#3}}}
 
-\NewDocumentCommand{\Ga}{m}{\Vector{\nabla}{#1}}
 \NewDocumentCommand{\Gb}{m m}{\Vector{\nabla}{#1}_{\mid_{#2}}}
 \NewDocumentCommand{\Gc}{m m m}{\Vector{\nabla}_{#1}{{#2}}_{\mid_{#3}}}
 \NewDocumentCommand{\Gf}{m m}{\Vector{\nabla}_{#1}{#2}}
