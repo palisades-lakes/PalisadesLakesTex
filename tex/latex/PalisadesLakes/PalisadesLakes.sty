@@ -395,9 +395,10 @@ BoldItalicFont = *08-Italic ]
 \NewDocumentCommand{\Derivative}{o m o o}
  {\plDerivativeB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
-\DeclareBoldMathCommand\BoldNabla{\nabla}
+\DeclareBoldMathCommand\deltaBold{\delta}
+\DeclareBoldMathCommand\nablaBold{\nabla}
 \NewDocumentCommand{\plGradientA}{o}
- {\BoldNabla\IfValueT{#1}{_{#1}}}
+ {\nablaBold\IfValueT{#1}{_{#1}}}
 \NewDocumentCommand{\plGradientB}{o m o}
   {\plGradientA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Gradient}{o m o o}
@@ -409,7 +410,7 @@ BoldItalicFont = *08-Italic ]
 \NewDocumentCommand{\Edges}{}{\Set{E}}
 \NewDocumentCommand{\Faces}{}{\Set{F}}
 \NewDocumentCommand{\Normal}{m}{\Vector{#1}}
-\NewDocumentCommand{\DNormal}{m}{\delta\Normal{#1}} % change in normal
+\NewDocumentCommand{\DNormal}{m}{\deltaBold\Normal{#1}} % change in normal
 \NewDocumentCommand{\NormalDot}{m}{\Normal{#1}^\bullet} % dot product of adjacent normals
 
 %-----------------------------------------------------------------
