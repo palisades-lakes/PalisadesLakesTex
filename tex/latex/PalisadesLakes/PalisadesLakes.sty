@@ -126,8 +126,10 @@
 %-----------------------------------------------------------------
 % fonts
 %-----------------------------------------------------------------
-\RequirePackage{fontspec}[2020/02/21]
-\RequirePackage{yfonts}[2019/04/04]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[]{fontspec}[2020/02/21]
+\defaultfontfeatures{Scale=MatchLowercase}
+%\RequirePackage{yfonts}[2019/04/04]
 %-----------------------------------------------------------------
 % main font
 %-----------------------------------------------------------------
@@ -163,18 +165,10 @@
 
 %\setmainfont{Garamond}
 
+% https://en.wikipedia.org/wiki/EB_Garamond
 % http://www.georgduffner.at/ebgaramond/download.html
-% \fontspec[
-%  SmallCapsFeatures={Letters=SmallCaps},
-% ]{EB Garamond}
-
-\setmainfont[
-Path,
-UprightFont = *12-Regular,
-ItalicFont  = *12-Italic,
-BoldFont    = *08-Regular,
-BoldItalicFont = *08-Italic ]
-{EBGaramond}
+% https://github.com/octaviopardo/EBGaramond12
+% \setmainfont{EB Garamond}[Numbers={OldStyle,Proportional},RawFeature={+ss06}]
 
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=134
 % \fontspec[
@@ -191,7 +185,7 @@ BoldItalicFont = *08-Italic ]
 \setsansfont{Gill Sans MT} 
 
 % http://arkandis.tuxfamily.org/adffonts.html
-% \setsansfont{Gillius ADF}
+%\setsansfont{Gillius ADF}
 %-----------------------------------------------------------------
 % cjk fonts
 %-----------------------------------------------------------------
@@ -200,68 +194,105 @@ BoldItalicFont = *08-Italic ]
 % \setCJKsansfont{SimHei}
 % \setCJKmonofont{Lucida Sans Typewriter}
 %-----------------------------------------------------------------
-% math fonts
-%-----------------------------------------------------------------
-% conflicts with amssymb
-%\usepackage{xfrac,unicode-math}
-%\defaultfontfeatures{Scale=MatchLowercase}
-
-% \setmathfont{Latin Modern Math}[version=lm]
-% \setmathfont{XITS Math}[version=xits]
-% \setmathfont{Stix Math}[version=stix]
-% \setmathfont{Stix Two Math}[version=stix2]  % https://github.com/stipub/stixfonts/
-% \setmathfont{Stix Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
-% \setmathfont{TeX Gyre Termes Math}[version=termes]
-
-% with Windows 10
-%\setmathfont{Cambria Math}[version=cambria]
-
-% \setmathfont{TeX Gyre Pagella Math}[version=pagella]
-
-% https://www.ctan.org/tex-archive/fonts/Asana-Math/
-% loading fails with many metafont errors
-% conflicts with amsfonts
-% \setmathfont{Asana Math}[version=asana]
-
-% \setmathfont{Libertinus Math}[version=libertinus]
-% \setmathfont{TeX Gyre DejaVu Math}[version=dejavu]
-
-%-----------------------------------------------------------------
 % math packages
 %-----------------------------------------------------------------
 \RequirePackage{amsmath}[2020/09/23]
-\RequirePackage{amssymb}[2013/01/14]
-\RequirePackage{mathtools}[2020/03/24]
-
-\RequirePackage{bm}[2019-07-24]
-% \DeclareSymbolFont{extras} {OMS}{xyz}{m}{n}
-% \SetSymbolFont{extras}{bold}{OMS}{xyz}{bx}{n}
-% % At this point the symbols will be available 
-% % in the normal math version, and their
-% % bold variants in \boldmath. If you also declare:
-% \DeclareSymbolFont{boldextras}{OMS}{xyz}{bx}{n}
+%\RequirePackage{amssymb}[2013/01/14]
+%\RequirePackage{mathtools}[2020/03/24]
 %-----------------------------------------------------------------
-% local symbol defs --- should these be replaced by glossary
-% entries?
+% math fonts
+%-----------------------------------------------------------------
+%\setmainfont{texgyrepagella-regular.otf}
+
+\setmainfont{EB Garamond}[Numbers={OldStyle,Proportional},RawFeature={+ss06,+dlig,+kern}]
+
+\RequirePackage[math-style=ISO,bold-style=ISO,sans-style=italic,partial=upright]{unicode-math}[2020/01/30]
+% \RequirePackage[math-style=ISO,bold-style=ISO,sans-style=upright]{unicode-math}[2020/01/30]
+% \RequirePackage[math-style=TeX]{unicode-math}[2020/01/30]
+% \RequirePackage[math-style=french]{unicode-math}[2020/01/30]
+% \RequirePackage[math-style=upright]{unicode-math}[2020/01/30]
+% \RequirePackage[math-style=literal]{unicode-math}[2020/01/30]
+
+\setmathfont{texgyrepagella-math.otf}
+
+% lots of missing symbols
+%\setmathfont{XITS Math}[version=xits]
+%\setmathfont[version=xits]{XITSMath-Regular.otf}
+% metafont errors
+% \setmainfont
+% [    Extension = .otf,
+%    UprightFont = *-regular,
+%       BoldFont = *-bold,
+%     ItalicFont = *-italic,
+% BoldItalicFont = *-bolditalic,
+% ]{xits}
+% \setmathfont
+% [    Extension = .otf,
+%       BoldFont = *bold,
+%       Ligatures=TeX,
+% ]{xits-math}
+
+% lots of missing symbols
+% \setmathfont{Latin Modern Math}[version=lm]
+
+% https://github.com/stipub/stixfonts/
+% fails with metafonmt errors
+%\setmathfont{Stix Two Math}[version=stix2]  
+% fails with metafonmt errors
+%\setmathfont{Stix Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
+
+% lots of missing symbols
+%\setmathfont{TeX Gyre Termes Math}[version=termes]
+
+% with Windows 10
+% lots of missing symbols
+%\setmathfont{Cambria Math}[version=cambria]
+
+% lots of missing symbols
+%\setmathfont{TeX Gyre Pagella Math}[version=pagella]
+
+% https://www.ctan.org/tex-archive/fonts/Asana-Math/
+% lots of missing symbols
+%\setmathfont{Asana Math}[version=asana]
+
+% metafont errors
+%\setmathfont{Libertinus Math}[version=libertinus]
+
+% lots of missing symbols
+%\setmathfont{TeX Gyre DejaVu Math}[version=dejavu]
+
+
+%-----------------------------------------------------------------
+% local symbol defs 
+% TODO: replace by or incorporate glossary entries?
+% TODO: automatic indexing?
 %-----------------------------------------------------------------
 % category graphs
-\NewDocumentCommand{\vertices} {} 
+\NewDocumentCommand{\vertices}{} 
 {\ensuremath{\mathsf{vertices}} \index{vertices@\textsf{vertices}}}
 \NewDocumentCommand{\edges}{}{
 \ensuremath{\mathsf{edges}}\index{edges@\textsf{edges}} }
+\NewDocumentCommand{\faces}{}{
+\ensuremath{\mathsf{faces}}\index{edges@\textsf{faces}} }
 \NewDocumentCommand{\compose}{}{
 \ensuremath{\mathsf{compose}}\index{compose@\textsf{compose}} }
-\NewDocumentCommand{\comop}{}{\ensuremath{\circ}\index{compose operation $\circ$} }
+\NewDocumentCommand{\comop}{}
+{\ensuremath{\circ}\index{compose operation $\circ$} }
 \NewDocumentCommand{\identity}{}{
 \ensuremath{\mathsf{identity}}\index{identity@\textsf{identity}} }
-\NewDocumentCommand{\head}{}{\ensuremath{\mathsf{head}}\index{head@\textsf{head}} }
-\NewDocumentCommand{\tail}{}{\ensuremath{\mathsf{tail}}\index{tail@\textsf{tail}} }
+\NewDocumentCommand{\head}{}
+{\ensuremath{\mathsf{head}}\index{head@\textsf{head}} }
+\NewDocumentCommand{\tail}{}
+{\ensuremath{\mathsf{tail}}\index{tail@\textsf{tail}} }
 \NewDocumentCommand{\pvalue}{}{
 \ensuremath{\mathsf{value}\index{value@(path) \textsf{value}}} }
-\NewDocumentCommand{\concatenate}{}{\ensuremath{
-\mathsf{concatenate}}\index{concatenate@\textsf{concatenate}} }
-\NewDocumentCommand{\conop}{}{\ensuremath{\odot}\index{concat operation $\odot$} } 
-\NewDocumentCommand{\peq}{}{\ensuremath{\simeq}\index{path equivalence $\simeq$} }
+\NewDocumentCommand{\concatenate}{}
+{\ensuremath{
+ \mathsf{concatenate}}\index{concatenate@\textsf{concatenate}} }
+\NewDocumentCommand{\conop}{}
+{\ensuremath{\odot}\index{concat operation $\odot$} } 
+\NewDocumentCommand{\peq}{}
+{\ensuremath{\simeq}\index{path equivalence $\simeq$} }
 %-----------------------------------------------------------------
 % logic
 %\NewDocumentCommand{\implies}{}{\ensuremath{\Rightarrow} }
@@ -379,7 +410,7 @@ BoldItalicFont = *08-Italic ]
 \DeclareMathOperator{\kernel}{\mathsf{kernel}}
 \DeclareMathOperator{\range}{\mathsf{range}}
 \DeclareMathOperator{\linearspan}{\Vector{span}} 
-\DeclareMathOperator{\affinespan}{\Point{aff}}
+\DeclareMathOperator{\affinespan}{\Point{aspan}}
 \DeclareMathOperator{\convexspan}{\Point{hull}} 
 \DeclareMathOperator{\linearCombination}{\Vector{linear-combination}} 
 \DeclareMathOperator{\affineCombination}{\Point{affine-combination}} 
@@ -395,25 +426,22 @@ BoldItalicFont = *08-Italic ]
 \NewDocumentCommand{\Derivative}{o m o o}
  {\plDerivativeB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
-\DeclareBoldMathCommand\deltaBold{\delta}
-\DeclareBoldMathCommand\nablaBold{\nabla}
 \NewDocumentCommand{\plGradientA}{o}
- {\nablaBold\IfValueT{#1}{_{#1}}}
+ {{\nabla}\IfValueT{#1}{_{#1}}}
 \NewDocumentCommand{\plGradientB}{o m o}
   {\plGradientA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Gradient}{o m o o}
  {\plGradientB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
 \NewDocumentCommand{\Partial}{m m o}
-  {\operatorname{\partial_{#1}}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
+  {{\partial}_{#1}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 
 \NewDocumentCommand{\Edges}{}{\Set{E}}
 \NewDocumentCommand{\Faces}{}{\Set{F}}
 \NewDocumentCommand{\Normal}{m}{\Vector{#1}}
-\NewDocumentCommand{\DNormal}{m}{\deltaBold\Normal{#1}} % change in normal
+\NewDocumentCommand{\DNormal}{m}{\delta\Normal{#1}} % change in normal
 \NewDocumentCommand{\NormalDot}{m}{\Normal{#1}^\bullet} % dot product of adjacent normals
 
-%-----------------------------------------------------------------
 \DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator{\card}{card}
@@ -609,37 +637,37 @@ backref=true,
 % TODO: consistent font size across sections and other chunks
 % TODO: spacing should be relative to font size
 
-\titleformat{\part}[hang]{\huge\scshape\bfseries}
+\titleformat{\part}[hang]{\huge\scshape\mdseries}
   {\thepart}{0.5em}{}
 
-\titleformat{\chapter}[hang]{\LARGE\scshape\bfseries}
+\titleformat{\chapter}[hang]{\LARGE\scshape\mdseries}
   {\thechapter}{0.5em}{}
 
-\titleformat{\section}[hang]{\Large\scshape\bfseries}
+\titleformat{\section}[hang]{\Large\scshape\mdseries}
   {\thesection}{0.5em}{}
 \titlespacing\section{0pt}
   {16pt plus 16pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subsection}[hang]{\large\scshape\bfseries}
+\titleformat{\subsection}[hang]{\large\scshape\mdseries}
   {\thesubsection}{0.5em}{}
 \titlespacing\subsection{0pt}
   {14pt plus 14pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subsubsection}[hang]{\large\scshape\bfseries}
+\titleformat{\subsubsection}[hang]{\large\scshape\mdseries}
   {\thesubsubsection}{0.5em}{}
 \titlespacing\subsubsection{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\paragraph}[hang]{\normalsize\scshape\bfseries}
+\titleformat{\paragraph}[hang]{\normalsize\scshape\mdseries}
 {\theparagraph}{0.5em}{}
 \titlespacing\paragraph{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subparagraph}[hang]{\normalsize\scshape\bfseries}
+\titleformat{\subparagraph}[hang]{\normalsize\scshape\mdseries}
 {\thesubparagraph}{0.5em}{}
 \setcounter{secnumdepth}{7}
 \titlespacing\subparagraph{0pt}
