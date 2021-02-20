@@ -186,44 +186,77 @@
 % \setCJKsansfont{SimHei}
 % \setCJKmonofont{Lucida Sans Typewriter}
 
+% http://www.georgduffner.at/ebgaramond/download.html
+% \fontspec[
+%  SmallCapsFeatures={Letters=SmallCaps},
+% ]{EB Garamond}
+
+% original setup with Duffner's files
+% \setmainfont[
+% Path,
+% UprightFont = *12-Regular,
+% ItalicFont  = *12-Italic,
+% BoldFont    = *08-Regular,
+% BoldItalicFont = *08-Italic ]
+% {EBGaramond}
+
 \setmainfont{EB Garamond}
 [
+% RawFeature={
+% % %+aalt, % all characters tiny 
+% % %+c2pc, % all caps petite
+% % %+c2sc, % all caps small
+% % +case, % effect not obvious, re-test
+% % %+dlig, % some weird ligatures
+% % %+frac, % small digits out of position
+% % %+hist, % all s go to f-ish shape
+% % +hlig, % no obvious effect
+% % +kern, % no obvious effect
+% % +liga, % no obvious effect
+% % %+lnum, % all digits same size, rise, drop
+% % %+mark, % no obvious effect
+% % %+mkmk, % no obvious effect
+% % %+onum, % no obvious effect
+% % %+ordn, % no obvious effect
+% % %+pcap, % caps/smallcaps for all
+% % %+pnum, % no obvious effect
+% % %+sinf, % all characters tiny 
+% % %+smcp, % all text csc
+% % %+ss01, % all text csc
+% % %+ss02, % text (not math) parens turn into pointing hands
+% % %+ss03, % no obvious effect,except all digits same
+% % %+ss04, % text (not math) parens turn into flourished leaves
+% % %+ss05, % no obvious effect
+% +ss06, % no obvious effect
+% % %+ss07, % all s go to f-ish shape
+% % %+subs, % all characters tiny
+% % %+sups, % all characters tiny
+% % %+swsh, % page header all swashed, italic caps swashed
+% % %+tnum, % no obvious effect
+% },
+StylisticSet = 6,
 FontFace={lb}{n}{Font=* Medium},
 FontFace={sb}{n}{Font=* SemiBold},
 FontFace={eb}{n}{Font=* ExtraBold},
-Numbers={OldStyle,Proportional},
-RawFeature={
-% %+aalt, % all characters tiny 
-% %+c2pc, % all caps petite
-% %+c2sc, % all caps small
-% +case, % effect not obvious, re-test
-% %+dlig, % some weird ligatures
-% %+frac, % small digits out of position
-% %+hist, % all s go to f-ish shape
-% +hlig, % no obvious effect
-% +kern, % no obvious effect
-% +liga, % no obvious effect
-% %+lnum, % all digits same size, rise, drop
-% %+mark, % no obvious effect
-% %+mkmk, % no obvious effect
-% %+onum, % no obvious effect
-% %+ordn, % no obvious effect
-% %+pcap, % caps/smallcaps for all
-% %+pnum, % no obvious effect
-% %+sinf, % all characters tiny 
-% %+smcp, % all text csc
-% %+ss01, % all text csc
-% %+ss02, % text (not math) parens turn into pointing hands
-% %+ss03, % no obvious effect,except all digits same
-% %+ss04, % text (not math) parens turn into flourished leaves
-% %+ss05, % no obvious effect
-+ss06, % no obvious effect
-% %+ss07, % all s go to f-ish shape
-% %+subs, % all characters tiny
-% %+sups, % all characters tiny
-% %+swsh, % page header all swashed, italic caps swashed
-% %+tnum, % no obvious effect
-}
+% no obvious change from no specification
+%SmallCapsFeatures={Letters=Uppercase},
+% smallcaps caps smaller than lower case
+%SmallCapsFeatures={Letters=UppercasePetiteCaps},
+% smallcaps caps same size as lower case
+%SmallCapsFeatures={Letters=UppercaseSmallCaps},
+% increase difference btwn upper and lower case
+% SmallCapsFeatures={Letters=PetiteCaps},
+% no obvious change from no specification
+%SmallCapsFeatures={Letters=SmallCaps},
+% no obvious change from no specification
+%SmallCapsFeatures={Letters=Unicase},
+% very small difference btwn upper and lower case
+% Cwould still like to have uppercase slightly larger
+SmallCapsFeatures={Letters={UppercaseSmallCaps,PetiteCaps}},
+Numbers={OldStyle,Proportional,SlashedZero},
+% smallcaps a bit more compact than MatchUppercase
+Scale=MatchLowercase,
+%Scale=MatchUppercase,
 ]
 \DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
@@ -245,7 +278,7 @@ RawFeature={
 %-----------------------------------------------------------------
 \RequirePackage{amsmath}[2020/09/23]
 %\RequirePackage{amssymb}[2013/01/14]
-%\RequirePackage{mathtools}[2020/03/24]
+\RequirePackage{mathtools}[2020/03/24]
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
