@@ -178,13 +178,8 @@
 %\setmainfont{Palatino Linotype}
 %\setmainfont{Perpetua}[Scale=1.1]
 %\setmainfont{Times New Roman}
-%-----------------------------------------------------------------
-% cjk fonts
-%-----------------------------------------------------------------
-% \usepackage{xeCJK}
-% \setCJKmainfont{SimHei}
-% \setCJKsansfont{SimHei}
-% \setCJKmonofont{Lucida Sans Typewriter}
+
+%\setmainfont{texgyrepagella-regular.otf}
 
 % http://www.georgduffner.at/ebgaramond/download.html
 % \fontspec[
@@ -199,6 +194,15 @@
 % BoldFont    = *08-Regular,
 % BoldItalicFont = *08-Italic ]
 % {EBGaramond}
+
+\RequirePackage[
+math-style=ISO,
+bold-style=ISO,
+sans-style=italic,
+partial=upright,
+nabla=upright,
+]
+{unicode-math}[2020/01/30]
 
 \setmainfont{EB Garamond}
 [
@@ -274,6 +278,14 @@ Scale=MatchLowercase,
 % http://arkandis.tuxfamily.org/adffonts.html
 %\setsansfont{Gillius ADF}
 %-----------------------------------------------------------------
+% cjk fonts
+%-----------------------------------------------------------------
+% TODO: what's the 'right' way to do CJK as of 2021?
+% \usepackage{xeCJK}
+% \setCJKmainfont{SimHei}
+% \setCJKsansfont{SimHei}
+% \setCJKmonofont{Lucida Sans Typewriter}
+%-----------------------------------------------------------------
 % math packages
 %-----------------------------------------------------------------
 \RequirePackage{amsmath}[2020/09/23]
@@ -282,8 +294,14 @@ Scale=MatchLowercase,
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
-%\setmainfont{texgyrepagella-regular.otf}
-\RequirePackage[math-style=ISO,bold-style=ISO,sans-style=italic,partial=upright]{unicode-math}[2020/01/30]
+% \RequirePackage[
+% math-style=ISO,
+% bold-style=ISO,
+% sans-style=italic,
+% partial=upright,
+% nabla=upright,
+% ]
+% {unicode-math}[2020/01/30]
 % \RequirePackage[math-style=ISO,bold-style=ISO,sans-style=upright]{unicode-math}[2020/01/30]
 % \RequirePackage[math-style=TeX]{unicode-math}[2020/01/30]
 % \RequirePackage[math-style=french]{unicode-math}[2020/01/30]
@@ -294,6 +312,7 @@ Scale=MatchLowercase,
 
 % lots of missing symbols
 %\setmathfont{XITS Math}[version=xits]
+
 %\setmathfont[version=xits]{XITSMath-Regular.otf}
 % metafont errors
 % \setmainfont
@@ -303,11 +322,12 @@ Scale=MatchLowercase,
 %     ItalicFont = *-italic,
 % BoldItalicFont = *-bolditalic,
 % ]{xits}
-% \setmathfont
-% [    Extension = .otf,
-%       BoldFont = *bold,
-%       Ligatures=TeX,
-% ]{xits-math}
+
+\setmathfont
+[    Extension = .otf,
+      BoldFont = *bold,
+      Ligatures=TeX,
+]{XITS Math}
 
 % lots of missing symbols
 % \setmathfont{Latin Modern Math}[version=lm]
@@ -510,7 +530,7 @@ Scale=MatchLowercase,
  {\plGradientB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
 \NewDocumentCommand{\Partial}{m m o}
-  {{\partial}_{#1}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
+  {\operatorname{\partial}_{#1}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 
 \NewDocumentCommand{\Edges}{}{\Set{E}}
 \NewDocumentCommand{\Faces}{}{\Set{F}}
