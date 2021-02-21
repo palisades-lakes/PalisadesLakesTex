@@ -123,6 +123,8 @@
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
 \RequirePackage[parfill]{parskip}[2020-06-15]
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
 %-----------------------------------------------------------------
 % fonts
 %-----------------------------------------------------------------
@@ -256,10 +258,14 @@ FontFace={eb}{n}{Font=* ExtraBold},
 %SmallCapsFeatures={Letters=Unicase},
 % very small difference btwn upper and lower case
 % Cwould still like to have uppercase slightly larger
-SmallCapsFeatures={Letters={UppercaseSmallCaps,PetiteCaps}},
+SmallCapsFeatures={
+Letters={UppercaseSmallCaps,PetiteCaps},
+Scale=1.5,
+FakeStretch=0.825,
+},
 Numbers={OldStyle,Proportional,SlashedZero},
 % smallcaps a bit more compact than MatchUppercase
-Scale=MatchLowercase,
+%Scale=MatchLowercase,
 %Scale=MatchUppercase,
 ]
 \DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
@@ -294,14 +300,14 @@ Scale=MatchLowercase,
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
-% \RequirePackage[
-% math-style=ISO,
-% bold-style=ISO,
-% sans-style=italic,
-% partial=upright,
-% nabla=upright,
-% ]
-% {unicode-math}[2020/01/30]
+\RequirePackage[
+math-style=ISO,
+bold-style=ISO,
+sans-style=italic,
+partial=upright,
+nabla=upright,
+]
+{unicode-math}[2020/01/30]
 % \RequirePackage[math-style=ISO,bold-style=ISO,sans-style=upright]{unicode-math}[2020/01/30]
 % \RequirePackage[math-style=TeX]{unicode-math}[2020/01/30]
 % \RequirePackage[math-style=french]{unicode-math}[2020/01/30]
@@ -323,11 +329,11 @@ Scale=MatchLowercase,
 % BoldItalicFont = *-bolditalic,
 % ]{xits}
 
-\setmathfont
-[    Extension = .otf,
-      BoldFont = *bold,
-      Ligatures=TeX,
-]{XITS Math}
+% \setmathfont
+% [    Extension = .otf,
+%       BoldFont = *bold,
+%       Ligatures=TeX,
+% ]{XITS Math}
 
 % lots of missing symbols
 % \setmathfont{Latin Modern Math}[version=lm]

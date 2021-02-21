@@ -1,17 +1,17 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: biber
-% arara: makeglossaries
-% arara: makeindex
+%% arara: makeglossaries
+%% arara: makeindex
 % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
 % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
 % arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
 % arara: clean: { extensions: [ bbl, bcf, blg, ] }
-% arara: clean: { extensions: [ glg, glo, gls, ] }
-% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
-% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+%% arara: clean: { extensions: [ glg, glo, gls, ] }
+%% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+%% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass{PalisadesLakesBook}
+\documentclass{PalisadesLakesArticle}
 \geomLetter
 \geomPortraitOneColumn
 %-----------------------------------------------------------------
@@ -21,12 +21,91 @@
 \date{draft of \today}
 %-----------------------------------------------------------------
 \begin{document}
-\maketitle
-\PalisadesLakesTableOfContents
+%\maketitle
+%\PalisadesLakesTableOfContents
 %-----------------------------------------------------------------
 \def\sharedFolder{../shared/}
+
+\begin{plSection}{Fonts}
+
+Parindent should be zero:\\
+\textsc{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\textrm{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\textit{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\textbf{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\textsb{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\textlb{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\textsf{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+\texttt{
+The quick brown fox jumps over the lazy dog.\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+}
+
+$
+\frac
+{\partial f}{\partial x} 
+\in \mathcal{F}\left(\mathbb{R}\right)$
+;
+$\nabla_{x} \mathsf{f} (y) \in \mathfrak{V}$
+
+See 
+\citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
+
+
+\begin{eqnarray}
+\Derivative[\Vector{v}]{\Vector{f}}[\Vector{u}][\Vector{t}]
+& = &
+\Derivative[\Vector{v}_i]{\Vector{f}}
+[(\Vector{u}_0 \ldots \Vector{u}_{n-1})][\Vector{t}_i] 
+\\
+\Partial{j}{\Vector{f}} & = &\Partial{v_j}{\Vector{f}} 
+\\
+\Derivative{\Vector{f}}[\Vector{u}]
+& = &
+\sum_{j=0}^{m-1} \Partial{j}{\Vector{f}}[\Vector{u}] 
+\otimes \Vector{e}_j^{\Space{V}}
+\\
+\Partial{j}{\Vector{f}}[\Vector{u}]
+& = &
+\Derivative{\Vector{f}}[\Vector{u}] \Vector{e}_j^{\Space{V}}
+\\
+\Gradient{f}[\Vector{u}] 
+& = &
+\sum_{j=0}^{m-1} 
+\left( 
+\Partial{j}{f}[\Vector{u}] 
+\right) \Vector{e}_j^{\Space{V}}
+\\
+\Derivative{\Vector{f}}[\Vector{u}]
+& = &
+ \sum_{i=0}^{n-1}  
+\Vector{e}_i^{\Space{W}} 
+\otimes \Gradient{\Vector{f}_i}[\Vector{u}]
+\end{eqnarray}
+\end{plSection}%{Fonts}
 %\import{\sharedFolder}{spaces}
-\import{\sharedFolder}{derivatives}
+%\import{\sharedFolder}{derivatives}
 %\import{\sharedFolder}{category}
 %-----------------------------------------------------------------
 \end{document}
