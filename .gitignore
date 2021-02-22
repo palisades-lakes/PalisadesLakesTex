@@ -27,6 +27,7 @@
 *.gls
 *.ilg
 *.ind
+*.mw
 *.out
 *.xdy
 *.ist
