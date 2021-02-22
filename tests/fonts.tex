@@ -1,12 +1,12 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: biber
+%% arara: biber
 %% arara: makeglossaries
 %% arara: makeindex
-% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
-% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
-% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
-% arara: clean: { extensions: [ bbl, bcf, blg, ] }
+%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
+%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
+%% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+%% arara: clean: { extensions: [ bbl, bcf, blg, ] }
 %% arara: clean: { extensions: [ glg, glo, gls, ] }
 %% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
 %% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
@@ -30,36 +30,40 @@
 
 Parindent should be zero:\\
 \textsc{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
 }
 \textrm{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
-}
-\textit{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
-}
-\textbf{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
-}
-\textsb{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
 }
 \textlb{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
+}
+\textsb{
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
+}
+\textbf{
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
+}
+\textit{
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
+}
+\textsl{
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
 }
 \textsf{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
 }
 \texttt{
-The quick brown fox jumps over the lazy dog.\\
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.\\
+The (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
 }
 
 $
