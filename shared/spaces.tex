@@ -388,7 +388,9 @@ Let $\Vector{v}, \Vector{u} \in \Space{V}, \Vector{w} \in \Space{W}.$
 $\Vector{w} \otimes \Vector{v}$ is a rank 1 linear map
 from $\Space{V}$ to $\Space{W}$, defined by:
 \begin{equation}
-(\Vector{w} \otimes \Vector{v})(\Vector{u}) \; \equiv \; \Vector{w} (\Vector{v} \bullet \Vector{u})
+(\Vector{w} \otimes \Vector{v})
+(\Vector{u}) \; \equiv \; \Vector{w} 
+(\Vector{v} \bullet \Vector{u})
 \end{equation}
 
 Note: this is an abuse of the usual definition of tensor product $\otimes$.
@@ -402,20 +404,28 @@ I want to avoid notations that suggest thinking in terms
 of 'row' and 'column' vectors.
 
 The following is a useful identity.
-If $\Vector{t} \in \Space{T}$, $\Vector{u}, \Vector{v} \in \Space{V}$, and $\Vector{w} \in \Space{W}.$
+If $\Vector{t} \in \Space{T}$, 
+$\Vector{u}, \Vector{v} \in \Space{V}$, 
+and $\Vector{w} \in \Space{W}.$
 then
 \begin{equation}
 \label{eq:tensor-dot}
-(\Vector{t} \otimes \Vector{u}) (\Vector{v} \otimes \Vector{w})(\Vector{u}) = (\Vector{u} \bullet \Vector{v}) (\Vector{t} \otimes \Vector{w})
+(\Vector{t} \otimes \Vector{u}) 
+(\Vector{v} \otimes \Vector{w})(\Vector{u}) 
+= (\Vector{u} \bullet \Vector{v}) (\Vector{t} \otimes \Vector{w})
 \end{equation}
 
 \item Elementary orthogonal projection:
 \begin{equation}
 \Projection_{\Vector{w}} \Vector{v}
 \; \equiv \;
-\left( \frac{ \Vector{w} }{ \| \Vector{w} \| } \otimes \frac{ \Vector{w} }{ \| \Vector{w} \| } \right) \Vector{v}
+\left( \frac{ \Vector{w} }{ \| \Vector{w} \| } \otimes 
+\frac{ \Vector{w} }{ \| \Vector{w} \| } \right) \Vector{v}
 \; = \;
-\left( \frac{\Vector{w} }{\|\Vector{w}\|} \bullet \Vector{v} \right) \frac{\Vector{w}}{\|\Vector{w}\|}
+\left(
+\frac{\Vector{w} }{\|\Vector{w}\|} \bullet \Vector{v} 
+\right) 
+\frac{\Vector{w}}{\|\Vector{w}\|}
 \end{equation}
 
 \item Orthogonal complement:
@@ -426,7 +436,11 @@ then
 \; \equiv \;
 \Vector{v} \; - \; \Projection_{\Vector{w}} \Vector{v}
 \; = \;
-\Vector{v} \; - \; \left( \frac{\Vector{w}}{\|\Vector{w}\|} \bullet \Vector{v} \right) \frac{\Vector{w}}{\|\Vector{w}\|}
+\Vector{v} \; - \; 
+\left( 
+\frac{\Vector{w}}{\|\Vector{w}\|} \bullet \Vector{v} 
+\right) 
+\frac{\Vector{w}}{\|\Vector{w}\|}
 \end{equation}
 
 \end{itemize}
@@ -493,9 +507,13 @@ The domains of many interesting functions,
 such as those that depend on vertex positions,
 are direct sum of inner product spaces.
 The \textit{direct sum} $\Space{V} \oplus \Space{W}$ is the inner product space
-consisting of the ordered pairs $\{ (\Vector{v},\Vector{w}) : \Vector{v} \in \Space{V}, \Vector{w} \in \Space{W} \}$
+consisting of the ordered pairs 
+$\{ (\Vector{v},\Vector{w}) : 
+\Vector{v} \in \Space{V}, \Vector{w} \in \Space{W} \}$
 inheriting the inner product space operations in the obvious way:
-$(\Vector{v}_0,\Vector{w}_0) \bullet (\Vector{v}_1,\Vector{w}_1) = (\Vector{v}_0 \bullet \Vector{v}_1) + (\Vector{w}_0 \bullet \Vector{w}_1).$
+$(\Vector{v}_0,\Vector{w}_0) \bullet (\Vector{v}_1,\Vector{w}_1) 
+= (\Vector{v}_0 \bullet \Vector{v}_1) 
++ (\Vector{w}_0 \bullet \Vector{w}_1).$
 I will usually write an element of $\oplus^n \Space{V}$ as
 $(\Vector{v}_0,\ldots,\Vector{v}_{n-1})$
 and use
@@ -508,27 +526,34 @@ for a function that depends on $n$ vectors.
 
 A function $\Vector{L}(\Vector{v}):\Space{V} \mapsto \Space{W}$
 is \textit{linear} iff
-$\Vector{L}(a_0 \Vector{v}_0 + a_1 \Vector{v}_1) = a_0 \Vector{L}(\Vector{v}_0) + a_1 \Vector{L}(\Vector{v}_1)$.
-I will often write $\Vector{L}\Vector{v} \equiv \Vector{L}(\Vector{v})$.
+$\Vector{L}(a_0 \Vector{v}_0 + a_1 \Vector{v}_1) 
+= a_0 \Vector{L}(\Vector{v}_0) + a_1 \Vector{L}(\Vector{v}_1)$.
+I will often write
+ $\Vector{L}\Vector{v} \equiv \Vector{L}(\Vector{v})$.
 
 It is not hard to see that, for a linear function,
 the range and kernel are linear subspaces of the codomain and
 domain, respectively.
 Thus any linear function between inner product spaces
 divides its domain and codomain each into 2 orthogonal subspaces.
-The domain is divided into $\Space{V} = \kernel(\Vector{L}) \oplus \kernel^{\perp}(\Vector{L})$,
-and the codomain is divided into $\Space{W} = \range(\Vector{L}) \oplus \range^{\perp}(\Vector{L})$.
+The domain is divided into 
+$\Space{V} = \kernel(\Vector{L}) \oplus \kernel^{\perp}(\Vector{L})$,
+and the codomain is divided into 
+$\Space{W} = \range(\Vector{L}) \oplus \range^{\perp}(\Vector{L})$.
 
 The most common representation for linear functions is the \textit{matrix:}
 Let $\Vector{L}(\Vector{v}):\Space{V} \mapsto \Space{W}$ be linear,
-$\{ \Vector{e}_0^{\Space{V}} \ldots  \Vector{e}_{m-1}^{\Space{V}} \}$ an orthonormal basis for $\Space{V}$,
+$\{ \Vector{e}_0^{\Space{V}} \ldots  \Vector{e}_{m-1}^{\Space{V}} \}$ 
+an orthonormal basis for $\Space{V}$,
 and
-$\{ \Vector{e}_0^{\Space{W}} \ldots \Vector{e}_{n-1}^{\Space{W}} \}$ an orthonormal  basis for $\Space{W}$
+$\{ \Vector{e}_0^{\Space{W}} \ldots \Vector{e}_{n-1}^{\Space{W}} \}$ 
+an orthonormal  basis for $\Space{W}$
 Then $\Vector{L}$ can be expressed as
 \begin{equation}
 \Vector{L}
  =
-\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} L_{ij} ( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} )
+\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} L_{ij}
+ ( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} )
 \end{equation}
 $(L_{ij})$ is the matrix representation of $\Vector{L}$ with respect to
 the two bases \citeAuthorYearTitle{Halmos:1958:Finite}.

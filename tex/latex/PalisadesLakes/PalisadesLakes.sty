@@ -136,9 +136,9 @@
 % unicode-math
 %-----------------------------------------------------------------
 \RequirePackage[
-math-style=ISO,
-bold-style=ISO,
-sans-style=italic,
+math-style=upright,
+bold-style=upright,
+sans-style=upright,
 partial=upright,
 nabla=upright,
 ]
@@ -270,12 +270,12 @@ FontFace={eb}{n}{Font=* ExtraBold},
 % no obvious change from no specification
 %SmallCapsFeatures={Letters=Unicase},
 % very small difference btwn upper and lower case
-% Cwould still like to have uppercase slightly larger
-SmallCapsFeatures={
-Letters={UppercaseSmallCaps,PetiteCaps},
-Scale=1.25,
-FakeStretch=0.9,
-},
+% Would still like to have uppercase slightly larger
+% SmallCapsFeatures={
+% Letters={UppercaseSmallCaps,PetiteCaps},
+% Scale=1.2,
+% FakeStretch=0.9,
+% },
 Numbers={OldStyle,Proportional},
 %Scale=1.0,
 %Scale=MatchLowercase,
@@ -333,10 +333,10 @@ Numbers={OldStyle,Proportional},
 % sans font
 %-----------------------------------------------------------------
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=155
-\setsansfont{Gill Sans MT}[
-%Scale=MatchLowercase,
-Scale=1.05,
-] 
+% \setsansfont{Gill Sans MT}[
+% %Scale=MatchLowercase,
+% Scale=1.05,
+% ] 
 
 % http://arkandis.tuxfamily.org/adffonts.html
 %\setsansfont{Gillius ADF}
@@ -362,6 +362,21 @@ Scale=1.05,
 % switching fonts within a file
 %-----------------------------------------------------------------
 
+\setmathfont{EB Garamond}
+[
+StylisticSet = 6,% log tailed Q
+% FontFace={lb}{n}{Font=* Medium},
+% FontFace={sb}{n}{Font=* SemiBold},
+% FontFace={eb}{n}{Font=* ExtraBold},
+% SmallCapsFeatures={
+% Letters={UppercaseSmallCaps,PetiteCaps},
+% Scale=1.2,
+% FakeStretch=0.9,
+% },
+Numbers={OldStyle,Proportional},
+]
+
+%-----------------------------------------------------------------
 % tex gyre 
 %-----------------------------------------------------------------
 % Tex Gyre fonts might be replacements for everything?
@@ -384,17 +399,18 @@ Scale=1.05,
 %\setmathfont{XITS Math}
 %\setmathfont[BoldFont = * Bold,Ligatures=TeX,]{XITS Math}
 % check features with https://fontdrop.info/
-\setmathfont{XITS Math}[
-RawFeature={
-%+cv01, % no obvious effect
-%+dtls,  % no obvious effect
-%+rtlm, % reverses summations, etc.
-+ssty,
-},
-% StylisticSet={1,2,3,4,8,9,10},  % no obvious effect over next
-StylisticSet={1,2,8,9,10},
-] 
 
+% \setmathfont{XITS Math}[
+% RawFeature={
+% %+cv01, % no obvious effect
+% %+dtls,  % no obvious effect
+% %+rtlm, % reverses summations, etc.
+% +ssty,
+% },
+% % StylisticSet={1,2,3,4,8,9,10},  % no obvious effect over next
+% StylisticSet={1,2,8,9,10},
+% ] 
+% 
 % lots of missing symbols
 %\setmathfont{XITS Math}[version=xits]
 %\setmathfont[version=xits]{XITSMath-Regular.otf}
@@ -569,68 +585,89 @@ StylisticSet={1,2,8,9,10},
 %-----------------------------------------------------------------
 \NewDocumentCommand{\OneToOne}{}{1{\!}{-}{\!}1}
 % TODO: just type in unicode diorectly instead?
-\NewDocumentCommand{\Set}{m}{\mathcal{#1}}
-\NewDocumentCommand{\Space}{m}{\mathbb{#1}}
-\NewDocumentCommand{\Vector}{m}{\symsf{#1}}
-\NewDocumentCommand{\Point}{m}{\symsfup{#1}}
+\NewDocumentCommand{\Set}{m}{\symcal{#1}}
+\NewDocumentCommand{\Space}{m}{\symbb{#1}}
+\NewDocumentCommand{\Integers}{}{\Space{Z}}
+\NewDocumentCommand{\Reals}{}{\Space{R}}
+\NewDocumentCommand{\Quaternions}{}{\Space{Q}}
+
+% Note: unicode-math
+% \symXXX for single char symbols
+% \mathXXX for multi-char names
+
+\NewDocumentCommand{\Vector}{m}{\symsfup{#1}}
+\NewDocumentCommand{\Point}{m}{\symbfsf{#1}}
+
+% TODO:
+% ambiguous: either value of fn is linear or affine,
+% or fn is linear or affine?
+% just use Pseudocode formatting for all fns?
+
+\NewDocumentCommand{\Linear}{m}{\mathsfup{#1}}
+\NewDocumentCommand{\Affine}{m}{\mathbfsf{#1}}
+
+\NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
+
+\DeclareMathOperator{\kernel}{\Pseudocode{kernel}}
+\DeclareMathOperator{\range}{\Pseudocode{range}}
+\DeclareMathOperator{\linearspan}{\Linear{span}} 
+\DeclareMathOperator{\affinespan}{\Affine{aspan}}
+\DeclareMathOperator{\convexspan}{\Affine{hull}} 
+\DeclareMathOperator{\linearCombination}{\Linear{linear-combination}} 
+\DeclareMathOperator{\affineCombination}{\Affine{affine-combination}} 
+\DeclareMathOperator{\convexCombination}{\Affine{convex-combination}} 
+\DeclareMathOperator{\volume}{\Pseudocode{volume}}
+
 \NewDocumentCommand{\SetSpec}{m m}{\left\{ #1\,|\,#2 \right\}}
 \NewDocumentCommand{\PowerSet}{m}{\wp \left( #1 \right)}
 \DeclareMathOperator{\Boundary}{\partial}
+
 \NewDocumentCommand{\Vertex}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Edge}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Face}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Simplex}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Facet}{m}{\toGreek{#1}}
-\NewDocumentCommand{\SimplicialComplex}{m}{\mathcal{#1}}
+\NewDocumentCommand{\SimplicialComplex}{m}{\symscr{#1}}
 \NewDocumentCommand{\Mesh}{m}{\mathcal{#1}}
 
-\NewDocumentCommand{\Integers}{}{\Space{Z}}
-\NewDocumentCommand{\Reals}{}{\Space{R}}
-\NewDocumentCommand{\Quaternions}{}{\Space{Q}}
-
-\NewDocumentCommand{\Identity}{}{\mathsf{I}}
+\NewDocumentCommand{\Identity}{}{\Pseudocode{I}}
 
 \NewDocumentCommand{\union}{}{\cup}
 \NewDocumentCommand{\intersection}{}{\cap}
 \NewDocumentCommand{\Union}{}{\bigcup}
 \NewDocumentCommand{\Intersection}{}{\bigcap}
 
-\DeclareMathOperator{\Transpose}{\mathsf{transpose}}
-\DeclareMathOperator{\LTL}{\mathsf{LTL}}   % a-transpose-a
-\DeclareMathOperator{\Inverse}{\mathsf{inverse}}
-\DeclareMathOperator{\Pseudoinverse}{\mathsf{pseudoinverse}}
+\DeclareMathOperator{\Transpose}{\Pseudocode{transpose}}
+\DeclareMathOperator{\LTL}{\Pseudocode{LTL}}   % a-transpose-a
+\DeclareMathOperator{\Inverse}{\Pseudocode{inverse}}
+\DeclareMathOperator{\Pseudoinverse}{\Pseudocode{pseudoinverse}}
 
-\DeclareMathOperator{\dimension}{dim}
+\DeclareMathOperator{\dimension}{\Pseudocode{dim}}
 %\DeclareMathOperator*{\Projection}{\Pi} % doesn't work
 \NewDocumentCommand{\Projection}{}{\Pi}
 
-\DeclareMathOperator{\kernel}{\mathsf{kernel}}
-\DeclareMathOperator{\range}{\mathsf{range}}
-\DeclareMathOperator{\linearspan}{\Vector{span}} 
-\DeclareMathOperator{\affinespan}{\Point{aspan}}
-\DeclareMathOperator{\convexspan}{\Point{hull}} 
-\DeclareMathOperator{\linearCombination}{\Vector{linear-combination}} 
-\DeclareMathOperator{\affineCombination}{\Point{affine-combination}} 
-\DeclareMathOperator{\convexCombination}{\Point{convex-combination}} 
-\DeclareMathOperator{\volume}{\mathsf{volume}}
 
 % derivative operators
 \NewDocumentCommand{\plDerivativeA}{o}
- {\operatorname{\Vector{D}}\IfValueT{#1}{_{#1}}}
+ {{\Vector{D}}\IfValueT{#1}{_{#1}}}
+% Looks better w/out extra space from \operatorname
+% {\operatorname{\Vector{D}}\IfValueT{#1}{_{#1}}}
 \NewDocumentCommand{\plDerivativeB}{o m o}
   {\plDerivativeA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Derivative}{o m o o}
  {\plDerivativeB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
 \NewDocumentCommand{\plGradientA}{o}
- {{\nabla}\IfValueT{#1}{_{#1}}}
+ {\symsfup{\nabla}\IfValueT{#1}{_{#1}}}
 \NewDocumentCommand{\plGradientB}{o m o}
   {\plGradientA[#1]{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 \NewDocumentCommand{\Gradient}{o m o o}
  {\plGradientB[#1]{#2}[#3]\IfValueT{#4}{({#4})}}
 
 \NewDocumentCommand{\Partial}{m m o}
-  {\operatorname{\partial}_{#1}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
+{\symsfup{\partial}_{#1}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
+% Looks better w/out extra space from \operatorname
+% {\operatorname{\partial}_{#1}{#2}{\IfValueT{#3}{_{\mid_{#3}}}}}
 
 \NewDocumentCommand{\Edges}{}{\Set{E}}
 \NewDocumentCommand{\Faces}{}{\Set{F}}
@@ -1237,21 +1274,21 @@ citecolor=citecolor,
 \def\@plChunkTitle#1#2#3{%
   \ifstrempty{#1}%
     {\setbox\z@=\color@hbox{}\color@endbox}%
-    {\def\pl@tmp{\textbf{#2}}%
+    {\def\pl@tmp{\textlb{#2}}%
      \ifx\pl@tmp\@empty\relax%
        \setbox\z@=\color@hbox{{\small\textsc{#1}}}\color@endbox%
      \else%  
-       \setbox\z@=\hbox{{\small\textsc{#1}}~{\large\textbf{#2}}}%
+       \setbox\z@=\hbox{{\small\textsc{#1}}~{\large\textlb{#2}}}%
      \fi}%
   \ifstrempty{#3}%
     {\unhbox\z@}%
     {\ifdim\wd\z@=0pt%
-       \textbf{#3}%
+       \textlb{#3}%
      \else%
        {\setbox\z@=\hbox{\unhbox\z@{:\space}}%
         \hangindent\wd\z@%
         \hangafter=1%
-        \mbox{\unhbox\z@}{\textbf{#3}}}%
+        \mbox{\unhbox\z@}{\textlb{#3}}}%
      \fi}}
  
 \def\@plChunkLabel#1#2{%
@@ -1270,7 +1307,7 @@ citecolor=citecolor,
 
   \newtcolorbox[auto counter,#1]{#2}[3][]{#4,%
     title={\@plChunkTitle{#3}{\thetcbcounter}{##2}},%
-    list entry={\hbox{{\small\textsc{#3}}\space}{\large\textbf{\thetcbcounter:\space}}##2},%
+    list entry={\hbox{{\small\textsc{#3}}\space}{\large\textlb{\thetcbcounter:\space}}##2},%
 %    list entry={\protect\numberline{\thetcbcounter}{\hbox{\textsc{#3}:\space}##2}},%
 %    list entry={\protect\numberline{\thetcbcounter}##2},%
     nameref={##2},%

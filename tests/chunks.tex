@@ -1,29 +1,15 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: biber: {options: [--input-directory=../bib] }
-% % arara: makeglossaries
-% % arara: makeindex
-% arara: xelatex: { synctex: on, options: [-halt-on-error] }
-% arara: xelatex: { synctex: on, options: [-halt-on-error]  }
-% arara: clean: { files: [ test-plNewChunk.aux ] }
-% arara: clean: { files: [ test-plNewChunk.bbl ] }
-% arara: clean: { files: [ test-plNewChunk.bcf ] }
-% arara: clean: { files: [ test-plNewChunk.blg ] }
-% arara: clean: { files: [ test-plNewChunk.glo ] }
-% arara: clean: { files: [ test-plNewChunk.idx ] }
-% arara: clean: { files: [ test-plNewChunk.ilq ] }
-% arara: clean: { files: [ test-plNewChunk.ind ] }
-% % arara: clean: { files: [ test-plNewChunk.log ] }
-% arara: clean: { files: [ test-plNewChunk.run.xml ] }
-% arara: clean: { files: [ test-plNewChunk.synctex.gz] }
-% arara: clean: { files: [ test-plNewChunk.plCode] }
-% arara: clean: { files: [ test-plNewChunk.plData] }
-% arara: clean: { files: [ test-plNewChunk.plMath] }
-% arara: clean: { files: [ test-plNewChunk.plExercise] }
-% arara: clean: { files: [ test-plNewChunk.plNote] }
-% arara: clean: { files: [ test-plNewChunk.plQuote] }
-% arara: clean: { files: [ test-plNewChunk.xdy ] }
-% arara: clean: { files: [ test-plNewChunk.mw ] }
+%% arara: biber
+%% arara: makeglossaries
+%% arara: makeindex
+%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
+%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
+% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+%% arara: clean: { extensions: [ bbl, bcf, blg, ] }
+%% arara: clean: { extensions: [ glg, glo, gls, ] }
+%% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+%% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %----------------------------------------------------------------
 \documentclass{PalisadesLakesArticle}
 
