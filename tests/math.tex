@@ -1,6 +1,6 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-%% arara: biber
+% arara: biber
 %% arara: makeglossaries
 %% arara: makeindex
 %% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
@@ -28,44 +28,45 @@
 
 \begin{plSection}{Fonts}
 
-...\\
-\textsc{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textrm{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textlb{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textsb{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textbf{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textit{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textsl{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\textsf{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
-\texttt{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\
-}
+\begin{eqnarray}
+\Vector{v_{01}} & = & \Point{p}_{0} - \Point{p}_{1} \\
+\Point{A} \Vector{v} & = & \Vector{L} \Vector{v} + \Vector{t} \\
+\Derivative[\Vector{v}]{\Vector{f}}[\Vector{u}][\Vector{t}]
+& = &
+\Derivative[\Vector{v}_i]{\Vector{f}}
+[(\Vector{u}_0 \ldots \Vector{u}_{n-1})][\Vector{t}_i] 
+\\
+\Partial{j}{\Vector{f}} & = &\Partial{v_j}{\Vector{f}} 
+\\
+\Derivative{\Vector{f}}[\Vector{u}]
+& = &
+\sum_{j=0}^{m-1} \Partial{j}{\Vector{f}}[\Vector{u}] 
+\otimes \Vector{e}_j^{\Space{V}}
+\\
+\Partial{j}{\Vector{f}}[\Vector{u}]
+& = &
+\Derivative{\Vector{f}}[\Vector{u}] \Vector{e}_j^{\Space{V}}
+\\
+\Gradient{f}[\Vector{u}] 
+& = &
+\sum_{j=0}^{m-1} 
+\left( 
+\Partial{j}{f}[\Vector{u}] 
+\right) \Vector{e}_j^{\Space{V}}
+\\
+\Derivative{\Vector{f}}[\Vector{u}]
+& = &
+ \sum_{i=0}^{n-1}  
+\Vector{e}_i^{\Space{W}} 
+\otimes \Gradient{\Vector{f}_i}[\Vector{u}]
+\end{eqnarray}
 
+$
+\frac
+{\partial f}{\partial x} 
+\in \mathcal{F}\left(\mathbb{R}\right)$
+;
+$\nabla_{x} \mathsf{f} (y) \in \mathfrak{V}$
 
 See 
 \citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.

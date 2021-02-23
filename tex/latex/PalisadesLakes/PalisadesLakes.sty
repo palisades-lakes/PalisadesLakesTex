@@ -213,75 +213,75 @@ nabla=upright,
 % mentions that original Duffner version has richer feature set;
 % also, I like the look of the original small caps better.
 
-% \setmainfont{EB Garamond}
-% [
-% % RawFeature={
-% % % %+aalt, % all characters tiny
-% % % %+c2pc, % all caps petite
-% % % %+c2sc, % all caps small
-% % % +case, % effect not obvious, re-test
-% % % %+dlig, % some weird ligatures
-% % % %+frac, % small digits out of position
-% % % %+hist, % all s go to f-ish shape
-% % % +hlig, % no obvious effect
-% % % +kern, % no obvious effect
-% % % +liga, % no obvious effect
-% % % %+lnum, % all digits same size, rise, drop
-% % % %+mark, % no obvious effect
-% % % %+mkmk, % no obvious effect
-% % % %+onum, % no obvious effect
-% % % %+ordn, % no obvious effect
-% % % %+pcap, % caps/smallcaps for all
-% % % %+pnum, % no obvious effect
-% % % %+sinf, % all characters tiny
-% % % %+smcp, % all text csc
-% % % %+ss01, % all text csc
-% % % %+ss02, % text (not math) parens turn into pointing hands
-% % % %+ss03, % no obvious effect,except all digits same
-% % % %+ss04, % text (not math) parens turn into flourished leaves
-% % % %+ss05, % no obvious effect
-% % +ss06, % no obvious effect
-% % % %+ss07, % all s go to f-ish shape
-% % % %+subs, % all characters tiny
-% % % %+sups, % all characters tiny
-% % % %+swsh, % page header all swashed, italic caps swashed
-% % % %+tnum, % no obvious effect
-% % },
-% %StylisticSet = 1,% all petite caps
-% %StylisticSet = 2,% text parens -> hands
-% %StylisticSet = 3,% ?
-% %StylisticSet = 4,% text parens -> flourish
-% %StylisticSet = 5,% ss -> 'beta'
-% StylisticSet = 6,% log tailed Q
-% %StylisticSet = 7,% jumps -> iumpf
-% FontFace={lb}{n}{Font=* Medium},
-% FontFace={sb}{n}{Font=* SemiBold},
-% FontFace={eb}{n}{Font=* ExtraBold},
-% % no obvious change from no specification
-% %SmallCapsFeatures={Letters=Uppercase},
-% % smallcaps caps smaller than lower case
-% %SmallCapsFeatures={Letters=UppercasePetiteCaps},
-% % smallcaps caps same size as lower case
-% %SmallCapsFeatures={Letters=UppercaseSmallCaps},
-% % increase difference btwn upper and lower case
-% % SmallCapsFeatures={Letters=PetiteCaps},
-% % no obvious change from no specification
-% %SmallCapsFeatures={Letters=SmallCaps},
-% % no obvious change from no specification
-% %SmallCapsFeatures={Letters=Unicase},
-% % very small difference btwn upper and lower case
-% % Cwould still like to have uppercase slightly larger
-% SmallCapsFeatures={
-% Letters={UppercaseSmallCaps,PetiteCaps},
-% Scale=1.5,
-% FakeStretch=0.825,
+\setmainfont{EB Garamond}
+[
+% RawFeature={
+% % %+aalt, % all characters tiny
+% % %+c2pc, % all caps petite
+% % %+c2sc, % all caps small
+% % +case, % effect not obvious, re-test
+% % %+dlig, % some weird ligatures
+% % %+frac, % small digits out of position
+% % %+hist, % all s go to f-ish shape
+% % +hlig, % no obvious effect
+% % +kern, % no obvious effect
+% % +liga, % no obvious effect
+% % %+lnum, % all digits same size, rise, drop
+% % %+mark, % no obvious effect
+% % %+mkmk, % no obvious effect
+% % %+onum, % no obvious effect
+% % %+ordn, % no obvious effect
+% % %+pcap, % caps/smallcaps for all
+% % %+pnum, % no obvious effect
+% % %+sinf, % all characters tiny
+% % %+smcp, % all text csc
+% % %+ss01, % all text csc
+% % %+ss02, % text (not math) parens turn into pointing hands
+% % %+ss03, % no obvious effect,except all digits same
+% % %+ss04, % text (not math) parens turn into flourished leaves
+% % %+ss05, % no obvious effect
+% +ss06, % no obvious effect
+% % %+ss07, % all s go to f-ish shape
+% % %+subs, % all characters tiny
+% % %+sups, % all characters tiny
+% % %+swsh, % page header all swashed, italic caps swashed
+% % %+tnum, % no obvious effect
 % },
-% Numbers={OldStyle,Proportional},
-% % smallcaps a bit more compact than MatchUppercase
-% %Scale=MatchLowercase,
-% %Scale=MatchUppercase,
-% ]
-% 
+%StylisticSet = 1,% all petite caps
+%StylisticSet = 2,% text parens -> hands
+%StylisticSet = 3,% ?
+%StylisticSet = 4,% text parens -> flourish
+%StylisticSet = 5,% ss -> 'beta'
+StylisticSet = 6,% log tailed Q
+%StylisticSet = 7,% jumps -> iumpf
+FontFace={lb}{n}{Font=* Medium},
+FontFace={sb}{n}{Font=* SemiBold},
+FontFace={eb}{n}{Font=* ExtraBold},
+% no obvious change from no specification
+%SmallCapsFeatures={Letters=Uppercase},
+% smallcaps caps smaller than lower case
+%SmallCapsFeatures={Letters=UppercasePetiteCaps},
+% smallcaps caps same size as lower case
+%SmallCapsFeatures={Letters=UppercaseSmallCaps},
+% increase difference btwn upper and lower case
+% SmallCapsFeatures={Letters=PetiteCaps},
+% no obvious change from no specification
+%SmallCapsFeatures={Letters=SmallCaps},
+% no obvious change from no specification
+%SmallCapsFeatures={Letters=Unicase},
+% very small difference btwn upper and lower case
+% Cwould still like to have uppercase slightly larger
+SmallCapsFeatures={
+Letters={UppercaseSmallCaps,PetiteCaps},
+Scale=1.25,
+FakeStretch=0.9,
+},
+Numbers={OldStyle,Proportional},
+%Scale=1.0,
+%Scale=MatchLowercase,
+%Scale=MatchUppercase,
+]
+
 %-----------------------------------------------------------------
 % XITS
 %-----------------------------------------------------------------
@@ -289,52 +289,37 @@ nabla=upright,
 % under the Open Font License, version 1.1.
 % https://github.com/alif-type/xits
 
-\setmainfont{XITS}
-[
+% \setmainfont{XITS}
+% [
 % % RawFeature={
-% % % %+aalt, % all characters tiny 
-% % % %+c2pc, % all caps petite
-% % % %+c2sc, % all caps small
-% % % +case, % effect not obvious, re-test
-% % % %+dlig, % some weird ligatures
-% % % %+frac, % small digits out of position
-% % % %+hist, % all s go to f-ish shape
-% % % +hlig, % no obvious effect
-% % % +kern, % no obvious effect
-% % % +liga, % no obvious effect
-% % % %+lnum, % all digits same size, rise, drop
-% % % %+mark, % no obvious effect
-% % % %+mkmk, % no obvious effect
-% % % %+onum, % no obvious effect
-% % % %+ordn, % no obvious effect
-% % % %+pcap, % caps/smallcaps for all
-% % % %+pnum, % no obvious effect
-% % % %+sinf, % all characters tiny 
-% % % %+smcp, % all text csc
-% % % %+ss01, % all text csc
-% % % %+ss02, % text (not math) parens turn into pointing hands
-% % % %+ss03, % no obvious effect,except all digits same
-% % % %+ss04, % text (not math) parens turn into flourished leaves
-% % % %+ss05, % no obvious effect
-% % +ss06, % no obvious effect
-% % % %+ss07, % all s go to f-ish shape
-% % % %+subs, % all characters tiny
-% % % %+sups, % all characters tiny
-% % % %+swsh, % page header all swashed, italic caps swashed
-% % % %+tnum, % no obvious effect
+% % %+kern, % no obvious change
+% % %+liga, % no obvious change
+% % %+locl, % no obvious change
+% % %+onum, % old style digits
+% % %+ss11, % no obvious change
+% % %+sups, % superscript digits
 % % },
-%StylisticSet = 11,
-FontFace={lb}{n}{Font=XITS-Regular},
-FontFace={sb}{n}{Font=XITS-Bold},
-FontFace={eb}{n}{Font=XITS-Bold},
-%SmallCapsFeatures={
-% % Letters={UppercaseSmallCaps,PetiteCaps},
-% % Scale=1.5,
-% % FakeStretch=0.825,
-% % },
-%Numbers={OldStyle,Proportional},
-]
+% StylisticSet = 11, % more condensed
+% % \scshape\lbseries -> just \lbseries
+% % need to figure out how to get boldish smallcaps
+% FontFace={lb}{n}{Font=XITS-Bold},
+% FontFace={sb}{n}{Font=XITS-Bold},
+% FontFace={eb}{n}{Font=XITS-Bold},
+% %SmallCapsFeatures={
+% % % Letters={UppercaseSmallCaps,PetiteCaps},
+% % % Scale=1.5,
+% % % FakeStretch=0.825,
+% % % },
+% Numbers={OldStyle,Proportional},
+% ]
 
+% \setmainfont
+% [    Extension = .otf,
+%    UprightFont = *-regular,
+%       BoldFont = *-bold,
+%     ItalicFont = *-italic,
+% BoldItalicFont = *-bolditalic,
+% ]{xits}
 %-----------------------------------------------------------------
 
 \DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
@@ -348,7 +333,10 @@ FontFace={eb}{n}{Font=XITS-Bold},
 % sans font
 %-----------------------------------------------------------------
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=155
-\setsansfont{Gill Sans MT}[Scale=MatchLowercase] 
+\setsansfont{Gill Sans MT}[
+%Scale=MatchLowercase,
+Scale=1.05,
+] 
 
 % http://arkandis.tuxfamily.org/adffonts.html
 %\setsansfont{Gillius ADF}
@@ -369,110 +357,119 @@ FontFace={eb}{n}{Font=XITS-Bold},
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
-%\setmathfont{texgyrepagella-math.otf}
+% TODO: problems from using 'version' option to \setmathfont
+% might be useful to track down, seems to enable
+% switching fonts within a file
+%-----------------------------------------------------------------
+
+% tex gyre 
+%-----------------------------------------------------------------
+% Tex Gyre fonts might be replacements for everything?
+
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{TeX Gyre Bonum Math}
+%\setmathfont{TeX Gyre DejaVu Math}
+%\setmathfont{TeX Gyre Pagella Math}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmathfont{TeX Gyre Termes Math}
+
+%-----------------------------------------------------------------
+% XITS
+%-----------------------------------------------------------------
+% XITS fonts are distributed 
+% under the Open Font License, version 1.1.
+% https://github.com/alif-type/xits
+
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{XITS Math}
+%\setmathfont[BoldFont = * Bold,Ligatures=TeX,]{XITS Math}
+% check features with https://fontdrop.info/
+\setmathfont{XITS Math}[
+RawFeature={
+%+cv01, % no obvious effect
+%+dtls,  % no obvious effect
+%+rtlm, % reverses summations, etc.
++ssty,
+},
+% StylisticSet={1,2,3,4,8,9,10},  % no obvious effect over next
+StylisticSet={1,2,8,9,10},
+] 
 
 % lots of missing symbols
 %\setmathfont{XITS Math}[version=xits]
-
 %\setmathfont[version=xits]{XITSMath-Regular.otf}
-% metafont errors
-% \setmainfont
-% [    Extension = .otf,
-%    UprightFont = *-regular,
-%       BoldFont = *-bold,
-%     ItalicFont = *-italic,
-% BoldItalicFont = *-bolditalic,
-% ]{xits}
 
+% metafont errors
 % \setmathfont
 % [    Extension = .otf,
 %       BoldFont = *bold,
 %       Ligatures=TeX,
 % ]{XITS Math}
 
-% lots of missing symbols
-% \setmathfont{Latin Modern Math}[version=lm]
+%-----------------------------------------------------------------
+% Latin Modern Math
+%-----------------------------------------------------------------
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{Latin Modern Math}
 
+% lots of missing symbols
+%\setmathfont{Latin Modern Math}[version=lm]
+
+%-----------------------------------------------------------------
+% STIX Two
+%-----------------------------------------------------------------
 % https://github.com/stipub/stixfonts/
-% fails with metafonmt errors
-%\setmathfont{Stix Two Math}[version=stix2]  
-% fails with metafonmt errors
-%\setmathfont{Stix Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
 
-% lots of missing symbols
-%\setmathfont{TeX Gyre Termes Math}[version=termes]
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{STIX Two Math}
+%\setmathfont{STIX Two Math}[StylisticSet={1,2,8}] 
+  
+% fails with metafont errors
+%\setmathfont{STIX Two Math}[version=stix2]  
+%\setmathfont{STIX Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
 
+%-----------------------------------------------------------------
+% Cambria
+%-----------------------------------------------------------------
 % with Windows 10
+
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{Cambria Math}
+
 % lots of missing symbols
 %\setmathfont{Cambria Math}[version=cambria]
 
-% lots of missing symbols
-%\setmathfont{TeX Gyre Pagella Math}[version=pagella]
-
+%-----------------------------------------------------------------
+% Asana
+%-----------------------------------------------------------------
 % https://www.ctan.org/tex-archive/fonts/Asana-Math/
+
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{Asana Math}
+
 % lots of missing symbols
 %\setmathfont{Asana Math}[version=asana]
 
+%-----------------------------------------------------------------
+% Libertinus
+%-----------------------------------------------------------------
+% https://github.com/alerque/libertinus
+% Possiblly a more harmonius set to use for all fonts
+
+% works (no obvious missing symbols in font.tex):
+%\setmathfont{Libertinus Math}
+
 % metafont errors
 %\setmathfont{Libertinus Math}[version=libertinus]
-
-% lots of missing symbols
-%\setmathfont{TeX Gyre DejaVu Math}[version=dejavu]
 
 %-----------------------------------------------------------------
 % local symbol defs 
 % TODO: replace by or incorporate glossary entries?
 % TODO: automatic indexing?
 %-----------------------------------------------------------------
-% category graphs
-\NewDocumentCommand{\vertices}{} 
-{\ensuremath{\mathsf{vertices}} \index{vertices@\textsf{vertices}}}
-\NewDocumentCommand{\edges}{}{
-\ensuremath{\mathsf{edges}}\index{edges@\textsf{edges}} }
-\NewDocumentCommand{\faces}{}{
-\ensuremath{\mathsf{faces}}\index{edges@\textsf{faces}} }
-\NewDocumentCommand{\compose}{}{
-\ensuremath{\mathsf{compose}}\index{compose@\textsf{compose}} }
-\NewDocumentCommand{\comop}{}
-{\ensuremath{\circ}\index{compose operation $\circ$} }
-\NewDocumentCommand{\identity}{}{
-\ensuremath{\mathsf{identity}}\index{identity@\textsf{identity}} }
-\NewDocumentCommand{\head}{}
-{\ensuremath{\mathsf{head}}\index{head@\textsf{head}} }
-\NewDocumentCommand{\tail}{}
-{\ensuremath{\mathsf{tail}}\index{tail@\textsf{tail}} }
-\NewDocumentCommand{\pvalue}{}{
-\ensuremath{\mathsf{value}\index{value@(path) \textsf{value}}} }
-\NewDocumentCommand{\concatenate}{}
-{\ensuremath{
- \mathsf{concatenate}}\index{concatenate@\textsf{concatenate}} }
-\NewDocumentCommand{\conop}{}
-{\ensuremath{\odot}\index{concat operation $\odot$} } 
-\NewDocumentCommand{\peq}{}
-{\ensuremath{\simeq}\index{path equivalence $\simeq$} }
-%-----------------------------------------------------------------
-% logic
-%\NewDocumentCommand{\implies}{}{\ensuremath{\Rightarrow} }
-\NewDocumentCommand{\liff}{}{\ensuremath{\Leftrightarrow} }
-%\NewDocumentCommand{\land}{}{\ensuremath{\wedge} }
-%\NewDocumentCommand{\lor}{}{\ensuremath{\vee} }
-%\NewDocumentCommand{\lnot}{}{\ensuremath{\vee} }
-%-----------------------------------------------------------------
-% linear spaces
-\NewDocumentCommand{\scalars}{}{\ensuremath{\mathsf{scalars}} }
-\NewDocumentCommand{\vectors}{}{\ensuremath{\mathsf{vectors}} }
-%-----------------------------------------------------------------
-\NewDocumentCommand{\OneToOne}{}{\ensuremath{1{\!}{-}{\!}1}}
 \NewDocumentCommand{\Godel}{}{G\"{o}del}
-\NewDocumentCommand{\Set}{m}{\ensuremath{\mathcal{#1}}}
-\NewDocumentCommand{\Space}{m}{\ensuremath{\mathbb{#1}}}
-\NewDocumentCommand{\Vector}{m}{\ensuremath{\mathsf{#1}}}
-\NewDocumentCommand{\Point}{m}{\ensuremath{\mathbf{#1}}}
-\NewDocumentCommand{\SetSpec}{m m}
-{\ensuremath{ \left\{ #1 \, | \, #2 \right\} }}
-\NewDocumentCommand{\PowerSet}{m}{\ensuremath{ \wp \left( #1 \right) }}
-%\NewDocumentCommand{\Boundary}{}{\partial}
-\DeclareMathOperator{\Boundary}{\partial}
+\NewDocumentCommand{\Gottingen}{}{G\"{o}ttingen}
+%-----------------------------------------------------------------
 % automate use of greek letters for flexible symbol typing, 
 % eg: \Vertex(a) -> \alpha or \Vertex(a) -> \mathsf{a}
 \ExplSyntaxOn
@@ -535,7 +532,50 @@ FontFace={eb}{n}{Font=XITS-Bold},
    }
  }
 \ExplSyntaxOff
-
+%-----------------------------------------------------------------
+% category graphs
+\NewDocumentCommand{\vertices}{} 
+{\ensuremath{\mathsf{vertices}}\index{vertices@\textsf{vertices}}}
+\NewDocumentCommand{\edges}{}{
+\ensuremath{\mathsf{edges}}\index{edges@\textsf{edges}} }
+\NewDocumentCommand{\faces}{}{
+\ensuremath{\mathsf{faces}}\index{edges@\textsf{faces}} }
+\NewDocumentCommand{\compose}{}{
+\ensuremath{\mathsf{compose}}\index{compose@\textsf{compose}} }
+\NewDocumentCommand{\comop}{}
+{\ensuremath{\circ}\index{compose operation $\circ$} }
+\NewDocumentCommand{\identity}{}{
+\ensuremath{\mathsf{identity}}\index{identity@\textsf{identity}} }
+\NewDocumentCommand{\head}{}
+{\ensuremath{\mathsf{head}}\index{head@\textsf{head}} }
+\NewDocumentCommand{\tail}{}
+{\ensuremath{\mathsf{tail}}\index{tail@\textsf{tail}} }
+\NewDocumentCommand{\pvalue}{}{
+\ensuremath{\mathsf{value}\index{value@(path) \textsf{value}}} }
+\NewDocumentCommand{\concatenate}{}
+{\ensuremath{
+ \mathsf{concatenate}}\index{concatenate@\textsf{concatenate}} }
+\NewDocumentCommand{\conop}{}
+{\ensuremath{\odot}\index{concat operation $\odot$} } 
+\NewDocumentCommand{\peq}{}
+{\ensuremath{\simeq}\index{path equivalence $\simeq$} }
+%-----------------------------------------------------------------
+% logic
+\NewDocumentCommand{\liff}{}{\iff}
+%-----------------------------------------------------------------
+% linear spaces
+\NewDocumentCommand{\scalars}{}{\mathsf{scalars}}
+\NewDocumentCommand{\vectors}{}{\mathsf{vectors}}
+%-----------------------------------------------------------------
+\NewDocumentCommand{\OneToOne}{}{1{\!}{-}{\!}1}
+% TODO: just type in unicode diorectly instead?
+\NewDocumentCommand{\Set}{m}{\mathcal{#1}}
+\NewDocumentCommand{\Space}{m}{\mathbb{#1}}
+\NewDocumentCommand{\Vector}{m}{\symsf{#1}}
+\NewDocumentCommand{\Point}{m}{\symsfup{#1}}
+\NewDocumentCommand{\SetSpec}{m m}{\left\{ #1\,|\,#2 \right\}}
+\NewDocumentCommand{\PowerSet}{m}{\wp \left( #1 \right)}
+\DeclareMathOperator{\Boundary}{\partial}
 \NewDocumentCommand{\Vertex}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Edge}{m}{\toGreek{#1}}
 \NewDocumentCommand{\Face}{m}{\toGreek{#1}}
@@ -572,7 +612,6 @@ FontFace={eb}{n}{Font=XITS-Bold},
 \DeclareMathOperator{\linearCombination}{\Vector{linear-combination}} 
 \DeclareMathOperator{\affineCombination}{\Point{affine-combination}} 
 \DeclareMathOperator{\convexCombination}{\Point{convex-combination}} 
-
 \DeclareMathOperator{\volume}{\mathsf{volume}}
 
 % derivative operators
@@ -766,7 +805,7 @@ backref=true,
 \RequirePackage{titling}[2009/09/04]
 %\newfontfamily\titlefont[Scale=MatchUppercase]{Gill Sans MT}
 %\renewcommand{\maketitlehooka}{\titlefont}
-\pretitle{\begin{flushright}\Huge\scshape\lbseries}
+\pretitle{\begin{flushright}\Huge\lbseries\scshape}
 \posttitle{\par\end{flushright}\vskip 0.25em}
 \preauthor{\begin{flushright}\scshape\mdseries}
 \postauthor{\par\end{flushright}}
@@ -791,37 +830,37 @@ backref=true,
 % TODO: consistent font size across sections and other chunks
 % TODO: spacing should be relative to font size
 
-\titleformat{\part}[hang]{\huge\scshape\lbseries}
+\titleformat{\part}[hang]{\huge\lbseries\scshape}
   {\thepart}{0.5em}{}
 
-\titleformat{\chapter}[hang]{\LARGE\scshape\lbseries}
+\titleformat{\chapter}[hang]{\LARGE\lbseries\scshape}
   {\thechapter}{0.5em}{}
 
-\titleformat{\section}[hang]{\Large\scshape\lbseries}
+\titleformat{\section}[hang]{\Large\lbseries\scshape}
   {\thesection}{0.5em}{}
 \titlespacing\section{0pt}
   {16pt plus 16pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subsection}[hang]{\large\scshape\lbseries}
+\titleformat{\subsection}[hang]{\large\lbseries\scshape}
   {\thesubsection}{0.5em}{}
 \titlespacing\subsection{0pt}
   {14pt plus 14pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subsubsection}[hang]{\large\scshape\lbseries}
+\titleformat{\subsubsection}[hang]{\large\lbseries\scshape}
   {\thesubsubsection}{0.5em}{}
 \titlespacing\subsubsection{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\paragraph}[hang]{\normalsize\scshape\lbseries}
+\titleformat{\paragraph}[hang]{\normalsize\lbseries\scshape}
 {\theparagraph}{0.5em}{}
 \titlespacing\paragraph{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subparagraph}[hang]{\normalsize\scshape\lbseries}
+\titleformat{\subparagraph}[hang]{\normalsize\lbseries\scshape}
 {\thesubparagraph}{0.5em}{}
 \setcounter{secnumdepth}{7}
 \titlespacing\subparagraph{0pt}
