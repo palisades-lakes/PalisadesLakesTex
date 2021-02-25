@@ -150,9 +150,26 @@ nabla=upright,
 % \RequirePackage[math-style=literal]{unicode-math}[2020/01/30]
 
 %-----------------------------------------------------------------
-% main font
+% main fonts
 %-----------------------------------------------------------------
+% NewComputerModern
 
+% No bold small caps as of 2021-02-24
+% 
+
+% \RequirePackage[default]{fontsetup}[2021-02-21] % (loads the Book weight)
+% % or
+% \RequirePackage{newcomputermodern}[2021-02-21]  % (loads the Book weight)
+% % or
+% \RequirePackage[olddefault]{fontsetup}[2021-02-21] % (loads the Regular weight)
+% % or
+
+%\RequirePackage[regular]{newcomputermodern}[2021-02-21]  % (loads the Regular weight)
+% FontFace={lb}{n}{Font=NewCM10-Book},
+% FontFace={sb}{n}{Font=NewCM10-Book},
+% FontFace={eb}{n}{Font=NewCM10-Bold},
+
+%-----------------------------------------------------------------
 % https://www.stixfonts.org/
 % STIX fonts are available for download at 
 % https://github.com/stipub/stixfonts 
@@ -252,8 +269,9 @@ nabla=upright,
 %StylisticSet = 3,% ?
 %StylisticSet = 4,% text parens -> flourish
 %StylisticSet = 5,% ss -> 'beta'
-StylisticSet = 6,% log tailed Q
+StylisticSet = 6,% long tailed Q
 %StylisticSet = 7,% jumps -> iumpf
+FontFace={md}{n}{Font=* Medium},
 FontFace={lb}{n}{Font=* Medium},
 FontFace={sb}{n}{Font=* SemiBold},
 FontFace={eb}{n}{Font=* ExtraBold},
@@ -321,25 +339,37 @@ Numbers={OldStyle,Proportional},
 % BoldItalicFont = *-bolditalic,
 % ]{xits}
 %-----------------------------------------------------------------
-
-\DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
-\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
-\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
-\DeclareTextFontCommand{\textlb}{\lbseries}
-\DeclareTextFontCommand{\textsb}{\sbseries}
-\DeclareTextFontCommand{\texteb}{\ebseries}
+ % TODO: redefine \mdseries instead
+ 
+% \DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
+% \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+% \DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+% \DeclareTextFontCommand{\textlb}{\lbseries}
+% \DeclareTextFontCommand{\textsb}{\sbseries}
+% \DeclareTextFontCommand{\texteb}{\ebseries}
 
 %-----------------------------------------------------------------
 % sans font
 %-----------------------------------------------------------------
+% Note: \setsansfont doesn't appear to affect math sans font
+% Currently avoiding sans in regular text, so leave as default
+% Maybe later choose something to match the math sans, and use 
+% that for text pseudcode that matches math pseudocode as closely
+% as possible.
+
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=155
-% \setsansfont{Gill Sans MT}[
-% %Scale=MatchLowercase,
-% Scale=1.05,
-% ] 
+
+%\setsansfont{Gill Sans MT}[Scale=1.05,]
 
 % http://arkandis.tuxfamily.org/adffonts.html
-%\setsansfont{Gillius ADF}
+
+\setsansfont{Gillius ADF No2}[Scale=1.05]
+
+%-----------------------------------------------------------------
+% mono font
+%-----------------------------------------------------------------
+% TODO:
+
 %-----------------------------------------------------------------
 % cjk fonts
 %-----------------------------------------------------------------
@@ -353,7 +383,7 @@ Numbers={OldStyle,Proportional},
 %-----------------------------------------------------------------
 \RequirePackage{amsmath}[2020/09/23]
 %\RequirePackage{amssymb}[2013/01/14]
-\RequirePackage{mathtools}[2020/03/24]
+\RequirePackage{mathtools}[2020/03/24] % for \splitfrac
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
@@ -361,32 +391,46 @@ Numbers={OldStyle,Proportional},
 % might be useful to track down, seems to enable
 % switching fonts within a file
 %-----------------------------------------------------------------
-
-\setmathfont{EB Garamond}
-[
-StylisticSet = 6,% log tailed Q
-% FontFace={lb}{n}{Font=* Medium},
-% FontFace={sb}{n}{Font=* SemiBold},
-% FontFace={eb}{n}{Font=* ExtraBold},
-% SmallCapsFeatures={
-% Letters={UppercaseSmallCaps,PetiteCaps},
-% Scale=1.2,
-% FakeStretch=0.9,
-% },
-Numbers={OldStyle,Proportional},
-]
-
+% Note: looks that same as EB Garamond as main font 
+% and no math font specified
+% Package fontspec Warning: Font "EB Garamond" does not contain requested Script
+% (fontspec)                "Math".
+% \setmathfont{EB Garamond}
+% [
+% StylisticSet = 6,% log tailed Q
+% % FontFace={lb}{n}{Font=* Medium},
+% % FontFace={sb}{n}{Font=* SemiBold},
+% % FontFace={eb}{n}{Font=* ExtraBold},
+% % FontFace={sf}{n}{Font=Gill Sans MT},
+% % SmallCapsFeatures={
+% % Letters={UppercaseSmallCaps,PetiteCaps},
+% % Scale=1.2,
+% % FakeStretch=0.9,
+% % },
+% Numbers={OldStyle,Proportional},
+% ]
 %-----------------------------------------------------------------
 % tex gyre 
 %-----------------------------------------------------------------
 % Tex Gyre fonts might be replacements for everything?
 
-% works (no obvious missing symbols in font.tex):
+% following work (no obvious missing symbols in tests/math.tex):
+
 %\setmathfont{TeX Gyre Bonum Math}
+% sans math chars larger than EB Garamond text:
 %\setmathfont{TeX Gyre DejaVu Math}
 %\setmathfont{TeX Gyre Pagella Math}
 %\setmathfont{TeX Gyre Schola Math}
 %\setmathfont{TeX Gyre Termes Math}
+
+%-----------------------------------------------------------------
+% GFS
+%-----------------------------------------------------------------
+
+% No bold math sans, probably no slanted or italic
+% all sans symbols looks nice, tho maybe not in certain cases.
+% default lowercase small compared to EB Garamond text
+%\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
 
 %-----------------------------------------------------------------
 % XITS
@@ -401,16 +445,27 @@ Numbers={OldStyle,Proportional},
 % check features with https://fontdrop.info/
 
 % \setmathfont{XITS Math}[
-% RawFeature={
-% %+cv01, % no obvious effect
-% %+dtls,  % no obvious effect
-% %+rtlm, % reverses summations, etc.
-% +ssty,
-% },
-% % StylisticSet={1,2,3,4,8,9,10},  % no obvious effect over next
-% StylisticSet={1,2,8,9,10},
-% ] 
-% 
+% RawFeature={+ssty,},
+% StylisticSet={1,8,},
+% ]
+
+% no light or semibold, use condensed and regular, or regular and bold
+% \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
+% \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
+%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
+
+% proprietary, comes with Windows 10
+% \setmathfont{Gill Sans Nova Light}[range={sfup},]
+% \setmathfont{Gill Sans Nova}[range={bfsfup},]
+
+% proprietary, comes with Windows 10
+% condensed is too condensed
+% \setmathfont{Gill Sans MT Condensed}[range={sfup},]
+% \setmathfont{Gill Sans MT}[range={bfsfup},]
+
+% only regluar:
+%\setmathfont{GFS Neohellenic Math}[range={sfup,bfsfup},Scale=MatchLowercase]
+
 % lots of missing symbols
 %\setmathfont{XITS Math}[version=xits]
 %\setmathfont[version=xits]{XITSMath-Regular.otf}
@@ -426,7 +481,14 @@ Numbers={OldStyle,Proportional},
 % Latin Modern Math
 %-----------------------------------------------------------------
 % works (no obvious missing symbols in font.tex):
+
+% TexWorks thinks this is the default
 %\setmathfont{Latin Modern Math}
+\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
+% no light or semibold, use condensed and regular, or regular and bold
+\setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
+\setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
+%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
 
 % lots of missing symbols
 %\setmathfont{Latin Modern Math}[version=lm]
@@ -608,6 +670,8 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
+\DeclareMathOperator{\domain}{\Pseudocode{domain}}
+\DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
 \DeclareMathOperator{\kernel}{\Pseudocode{kernel}}
 \DeclareMathOperator{\range}{\Pseudocode{range}}
 \DeclareMathOperator{\linearspan}{\Linear{span}} 
@@ -842,7 +906,7 @@ backref=true,
 \RequirePackage{titling}[2009/09/04]
 %\newfontfamily\titlefont[Scale=MatchUppercase]{Gill Sans MT}
 %\renewcommand{\maketitlehooka}{\titlefont}
-\pretitle{\begin{flushright}\Huge\lbseries\scshape}
+\pretitle{\begin{flushright}\Huge\mdseries\scshape}
 \posttitle{\par\end{flushright}\vskip 0.25em}
 \preauthor{\begin{flushright}\scshape\mdseries}
 \postauthor{\par\end{flushright}}
@@ -867,37 +931,37 @@ backref=true,
 % TODO: consistent font size across sections and other chunks
 % TODO: spacing should be relative to font size
 
-\titleformat{\part}[hang]{\huge\lbseries\scshape}
+\titleformat{\part}[hang]{\huge\mdseries\scshape}
   {\thepart}{0.5em}{}
 
-\titleformat{\chapter}[hang]{\LARGE\lbseries\scshape}
+\titleformat{\chapter}[hang]{\LARGE\mdseries\scshape}
   {\thechapter}{0.5em}{}
 
-\titleformat{\section}[hang]{\Large\lbseries\scshape}
+\titleformat{\section}[hang]{\Large\mdseries\scshape}
   {\thesection}{0.5em}{}
 \titlespacing\section{0pt}
   {16pt plus 16pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subsection}[hang]{\large\lbseries\scshape}
+\titleformat{\subsection}[hang]{\large\mdseries\scshape}
   {\thesubsection}{0.5em}{}
 \titlespacing\subsection{0pt}
   {14pt plus 14pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subsubsection}[hang]{\large\lbseries\scshape}
+\titleformat{\subsubsection}[hang]{\large\mdseries\scshape}
   {\thesubsubsection}{0.5em}{}
 \titlespacing\subsubsection{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\paragraph}[hang]{\normalsize\lbseries\scshape}
+\titleformat{\paragraph}[hang]{\normalsize\mdseries\scshape}
 {\theparagraph}{0.5em}{}
 \titlespacing\paragraph{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
-\titleformat{\subparagraph}[hang]{\normalsize\lbseries\scshape}
+\titleformat{\subparagraph}[hang]{\normalsize\mdseries\scshape}
 {\thesubparagraph}{0.5em}{}
 \setcounter{secnumdepth}{7}
 \titlespacing\subparagraph{0pt}
@@ -1274,21 +1338,21 @@ citecolor=citecolor,
 \def\@plChunkTitle#1#2#3{%
   \ifstrempty{#1}%
     {\setbox\z@=\color@hbox{}\color@endbox}%
-    {\def\pl@tmp{\textlb{#2}}%
+    {\def\pl@tmp{\textmd{#2}}%
      \ifx\pl@tmp\@empty\relax%
        \setbox\z@=\color@hbox{{\small\textsc{#1}}}\color@endbox%
      \else%  
-       \setbox\z@=\hbox{{\small\textsc{#1}}~{\large\textlb{#2}}}%
+       \setbox\z@=\hbox{{\small\textsc{#1}}~{\large\textmd{#2}}}%
      \fi}%
   \ifstrempty{#3}%
     {\unhbox\z@}%
     {\ifdim\wd\z@=0pt%
-       \textlb{#3}%
+       \textmd{#3}%
      \else%
        {\setbox\z@=\hbox{\unhbox\z@{:\space}}%
         \hangindent\wd\z@%
         \hangafter=1%
-        \mbox{\unhbox\z@}{\textlb{#3}}}%
+        \mbox{\unhbox\z@}{\textmd{#3}}}%
      \fi}}
  
 \def\@plChunkLabel#1#2{%
@@ -1307,7 +1371,7 @@ citecolor=citecolor,
 
   \newtcolorbox[auto counter,#1]{#2}[3][]{#4,%
     title={\@plChunkTitle{#3}{\thetcbcounter}{##2}},%
-    list entry={\hbox{{\small\textsc{#3}}\space}{\large\textlb{\thetcbcounter:\space}}##2},%
+    list entry={\hbox{{\small\textsc{#3}}\space}{\large\textmd{\thetcbcounter:\space}}##2},%
 %    list entry={\protect\numberline{\thetcbcounter}{\hbox{\textsc{#3}:\space}##2}},%
 %    list entry={\protect\numberline{\thetcbcounter}##2},%
     nameref={##2},%

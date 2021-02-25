@@ -1,6 +1,6 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: biber
+%% arara: biber
 %% arara: makeglossaries
 %% arara: makeindex
 %% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
@@ -29,14 +29,13 @@
 \begin{plSection}{Fonts}
 
 $
-\frac
-{\partial f}{\partial x} 
-\in \mathcal{F}\left(\mathbb{R}\right)$
+\frac{\partial f}{\partial x} 
+\in \mathcal{F}\left(\symbb{R} \rightarrow \symbb{R}\right)$
 ;
-$\nabla_{x} \mathsf{f} (y) \in \mathfrak{V}$
+$\nabla_{x} f (y) \in \codomain ( f )$
 
 \begin{eqnarray}
-\Vector{v_{01}} & = & \Point{p}_{0} - \Point{p}_{1} \\
+\Vector{v_{01}} & = & \Point{p}_{0} - \Point{p}_{1} \in \symfrak{K}^n\\
 \Point{A} \Vector{v} & = & \Vector{L} \Vector{v} + \Vector{t} \\
 \Derivative[\Vector{v}]{\Vector{f}}[\Vector{u}][\Vector{t}]
 & = &
@@ -79,7 +78,7 @@ See
 \label{sec:Topological-spaces}
 
 \begin{plDefinition}{\textit{Continuity} of functions}{Continuity} 
-$f \, : \, \Set{D} \mapsto \Set{C}$,
+$f \, : \, \Set{D} \rightarrow \Set{C}$,
 for topological spaces $\Set{D}$ and $\Set{C}$,
 is \textit{continuous}
 if for any open set $\Set{O}_{\Set{C}} \subset \Set{C}$,
@@ -108,7 +107,7 @@ $\Space{V} = \left[ \Set{V}, \Space{K}, \linearCombination \right]$
 \begin{equation}
 \left( \linearCombination 
 \, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
- \rightarrow \; \Vector{v}_2  \in \Set{V}
+ \mapsto \; \Vector{v}_2  \in \Set{V}
 \end{equation}
 for $\Vector{v}_0, \Vector{v}_1 \in \Set{V} $
 and $a_0, a_1 \in \Space{K}$.
@@ -182,7 +181,7 @@ Where $\Space{K}$ is any field.
   $\Vector{x} +_{\Space{K}^n} \Vector{y}
   = \left[ \ldots , \left( x_i +_{\Space{K}} y_i \right) ,\ldots \right]$
 \end{itemize}
-Includes $\Space{Q}$ and $|Space{R}$.
+Includes $\Space{Q}$ and $\Space{R}$.
 \end{plExample}
 
 \begin{plExample}{The functions from any domain to some linear space.}{}
