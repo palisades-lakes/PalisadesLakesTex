@@ -152,7 +152,15 @@ nabla=upright,
 %-----------------------------------------------------------------
 % main fonts
 %-----------------------------------------------------------------
+% Latin Modern from CTAN
+
+\RequirePpackage{lm}
+\RequirePackage{lm-math}[2015-04-19]
+%\usepackage{cfr-lm}
+%-----------------------------------------------------------------
 % NewComputerModern
+% https://ctan.org/pkg/newcomputermodern
+%   The GUST Font License (GFL)
 
 % No bold small caps as of 2021-02-24
 % 
@@ -170,20 +178,26 @@ nabla=upright,
 % FontFace={eb}{n}{Font=NewCM10-Bold},
 
 %-----------------------------------------------------------------
-% https://www.stixfonts.org/
-% STIX fonts are available for download at 
-% https://github.com/stipub/stixfonts 
-% and distributed under the SIL Open Font License, Version 1.1
+% Libre Caslon 
+%
+% TODO: other impallari fonts?
+%%
+% https://github.com/impallari/Libre-Caslon-Display/
+% https://github.com/impallari/Libre-Caslon-Text
+% Libre Caslon is licensed under the SIL Open Font License v1.1 
+%(http://scripts.sil.org/OFL)
+
+%\RequirePackage{librecaslon}[2020-07-29]
+%\setmainfont{Libre Caslon Text}%[Scale=0.85]
+%-----------------------------------------------------------------
 
 %\setmainfont{Baskerville Old Face}
-%\setmainfont{Libre Caslon Text}[Scale=0.85]
 %\setmainfont{Centaur}
 %\setmainfont{Georgia}
 %\setmainfont{Perpetua}
 %\setmainfont{Poor Richard}
 
-% http://www.impallari.com/projects/overview/libre-caslon-display-and-text
-%\setmainfont{Libre Caslon Text}[Scale=0.85]
+
 %\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
 
 % http://iginomarini.com/fell/the-revival-fonts/
@@ -195,6 +209,13 @@ nabla=upright,
  
 % https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
 
+%\setmainfont{Palatino Linotype}
+%\setmainfont{Perpetua}[Scale=1.1]
+%\setmainfont{Times New Roman}
+
+%-----------------------------------------------------------------
+% MS Garamond
+%-----------------------------------------------------------------
 %\setmainfont{Garamond}
 
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=134
@@ -202,11 +223,6 @@ nabla=upright,
 %  SmallCapsFeatures={Letters=SmallCaps},
 % ]{Garamond}
 % \setmainfont{Garamond}
-%\setmainfont{Palatino Linotype}
-%\setmainfont{Perpetua}[Scale=1.1]
-%\setmainfont{Times New Roman}
-
-%\setmainfont{texgyrepagella-regular.otf}
 
 %-----------------------------------------------------------------
 % EB Garamond
@@ -214,7 +230,12 @@ nabla=upright,
 % https://en.wikipedia.org/wiki/EB_Garamond
 % http://www.georgduffner.at/ebgaramond/download.html
 % https://github.com/octaviopardo/EBGaramond12
-% \setmainfont{EB Garamond}[Numbers={OldStyle,Proportional},RawFeature={+ss06}]
+
+%\RequirePackage{garamond-math}[2019-11-17]
+
+% \setmainfont{EB Garamond}[
+%   Numbers={OldStyle,Proportional},
+%   RawFeature={+ss06}]
 
 % original setup with Duffner's files
 % \setmainfont[
@@ -230,75 +251,75 @@ nabla=upright,
 % mentions that original Duffner version has richer feature set;
 % also, I like the look of the original small caps better.
 
-\setmainfont{EB Garamond}
-[
-% RawFeature={
-% % %+aalt, % all characters tiny
-% % %+c2pc, % all caps petite
-% % %+c2sc, % all caps small
-% % +case, % effect not obvious, re-test
-% % %+dlig, % some weird ligatures
-% % %+frac, % small digits out of position
-% % %+hist, % all s go to f-ish shape
-% % +hlig, % no obvious effect
-% % +kern, % no obvious effect
-% % +liga, % no obvious effect
-% % %+lnum, % all digits same size, rise, drop
-% % %+mark, % no obvious effect
-% % %+mkmk, % no obvious effect
-% % %+onum, % no obvious effect
-% % %+ordn, % no obvious effect
-% % %+pcap, % caps/smallcaps for all
-% % %+pnum, % no obvious effect
-% % %+sinf, % all characters tiny
-% % %+smcp, % all text csc
-% % %+ss01, % all text csc
-% % %+ss02, % text (not math) parens turn into pointing hands
-% % %+ss03, % no obvious effect,except all digits same
-% % %+ss04, % text (not math) parens turn into flourished leaves
-% % %+ss05, % no obvious effect
-% +ss06, % no obvious effect
-% % %+ss07, % all s go to f-ish shape
-% % %+subs, % all characters tiny
-% % %+sups, % all characters tiny
-% % %+swsh, % page header all swashed, italic caps swashed
-% % %+tnum, % no obvious effect
-% },
-%StylisticSet = 1,% all petite caps
-%StylisticSet = 2,% text parens -> hands
-%StylisticSet = 3,% ?
-%StylisticSet = 4,% text parens -> flourish
-%StylisticSet = 5,% ss -> 'beta'
-StylisticSet = 6,% long tailed Q
-%StylisticSet = 7,% jumps -> iumpf
-FontFace={md}{n}{Font=* Medium},
-FontFace={lb}{n}{Font=* Medium},
-FontFace={sb}{n}{Font=* SemiBold},
-FontFace={eb}{n}{Font=* ExtraBold},
-% no obvious change from no specification
-%SmallCapsFeatures={Letters=Uppercase},
-% smallcaps caps smaller than lower case
-%SmallCapsFeatures={Letters=UppercasePetiteCaps},
-% smallcaps caps same size as lower case
-%SmallCapsFeatures={Letters=UppercaseSmallCaps},
-% increase difference btwn upper and lower case
-% SmallCapsFeatures={Letters=PetiteCaps},
-% no obvious change from no specification
-%SmallCapsFeatures={Letters=SmallCaps},
-% no obvious change from no specification
-%SmallCapsFeatures={Letters=Unicase},
-% very small difference btwn upper and lower case
-% Would still like to have uppercase slightly larger
-% SmallCapsFeatures={
-% Letters={UppercaseSmallCaps,PetiteCaps},
-% Scale=1.2,
-% FakeStretch=0.9,
-% },
-Numbers={OldStyle,Proportional},
-%Scale=1.0,
-%Scale=MatchLowercase,
-%Scale=MatchUppercase,
-]
+% \setmainfont{EB Garamond}
+% [
+% % RawFeature={
+% % % %+aalt, % all characters tiny
+% % % %+c2pc, % all caps petite
+% % % %+c2sc, % all caps small
+% % % +case, % effect not obvious, re-test
+% % % %+dlig, % some weird ligatures
+% % % %+frac, % small digits out of position
+% % % %+hist, % all s go to f-ish shape
+% % % +hlig, % no obvious effect
+% % % +kern, % no obvious effect
+% % % +liga, % no obvious effect
+% % % %+lnum, % all digits same size, rise, drop
+% % % %+mark, % no obvious effect
+% % % %+mkmk, % no obvious effect
+% % % %+onum, % no obvious effect
+% % % %+ordn, % no obvious effect
+% % % %+pcap, % caps/smallcaps for all
+% % % %+pnum, % no obvious effect
+% % % %+sinf, % all characters tiny
+% % % %+smcp, % all text csc
+% % % %+ss01, % all text csc
+% % % %+ss02, % text (not math) parens turn into pointing hands
+% % % %+ss03, % no obvious effect,except all digits same
+% % % %+ss04, % text (not math) parens turn into flourished leaves
+% % % %+ss05, % no obvious effect
+% % +ss06, % no obvious effect
+% % % %+ss07, % all s go to f-ish shape
+% % % %+subs, % all characters tiny
+% % % %+sups, % all characters tiny
+% % % %+swsh, % page header all swashed, italic caps swashed
+% % % %+tnum, % no obvious effect
+% % },
+% %StylisticSet = 1,% all petite caps
+% %StylisticSet = 2,% text parens -> hands
+% %StylisticSet = 3,% ?
+% %StylisticSet = 4,% text parens -> flourish
+% %StylisticSet = 5,% ss -> 'beta'
+% StylisticSet = 6,% long tailed Q
+% %StylisticSet = 7,% jumps -> iumpf
+% FontFace={md}{n}{Font=* Medium},
+% FontFace={lb}{n}{Font=* Medium},
+% FontFace={sb}{n}{Font=* SemiBold},
+% FontFace={eb}{n}{Font=* ExtraBold},
+% % no obvious change from no specification
+% %SmallCapsFeatures={Letters=Uppercase},
+% % smallcaps caps smaller than lower case
+% %SmallCapsFeatures={Letters=UppercasePetiteCaps},
+% % smallcaps caps same size as lower case
+% %SmallCapsFeatures={Letters=UppercaseSmallCaps},
+% % increase difference btwn upper and lower case
+% % SmallCapsFeatures={Letters=PetiteCaps},
+% % no obvious change from no specification
+% %SmallCapsFeatures={Letters=SmallCaps},
+% % no obvious change from no specification
+% %SmallCapsFeatures={Letters=Unicase},
+% % very small difference btwn upper and lower case
+% % Would still like to have uppercase slightly larger
+% % SmallCapsFeatures={
+% % Letters={UppercaseSmallCaps,PetiteCaps},
+% % Scale=1.2,
+% % FakeStretch=0.9,
+% % },
+% Numbers={OldStyle,Proportional},
+% %Scale=1.0,
+% %Scale=MatchLowercase,
+% %Scale=MatchUppercase,
+% ]
 
 %-----------------------------------------------------------------
 % XITS
@@ -341,12 +362,12 @@ Numbers={OldStyle,Proportional},
 %-----------------------------------------------------------------
  % TODO: redefine \mdseries instead
  
-% \DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
-% \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
-% \DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
-% \DeclareTextFontCommand{\textlb}{\lbseries}
-% \DeclareTextFontCommand{\textsb}{\sbseries}
-% \DeclareTextFontCommand{\texteb}{\ebseries}
+\DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
+\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\textlb}{\lbseries}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+\DeclareTextFontCommand{\texteb}{\ebseries}
 
 %-----------------------------------------------------------------
 % sans font
@@ -362,6 +383,7 @@ Numbers={OldStyle,Proportional},
 %\setsansfont{Gill Sans MT}[Scale=1.05,]
 
 % http://arkandis.tuxfamily.org/adffonts.html
+% Mar-12-11
 
 \setsansfont{Gillius ADF No2}[Scale=1.05]
 
@@ -390,10 +412,24 @@ Numbers={OldStyle,Proportional},
 % TODO: problems from using 'version' option to \setmathfont
 % might be useful to track down, seems to enable
 % switching fonts within a file
+
+% Notes from unicode-math.pdf:
+%
+% Alphabet ranges:
+% up , it , bb , bbit , scr , cal , bfcal , frak , tt , sfup ,
+% sfit , bfup , bfit , bfscr , bffrak , bfsfup , bfsfit
+
+\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
+% no light or semibold, use condensed and regular, or regular and bold
+\setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
+\setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
+%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
+
 %-----------------------------------------------------------------
 % Note: looks that same as EB Garamond as main font 
 % and no math font specified
-% Package fontspec Warning: Font "EB Garamond" does not contain requested Script
+% Package fontspec Warning: 
+%  Font "EB Garamond" does not contain requested Script
 % (fontspec)                "Math".
 % \setmathfont{EB Garamond}
 % [
@@ -424,6 +460,25 @@ Numbers={OldStyle,Proportional},
 %\setmathfont{TeX Gyre Termes Math}
 
 %-----------------------------------------------------------------
+%  math sans fonts
+%-----------------------------------------------------------------
+% no light or semibold, use condensed and regular, or regular and bold
+% \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
+% \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
+%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
+
+% proprietary, comes with Windows 10
+% \setmathfont{Gill Sans Nova Light}[range={sfup},]
+% \setmathfont{Gill Sans Nova}[range={bfsfup},]
+
+% proprietary, comes with Windows 10
+% condensed is too condensed
+% \setmathfont{Gill Sans MT Condensed}[range={sfup},]
+% \setmathfont{Gill Sans MT}[range={bfsfup},]
+
+% only regluar:
+%\setmathfont{GFS Neohellenic Math}[range={sfup,bfsfup},Scale=MatchLowercase]
+%-----------------------------------------------------------------
 % GFS
 %-----------------------------------------------------------------
 
@@ -431,6 +486,12 @@ Numbers={OldStyle,Proportional},
 % all sans symbols looks nice, tho maybe not in certain cases.
 % default lowercase small compared to EB Garamond text
 %\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
+
+% \setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
+% % no light or semibold, use condensed and regular, or regular and bold
+% \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
+% \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
+% %\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
 
 %-----------------------------------------------------------------
 % XITS
@@ -449,22 +510,6 @@ Numbers={OldStyle,Proportional},
 % StylisticSet={1,8,},
 % ]
 
-% no light or semibold, use condensed and regular, or regular and bold
-% \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
-% \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
-%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
-
-% proprietary, comes with Windows 10
-% \setmathfont{Gill Sans Nova Light}[range={sfup},]
-% \setmathfont{Gill Sans Nova}[range={bfsfup},]
-
-% proprietary, comes with Windows 10
-% condensed is too condensed
-% \setmathfont{Gill Sans MT Condensed}[range={sfup},]
-% \setmathfont{Gill Sans MT}[range={bfsfup},]
-
-% only regluar:
-%\setmathfont{GFS Neohellenic Math}[range={sfup,bfsfup},Scale=MatchLowercase]
 
 % lots of missing symbols
 %\setmathfont{XITS Math}[version=xits]
@@ -484,11 +529,6 @@ Numbers={OldStyle,Proportional},
 
 % TexWorks thinks this is the default
 %\setmathfont{Latin Modern Math}
-\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
-% no light or semibold, use condensed and regular, or regular and bold
-\setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
-\setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
-%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
 
 % lots of missing symbols
 %\setmathfont{Latin Modern Math}[version=lm]
@@ -497,6 +537,11 @@ Numbers={OldStyle,Proportional},
 % STIX Two
 %-----------------------------------------------------------------
 % https://github.com/stipub/stixfonts/
+% https://www.stixfonts.org/
+% STIX fonts are available for download at 
+% https://github.com/stipub/stixfonts 
+% and distributed under the SIL Open Font License, Version 1.1
+
 
 % works (no obvious missing symbols in font.tex):
 %\setmathfont{STIX Two Math}
