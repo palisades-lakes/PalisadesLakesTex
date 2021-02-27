@@ -214,15 +214,98 @@ nabla=upright,
 %\setmainfont{Times New Roman}
 
 %-----------------------------------------------------------------
+% Garamonds
+%-----------------------------------------------------------------
+% Cormorant
+%-----------------------------------------------------------------
+% 2021-02-27
+% https://fonts.google.com/specimen/Cormorant?preview.text_type=custom#standard-styles
+% https://github.com/CatharsisFonts/Cormorant%
+% These fonts are licensed under the Open Font License.
+% You can use them freely in your products & projects - 
+% print or digital, commercial or otherwise. 
+% However, you can't sell the fonts on their own.
+% This isn't legal advice, please consider consulting a lawyer 
+% and see the full license for all details.
+% https://fonts.google.com/specimen/Cormorant?preview.text_type=custom#license
+%
+% sans pairings:
+% https://fonts.google.com/specimen/Roboto?preview.text_type=custom&sidebar.open=true&selection.family=Roboto#standard-styles
+% https://github.com/CatharsisFonts/Ysabeau (ffrom Eau de Garamond)
+
+% CormorantGaramond, CormorantInfant, CormorantSC,...?
+\setmainfont{Cormorant}[
+%\setmainfont{Cormorant Garamond}[
+ StylisticSet = {
+% 1, % Calligraphic forms, large eyed g.
+2, % More traditional Garamond forms, recommended for text sizes
+% 3, % schoolbook forms (Infant version)
+% 4, % a^e instead of \"{a}
+% 5, % unicase small caps
+% 6, % dotted i, j smallcaps
+% 7, % alternate italic a
+% 8, % swash italic Q
+% 9, % macedonain/serbian cyrillic
+% 10, % bulgarian cyrillic
+% 11, % swash italic \partial
+12, % crossbar serifs in small caps
+13, % capital accents match lowercase
+},
+Numbers={OldStyle,Proportional},
+RawFeature={
+%+cv01, % long tailed Q
++cv02, % very long tailed Q
++cv03, % narrower f
++zero}, % slashed (actually dotted) zero
+]
+
+% YsabeautInfant, YsabeauOffice, YsabeauSC,...?
+\setsansfont{Ysabeau}[
+StylisticSet = {
+% 1, % tighter capitals, etc.
+2, % rounder capitals, etc.
+% 3, % rounded a, etc
+% 4, % a^e instead of \"{a}
+% 5, % ?
+% 6, % ?
+9, % delta?
+% 10, % cyrillic alternates
+% 12, % ?
+13, % better accents on capitals
+% 14, % cyrillic alternates
+15, % long dagger
+},
+Numbers={OldStyle,Proportional},
+RawFeature={+zero}, % slashed (actually dotted) zero
+]
+
+\setmathfont{Garamond-Math}
+[
+StylisticSet = {
+1, % rounded blackboard
+2, % curved partial
+3, % scaled CM script --- cleaner than ss08
+4, % semi-bold for bold
+% 5, % extra bold for bold
+6, % horizontal h-bar etc.
+% 7, % inversion symmetry for \int
+%8, % experimental Garamond compatible script
+9, % normal tilde
+10, % outbending italic h
+11, % larger binary operators --- not always better
+},
+Numbers={OldStyle,Proportional},
+]
+
+%-----------------------------------------------------------------
 % MS Garamond
 %-----------------------------------------------------------------
-%\setmainfont{Garamond}
-
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=134
-% \fontspec[
+
+% \setmainfont{Garamond}[
+%   Numbers={OldStyle,Proportional},
 %  SmallCapsFeatures={Letters=SmallCaps},
-% ]{Garamond}
-% \setmainfont{Garamond}
+% ]
 
 %-----------------------------------------------------------------
 % EB Garamond
@@ -234,10 +317,29 @@ nabla=upright,
 % https://github.com/YuanshengZhao/Garamond-Math
 % OFL-1.1 License
 
-\setmainfont{EB Garamond}[
-  Numbers={OldStyle,Proportional},
-  RawFeature={+ss06}]
+% \setmainfont{EB Garamond}[
+%   Numbers={OldStyle,Proportional},
+%   RawFeature={+ss06}]
 
+% \setmathfont{Garamond-Math}
+% [
+% StylisticSet = {
+% 1, % rounded blackboard
+% 2, % curved partial
+% 3, % scaled CM script --- cleaner than ss08
+% 4, % semi-bold for bold
+% % 5, % extra bold for bold
+% 6, % horizontal h-bar etc.
+% % 7, % inversion symmetry for \int
+% %8, % experimental Garamond compatible script
+% 9, % normal tilde
+% 10, % outbending italic h
+% 11, % larger binary operators --- not always better
+% },
+% Numbers={OldStyle,Proportional},
+% ]
+
+% old experiments:
 % original setup with Duffner's files
 % \setmainfont[
 % Path,
@@ -463,23 +565,23 @@ nabla=upright,
 % Numbers={OldStyle,Proportional},
 % ]
 %-----------------------------------------------------------------
-\setmathfont{Garamond-Math}
-[
-StylisticSet = {
-1, % rounded blackboard
-2, % curved partial
-3, % scaled CM script --- cleaner than ss08
-4, % semi-bold for bold
-% 5, % extra bold for bold
-6, % horizontal h-bar etc.
-% 7, % inversion symmetry for \int
-%8, % experimental Garamond compatible script
-9, % normal tilde
-10, % outbending italic h
-11, % larger binary operators --- not always better
-},
-Numbers={OldStyle,Proportional},
-]
+% \setmathfont{Garamond-Math}
+% [
+% StylisticSet = {
+% 1, % rounded blackboard
+% 2, % curved partial
+% 3, % scaled CM script --- cleaner than ss08
+% 4, % semi-bold for bold
+% % 5, % extra bold for bold
+% 6, % horizontal h-bar etc.
+% % 7, % inversion symmetry for \int
+% %8, % experimental Garamond compatible script
+% 9, % normal tilde
+% 10, % outbending italic h
+% 11, % larger binary operators --- not always better
+% },
+% Numbers={OldStyle,Proportional},
+% ]
 %-----------------------------------------------------------------
 % tex gyre 
 %-----------------------------------------------------------------
