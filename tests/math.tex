@@ -35,8 +35,29 @@ $
 $\nabla_{x} f (y) \in \codomain ( f )$
 
 \begin{eqnarray}
-\Vector{v_{01}} & = & \Point{p}_{0} - \Point{p}_{1} \in \symfrak{K}^n\\
-\Point{A} \Vector{v} & = & \Vector{L} \Vector{v} + \Vector{t} \\
+\Vector{v_{01}} & = & \Point{p}_{0} - \Point{p}_{1} \in \symfrak{K}^n
+\\
+\Affine{A} \left( \Point{p} \right)
+& = & 
+\Linear{L}_{\Affine{A}} 
+\left( 
+\Point{p} - \Point{o}_{\Affine{A}}^{0}
+ \right) 
++ 
+\Point{o}_{\Affine{A}}^{1}
+\\
+\Linear{L}_{\Affine{A}} & : &\TangentSpace(\domain(\Affine{A}))
+\rightarrow \TangentSpace(\codomain(\Affine{A}))
+\\
+\Point{o}_{\Affine{A}}^{0} & \in & \domain(\Affine{A})
+\\
+\Point{o}_{\Affine{A}}^{1} & \in & \codomain(\Affine{A})
+\\
+\Affine{A} \left( \Vector{v} \right)
+& = & 
+\Vector{L}_{\Affine{A}} \left( \Vector{v} \right)
++ \Vector{t}_{\Affine{A}} 
+\\
 \Derivative[\Vector{v}]{\Vector{f}}[\Vector{u}][\Vector{t}]
 & = &
 \Derivative[\Vector{v}_i]{\Vector{f}}
@@ -51,7 +72,7 @@ $\nabla_{x} f (y) \in \codomain ( f )$
 \\
 \Partial{j}{\Vector{f}}[\Vector{u}]
 & = &
-\Derivative{\Vector{f}}[\Vector{u}] \Vector{e}_j^{\Space{V}}
+\Derivative{\Vector{f}}[\Vector{u}] [\Vector{e}_j^{\Space{V}}]
 \\
 \Gradient{f}[\Vector{u}] 
 & = &
@@ -65,6 +86,22 @@ $\nabla_{x} f (y) \in \codomain ( f )$
  \sum_{i=0}^{n-1}  
 \Vector{e}_i^{\Space{W}} 
 \otimes \Gradient{\Vector{f}_i}[\Vector{u}]
+\\
+\tilde{\Vector{f}}  
+& = &
+\frac{\Vector{f}}{\| \Vector{f} \|}
+\\
+\Derivative{\tilde{\Vector{f}}}[\Vector{v}][\Vector{u}]
+& = &
+\frac{\Identity_{\Space{W}} 
+\,-\, 
+\left( 
+\tilde{\Vector{f}}(\Vector{v})
+ \otimes 
+ \tilde{\Vector{f}}(\Vector{v}) \right)  
+ }
+{\| \Vector{f}(\Vector{v}) \|}
+\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}] 
 \end{eqnarray}
 
 
@@ -77,7 +114,7 @@ See
 \begin{plSection}{Topological spaces}
 \label{sec:Topological-spaces}
 
-\begin{plDefinition}{\textit{Continuity} of functions}{Continuity} 
+\begin{plDefinition}{\textsl{Continuity} of functions}{Continuity} 
 $f \, : \, \Set{D} \rightarrow \Set{C}$,
 for topological spaces $\Set{D}$ and $\Set{C}$,
 is \textit{continuous}
@@ -170,8 +207,8 @@ Where $\Space{K}$ is any field.
 %\leavevmode \vspace{-\baselineskip}
 \begin{itemize}
   \item vectors:
-  $\Set{V} = \Space{K}^n = \{ \Vector{x}
-  = \left[ x_0, \ldots , x_{n-1} \right] \}$,
+  $\Set{V} = \Space{K}^n = \left\{ \Vector{x}
+  = \left[ x_0, \ldots , x_{n-1} \right] \right\}$,
   tuples of $n$ elements $x_i \in \Space{K}$.
   \item scalars: $\Space{K}$
   \item scalar multiplication:

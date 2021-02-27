@@ -154,9 +154,9 @@ nabla=upright,
 %-----------------------------------------------------------------
 % Latin Modern from CTAN
 
-\RequirePpackage{lm}
-\RequirePackage{lm-math}[2015-04-19]
-%\usepackage{cfr-lm}
+%\RequirePackage{lm}
+%\RequirePackage{lm-math}[2015-04-19]
+%\RequirePackage{cfr-lm}
 %-----------------------------------------------------------------
 % NewComputerModern
 % https://ctan.org/pkg/newcomputermodern
@@ -231,11 +231,12 @@ nabla=upright,
 % http://www.georgduffner.at/ebgaramond/download.html
 % https://github.com/octaviopardo/EBGaramond12
 
-%\RequirePackage{garamond-math}[2019-11-17]
+% https://github.com/YuanshengZhao/Garamond-Math
+% OFL-1.1 License
 
-% \setmainfont{EB Garamond}[
-%   Numbers={OldStyle,Proportional},
-%   RawFeature={+ss06}]
+\setmainfont{EB Garamond}[
+  Numbers={OldStyle,Proportional},
+  RawFeature={+ss06}]
 
 % original setup with Duffner's files
 % \setmainfont[
@@ -245,6 +246,7 @@ nabla=upright,
 % BoldFont    = *08-Regular,
 % BoldItalicFont = *08-Italic ]
 % {EBGaramond}
+
 
 % see
 % https://tex.stackexchange.com/questions/503117/accessing-the-short-arched-f-in-eb-garamond
@@ -385,7 +387,7 @@ nabla=upright,
 % http://arkandis.tuxfamily.org/adffonts.html
 % Mar-12-11
 
-\setsansfont{Gillius ADF No2}[Scale=1.05]
+%\setsansfont{Gillius ADF No2}[Scale=1.05]
 
 %-----------------------------------------------------------------
 % mono font
@@ -409,6 +411,21 @@ nabla=upright,
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
+% https://tex.stackexchange.com/questions/425098/which-opentype-math-fonts-are-available
+% It is often a good idea to set up subscripts, superscripts, 
+% sub-subscripts and super-superscripts to use a smaller optical 
+% size, to make it more legible at smaller sizes. There are three 
+% methods. There might be a companion font designed for smaller 
+% sizes. which you would load with script-font=. (The commercial 
+% font Aldus is intended as this for Palatino.) 
+% Many fonts, including Latin Modern and all the TeX Gyre fonts, 
+% come with different optical sizes and you can select a smaller
+%  one, e.g. script-features={OpticalSize=8}, 
+%  sscript-features={OpticalSize=6}. Finally, math fonts support 
+%  the font features 
+%  script-features={Script=Math, Style=MathScript},
+%   sscript-features={Script=Math, Style=MathScriptScript}.
+
 % TODO: problems from using 'version' option to \setmathfont
 % might be useful to track down, seems to enable
 % switching fonts within a file
@@ -419,11 +436,11 @@ nabla=upright,
 % up , it , bb , bbit , scr , cal , bfcal , frak , tt , sfup ,
 % sfit , bfup , bfit , bfscr , bffrak , bfsfup , bfsfit
 
-\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
-% no light or semibold, use condensed and regular, or regular and bold
-\setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
-\setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
-%\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
+% \setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
+% % no light or semibold, use condensed and regular, or regular and bold
+% \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
+% \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
+% %\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
 
 %-----------------------------------------------------------------
 % Note: looks that same as EB Garamond as main font 
@@ -445,6 +462,24 @@ nabla=upright,
 % % },
 % Numbers={OldStyle,Proportional},
 % ]
+%-----------------------------------------------------------------
+\setmathfont{Garamond-Math}
+[
+StylisticSet = {
+1, % rounded blackboard
+2, % curved partial
+3, % scaled CM script --- cleaner than ss08
+4, % semi-bold for bold
+% 5, % extra bold for bold
+6, % horizontal h-bar etc.
+% 7, % inversion symmetry for \int
+%8, % experimental Garamond compatible script
+9, % normal tilde
+10, % outbending italic h
+11, % larger binary operators --- not always better
+},
+Numbers={OldStyle,Proportional},
+]
 %-----------------------------------------------------------------
 % tex gyre 
 %-----------------------------------------------------------------
@@ -692,7 +727,7 @@ nabla=upright,
 %-----------------------------------------------------------------
 \NewDocumentCommand{\OneToOne}{}{1{\!}{-}{\!}1}
 % TODO: just type in unicode diorectly instead?
-\NewDocumentCommand{\Set}{m}{\symcal{#1}}
+\NewDocumentCommand{\Set}{m}{\symscr{#1}}
 \NewDocumentCommand{\Space}{m}{\symbb{#1}}
 \NewDocumentCommand{\Integers}{}{\Space{Z}}
 \NewDocumentCommand{\Reals}{}{\Space{R}}
@@ -711,16 +746,20 @@ nabla=upright,
 % just use Pseudocode formatting for all fns?
 
 \NewDocumentCommand{\Linear}{m}{\mathsfup{#1}}
-\NewDocumentCommand{\Affine}{m}{\mathbfsf{#1}}
+\NewDocumentCommand{\Affine}{m}{\mathbf{#1}}
 
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
-\DeclareMathOperator{\domain}{\Pseudocode{domain}}
-\DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
+% \DeclareMathOperator{\domain}{\Pseudocode{domain}}
+% \DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
+\DeclareMathOperator{\domain}{\Set{Dom}}
+\DeclareMathOperator{\codomain}{\Set{Cod}}
 \DeclareMathOperator{\kernel}{\Pseudocode{kernel}}
 \DeclareMathOperator{\range}{\Pseudocode{range}}
 \DeclareMathOperator{\linearspan}{\Linear{span}} 
 \DeclareMathOperator{\affinespan}{\Affine{aspan}}
+\DeclareMathOperator{\Tangent}{\Pseudocode{tangent}}
+\DeclareMathOperator{\TangentSpace}{\Space{Tan}}
 \DeclareMathOperator{\convexspan}{\Affine{hull}} 
 \DeclareMathOperator{\linearCombination}{\Linear{linear-combination}} 
 \DeclareMathOperator{\affineCombination}{\Affine{affine-combination}} 
