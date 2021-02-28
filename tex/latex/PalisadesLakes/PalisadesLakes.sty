@@ -236,7 +236,25 @@ nabla=upright,
 % CormorantGaramond, CormorantInfant, CormorantSC,...?
 \setmainfont{Cormorant}[
 %\setmainfont{Cormorant Garamond}[
- StylisticSet = {
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%SmallcapsFont=CormorantSC,
+FontFace={xl}{n}{*-Light},
+FontFace={xl}{it}{*-LightItalic},
+FontFace={li}{n}{*-Light},
+FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Medium},
+FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={xb}{n}{*-Bold},
+FontFace={xb}{it}{*-BoldItalic}, 
+StylisticSet = {
 % 1, % Calligraphic forms, large eyed g.
 2, % More traditional Garamond forms, recommended for text sizes
 % 3, % schoolbook forms (Infant version)
@@ -261,6 +279,28 @@ RawFeature={
 
 % YsabeautInfant, YsabeauOffice, YsabeauSC,...?
 \setsansfont{Ysabeau}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%SmallcapsFont=CormorantSC,
+% FontFace={xl}{n}{*-ExtraLight},
+% FontFace={xl}{it}{*-ExtraLightItalic},
+FontFace={xl}{n}{*-Thin},
+FontFace={xl}{it}{*-ThinItalic},
+FontFace={li}{n}{*-Light},
+FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Medium},
+FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={bf}{n}{*-Bold},
+FontFace={bf}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-UltraBold},
+FontFace={xb}{it}{*-BoldItalic}, 
 StylisticSet = {
 % 1, % tighter capitals, etc.
 2, % rounder capitals, etc.
@@ -464,14 +504,17 @@ Numbers={OldStyle,Proportional},
 % BoldItalicFont = *-bolditalic,
 % ]{xits}
 %-----------------------------------------------------------------
- % TODO: redefine \mdseries instead
+% TODO: redefine \mdseries instead
+% TODO: one command that maps face abbrev. to series and text cmds
  
-\DeclareRobustCommand{\lbseries}{\fontseries{lb}\selectfont}
+\DeclareRobustCommand{\xlseries}{\fontseries{xl}\selectfont}
+\DeclareTextFontCommand{\textxl}{\xlseries}
+\DeclareRobustCommand{\liseries}{\fontseries{li}\selectfont}
+\DeclareTextFontCommand{\textli}{\liseries}
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
-\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
-\DeclareTextFontCommand{\textlb}{\lbseries}
 \DeclareTextFontCommand{\textsb}{\sbseries}
-\DeclareTextFontCommand{\texteb}{\ebseries}
+\DeclareRobustCommand{\xbseries}{\fontseries{xb}\selectfont}
+\DeclareTextFontCommand{\textxb}{\xbseries}
 
 %-----------------------------------------------------------------
 % sans font
@@ -852,10 +895,10 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
-% \DeclareMathOperator{\domain}{\Pseudocode{domain}}
-% \DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
-\DeclareMathOperator{\domain}{\Set{Dom}}
-\DeclareMathOperator{\codomain}{\Set{Cod}}
+\DeclareMathOperator{\domain}{\Pseudocode{domain}}
+\DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
+% \DeclareMathOperator{\domain}{\Set{Dom}}
+% \DeclareMathOperator{\codomain}{\Set{Cod}}
 \DeclareMathOperator{\kernel}{\Pseudocode{kernel}}
 \DeclareMathOperator{\range}{\Pseudocode{range}}
 \DeclareMathOperator{\linearspan}{\Linear{span}} 
