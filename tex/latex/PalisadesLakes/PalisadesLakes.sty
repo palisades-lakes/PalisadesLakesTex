@@ -143,81 +143,16 @@ partial=upright,
 nabla=upright,
 ]
 {unicode-math}[2020/01/30]
-% \RequirePackage[math-style=ISO,bold-style=ISO,sans-style=upright]{unicode-math}[2020/01/30]
-% \RequirePackage[math-style=TeX]{unicode-math}[2020/01/30]
-% \RequirePackage[math-style=french]{unicode-math}[2020/01/30]
-% \RequirePackage[math-style=upright]{unicode-math}[2020/01/30]
-% \RequirePackage[math-style=literal]{unicode-math}[2020/01/30]
-
+%-----------------------------------------------------------------
+% individual fonts
+%-----------------------------------------------------------------
+% reusable setup commands, that can be used to create 'families'
+% TODO: how to keep fonts up to date? clojure script to git fetch
+% and re-install?
 %-----------------------------------------------------------------
 % main fonts
 %-----------------------------------------------------------------
-% Latin Modern from CTAN
-
-%\RequirePackage{lm}
-%\RequirePackage{lm-math}[2015-04-19]
-%\RequirePackage{cfr-lm}
-%-----------------------------------------------------------------
-% NewComputerModern
-% https://ctan.org/pkg/newcomputermodern
-%   The GUST Font License (GFL)
-
-% No bold small caps as of 2021-02-24
-% 
-
-% \RequirePackage[default]{fontsetup}[2021-02-21] % (loads the Book weight)
-% % or
-% \RequirePackage{newcomputermodern}[2021-02-21]  % (loads the Book weight)
-% % or
-% \RequirePackage[olddefault]{fontsetup}[2021-02-21] % (loads the Regular weight)
-% % or
-
-%\RequirePackage[regular]{newcomputermodern}[2021-02-21]  % (loads the Regular weight)
-% FontFace={lb}{n}{Font=NewCM10-Book},
-% FontFace={sb}{n}{Font=NewCM10-Book},
-% FontFace={eb}{n}{Font=NewCM10-Bold},
-
-%-----------------------------------------------------------------
-% Libre Caslon 
-%
-% TODO: other impallari fonts?
-%%
-% https://github.com/impallari/Libre-Caslon-Display/
-% https://github.com/impallari/Libre-Caslon-Text
-% Libre Caslon is licensed under the SIL Open Font License v1.1 
-%(http://scripts.sil.org/OFL)
-
-%\RequirePackage{librecaslon}[2020-07-29]
-%\setmainfont{Libre Caslon Text}%[Scale=0.85]
-%-----------------------------------------------------------------
-
-%\setmainfont{Baskerville Old Face}
-%\setmainfont{Centaur}
-%\setmainfont{Georgia}
-%\setmainfont{Perpetua}
-%\setmainfont{Poor Richard}
-
-
-%\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
-
-% http://iginomarini.com/fell/the-revival-fonts/
-% \fontspec[
-%  SmallCapsFont=IM FELL English SC,
-%  SmallCapsFeatures={Letters=SmallCaps},
-% ]{IM FELL English}
-% \setmainfont{IM FELL English}
- 
-% https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
-
-%\setmainfont{Palatino Linotype}
-%\setmainfont{Perpetua}[Scale=1.1]
-%\setmainfont{Times New Roman}
-
-%-----------------------------------------------------------------
-% Garamonds
-%-----------------------------------------------------------------
-% Cormorant
-%-----------------------------------------------------------------
+% Cormorant (Garamond-like)
 % 2021-02-27
 % https://fonts.google.com/specimen/Cormorant?preview.text_type=custom#standard-styles
 % https://github.com/CatharsisFonts/Cormorant%
@@ -228,14 +163,12 @@ nabla=upright,
 % This isn't legal advice, please consider consulting a lawyer 
 % and see the full license for all details.
 % https://fonts.google.com/specimen/Cormorant?preview.text_type=custom#license
-%
-% sans pairings:
-% https://fonts.google.com/specimen/Roboto?preview.text_type=custom&sidebar.open=true&selection.family=Roboto#standard-styles
-% https://github.com/CatharsisFonts/Ysabeau (ffrom Eau de Garamond)
 
 % CormorantGaramond, CormorantInfant, CormorantSC,...?
+
+\NewDocumentCommand {\CormorantMainFont} {} {
 \setmainfont{Cormorant}[
-%\setmainfont{Cormorant Garamond}[
+%\setmainfont{CormorantGaramond}[
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -276,111 +209,23 @@ RawFeature={
 +cv03, % narrower f
 +zero}, % slashed (actually dotted) zero
 ]
-
-% YsabeautInfant, YsabeauOffice, YsabeauSC,...?
-\setsansfont{Ysabeau}[
-Extension=.otf,
-UprightFont=*-Regular,
-ItalicFont=*-Italic,
-BoldFont=*-Bold,
-BoldItalicFont=*-BoldItalic,
-SlantedFont=*-Italic,
-BoldSlantedFont=*-BoldItalic,
-%SmallcapsFont=CormorantSC,
-% FontFace={xl}{n}{*-ExtraLight},
-% FontFace={xl}{it}{*-ExtraLightItalic},
-FontFace={xl}{n}{*-Thin},
-FontFace={xl}{it}{*-ThinItalic},
-FontFace={li}{n}{*-Light},
-FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Medium},
-FontFace={md}{it}{*-MediumItalic},
-FontFace={sb}{n}{*-SemiBold},
-FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={bf}{n}{*-Bold},
-FontFace={bf}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-UltraBold},
-FontFace={xb}{it}{*-BoldItalic}, 
-StylisticSet = {
-% 1, % tighter capitals, etc.
-2, % rounder capitals, etc.
-% 3, % rounded a, etc
-% 4, % a^e instead of \"{a}
-% 5, % ?
-% 6, % ?
-9, % delta?
-% 10, % cyrillic alternates
-% 12, % ?
-13, % better accents on capitals
-% 14, % cyrillic alternates
-15, % long dagger
-},
-Numbers={OldStyle,Proportional},
-RawFeature={+zero}, % slashed (actually dotted) zero
-]
-
-\setmathfont{Garamond-Math}
-[
-StylisticSet = {
-1, % rounded blackboard
-2, % curved partial
-3, % scaled CM script --- cleaner than ss08
-4, % semi-bold for bold
-% 5, % extra bold for bold
-6, % horizontal h-bar etc.
-% 7, % inversion symmetry for \int
-%8, % experimental Garamond compatible script
-9, % normal tilde
-10, % outbending italic h
-11, % larger binary operators --- not always better
-},
-Numbers={OldStyle,Proportional},
-]
-
-%-----------------------------------------------------------------
-% MS Garamond
-%-----------------------------------------------------------------
-% https://www.microsoft.com/typography/fonts/family.aspx?FID=134
-
-% \setmainfont{Garamond}[
-%   Numbers={OldStyle,Proportional},
-%  SmallCapsFeatures={Letters=SmallCaps},
-% ]
-
+}
 %-----------------------------------------------------------------
 % EB Garamond
-%-----------------------------------------------------------------
 % https://en.wikipedia.org/wiki/EB_Garamond
 % http://www.georgduffner.at/ebgaramond/download.html
-% https://github.com/octaviopardo/EBGaramond12
-
-% https://github.com/YuanshengZhao/Garamond-Math
+% https://github.com/georgd/EB-Garamond
 % OFL-1.1 License
+% last update: Apr 7, 2014
+% untested, Duffner fonts uninstalled to avoid conflicts
+% with Pardo's version
+% see
+% https://tex.stackexchange.com/questions/503117/accessing-the-short-arched-f-in-eb-garamond
+% mentions that original Duffner version has richer feature set;
+% also, I like the look of the original small caps better.
 
-% \setmainfont{EB Garamond}[
-%   Numbers={OldStyle,Proportional},
-%   RawFeature={+ss06}]
 
-% \setmathfont{Garamond-Math}
-% [
-% StylisticSet = {
-% 1, % rounded blackboard
-% 2, % curved partial
-% 3, % scaled CM script --- cleaner than ss08
-% 4, % semi-bold for bold
-% % 5, % extra bold for bold
-% 6, % horizontal h-bar etc.
-% % 7, % inversion symmetry for \int
-% %8, % experimental Garamond compatible script
-% 9, % normal tilde
-% 10, % outbending italic h
-% 11, % larger binary operators --- not always better
-% },
-% Numbers={OldStyle,Proportional},
-% ]
-
-% old experiments:
-% original setup with Duffner's files
+% \NewDocumentCommand {\EBGaramondDuffnerMainFont} {} {
 % \setmainfont[
 % Path,
 % UprightFont = *12-Regular,
@@ -388,13 +233,42 @@ Numbers={OldStyle,Proportional},
 % BoldFont    = *08-Regular,
 % BoldItalicFont = *08-Italic ]
 % {EBGaramond}
+% }
 
+%-----------------------------------------------------------------
+% EB Garamond12
+% https://en.wikipedia.org/wiki/EB_Garamond
+% https://github.com/octaviopardo/EBGaramond12
+% OFL-1.1 License
+% 2021-02-18
 
-% see
-% https://tex.stackexchange.com/questions/503117/accessing-the-short-arched-f-in-eb-garamond
-% mentions that original Duffner version has richer feature set;
-% also, I like the look of the original small caps better.
+\NewDocumentCommand {\EBGaramondPardoMainFont} {} {
+\setmainfont{EBGaramond}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+FontFace={xl}{n}{*-Regular},
+FontFace={xl}{it}{*-Italic},
+FontFace={li}{n}{*-Regular},
+FontFace={li}{it}{*-Italic},
+FontFace={md}{n}{*-Medium},
+FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={xb}{n}{*-ExtraBold},
+FontFace={xb}{it}{*-ExtraBoldItalic}, 
+StylisticSet = {
+6,% long tailed Q
+},
+Numbers={OldStyle,Proportional},
+]
+}
 
+% old experiments:
 % \setmainfont{EB Garamond}
 % [
 % % RawFeature={
@@ -466,43 +340,431 @@ Numbers={OldStyle,Proportional},
 % ]
 
 %-----------------------------------------------------------------
-% XITS
+% STIX Two
+% https://github.com/stipub/stixfonts/
+% https://www.stixfonts.org/
+% STIX fonts are available for download at 
+% https://github.com/stipub/stixfonts 
+% and distributed under the SIL Open Font License, Version 1.1
+
+\NewDocumentCommand {\STIXTwoMainFont} {} {
+\setmainfont{STIXTwoText-Regular.otf}[
+Extension=.otf,
+UprightFont=STIXTwoText-Regular,
+ItalicFont=STIXTwoText-Italic,
+BoldFont=STIXTwoText-Bold,
+BoldItalicFont=STIXTwoText-BoldItalic,
+SlantedFont=STIXTwoText-Italic,
+BoldSlantedFont=STIXTwoText-BoldItalic,
+FontFace={xl}{n}{STIXTwoText-Regular},
+FontFace={xl}{it}{STIXTwoText-Italic},
+FontFace={li}{n}{STIXTwoText-Regular},
+FontFace={li}{it}{STIXTwoText-Italic},
+FontFace={md}{n}{STIXTwoText-Medium},
+FontFace={md}{it}{STIXTwoText-MediumItalic},
+FontFace={sb}{n}{STIXTwoText-SemiBold},
+FontFace={sb}{it}{STIXTwoText-SemiBoldItalic},
+FontFace={xb}{n}{STIXTwoText-Bold},
+FontFace={xb}{it}{STIXTwoText-BoldItalic}, 
+Numbers={OldStyle,Proportional},
+RawFeature={
++cv01, % horizontal lambda-bar
++cv02, % upright gamma?
+},
+]
+}
+
+
 %-----------------------------------------------------------------
-% XITS fonts are distributed 
-% under the Open Font License, version 1.1.
+% XITS
+% Times-like, accompanying math font
+% Open Font License, version 1.1.
 % https://github.com/alif-type/xits
 
-% \setmainfont{XITS}
-% [
-% % RawFeature={
-% % %+kern, % no obvious change
-% % %+liga, % no obvious change
-% % %+locl, % no obvious change
-% % %+onum, % old style digits
-% % %+ss11, % no obvious change
-% % %+sups, % superscript digits
-% % },
-% StylisticSet = 11, % more condensed
-% % \scshape\lbseries -> just \lbseries
-% % need to figure out how to get boldish smallcaps
-% FontFace={lb}{n}{Font=XITS-Bold},
-% FontFace={sb}{n}{Font=XITS-Bold},
-% FontFace={eb}{n}{Font=XITS-Bold},
-% %SmallCapsFeatures={
-% % % Letters={UppercaseSmallCaps,PetiteCaps},
-% % % Scale=1.5,
-% % % FakeStretch=0.825,
-% % % },
-% Numbers={OldStyle,Proportional},
-% ]
+\NewDocumentCommand {\XITSMainFont} {} {
+\setmainfont{XITS}[
+Extension=.otf,
+UprightFont=XITS-Regular,
+ItalicFont=XITS-Italic,
+BoldFont=XITS-Bold,
+BoldItalicFont=XITS-BoldItalic,
+SlantedFont=XITS-Italic,
+BoldSlantedFont=XITS-BoldItalic,
+FontFace={xl}{n}{XITS-Regular},
+FontFace={xl}{it}{XITS-Italic},
+FontFace={li}{n}{XITS-Regular},
+FontFace={li}{it}{XITS-Italic},
+FontFace={md}{n}{XITS-Regular},
+FontFace={md}{it}{XITS-Italic},
+FontFace={sb}{n}{XITS-Bold},
+FontFace={sb}{it}{XITS-BoldItalic},
+FontFace={xb}{n}{XITS-Bold},
+FontFace={xb}{it}{XITS-BoldItalic}, 
+% StylisticSet = {
+% 6,% long tailed Q
+% },
+Numbers={OldStyle,Proportional},
+]
+}
 
-% \setmainfont
-% [    Extension = .otf,
-%    UprightFont = *-regular,
-%       BoldFont = *-bold,
-%     ItalicFont = *-italic,
-% BoldItalicFont = *-bolditalic,
-% ]{xits}
+%-----------------------------------------------------------------
+% sans fonts
+% TODO: what if the main font is sans?
+% Note: \setsansfont doesn't appear to affect math sans font
+% Currently avoiding sans in regular text, so leave as default
+% Maybe later choose something to match the math sans, and use 
+% that for text pseudcode that matches math pseudocode as closely
+% as possible.
+%-----------------------------------------------------------------
+% http://arkandis.tuxfamily.org/adffonts.html
+% GNU General Public License V2 and later, with font exception.
+% Mar-12-11
+
+\NewDocumentCommand {\GilliusADFSansFont} {} {
+\setsansfont{GilliusADF-Regular.otf}[
+Scale=1.05,
+Extension=.otf,
+UprightFont=GilliusADF-Regular,
+ItalicFont=GilliusADF-Italic,
+BoldFont=GilliusADF-Bold,
+BoldItalicFont=GilliusADF-BoldItalic,
+SlantedFont=GilliusADF-CondItalic,
+BoldSlantedFont=GilliusADF-BoldCondItalic,
+FontFace={xl}{n}{GilliusADF-Regular},
+FontFace={xl}{it}{GilliusADF-Italic},
+FontFace={li}{n}{GilliusADF-Regular},
+FontFace={li}{it}{GilliusADF-Italic},
+FontFace={md}{n}{GilliusADF-Regular},
+FontFace={md}{it}{GilliusADF-Italic},
+FontFace={sb}{n}{GilliusADF-Bold},
+FontFace={sb}{it}{GilliusADF-BoldItalic},
+FontFace={bf}{n}{GilliusADF-Bold},
+FontFace={bf}{it}{GilliusADF-BoldItalic},
+FontFace={xb}{n}{GilliusADF-Bold},
+FontFace={xb}{it}{GilliusADF-BoldItalic}, 
+]
+}
+
+\NewDocumentCommand {\GilliusADFTwoSansFont} {} {
+\setsansfont{GilliusADFNo2-Regular.otf}[
+Scale=1.05,
+Extension=.otf,
+UprightFont=GilliusADFNo2-Regular,
+ItalicFont=GilliusADFNo2-Italic,
+BoldFont=GilliusADFNo2-Bold,
+BoldItalicFont=GilliusADFNo2-BoldItalic,
+SlantedFont=GilliusADFNo2-CondItalic,
+BoldSlantedFont=GilliusADFNo2-BoldCondItalic,
+FontFace={xl}{n}{GilliusADFNo2-Regular},
+FontFace={xl}{it}{GilliusADFNo2-Italic},
+FontFace={li}{n}{GilliusADFNo2-Regular},
+FontFace={li}{it}{GilliusADFNo2-Italic},
+FontFace={md}{n}{GilliusADFNo2-Regular},
+FontFace={md}{it}{GilliusADFNo2-Italic},
+FontFace={sb}{n}{GilliusADFNo2-Bold},
+FontFace={sb}{it}{GilliusADFNo2-BoldItalic},
+FontFace={bf}{n}{GilliusADFNo2-Bold},
+FontFace={bf}{it}{GilliusADFNo2-BoldItalic},
+FontFace={xb}{n}{GilliusADFNo2-Bold},
+FontFace={xb}{it}{GilliusADFNo2-BoldItalic}, 
+]
+}
+
+%-----------------------------------------------------------------
+% https://github.com/CatharsisFonts/Ysabeau
+% 2021-03-01
+% OFL-1.1 License
+
+\NewDocumentCommand {\YsabeauSansFont} {} {
+% YsabeautInfant, YsabeauOffice, YsabeauSC,...?
+% TODO: Ysabeau In progress --- better alternative?
+\setsansfont{Ysabeau}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%SmallcapsFont=CormorantSC,
+% FontFace={xl}{n}{*-ExtraLight},
+% FontFace={xl}{it}{*-ExtraLightItalic},
+FontFace={xl}{n}{*-Thin},
+FontFace={xl}{it}{*-ThinItalic},
+FontFace={li}{n}{*-Light},
+FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Medium},
+FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={bf}{n}{*-Bold},
+FontFace={bf}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-UltraBold},
+FontFace={xb}{it}{*-BoldItalic}, 
+StylisticSet = {
+% 1, % tighter capitals, etc.
+2, % rounder capitals, etc.
+% 3, % rounded a, etc
+% 4, % a^e instead of \"{a}
+% 5, % ?
+% 6, % ?
+9, % delta?
+% 10, % cyrillic alternates
+% 12, % ?
+13, % better accents on capitals
+% 14, % cyrillic alternates
+15, % long dagger
+},
+Numbers={OldStyle,Proportional},
+RawFeature={+zero}, % slashed (actually dotted) zero
+]
+}
+
+%-----------------------------------------------------------------
+% mono fonts
+% TODO: what about sans vs serifs?
+%-----------------------------------------------------------------
+% https://github.com/googlefonts/inconsolata
+% OFL-1.1 License
+% 2021-03-01
+
+\NewDocumentCommand {\InconsolataMonoFont} {} {
+\setmonofont{Inconsolata}[
+Extension=.otf,
+UprightFont=*-Regular,
+%ItalicFont=*-Italic,
+BoldFont=*-Bold,
+%BoldItalicFont=*-BoldItalic,
+%SlantedFont=*-Italic,
+%BoldSlantedFont=*-BoldItalic,
+FontFace={xl}{n}{*-ExtraLight},
+%FontFace={xl}{it}{*-ThinItalic},
+FontFace={li}{n}{*-Light},
+%FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Medium},
+%FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+%FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={bf}{n}{*-Bold},
+%FontFace={bf}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-Black},
+%FontFace={xb}{it}{*-BoldItalic}, 
+StylisticSet = {
+% 1, % different *, ~, etc.
+%2, % unslashed zero
+% 3, % slanted quotes
+},
+RawFeature={+zero}, % slashed (actually dotted) zero
+]
+}
+%-----------------------------------------------------------------
+% math fonts
+%-----------------------------------------------------------------
+% https://github.com/YuanshengZhao/Garamond-Math
+% OFL-1.1 License
+% 2021-03-01
+
+\NewDocumentCommand {\GaramondMathFont} {} {
+\setmathfont{Garamond-Math}[
+Extension=.otf,
+StylisticSet = {
+1, % rounded blackboard
+2, % curved partial
+3, % scaled CM script --- cleaner than ss08
+4, % semi-bold for bold
+% 5, % extra bold for bold
+6, % horizontal h-bar etc.
+% 7, % inversion symmetry for \int
+%8, % experimental Garamond compatible script chars
+9, % normal tilde
+10, % outbending italic h
+11, % larger binary operators --- not always better
+},
+Numbers={OldStyle,Proportional},
+]
+}
+
+% STIX Two
+% https://github.com/stipub/stixfonts/
+% https://www.stixfonts.org/
+% STIX fonts are available for download at 
+% https://github.com/stipub/stixfonts 
+% and distributed under the SIL Open Font License, Version 1.1
+
+\NewDocumentCommand {\STIXTwoMathFont} {} {
+\setmainfont{STIXTwoMath-Regular.otf}[
+% Extension=.otf,
+% UprightFont=STIXTwoText-Regular,
+% ItalicFont=STIXTwoText-Italic,
+% BoldFont=STIXTwoText-Bold,
+% BoldItalicFont=STIXTwoText-BoldItalic,
+% SlantedFont=STIXTwoText-Italic,
+% BoldSlantedFont=STIXTwoText-BoldItalic,
+% FontFace={xl}{n}{STIXTwoText-Regular},
+% FontFace={xl}{it}{STIXTwoText-Italic},
+% FontFace={li}{n}{STIXTwoText-Regular},
+% FontFace={li}{it}{STIXTwoText-Italic},
+% FontFace={md}{n}{STIXTwoText-Medium},
+% FontFace={md}{it}{STIXTwoText-MediumItalic},
+% FontFace={sb}{n}{STIXTwoText-SemiBold},
+% FontFace={sb}{it}{STIXTwoText-SemiBoldItalic},
+% FontFace={xb}{n}{STIXTwoText-Bold},
+% FontFace={xb}{it}{STIXTwoText-BoldItalic}, 
+Numbers={OldStyle,Proportional},
+RawFeature={
++cv01, % horizontal lambda-bar
++cv02, % upright gamma?
++cv03, % slashed zero
+},
+StylisticSet={
+3, % horizontal h-bar, lambda-bar
+4, % bigger quotes
+8, % upright integrals
+9, % upright not-operators
+10, % compact leq, etc
+11, % clearer not-subset, etc.
+},
+]
+}
+
+%-----------------------------------------------------------------
+% XITS
+% Times-like, accompanying main/math fonts
+% Open Font License, version 1.1.
+% https://github.com/alif-type/xits
+
+\NewDocumentCommand {\XITSMathFont} {} {
+\setmathfont{XITSMath-Regular.otf}[
+Extension=.otf,
+UprightFont=XITSMath-Regular,
+ItalicFont=XITSMath-Regular,
+BoldFont=XITSMath-Bold,
+BoldItalicFont=XITSMath-Bold,
+SlantedFont=XITSMath-Regular,
+BoldSlantedFont=XITSMath-Bold,
+FontFace={xl}{n}{XITSMath-Regular},
+FontFace={xl}{it}{XITSMath-Regular},
+FontFace={li}{n}{XITSMath-Regular},
+FontFace={li}{it}{XITSMath-Regular},
+FontFace={md}{n}{XITSMath-Regular},
+FontFace={md}{it}{XITSMath-Regular},
+FontFace={sb}{n}{XITSMath-Bold},
+FontFace={sb}{it}{XITSMath-Bold},
+FontFace={xb}{n}{XITSMath-Bold},
+FontFace={xb}{it}{XITSMath-Bold},
+Numbers={OldStyle,Proportional},
+Ligatures=TeX,
+StylisticSet = {
+1, % simpler script
+2, % sans greek
+3, % ?
+4, % ?
+% 5, % bold bb
+% 6, % slanted BB
+% 7, % bold slanted bb
+8, % upright integrals
+9, % upright slashed logical operators
+10, % horizontal h-bar
+},
+RawFeature={
++ssty, % bold quotes?
+},
+]
+}
+
+%-----------------------------------------------------------------
+% font 'families' 
+% attempt at harmonius main, sans, mono, math fonts
+% TODO: separate titlefont?
+%-----------------------------------------------------------------
+
+\NewDocumentCommand {\CormorantFonts} {} {
+\CormorantMainFont
+\YsabeauSansFont
+\InconsolataMonoFont
+\GaramondMathFont
+}
+
+\NewDocumentCommand {\EBGaramondFonts} {} {
+\EBGaramondPardoMainFont
+\GilliusADFSansFont
+\InconsolataMonoFont
+\GaramondMathFont
+}
+
+\NewDocumentCommand {\XITSFonts} {} {
+\XITSMainFont
+\GilliusADFTwoSansFont
+\InconsolataMonoFont
+\XITSMathFont
+}
+\NewDocumentCommand {\STIXTwoFonts} {} {
+\STIXTwoMainFont
+\GilliusADFTwoSansFont
+\InconsolataMonoFont
+\STIXTwoMathFont
+}
+%-----------------------------------------------------------------
+% main fonts
+%-----------------------------------------------------------------
+% Latin Modern from CTAN
+
+%-----------------------------------------------------------------
+% NewComputerModern
+% https://ctan.org/pkg/newcomputermodern
+%   The GUST Font License (GFL)
+
+% No bold small caps as of 2021-02-24
+% 
+
+% \RequirePackage[default]{fontsetup}[2021-02-21] % (loads the Book weight)
+% % or
+% \RequirePackage{newcomputermodern}[2021-02-21]  % (loads the Book weight)
+% % or
+% \RequirePackage[olddefault]{fontsetup}[2021-02-21] % (loads the Regular weight)
+% % or
+
+%\RequirePackage[regular]{newcomputermodern}[2021-02-21]  % (loads the Regular weight)
+% FontFace={lb}{n}{Font=NewCM10-Book},
+% FontFace={sb}{n}{Font=NewCM10-Book},
+% FontFace={eb}{n}{Font=NewCM10-Bold},
+
+%-----------------------------------------------------------------
+% Libre Caslon 
+%
+% TODO: other impallari fonts?
+%%
+% https://github.com/impallari/Libre-Caslon-Display/
+% https://github.com/impallari/Libre-Caslon-Text
+% Libre Caslon is licensed under the SIL Open Font License v1.1 
+%(http://scripts.sil.org/OFL)
+
+%\RequirePackage{librecaslon}[2020-07-29]
+%\setmainfont{Libre Caslon Text}%[Scale=0.85]
+%-----------------------------------------------------------------
+
+%\setmainfont{Baskerville Old Face}
+%\setmainfont{Centaur}
+%\setmainfont{Georgia}
+%\setmainfont{Perpetua}
+%\setmainfont{Poor Richard}
+
+
+%\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
+
+% http://iginomarini.com/fell/the-revival-fonts/
+% \fontspec[
+%  SmallCapsFont=IM FELL English SC,
+%  SmallCapsFeatures={Letters=SmallCaps},
+% ]{IM FELL English}
+% \setmainfont{IM FELL English}
+ 
+% https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
+
+%\setmainfont{Palatino Linotype}
+%\setmainfont{Perpetua}[Scale=1.1]
+%\setmainfont{Times New Roman}
+
 %-----------------------------------------------------------------
 % TODO: redefine \mdseries instead
 % TODO: one command that maps face abbrev. to series and text cmds
@@ -515,29 +777,6 @@ Numbers={OldStyle,Proportional},
 \DeclareTextFontCommand{\textsb}{\sbseries}
 \DeclareRobustCommand{\xbseries}{\fontseries{xb}\selectfont}
 \DeclareTextFontCommand{\textxb}{\xbseries}
-
-%-----------------------------------------------------------------
-% sans font
-%-----------------------------------------------------------------
-% Note: \setsansfont doesn't appear to affect math sans font
-% Currently avoiding sans in regular text, so leave as default
-% Maybe later choose something to match the math sans, and use 
-% that for text pseudcode that matches math pseudocode as closely
-% as possible.
-
-% https://www.microsoft.com/typography/fonts/family.aspx?FID=155
-
-%\setsansfont{Gill Sans MT}[Scale=1.05,]
-
-% http://arkandis.tuxfamily.org/adffonts.html
-% Mar-12-11
-
-%\setsansfont{Gillius ADF No2}[Scale=1.05]
-
-%-----------------------------------------------------------------
-% mono font
-%-----------------------------------------------------------------
-% TODO:
 
 %-----------------------------------------------------------------
 % cjk fonts
@@ -608,24 +847,6 @@ Numbers={OldStyle,Proportional},
 % Numbers={OldStyle,Proportional},
 % ]
 %-----------------------------------------------------------------
-% \setmathfont{Garamond-Math}
-% [
-% StylisticSet = {
-% 1, % rounded blackboard
-% 2, % curved partial
-% 3, % scaled CM script --- cleaner than ss08
-% 4, % semi-bold for bold
-% % 5, % extra bold for bold
-% 6, % horizontal h-bar etc.
-% % 7, % inversion symmetry for \int
-% %8, % experimental Garamond compatible script
-% 9, % normal tilde
-% 10, % outbending italic h
-% 11, % larger binary operators --- not always better
-% },
-% Numbers={OldStyle,Proportional},
-% ]
-%-----------------------------------------------------------------
 % tex gyre 
 %-----------------------------------------------------------------
 % Tex Gyre fonts might be replacements for everything?
@@ -672,35 +893,6 @@ Numbers={OldStyle,Proportional},
 % \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
 % \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
 % %\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
-
-%-----------------------------------------------------------------
-% XITS
-%-----------------------------------------------------------------
-% XITS fonts are distributed 
-% under the Open Font License, version 1.1.
-% https://github.com/alif-type/xits
-
-% works (no obvious missing symbols in font.tex):
-%\setmathfont{XITS Math}
-%\setmathfont[BoldFont = * Bold,Ligatures=TeX,]{XITS Math}
-% check features with https://fontdrop.info/
-
-% \setmathfont{XITS Math}[
-% RawFeature={+ssty,},
-% StylisticSet={1,8,},
-% ]
-
-
-% lots of missing symbols
-%\setmathfont{XITS Math}[version=xits]
-%\setmathfont[version=xits]{XITSMath-Regular.otf}
-
-% metafont errors
-% \setmathfont
-% [    Extension = .otf,
-%       BoldFont = *bold,
-%       Ligatures=TeX,
-% ]{XITS Math}
 
 %-----------------------------------------------------------------
 % Latin Modern Math
@@ -1152,7 +1344,7 @@ backref=true,
 %-----------------------------------------------------------------
 % TODO: high level (eg chapters only) toc and 
 % complete sectioning outline toc.
-\RequirePackage[sc,bf,medium,compact,nobottomtitles*]
+\RequirePackage[sc,bf,medium,compact,nobottomtitles*,noindentafter]
   {titlesec}[2019/10/16]
 \RequirePackage[titletoc]{appendix}[2020/02/08]
 

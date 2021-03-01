@@ -11,9 +11,13 @@
 %% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
 %% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass[12pt]{PalisadesLakesArticle}
-\geomLetter
-\geomPortraitOneColumn
+\documentclass{PalisadesLakesArticle}
+\geomHDTV
+\geomLandscape
+%\CormorantFonts
+%\EBGaramondFonts
+%\XITSFonts
+\STIXTwoFonts
 %-----------------------------------------------------------------
 \title{Font tests}
 \author{John Alan McDonald 
@@ -26,119 +30,177 @@
 %-----------------------------------------------------------------
 \def\sharedFolder{../shared/}
 
-\begin{plSection}{Fonts}
-
 % TODO: command that maps face abbrev's to lines of text. 
-\textxl{
+%\begin{plSection}{Fonts}
+\textxl{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textli{
+\textli{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textmd{
+\textrm{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textsb{
+\textmd{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textbf{
+\textsb{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textxb{
+\textbf{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\newpage
+\textsc{\textxl{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\textsc{\textli{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\textsc{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textsc{\textmd{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\textsc{\textsb{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\textsc{\textbf{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\textsc{\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\newpage
+\textit{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textit{\textxl{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textit{\textli{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textit{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textit{\textmd{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textit{\textsb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textit{\textbf{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textit{\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\newpage
+\textsl{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textsl{\textxl{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsl{\textli{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsl{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textsl{\textmd{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsl{\textsb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsl{\textbf{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsl{\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\newpage
+\textsf{\textxl{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsf{\textli{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsf{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\textsf{\textmd{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsf{\textsb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsf{\textbf{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+\textsf{\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
+ \newpage
+\textsf{\textsl{\textxl{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}}
+\textsf{\textsl{\textli{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}}
+\textsf{\textsl{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\textsf{\textsl{\textmd{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}}
+\textsf{\textsl{\textsb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}}
+\textsf{\textsl{\textbf{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}}
+\textsf{\textsl{\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}}
+\newpage
+\texttt{\textxl{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\texttt{\textli{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\texttt{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
+\texttt{\textmd{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\texttt{\textsb{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\texttt{\textbf{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
+\texttt{\textxb{%
+The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
+THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
  \\
-\textsc{\textxl{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
-\textsc{\textli{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
-\textsc{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textsc{\textmd{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
-\textsc{\textsb{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
-\textsc{\textbf{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
-\textsc{\textxb{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
- \\
-\textit{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textsl{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textsl{\textxl{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsl{\textli{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsl{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textsl{\textmd{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsl{\textsb{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsl{\textxb{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsl{\textxb{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
- \\
-\textsf{\textxl{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsf{\textli{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsf{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\textsf{\textmd{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsf{\textsb{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsf{\textxb{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsf{\textxb{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
- \\
-\textsf{\textsl{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
-\textsf{\textit{
-The correct official (quick) brown fox jumps over the lazy dog. [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG. [0123456789].\\ }}
- \\
-\texttt{
-The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
-THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }
-\texttt{\textsl{
+\texttt{\textsl{%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\ }}
 
 
-See 
-\citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
+% See 
+% \citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
 
-\end{plSection}%{Fonts}
+%\end{plSection}%{Fonts}
 %\import{\sharedFolder}{spaces}
 %\import{\sharedFolder}{derivatives}
 %\import{\sharedFolder}{category}
