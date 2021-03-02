@@ -340,6 +340,47 @@ Numbers={OldStyle,Proportional},
 % ]
 
 %-----------------------------------------------------------------
+% https://github.com/alerque/libertinus
+% OFL-1.1 License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\LibertinusMainFont} {} {
+\setmainfont{LibertinusSerif-Regular.otf}[
+Extension=.otf,
+UprightFont=LibertinusSerif-Regular,
+ItalicFont=LibertinusSerif-Italic,
+BoldFont=LibertinusSerif-Bold,
+BoldItalicFont=LibertinusSerif-BoldItalic,
+SlantedFont=LibertinusSerif-Italic,
+BoldSlantedFont=LibertinusSerif-BoldItalic,
+FontFace={xl}{n}{LibertinusSerif-Regular},
+FontFace={xl}{it}{LibertinusSerif-Italic},
+FontFace={li}{n}{LibertinusSerif-Regular},
+FontFace={li}{it}{LibertinusSerif-Italic},
+FontFace={md}{n}{LibertinusSerif-Regular},
+FontFace={md}{it}{LibertinusSerif-Italic},
+FontFace={sb}{n}{LibertinusSerif-Semibold},
+FontFace={sb}{it}{LibertinusSerif-SemiboldItalic},
+FontFace={xb}{n}{LibertinusSerif-Bold},
+FontFace={xb}{it}{LibertinusSerif-BoldItalic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % better uppercase umlauts
+5, % W -> overlapping VV
+6, % fancy &
+},
+RawFeature={
++calt, % contextual alternatives
++ccmp, % glyhph (de)composition
++cv01, % horizontal lambda-bar
++cv02, % upright gamma?
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % STIX Two
 % https://github.com/stipub/stixfonts/
 % https://www.stixfonts.org/
@@ -471,13 +512,54 @@ FontFace={xb}{it}{GilliusADFNo2-BoldItalic},
 }
 
 %-----------------------------------------------------------------
+% https://github.com/alerque/libertinus
+% OFL-1.1 License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\LibertinusSansFont} {} {
+\setsansfont{LibertinusSans-Regular.otf}[
+Extension=.otf,
+UprightFont=LibertinusSans-Regular,
+ItalicFont=LibertinusSans-Italic,
+BoldFont=LibertinusSans-Bold,
+%BoldItalicFont=LibertinusSans-BoldItalic,
+SlantedFont=LibertinusSans-Italic,
+%BoldSlantedFont=LibertinusSans-BoldItalic,
+FontFace={xl}{n}{LibertinusSans-Regular},
+FontFace={xl}{it}{LibertinusSans-Italic},
+FontFace={li}{n}{LibertinusSans-Regular},
+FontFace={li}{it}{LibertinusSans-Italic},
+FontFace={md}{n}{LibertinusSans-Regular},
+FontFace={md}{it}{LibertinusSans-Italic},
+FontFace={sb}{n}{LibertinusSans-Bold},
+FontFace={sb}{it}{LibertinusSans-Italic},
+FontFace={xb}{n}{LibertinusSans-Bold},
+FontFace={xb}{it}{LibertinusSans-Italic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % better uppercase umlauts
+5, % W -> overlapping VV
+6, % fancy &
+},
+RawFeature={
++calt, % contextual alternatives
++ccmp, % glyhph (de)composition
++cv01, % horizontal lambda-bar
++cv02, % upright gamma?
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/CatharsisFonts/Ysabeau
 % 2021-03-01
 % OFL-1.1 License
-
-\NewDocumentCommand {\YsabeauSansFont} {} {
 % YsabeautInfant, YsabeauOffice, YsabeauSC,...?
 % TODO: Ysabeau In progress --- better alternative?
+
+\NewDocumentCommand {\YsabeauSansFont} {} {
 \setsansfont{Ysabeau}[
 Extension=.otf,
 UprightFont=*-Regular,
@@ -558,6 +640,41 @@ RawFeature={+zero}, % slashed (actually dotted) zero
 ]
 }
 %-----------------------------------------------------------------
+% https://github.com/alerque/libertinus
+% OFL-1.1 License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\LibertinusMonoFont} {} {
+\setmonofont{LibertinusMono-Regular.otf}[
+Extension=.otf,
+UprightFont=LibertinusMono-Regular,
+% ItalicFont=LibertinusSans-Italic,
+% BoldFont=LibertinusSans-Bold,
+% %BoldItalicFont=LibertinusSans-BoldItalic,
+% SlantedFont=LibertinusSans-Italic,
+% %BoldSlantedFont=LibertinusSans-BoldItalic,
+% FontFace={xl}{n}{LibertinusSans-Regular},
+% FontFace={xl}{it}{LibertinusSans-Italic},
+% FontFace={li}{n}{LibertinusSans-Regular},
+% FontFace={li}{it}{LibertinusSans-Italic},
+% FontFace={md}{n}{LibertinusSans-Regular},
+% FontFace={md}{it}{LibertinusSans-Italic},
+% FontFace={sb}{n}{LibertinusSans-Bold},
+% FontFace={sb}{it}{LibertinusSans-Italic},
+% FontFace={xb}{n}{LibertinusSans-Bold},
+% FontFace={xb}{it}{LibertinusSans-Italic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % umlauts
+},
+RawFeature={
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
 % https://github.com/YuanshengZhao/Garamond-Math
@@ -584,6 +701,42 @@ Numbers={OldStyle,Proportional},
 ]
 }
 
+%-----------------------------------------------------------------
+% https://github.com/alerque/libertinus
+% OFL-1.1 License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\LibertinusMathFont} {} {
+\setmathfont{LibertinusMath-Regular.otf}[
+% Extension=.otf,
+% UprightFont=LibertinusSans-Regular,
+% ItalicFont=LibertinusSans-Italic,
+% BoldFont=LibertinusSans-Bold,
+% %BoldItalicFont=LibertinusSans-BoldItalic,
+% SlantedFont=LibertinusSans-Italic,
+% %BoldSlantedFont=LibertinusSans-BoldItalic,
+% FontFace={xl}{n}{LibertinusSans-Regular},
+% FontFace={xl}{it}{LibertinusSans-Italic},
+% FontFace={li}{n}{LibertinusSans-Regular},
+% FontFace={li}{it}{LibertinusSans-Italic},
+% FontFace={md}{n}{LibertinusSans-Regular},
+% FontFace={md}{it}{LibertinusSans-Italic},
+% FontFace={sb}{n}{LibertinusSans-Bold},
+% FontFace={sb}{it}{LibertinusSans-Italic},
+% FontFace={xb}{n}{LibertinusSans-Bold},
+% FontFace={xb}{it}{LibertinusSans-Italic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+8, % upright integrals
+},
+RawFeature={
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % STIX Two
 % https://github.com/stipub/stixfonts/
 % https://www.stixfonts.org/
@@ -592,7 +745,7 @@ Numbers={OldStyle,Proportional},
 % and distributed under the SIL Open Font License, Version 1.1
 
 \NewDocumentCommand {\STIXTwoMathFont} {} {
-\setmainfont{STIXTwoMath-Regular.otf}[
+\setmathfont{STIXTwoMath-Regular.otf}[
 % Extension=.otf,
 % UprightFont=STIXTwoText-Regular,
 % ItalicFont=STIXTwoText-Italic,
@@ -617,6 +770,7 @@ RawFeature={
 +cv03, % slashed zero
 },
 StylisticSet={
+1,
 3, % horizontal h-bar, lambda-bar
 4, % bigger quotes
 8, % upright integrals
@@ -677,7 +831,33 @@ RawFeature={
 % attempt at harmonius main, sans, mono, math fonts
 % TODO: separate titlefont?
 %-----------------------------------------------------------------
-
+%https://tex.stackexchange.com/questions/350749/sans-and-monospace-font-match-for-stix-two
+% \NewDocumentCommand {\AsanaFonts} {} {
+% \defaultfontfeatures{ Scale=MatchLowercase }
+% %% TeX Gyre Pagella is a clone of Palatino.  You can use the
+% %% real thing if you have it.  Windows and MacOS both do.
+% \setmainfont{TeX Gyre Pagella}[
+%    Ligatures={Common,TeX},
+%    Scale=1.0]
+% %% URW Classico is a clone of Optima, available at
+% %% https://www.ctan.org/pkg/classico
+% %% It is gratis, but has a restrictive license.
+% \setsansfont{URW Classico}[
+%    Ligatures={Common,TeX}]
+% \setmonofont{Inconsolata}
+% \setmathfont{Asana Math}
+% %% Neo Euler is available at
+% %% https://github.com/khaledhosny/euler-otf
+% %% This lets you use, for example, \symup{e} and \symup{i}
+% %% for the constants.  It does not cover lowercase \mathcal.
+% \setmathfont{Neo Euler}[
+%   range={up,bfup,cal,bfcal,frak,bffrak}]
+% %% If you need \mathscr distinct from \mathcal:
+% \setmathfont{STIX Two Math}[
+%   range={scr,bfscr},
+%   StylisticSet=1,
+%   Scale=MatchUppercase]
+  
 \NewDocumentCommand {\CormorantFonts} {} {
 \CormorantMainFont
 \YsabeauSansFont
@@ -692,12 +872,20 @@ RawFeature={
 \GaramondMathFont
 }
 
+\NewDocumentCommand {\LibertinusFonts} {} {
+\LibertinusMainFont
+\LibertinusSansFont
+\LibertinusMonoFont
+\LibertinusMathFont
+}
+
 \NewDocumentCommand {\XITSFonts} {} {
 \XITSMainFont
 \GilliusADFTwoSansFont
 \InconsolataMonoFont
 \XITSMathFont
 }
+
 \NewDocumentCommand {\STIXTwoFonts} {} {
 \STIXTwoMainFont
 \GilliusADFTwoSansFont
@@ -944,18 +1132,6 @@ RawFeature={
 
 % lots of missing symbols
 %\setmathfont{Asana Math}[version=asana]
-
-%-----------------------------------------------------------------
-% Libertinus
-%-----------------------------------------------------------------
-% https://github.com/alerque/libertinus
-% Possiblly a more harmonius set to use for all fonts
-
-% works (no obvious missing symbols in font.tex):
-%\setmathfont{Libertinus Math}
-
-% metafont errors
-%\setmathfont{Libertinus Math}[version=libertinus]
 
 %-----------------------------------------------------------------
 % local symbol defs 
