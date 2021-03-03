@@ -340,6 +340,38 @@ Numbers={OldStyle,Proportional},
 % ]
 
 %-----------------------------------------------------------------
+% Erewhon <- Heuristica <- Utopia
+% https://ctan.org/pkg/erewhon% OFL-1.1 License
+% Version 1.114 2021-02-26
+% Licenses  The SIL Open Font License
+% The LATEX Project Public License 1.3
+
+\NewDocumentCommand {\ErewhonMainFont} {} {
+\setmainfont{Erewhon-Regular.otf}[
+Extension=.otf,
+UprightFont=Erewhon-Regular,
+ItalicFont=Erewhon-Italic,
+BoldFont=Erewhon-Bold,
+BoldItalicFont=Erewhon-BoldItalic,
+SlantedFont=Erewhon-RegularSlanted,
+BoldSlantedFont=Erewhon-BoldSlanted,
+FontFace={xl}{n}{Erewhon-Regular},
+FontFace={xl}{it}{Erewhon-Italic},
+FontFace={li}{n}{Erewhon-Regular},
+FontFace={li}{it}{Erewhon-Italic},
+FontFace={md}{n}{Erewhon-Regular},
+FontFace={md}{it}{Erewhon-Italic},
+FontFace={sb}{n}{Erewhon-Bold},
+FontFace={sb}{it}{Erewhon-BoldItalic},
+FontFace={xb}{n}{Erewhon-Bold},
+FontFace={xb}{it}{Erewhon-BoldItalic}, 
+StylisticSet = {
+},
+Numbers={OldStyle,Proportional},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -415,6 +447,151 @@ RawFeature={
 ]
 }
 
+%-----------------------------------------------------------------
+% TeX Gyre Fonts
+% https://ctan.org/pkg/tex-gyre?lang=en
+% Version 2.501 2018-06-17
+% Licenses  The GUST Font License (GFL)
+% TODO: TeX Gyre Chorus (only medium italic)?
+%-----------------------------------------------------------------
+% TeX Gyre Bonum <- URW Bookman L <- Bookman Old Style
+
+\NewDocumentCommand {\BonumMainFont} {} {
+ \setmainfont{texgyrebonum-regular.otf}[
+Extension=.otf,
+UprightFont=texgyrebonum-regular,
+ItalicFont=texgyrebonum-italic,
+BoldFont=texgyrebonum-bold,
+BoldItalicFont=texgyrebonum-bolditalic,
+SlantedFont=texgyrebonum-italic,
+BoldSlantedFont=texgyrebonum-bolditalic,
+FontFace={xl}{n}{texgyrebonum-regular},
+FontFace={xl}{it}{texgyrebonum-italic},
+FontFace={li}{n}{texgyrebonum-regular},
+FontFace={li}{it}{texgyrebonum-italic},
+FontFace={md}{n}{texgyrebonum-regular},
+FontFace={md}{it}{texgyrebonum-italic},
+FontFace={sb}{n}{texgyrebonum-bold},
+FontFace={sb}{it}{texgyrebonum-bolditalic},
+FontFace={xb}{n}{texgyrebonum-bold},
+FontFace={xb}{it}{texgyrebonum-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+Scale=1.0,
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Pagella <- URW Palladio L <- Palatino
+
+\NewDocumentCommand {\PagellaMainFont} {} {
+ \setmainfont{texgyrepagella-regular.otf}[
+Extension=.otf,
+UprightFont=texgyrepagella-regular,
+ItalicFont=texgyrepagella-italic,
+BoldFont=texgyrepagella-bold,
+BoldItalicFont=texgyrepagella-bolditalic,
+SlantedFont=texgyrepagella-italic,
+BoldSlantedFont=texgyrepagella-bolditalic,
+FontFace={xl}{n}{texgyrepagella-regular},
+FontFace={xl}{it}{texgyrepagella-italic},
+FontFace={li}{n}{texgyrepagella-regular},
+FontFace={li}{it}{texgyrepagella-italic},
+FontFace={md}{n}{texgyrepagella-regular},
+FontFace={md}{it}{texgyrepagella-italic},
+FontFace={sb}{n}{texgyrepagella-bold},
+FontFace={sb}{it}{texgyrepagella-bolditalic},
+FontFace={xb}{n}{texgyrepagella-bold},
+FontFace={xb}{it}{texgyrepagella-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+Scale=1.0,
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Schola <- URW Century Schoolbook L <- Century Schoolbook
+
+\NewDocumentCommand {\ScholaMainFont} {} {
+ \setmainfont{texgyreschola-regular.otf}[
+Extension=.otf,
+UprightFont=texgyreschola-regular,
+ItalicFont=texgyreschola-italic,
+BoldFont=texgyreschola-bold,
+BoldItalicFont=texgyreschola-bolditalic,
+SlantedFont=texgyreschola-italic,
+BoldSlantedFont=texgyreschola-bolditalic,
+FontFace={xl}{n}{texgyreschola-regular},
+FontFace={xl}{it}{texgyreschola-italic},
+FontFace={li}{n}{texgyreschola-regular},
+FontFace={li}{it}{texgyreschola-italic},
+FontFace={md}{n}{texgyreschola-regular},
+FontFace={md}{it}{texgyreschola-italic},
+FontFace={sb}{n}{texgyreschola-bold},
+FontFace={sb}{it}{texgyreschola-bolditalic},
+FontFace={xb}{n}{texgyreschola-bold},
+FontFace={xb}{it}{texgyreschola-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+Scale=1.0,
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Termes <- URW Nimbus Roman No9 L <- Times New Roman
+
+\NewDocumentCommand {\TermesMainFont} {} {
+ \setmainfont{texgyretermes-regular.otf}[
+Extension=.otf,
+UprightFont=texgyretermes-regular,
+ItalicFont=texgyretermes-italic,
+BoldFont=texgyretermes-bold,
+BoldItalicFont=texgyretermes-bolditalic,
+SlantedFont=texgyretermes-italic,
+BoldSlantedFont=texgyretermes-bolditalic,
+FontFace={xl}{n}{texgyretermes-regular},
+FontFace={xl}{it}{texgyretermes-italic},
+FontFace={li}{n}{texgyretermes-regular},
+FontFace={li}{it}{texgyretermes-italic},
+FontFace={md}{n}{texgyretermes-regular},
+FontFace={md}{it}{texgyretermes-italic},
+FontFace={sb}{n}{texgyretermes-bold},
+FontFace={sb}{it}{texgyretermes-bolditalic},
+FontFace={xb}{n}{texgyretermes-bold},
+FontFace={xb}{it}{texgyretermes-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+Scale=1.0,
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
 
 %-----------------------------------------------------------------
 % XITS
@@ -450,6 +627,7 @@ Numbers={OldStyle,Proportional},
 
 %-----------------------------------------------------------------
 % sans fonts
+%-----------------------------------------------------------------
 % TODO: what if the main font is sans?
 % Note: \setsansfont doesn't appear to affect math sans font
 % Currently avoiding sans in regular text, so leave as default
@@ -512,6 +690,43 @@ FontFace={xb}{it}{GilliusADFNo2-BoldItalic},
 }
 
 %-----------------------------------------------------------------
+% Latin Modern Sans <- Computer Modern
+% https://ctan.org/pkg/lm
+% Home page http://www.gust.org.pl/projects/e-foundry/latin-modern
+% Version 2.004
+% Licenses  The GUST Font License (GFL)
+% 2009-09-30
+
+% TODO: 8, 9, 10, 12 ,17 size fonts for differing faces?
+
+\NewDocumentCommand {\LatinModernSansFont} {} {
+ \setsansfont{lmsans10-regular.otf}[
+Extension=.otf,
+UprightFont=lmsans10-regular,
+ItalicFont=lmsans10-oblique,
+BoldFont=lmsans10-bold,
+BoldItalicFont=lmsans10-boldoblique,
+SlantedFont=lmsans10-oblique,
+BoldSlantedFont=lmsans10-boldoblique,
+FontFace={xl}{n}{lmsans10-regular},
+FontFace={xl}{it}{lmsans10-oblique},
+FontFace={li}{n}{lmsans10-regular},
+FontFace={li}{it}{lmsans10-oblique},
+FontFace={md}{n}{lmsans10-regular},
+FontFace={md}{it}{lmsans10-oblique},
+FontFace={sb}{n}{lmsans10-bold},
+FontFace={sb}{it}{lmsans10-boldoblique},
+FontFace={xb}{n}{lmsans10-bold},
+FontFace={xb}{it}{lmsans10-boldoblique}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -548,6 +763,109 @@ RawFeature={
 +cv01, % horizontal lambda-bar
 +cv02, % upright gamma?
 +zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Fonts
+% https://ctan.org/pkg/tex-gyre?lang=en
+% Version 2.501 2018-06-17
+% Licenses  The GUST Font License (GFL)
+%-----------------------------------------------------------------
+% TeX Gyre Adventor <-  URW Gothic L <- ITC Avant Garde Gothic
+\NewDocumentCommand {\AdventorSansFont} {} {
+ \setsansfont{texgyreadventor-regular.otf}[
+Extension=.otf,
+UprightFont=texgyreadventor-regular,
+ItalicFont=texgyreadventor-italic,
+BoldFont=texgyreadventor-bold,
+BoldItalicFont=texgyreadventor-bolditalic,
+SlantedFont=texgyreadventor-italic,
+BoldSlantedFont=texgyreadventor-bolditalic,
+FontFace={xl}{n}{texgyreadventor-regular},
+FontFace={xl}{it}{texgyreadventor-italic},
+FontFace={li}{n}{texgyreadventor-regular},
+FontFace={li}{it}{texgyreadventor-italic},
+FontFace={md}{n}{texgyreadventor-regular},
+FontFace={md}{it}{texgyreadventor-italic},
+FontFace={sb}{n}{texgyreadventor-bold},
+FontFace={sb}{it}{texgyreadventor-bolditalic},
+FontFace={xb}{n}{texgyreadventor-bold},
+FontFace={xb}{it}{texgyreadventor-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Heros <- URW Nimbus Sans L <- Helvetica
+
+\NewDocumentCommand {\HerosSansFont} {} {
+ \setsansfont{texgyreheros-regular.otf}[
+Extension=.otf,
+UprightFont=texgyreheros-regular,
+ItalicFont=texgyreheros-italic,
+BoldFont=texgyreheros-bold,
+BoldItalicFont=texgyreheros-bolditalic,
+SlantedFont=texgyreheros-italic,
+BoldSlantedFont=texgyreheros-bolditalic,
+FontFace={xl}{n}{texgyreheros-regular},
+FontFace={xl}{it}{texgyreheros-italic},
+FontFace={li}{n}{texgyreheros-regular},
+FontFace={li}{it}{texgyreheros-italic},
+FontFace={md}{n}{texgyreheros-regular},
+FontFace={md}{it}{texgyreheros-italic},
+FontFace={sb}{n}{texgyreheros-bold},
+FontFace={sb}{it}{texgyreheros-bolditalic},
+FontFace={xb}{n}{texgyreheros-bold},
+FontFace={xb}{it}{texgyreheros-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
+
+\NewDocumentCommand {\HerosCondensedSansFont} {} {
+ \setsansfont{texgyreheroscn-regular.otf}[
+Extension=.otf,
+UprightFont=texgyreheroscn-regular,
+ItalicFont=texgyreheroscn-italic,
+BoldFont=texgyreheroscn-bold,
+BoldItalicFont=texgyreheroscn-bolditalic,
+SlantedFont=texgyreheroscn-italic,
+BoldSlantedFont=texgyreheroscn-bolditalic,
+FontFace={xl}{n}{texgyreheroscn-regular},
+FontFace={xl}{it}{texgyreheroscn-italic},
+FontFace={li}{n}{texgyreheroscn-regular},
+FontFace={li}{it}{texgyreheroscn-italic},
+FontFace={md}{n}{texgyreheroscn-regular},
+FontFace={md}{it}{texgyreheroscn-italic},
+FontFace={sb}{n}{texgyreheroscn-bold},
+FontFace={sb}{it}{texgyreheroscn-bolditalic},
+FontFace={xb}{n}{texgyreheroscn-bold},
+FontFace={xb}{it}{texgyreheroscn-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
 },
 ]
 }
@@ -601,6 +919,14 @@ Numbers={OldStyle,Proportional},
 RawFeature={+zero}, % slashed (actually dotted) zero
 ]
 }
+
+%-----------------------------------------------------------------
+% URW Classico
+% %% URW Classico is a clone of Optima, available at
+% %% https://www.ctan.org/pkg/classico
+% %% It is gratis, but has a restrictive license.
+% \setsansfont{URW Classico}[
+%    Ligatures={Common,TeX}]
 
 %-----------------------------------------------------------------
 % mono fonts
@@ -675,7 +1001,135 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% TeX Gyre Fonts
+% https://ctan.org/pkg/tex-gyre?lang=en
+% Version 2.501 2018-06-17
+% Licenses  The GUST Font License (GFL)
+%-----------------------------------------------------------------
+% TeX Gyre Cursor <- URW Nimbus Mono L <- Courier
+
+\NewDocumentCommand {\CursorMonoFont} {} {
+ \setmonofont{texgyrecursor-regular.otf}[
+Extension=.otf,
+UprightFont=texgyrecursor-regular,
+ItalicFont=texgyrecursor-italic,
+BoldFont=texgyrecursor-bold,
+BoldItalicFont=texgyrecursor-bolditalic,
+SlantedFont=texgyrecursor-italic,
+BoldSlantedFont=texgyrecursor-bolditalic,
+FontFace={xl}{n}{texgyrecursor-regular},
+FontFace={xl}{it}{texgyrecursor-italic},
+FontFace={li}{n}{texgyrecursor-regular},
+FontFace={li}{it}{texgyrecursor-italic},
+FontFace={md}{n}{texgyrecursor-regular},
+FontFace={md}{it}{texgyrecursor-italic},
+FontFace={sb}{n}{texgyrecursor-bold},
+FontFace={sb}{it}{texgyrecursor-bolditalic},
+FontFace={xb}{n}{texgyrecursor-bold},
+FontFace={xb}{it}{texgyrecursor-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
+},
+StylisticSet={
+1, % stylistic alternatives, like small super (c)
+10,% slight changes to math operators, brackets, etc
+},
+]
+}
+
+%-----------------------------------------------------------------
 % math fonts
+%-----------------------------------------------------------------
+% Asana
+%
+% https://www.ctan.org/tex-archive/fonts/Asana-Math/
+% Version 000.958 2019-04-14
+% Licenses  The SIL Open Font License
+
+% https://tex.stackexchange.com/questions/457630/what-font-is-this-exactly-asana-math
+% \setmainfont{Fira Sans Light}[
+%      Numbers       = OldStyle,
+%      BoldFont      = Fira Sans Medium,
+%      ItalicFont    = Fira Sans Light Italic,
+%      BoldItalicFont= Fira Sans Medium Italic]
+% \setsansfont{Fira Sans Light}[
+%      Numbers       = OldStyle,
+%      BoldFont      = Fira Sans Medium,
+%      ItalicFont    = Fira Sans Light Italic,
+%      BoldItalicFont= Fira Sans Medium Italic]
+% % For source code
+% \setmonofont{Source Code Pro Light}[
+%      BoldFont=Source Code Pro]
+% 
+% %% Math font
+% \setmathfont{Asana Math} % or some other suitable font
+% https://tex.stackexchange.com/questions/350749/sans-and-monospace-font-match-for-stix-two
+% TeX Gyre Pagella is a clone of Palatino.  
+% You can use the real thing if you have it. 
+% Windows and MacOS both do.
+% \setmainfont{TeX Gyre Pagella}[
+%    Ligatures={Common,TeX},
+%    Scale=1.0]
+% %% URW Classico is a clone of Optima, available at
+% %% https://www.ctan.org/pkg/classico
+% %% It is gratis, but has a restrictive license.
+% \setsansfont{URW Classico}[
+%    Ligatures={Common,TeX}]
+% \setmonofont{Inconsolata}
+% \setmathfont{Asana Math}
+% %% Neo Euler is available at
+% %% https://github.com/khaledhosny/euler-otf
+% %% This lets you use, for example, \symup{e} and \symup{i}
+% %% for the constants.  It does not cover lowercase \mathcal.
+% \setmathfont{Neo Euler}[
+%   range={up,bfup,cal,bfcal,frak,bffrak}]
+% %% If you need \mathscr distinct from \mathcal:
+% \setmathfont{STIX Two Math}[
+%   range={scr,bfscr},
+%   StylisticSet=1,
+%   Scale=MatchUppercase]
+
+\NewDocumentCommand {\AsanaMathFont} {} {
+
+\setmathfont{Asana-Math.otf}[
+Extension=.otf,
+StylisticSet = {},
+Numbers={OldStyle,Proportional},
+]
+
+% \setmathfont{Neo Euler}[
+%   range={up,bfup,cal,bfcal,frak,bffrak},
+%   ]
+%   
+% \setmathfont{STIX Two Math}[
+%   range={scr,bfscr},
+%   StylisticSet=1,
+%   Scale=MatchUppercase,
+%   ]
+}
+
+%-----------------------------------------------------------------
+% Erewhon Math  <- Heuristica <- Utopia
+% https://ctan.org/pkg/erewhon% OFL-1.1 License
+% Version 1.114 2021-02-26
+% Licenses  The SIL Open Font License
+% The LATEX Project Public License 1.3
+
+\NewDocumentCommand {\ErewhonMathFont} {} {
+\setmathfont{Erewhon-Math.otf}[
+Extension=.otf,
+StylisticSet = {
+4, % better inequalities
+% 5, % smaller operators, eg, \in
+6, % better set inclusion
+% 7, % slanted \parallel
+},
+Numbers={OldStyle,Proportional},
+]
+}
+
 %-----------------------------------------------------------------
 % https://github.com/YuanshengZhao/Garamond-Math
 % OFL-1.1 License
@@ -709,23 +1163,6 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\LibertinusMathFont} {} {
 \setmathfont{LibertinusMath-Regular.otf}[
-% Extension=.otf,
-% UprightFont=LibertinusSans-Regular,
-% ItalicFont=LibertinusSans-Italic,
-% BoldFont=LibertinusSans-Bold,
-% %BoldItalicFont=LibertinusSans-BoldItalic,
-% SlantedFont=LibertinusSans-Italic,
-% %BoldSlantedFont=LibertinusSans-BoldItalic,
-% FontFace={xl}{n}{LibertinusSans-Regular},
-% FontFace={xl}{it}{LibertinusSans-Italic},
-% FontFace={li}{n}{LibertinusSans-Regular},
-% FontFace={li}{it}{LibertinusSans-Italic},
-% FontFace={md}{n}{LibertinusSans-Regular},
-% FontFace={md}{it}{LibertinusSans-Italic},
-% FontFace={sb}{n}{LibertinusSans-Bold},
-% FontFace={sb}{it}{LibertinusSans-Italic},
-% FontFace={xb}{n}{LibertinusSans-Bold},
-% FontFace={xb}{it}{LibertinusSans-Italic}, 
 Numbers={OldStyle,Proportional},
 StylisticSet={
 8, % upright integrals
@@ -733,6 +1170,64 @@ StylisticSet={
 RawFeature={
 +zero, % slashed zero
 },
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Math Fonts
+% https://ctan.org/pkg/tex-gyre-math
+% Version 2016-05-19
+% Licenses  The GUST Font License (GFL)
+%-----------------------------------------------------------------
+% TeX Gyre Bonum Math <- URW Bookman L <- Bookman Old Style
+
+\NewDocumentCommand {\BonumMathFont} {} {
+\setmathfont{texgyrebonum-math.otf}[
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre DejaVu Math <- Bitstream Vera
+% Licensing for original dejavu fonts dubious
+% non-math dejavu fonts don't seem to be available in otf
+
+% \NewDocumentCommand {\DejaVuMathFont} {} {
+% \setmathfont{texgyredejavu-math.otf}[
+% Numbers={OldStyle,Proportional},
+% Ligatures={Common,TeX},
+% ]
+% }
+
+
+%-----------------------------------------------------------------
+% TeX Gyre Pagella <- URW Palladio L <- Palatino
+
+\NewDocumentCommand {\PagellaMathFont} {} {
+ \setmathfont{texgyrepagella-math.otf}[
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Schola <- URW Century Schoolbook L <- Century Schoolbook
+
+\NewDocumentCommand {\ScholaMathFont} {} {
+ \setmathfont{texgyreschola-math.otf}[
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+]
+}
+
+%-----------------------------------------------------------------
+% TeX Gyre Termes <- URW Nimbus Roman No9 L <- Times New Roman
+
+\NewDocumentCommand {\TermesMathFont} {} {
+\setmathfont{texgyretermes-math.otf}[
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
 ]
 }
 
@@ -746,23 +1241,6 @@ RawFeature={
 
 \NewDocumentCommand {\STIXTwoMathFont} {} {
 \setmathfont{STIXTwoMath-Regular.otf}[
-% Extension=.otf,
-% UprightFont=STIXTwoText-Regular,
-% ItalicFont=STIXTwoText-Italic,
-% BoldFont=STIXTwoText-Bold,
-% BoldItalicFont=STIXTwoText-BoldItalic,
-% SlantedFont=STIXTwoText-Italic,
-% BoldSlantedFont=STIXTwoText-BoldItalic,
-% FontFace={xl}{n}{STIXTwoText-Regular},
-% FontFace={xl}{it}{STIXTwoText-Italic},
-% FontFace={li}{n}{STIXTwoText-Regular},
-% FontFace={li}{it}{STIXTwoText-Italic},
-% FontFace={md}{n}{STIXTwoText-Medium},
-% FontFace={md}{it}{STIXTwoText-MediumItalic},
-% FontFace={sb}{n}{STIXTwoText-SemiBold},
-% FontFace={sb}{it}{STIXTwoText-SemiBoldItalic},
-% FontFace={xb}{n}{STIXTwoText-Bold},
-% FontFace={xb}{it}{STIXTwoText-BoldItalic}, 
 Numbers={OldStyle,Proportional},
 RawFeature={
 +cv01, % horizontal lambda-bar
@@ -831,19 +1309,22 @@ RawFeature={
 % attempt at harmonius main, sans, mono, math fonts
 % TODO: separate titlefont?
 %-----------------------------------------------------------------
-%https://tex.stackexchange.com/questions/350749/sans-and-monospace-font-match-for-stix-two
-% \NewDocumentCommand {\AsanaFonts} {} {
-% \defaultfontfeatures{ Scale=MatchLowercase }
-% %% TeX Gyre Pagella is a clone of Palatino.  You can use the
-% %% real thing if you have it.  Windows and MacOS both do.
+% https://tex.stackexchange.com/questions/350749/sans-and-monospace-font-match-for-stix-two
+
+% TeX Gyre Pagella is a clone of Palatino.  
+% You can use the real thing if you have it. 
+% Windows and MacOS both do.
 % \setmainfont{TeX Gyre Pagella}[
 %    Ligatures={Common,TeX},
 %    Scale=1.0]
+
 % %% URW Classico is a clone of Optima, available at
 % %% https://www.ctan.org/pkg/classico
 % %% It is gratis, but has a restrictive license.
 % \setsansfont{URW Classico}[
 %    Ligatures={Common,TeX}]
+
+
 % \setmonofont{Inconsolata}
 % \setmathfont{Asana Math}
 % %% Neo Euler is available at
@@ -857,12 +1338,28 @@ RawFeature={
 %   range={scr,bfscr},
 %   StylisticSet=1,
 %   Scale=MatchUppercase]
+
+\NewDocumentCommand {\AsanaFonts} {} {
+ \defaultfontfeatures{ Scale=MatchLowercase }
+ \PagellaMainFont
+ % Optima -> Classico -> Biolinum -> Libertinus Sans
+ \LibertinusSansFont
+ \InconsolataMonoFont
+ \AsanaMathFont
+}
   
 \NewDocumentCommand {\CormorantFonts} {} {
 \CormorantMainFont
 \YsabeauSansFont
 \InconsolataMonoFont
 \GaramondMathFont
+}
+
+\NewDocumentCommand {\ErewhonFonts} {} {
+\ErewhonMainFont
+\LatinModernSansFont
+\InconsolataMonoFont
+\ErewhonMathFont
 }
 
 \NewDocumentCommand {\EBGaramondFonts} {} {
@@ -873,12 +1370,58 @@ RawFeature={
 }
 
 \NewDocumentCommand {\LibertinusFonts} {} {
+% TODO: Libertinus Serif Display as title font?
+% TODO: Libertinus Serif Initials as a drop cap font?
 \LibertinusMainFont
 \LibertinusSansFont
 \LibertinusMonoFont
 \LibertinusMathFont
 }
 
+%-----------------------------------------------------------------
+% Tex Gyre Collections
+
+% ugly:
+\NewDocumentCommand {\BonumFonts} {} {
+\BonumMainFont
+%\AdventorSansFont
+\HerosSansFont
+%\HerosCondensedSansFont
+\CursorMonoFont
+\BonumMathFont
+}
+
+% ok: 
+\NewDocumentCommand {\PagellaFonts} {} {
+\PagellaMainFont
+%\AdventorSansFont
+\HerosSansFont
+%\HerosCondensedSansFont
+\CursorMonoFont
+\PagellaMathFont
+}
+
+% pagella > schola > bonum
+\NewDocumentCommand {\ScholaFonts} {} {
+\ScholaMainFont
+%\AdventorSansFont
+\HerosSansFont
+%\HerosCondensedSansFont
+\CursorMonoFont
+\ScholaMathFont
+}
+
+% termes ~ pagella > schola > bonum
+\NewDocumentCommand {\TermesFonts} {} {
+\TermesMainFont
+%\AdventorSansFont
+\HerosSansFont
+%\HerosCondensedSansFont
+\CursorMonoFont
+\TermesMathFont
+}
+
+%-----------------------------------------------------------------
 \NewDocumentCommand {\XITSFonts} {} {
 \XITSMainFont
 \GilliusADFTwoSansFont
@@ -978,7 +1521,7 @@ RawFeature={
 % math packages
 %-----------------------------------------------------------------
 \RequirePackage{amsmath}[2020/09/23]
-%\RequirePackage{amssymb}[2013/01/14]
+%\RequirePackage{amssymb}[2013/01/14] % should be covered by unicode-math
 \RequirePackage{mathtools}[2020/03/24] % for \splitfrac
 %-----------------------------------------------------------------
 % math fonts
@@ -1034,20 +1577,6 @@ RawFeature={
 % % },
 % Numbers={OldStyle,Proportional},
 % ]
-%-----------------------------------------------------------------
-% tex gyre 
-%-----------------------------------------------------------------
-% Tex Gyre fonts might be replacements for everything?
-
-% following work (no obvious missing symbols in tests/math.tex):
-
-%\setmathfont{TeX Gyre Bonum Math}
-% sans math chars larger than EB Garamond text:
-%\setmathfont{TeX Gyre DejaVu Math}
-%\setmathfont{TeX Gyre Pagella Math}
-%\setmathfont{TeX Gyre Schola Math}
-%\setmathfont{TeX Gyre Termes Math}
-
 %-----------------------------------------------------------------
 %  math sans fonts
 %-----------------------------------------------------------------
@@ -1125,10 +1654,6 @@ RawFeature={
 %-----------------------------------------------------------------
 % Asana
 %-----------------------------------------------------------------
-% https://www.ctan.org/tex-archive/fonts/Asana-Math/
-
-% works (no obvious missing symbols in font.tex):
-%\setmathfont{Asana Math}
 
 % lots of missing symbols
 %\setmathfont{Asana Math}[version=asana]
