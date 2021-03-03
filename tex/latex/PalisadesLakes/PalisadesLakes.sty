@@ -372,6 +372,49 @@ Numbers={OldStyle,Proportional},
 }
 
 %-----------------------------------------------------------------
+% FiraGo <- FiraSans <- Metal
+% https://github.com/bBoxType/FiraGO
+% OFL-1.1 License
+% 1.0 Mar 14 2018
+
+% TODO: what should happen to sans font
+% when main font is sans?
+
+\NewDocumentCommand {\FiraGoMainFont} {} {
+\setmainfont{FiraGo}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+% TODO: use more weights?
+FontFace={xl}{n}{*-ExtraLight},
+FontFace={xl}{it}{*-ExtraLightItalic},
+FontFace={li}{n}{*-Light},
+FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Medium},
+FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={bf}{n}{*-Bold},
+FontFace={bf}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-ExtraBold},
+FontFace={xb}{it}{*-BoldItalic}, 
+RawFeature={
++calt,,  % contextual alternatives (arabic?)
++case, % case sensitive accents, etc.
++ccmp, % glyph (de)composition
++finas, % terminal forms (arabic?)
++init, % terminal forms (arabic?)
++medi, % medial forms (arabic?)
++onum, % oldstyle figures
++zero, % slashed zero
+},
+]
+}
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -634,6 +677,46 @@ Numbers={OldStyle,Proportional},
 % Maybe later choose something to match the math sans, and use 
 % that for text pseudcode that matches math pseudocode as closely
 % as possible.
+%-----------------------------------------------------------------
+% FiraGo <- FiraSans <- Metal
+% https://github.com/bBoxType/FiraGO
+% OFL-1.1 License
+% 1.0 Mar 14 2018
+
+\NewDocumentCommand {\FiraGoSansFont} {} {
+\setsansfont{FiraGo}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+% TODO: use more weights?
+FontFace={xl}{n}{*-ExtraLight},
+FontFace={xl}{it}{*-ExtraLightItalic},
+FontFace={li}{n}{*-Light},
+FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Medium},
+FontFace={md}{it}{*-MediumItalic},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={bf}{n}{*-Bold},
+FontFace={bf}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-ExtraBold},
+FontFace={xb}{it}{*-BoldItalic}, 
+RawFeature={
++calt,,  % contextual alternatives (arabic?)
++case, % case sensitive accents, etc.
++ccmp, % glyph (de)composition
++finas, % terminal forms (arabic?)
++init, % terminal forms (arabic?)
++medi, % medial forms (arabic?)
++onum, % oldstyle figures
++zero, % slashed zero
+},
+]
+}
 %-----------------------------------------------------------------
 % http://arkandis.tuxfamily.org/adffonts.html
 % GNU General Public License V2 and later, with font exception.
@@ -932,6 +1015,50 @@ RawFeature={+zero}, % slashed (actually dotted) zero
 % mono fonts
 % TODO: what about sans vs serifs?
 %-----------------------------------------------------------------
+% Fira Code <- Fira Mono <- Metal
+% https://github.com/tonsky/FiraCode
+% OFL-1.1 License
+% 5.2 Jun 12, 2020
+
+% \usepackage{fontspec}
+% \setmonofont{FiraCode-Regular.otf}[
+% BoldFont=FiraCode-Bold.otf,
+% Contextuals=Alternate % Activate the calt feature
+% ]
+% \usepackage{xcolor}
+% \usepackage{listings}
+% \usepackage[verbatim]{lstfiracode} % Activate ligatures in verbatim
+% \lstset{
+% language=C++,
+% style=FiraCodeStyle, % Use predefined FiraCodeStyle
+% basicstyle=\ttfamily, % Use \ttfamily for source code listings
+% commentstyle=\color{orange}
+% }
+
+\NewDocumentCommand {\FiraCodeMonoFont} {} {
+\setmonofont{FiraCode}[
+Extension=.ttf,
+UprightFont=*-Regular,
+BoldFont=*-Bold,
+FontFace={xl}{n}{*-Light},
+FontFace={li}{n}{*-Light},
+FontFace={md}{n}{*-Medium},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={bf}{n}{*-Bold},
+FontFace={xb}{n}{*-Bold},
+% TODO: what is 'Retina'?
+StylisticSet = {},
+RawFeature={
+%+aalt, % all alternates
++calt, % contextual alternatives
++case, % case sensitive parens, etc.
++onum, % oldstyle digits
++salt, % stylistic alternates
++zero ,% slashed (actually dotted) zero
+}, 
+]
+}
+%-----------------------------------------------------------------
 % https://github.com/googlefonts/inconsolata
 % OFL-1.1 License
 % 2021-03-01
@@ -1130,6 +1257,27 @@ Numbers={OldStyle,Proportional},
 ]
 }
 
+%-----------------------------------------------------------------
+% FiraMath <- FiraSans <- Metal
+% https://github.com/bBoxType/FiraGO
+% OFL-1.1 License
+% FiraMath v0.3.4 Oct 15, 2020
+
+\NewDocumentCommand {\FiraMathFont} {} {
+\setmathfont{FiraMath-Regular.otf}[
+Extension=.otf,
+RawFeature={
++ssty, % something about quotes
+%+dtls, % something about ij
+},
+StylisticSet={
+1, % upright integrals
+2, % horizontal h-bar
+3, % rounder C
+},
+Numbers={OldStyle,Proportional},
+]
+}
 %-----------------------------------------------------------------
 % https://github.com/YuanshengZhao/Garamond-Math
 % OFL-1.1 License
@@ -1360,6 +1508,14 @@ RawFeature={
 \LatinModernSansFont
 \InconsolataMonoFont
 \ErewhonMathFont
+}
+
+\NewDocumentCommand {\FiraFonts} {} {
+% TODO: what should happen when main font is sans?
+\FiraGoMainFont
+\FiraGoSansFont
+\FiraCodeMonoFont
+\FiraMathFont
 }
 
 \NewDocumentCommand {\EBGaramondFonts} {} {
