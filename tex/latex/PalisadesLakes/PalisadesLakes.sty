@@ -403,15 +403,164 @@ FontFace={bf}{it}{*-BoldItalic},
 FontFace={xb}{n}{*-ExtraBold},
 FontFace={xb}{it}{*-BoldItalic}, 
 RawFeature={
-+calt,,  % contextual alternatives (arabic?)
++calt,  % contextual alternatives (arabic?)
 +case, % case sensitive accents, etc.
 +ccmp, % glyph (de)composition
 +finas, % terminal forms (arabic?)
-+init, % terminal forms (arabic?)
++init, % initial forms (arabic?)
 +medi, % medial forms (arabic?)
 +onum, % oldstyle figures
 +zero, % slashed zero
 },
+]
+}
+%-----------------------------------------------------------------
+% GFS Fonts <- Computer Modern Bright
+% https://greekfontsociety-gfs.gr/
+% Many fonts available; appear to all be OFL 1.1
+%-----------------------------------------------------------------
+% GFS Artemisia <- Times Roman
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_Artemisia
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+\NewDocumentCommand {\GFSArtemisiaMainFont} {} {
+\setmainfont{GFSArtemisia.otf}[
+Extension=.otf,
+UprightFont=GFSArtemisia,
+ItalicFont=GFSArtemisiaIt,
+BoldFont=GFSArtemisiaBold,
+BoldItalicFont=GFSArtemisiaBoldIt,
+SlantedFont=GFSArtemisiaIt,
+BoldSlantedFont=GFSArtemisiaBoldIt,
+FontFace={xl}{n}{GFSArtemisia},
+FontFace={xl}{it}{GFSArtemisiaIt},
+FontFace={li}{n}{GFSArtemisia},
+FontFace={li}{it}{GFSArtemisiaIt},
+FontFace={md}{n}{GFSArtemisia},
+FontFace={md}{it}{GFSArtemisiaIt},
+FontFace={sb}{n}{GFSArtemisiaBold},
+FontFace={sb}{it}{GFSArtemisiaBoldIt},
+FontFace={bf}{n}{GFSArtemisiaBold},
+FontFace={bf}{it}{GFSArtemisiaBoldIt},
+FontFace={xb}{n}{GFSArtemisiaBold},
+FontFace={xb}{it}{GFSArtemisiaBoldIt}, 
+RawFeature={
++fina, % terminal forms 
++onum, % oldstyle figures
+},
+]
+}
+%-----------------------------------------------------------------
+% GFS Bodoni <- Bodoni
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_Bodoni
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+\NewDocumentCommand {\GFSBodoniMainFont} {} {
+\setmainfont{GFSBodoni.otf}[
+Extension=.otf,
+UprightFont=GFSBodoni,
+ItalicFont=GFSBodoniIt,
+BoldFont=GFSBodoniBold,
+BoldItalicFont=GFSBodoniBoldIt,
+SlantedFont=GFSBodoniIt,
+BoldSlantedFont=GFSBodoniBoldIt,
+FontFace={xl}{n}{GFSBodoni},
+FontFace={xl}{it}{GFSBodoniIt},
+FontFace={li}{n}{GFSBodoni},
+FontFace={li}{it}{GFSBodoniIt},
+FontFace={md}{n}{GFSBodoni},
+FontFace={md}{it}{GFSBodoniIt},
+FontFace={sb}{n}{GFSBodoniBold},
+FontFace={sb}{it}{GFSBodoniBoldIt},
+FontFace={bf}{n}{GFSBodoniBold},
+FontFace={bf}{it}{GFSBodoniBoldIt},
+FontFace={xb}{n}{GFSBodoniBold},
+FontFace={xb}{it}{GFSBodoniBoldIt}, 
+RawFeature={
++fina, % terminal forms 
++onum, % oldstyle figures
+},
+]
+}
+%-----------------------------------------------------------------
+% GFS Didot <- Didot, Palatino
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_Didot
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+\NewDocumentCommand {\GFSDidotMainFont} {} {
+\setmainfont{GFSDidot.otf}[
+Extension=.otf,
+UprightFont=GFSDidot,
+ItalicFont=GFSDidotItalic,
+BoldFont=GFSDidotBold,
+BoldItalicFont=GFSDidotBoldItalic,
+SlantedFont=GFSDidotItalic,
+BoldSlantedFont=GFSDidotBoldItalic,
+FontFace={xl}{n}{GFSDidot},
+FontFace={xl}{it}{GFSDidotItalic},
+FontFace={li}{n}{GFSDidot},
+FontFace={li}{it}{GFSDidotItalic},
+FontFace={md}{n}{GFSDidot},
+FontFace={md}{it}{GFSDidotItalic},
+FontFace={sb}{n}{GFSDidotBold},
+FontFace={sb}{it}{GFSDidotBoldItalic},
+FontFace={bf}{n}{GFSDidotBold},
+FontFace={bf}{it}{GFSDidotBoldItalic},
+FontFace={xb}{n}{GFSDidotBold},
+FontFace={xb}{it}{GFSDidotBoldItalic}, 
+RawFeature={
++fina, % terminal forms 
++onum, % oldstyle figures
+},
+]
+}
+%-----------------------------------------------------------------
+% GFS Newohellenic <- New Hellenic
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_NeoHellenic
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+% Effectively a sans font
+
+\NewDocumentCommand {\GFSNeohellenicMainFont} {} {
+\setmainfont{GFSNeohellenic.otf}[
+Extension=.otf,
+UprightFont=GFSNeohellenic,
+ItalicFont=GFSNeohellenicIt,
+BoldFont=GFSNeohellenicBold,
+BoldItalicFont=GFSNeohellenicBoldIt,
+SlantedFont=GFSNeohellenicIt,
+BoldSlantedFont=GFSNeohellenicBoldIt,
+FontFace={xl}{n}{GFSNeohellenic},
+FontFace={xl}{it}{GFSNeohellenicIt},
+FontFace={li}{n}{GFSNeohellenic},
+FontFace={li}{it}{GFSNeohellenicIt},
+FontFace={md}{n}{GFSNeohellenic},
+FontFace={md}{it}{GFSNeohellenicIt},
+FontFace={sb}{n}{GFSNeohellenicBold},
+FontFace={sb}{it}{GFSNeohellenicBoldIt},
+FontFace={bf}{n}{GFSNeohellenicBold},
+FontFace={bf}{it}{GFSNeohellenicBoldIt},
+FontFace={xb}{n}{GFSNeohellenicBold},
+FontFace={xb}{it}{GFSNeohellenicBoldIt}, 
+% RawFeature={
+% +fina, % terminal forms 
+% +onum, % oldstyle figures
+% },
+]
+}
+%-----------------------------------------------------------------
+% GFS Orpheus, similar to GFS Orpheus Sans
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_Orpheus
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+\NewDocumentCommand {\GFSOrpheusMainFont} {} {
+\setmainfont{GFS_Orpheus.otf}[
+% no variations!
 ]
 }
 %-----------------------------------------------------------------
@@ -714,6 +863,56 @@ RawFeature={
 +medi, % medial forms (arabic?)
 +onum, % oldstyle figures
 +zero, % slashed zero
+},
+]
+}
+%-----------------------------------------------------------------
+% GFS Newohellenic <- New Hellenic
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_NeoHellenic
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+% Effectively a sans font --- what to do when sans and main are the same?
+
+\NewDocumentCommand {\GFSNeohellenicSansFont} {} {
+\setsansfont{GFSNeohellenic.otf}[
+Extension=.otf,
+UprightFont=GFSNeohellenic,
+ItalicFont=GFSNeohellenicIt,
+BoldFont=GFSNeohellenicBold,
+BoldItalicFont=GFSNeohellenicBoldIt,
+SlantedFont=GFSNeohellenicIt,
+BoldSlantedFont=GFSNeohellenicBoldIt,
+FontFace={xl}{n}{GFSNeohellenic},
+FontFace={xl}{it}{GFSNeohellenicIt},
+FontFace={li}{n}{GFSNeohellenic},
+FontFace={li}{it}{GFSNeohellenicIt},
+FontFace={md}{n}{GFSNeohellenic},
+FontFace={md}{it}{GFSNeohellenicIt},
+FontFace={sb}{n}{GFSNeohellenicBold},
+FontFace={sb}{it}{GFSNeohellenicBoldIt},
+FontFace={bf}{n}{GFSNeohellenicBold},
+FontFace={bf}{it}{GFSNeohellenicBoldIt},
+FontFace={xb}{n}{GFSNeohellenicBold},
+FontFace={xb}{it}{GFSNeohellenicBoldIt}, 
+% RawFeature={
+% +fina, % terminal forms 
+% +onum, % oldstyle figures
+% },
+]
+}
+%-----------------------------------------------------------------
+% GFS Orpheus, similar to GFS Orpheus Sans
+% https://greekfontsociety-gfs.gr/typefaces/20th_21st_century#GFS_Orpheus_Sans
+% OFL-1.1 License
+% downloaded 2021-03-03
+
+\NewDocumentCommand {\GFSOrpheusSansFont} {} {
+\setsansfont{GFS_Orpheus_Sans.otf}[
+% no variations!
+StylisticSet={
+1,
+2,
 },
 ]
 }
@@ -1275,7 +1474,7 @@ StylisticSet={
 2, % horizontal h-bar
 3, % rounder C
 },
-Numbers={OldStyle,Proportional},
+%Numbers={OldStyle,Proportional},
 ]
 }
 %-----------------------------------------------------------------
@@ -1303,6 +1502,18 @@ Numbers={OldStyle,Proportional},
 ]
 }
 
+%-----------------------------------------------------------------
+% GFS Neohellenic Math <- Computer Modern Bright?
+% GFS Didot mentioned in description
+% https://greekfontsociety-gfs.gr/typefaces/Math
+% OFL 1.1
+% no version, downloaded 2021-03-03
+
+\NewDocumentCommand {\GFSNeohellenicMathFont} {} {
+\setmathfont{GFSNeohellenicMath.otf}[
+Numbers={OldStyle,Proportional},
+]
+}
 %-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
@@ -1516,6 +1727,19 @@ RawFeature={
 \FiraGoSansFont
 \FiraCodeMonoFont
 \FiraMathFont
+}
+
+\NewDocumentCommand {\GFSNeohellenicFonts} {} {
+% TODO: How to distinguish sans and main?
+% Use a less 'sans' font than Neohellenic?
+\GFSArtemisiaMainFont % needs scaling compared to NeoHellenic
+%\GFSBodoniMainFont % needs scaling compared to NeoHellenic
+%\GFSDidotMainFont % ugly
+%\GFSNeohellenicMainFont % nice, but no contrast with sans
+\GFSNeohellenicSansFont
+%% no GFS mono font?
+\FiraCodeMonoFont
+\GFSNeohellenicMathFont
 }
 
 \NewDocumentCommand {\EBGaramondFonts} {} {
