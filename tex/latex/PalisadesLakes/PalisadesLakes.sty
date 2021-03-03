@@ -1162,8 +1162,10 @@ StylisticSet={
 \NewDocumentCommand {\YsabeauSansFont} {} {
 \setsansfont{Ysabeau}[
 Extension=.otf,
-UprightFont=*-Regular,
-ItalicFont=*-Italic,
+% UprightFont=*-Regular,
+% ItalicFont=*-Italic,
+UprightFont=*-Medium,
+ItalicFont=*-MediumItalic,
 BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
@@ -1710,7 +1712,7 @@ RawFeature={
 \NewDocumentCommand {\CormorantFonts} {} {
 \CormorantMainFont
 \YsabeauSansFont
-\InconsolataMonoFont
+\FiraCodeMonoFont
 \GaramondMathFont
 }
 
