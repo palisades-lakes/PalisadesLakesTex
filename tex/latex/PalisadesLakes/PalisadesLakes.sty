@@ -149,6 +149,10 @@ nabla=upright,
 % reusable setup commands, that can be used to create 'families'
 % TODO: how to keep fonts up to date? clojure script to git fetch
 % and re-install?
+% TODO: specification that covers all possible weight, width, 
+% and shape combinations
+% TODO: replace 'xb', etc., with standard versions from
+% https://www.ctan.org/pkg/fntguide
 %-----------------------------------------------------------------
 % main fonts
 %-----------------------------------------------------------------
@@ -176,7 +180,8 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-%SmallcapsFont=CormorantSC,
+SmallCapsFont=CormorantSC,
+SmallCapsFeatures={Letters=SmallCaps},
 FontFace={xl}{n}{*-Light},
 FontFace={xl}{it}{*-LightItalic},
 FontFace={li}{n}{*-Light},
@@ -600,6 +605,45 @@ RawFeature={
 +case, % case sensitive forms
 +onum, % oldstyle figures (digits)
 +swsh, % long tailed Q
+},
+]
+}
+
+%-----------------------------------------------------------------
+% Latin Modern Roman <- Computer Modern
+% https://ctan.org/pkg/lm
+% Home page http://www.gust.org.pl/projects/e-foundry/latin-modern
+% Version 2.004
+% Licenses  The GUST Font License (GFL)
+% 2009-10-30
+
+% TODO: 8, 9, 10, 12 ,17 size fonts for differing faces?
+
+\NewDocumentCommand {\LatinModernMainFont} {} {
+\setmainfont{lmroman10-regular.otf}[
+Extension=.otf,
+UprightFont=lmroman10-regular,
+ItalicFont=lmroman10-italic,
+BoldFont=lmroman10-bold,
+BoldItalicFont=lmroman10-bolditalic,
+SlantedFont=lmromanslant10-regular,
+BoldSlantedFont=lmromanslant10-bold,
+SmallCapsFont={lmromancaps10-regular},
+SmallCapsFeatures={Letters=SmallCaps},
+FontFace={xl}{n}{lmroman10-regular},
+FontFace={xl}{it}{lmroman10-italic},
+FontFace={li}{n}{lmroman10-regular},
+FontFace={li}{it}{lmroman10-italic},
+FontFace={md}{n}{lmroman10-regular},
+FontFace={md}{it}{lmroman10-italic},
+FontFace={sb}{n}{lmroman10-bold},
+FontFace={sb}{it}{lmroman10-bolditalic},
+FontFace={xb}{n}{lmroman10-bold},
+FontFace={xb}{it}{lmroman10-bolditalic}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
 },
 ]
 }
@@ -1416,6 +1460,43 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% Latin Modern Mono <- Computer Modern
+% https://ctan.org/pkg/lm
+% Home page http://www.gust.org.pl/projects/e-foundry/latin-modern
+% Version 2.004
+% Licenses  The GUST Font License (GFL)
+% 2009-10-30
+
+% TODO: 8, 9, 10, 12 ,17 size fonts for differing faces?
+
+\NewDocumentCommand {\LatinModernMonoFont} {} {
+\setmonofont{lmmonolt10-regular.otf}[
+Extension=.otf,
+UprightFont=lmmonolt10-regular,
+ItalicFont=lmmonolt10-oblique,
+BoldFont=lmmonolt10-bold,
+BoldItalicFont=lmmonolt10-boldoblique,
+SlantedFont=lmmonoslant10-regular,
+BoldSlantedFont=lmmonolt10-bold,
+FontFace={xl}{n}{lmmonolt10-regular},
+FontFace={xl}{it}{lmmonolt10-oblique},
+FontFace={li}{n}{lmmonolt10-regular},
+FontFace={li}{it}{lmmonolt10-oblique},
+FontFace={md}{n}{lmmonolt10-regular},
+FontFace={md}{it}{lmmonolt10-oblique},
+FontFace={sb}{n}{lmmonolt10-bold},
+FontFace={sb}{it}{lmmonolt10-boldoblique},
+FontFace={xb}{n}{lmmonolt10-bold},
+FontFace={xb}{it}{lmmonolt10-boldoblique}, 
+Numbers={OldStyle,Proportional},
+Ligatures={Common,TeX},
+RawFeature={
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -1709,6 +1790,25 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% http://www.gust.org.pl/projects/e-foundry/lm-math
+% GUST Font License (GFL)
+% Possiblly a harmonius set to use for all fonts
+% version 1959 circa 2014-10-05
+
+\NewDocumentCommand {\LatinModernMathFont} {} {
+\setmathfont{latinmodern-math.otf}[
+Numbers={OldStyle,Proportional},
+StylisticSet={
+},
+RawFeature={
+%+alts, % allk alernates
+%+dlts, % i j
+%+ssty, % math script alternates
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -1931,6 +2031,13 @@ RawFeature={
 \KpSansSansFont
 \KpMonoMonoFont
 \KpMathMathFont
+}
+
+\NewDocumentCommand {\LatinModernFonts} {} {
+\LatinModernMainFont
+\LatinModernSansFont
+\LatinModernMonoFont
+\LatinModernMathFont
 }
 
 \NewDocumentCommand {\LibertinusFonts} {} {
