@@ -564,6 +564,47 @@ FontFace={xb}{it}{GFSNeohellenicBoldIt},
 ]
 }
 %-----------------------------------------------------------------
+% Kp fonts
+%-----------------------------------------------------------------
+% https://ctan.org/pkg/kpfonts-otf
+% Version 0.34 2021-01-30
+% Licenses  The LATEX Project Public License 1.3
+% The SIL Open Font License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\KpRomanMainFont} {} {
+\setmainfont{KpRoman}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+FontFace={xl}{n}{*-Light},
+FontFace={xl}{it}{*-LightItalic},
+FontFace={li}{n}{*-Light},
+FontFace={li}{it}{*-LightItalic},
+FontFace={md}{n}{*-Regular},
+FontFace={md}{it}{*-Italic},
+FontFace={sb}{n}{*-Semibold},
+FontFace={sb}{it}{*-SemiboldItalic},
+FontFace={xb}{n}{*-Bold},
+FontFace={xb}{it}{*-BoldItalic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % ligatures
+},
+RawFeature={
++case, % case sensitive forms
++onum, % oldstyle figures (digits)
++swsh, % long tailed Q
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -1153,6 +1194,47 @@ StylisticSet={
 }
 
 %-----------------------------------------------------------------
+% Kp fonts
+%-----------------------------------------------------------------
+% https://ctan.org/pkg/kpfonts-otf
+% Version 0.34 2021-01-30
+% Licenses  The LATEX Project Public License 1.3
+% The SIL Open Font License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\KpSansSansFont} {} {
+\setsansfont{KpSans}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+FontFace={xl}{n}{*-Regular},
+FontFace={xl}{it}{*-Italic},
+FontFace={li}{n}{*-Regular},
+FontFace={li}{it}{*-Italic},
+FontFace={md}{n}{*-Regular},
+FontFace={md}{it}{*-Italic},
+FontFace={sb}{n}{*-Bold},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-Bold},
+FontFace={xb}{it}{*-BoldItalic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % ligatures
+},
+RawFeature={
++case, % case sensitive forms
++onum, % oldstyle figures (digits)
++swsh, % long tailed Q
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/CatharsisFonts/Ysabeau
 % 2021-03-01
 % OFL-1.1 License
@@ -1293,6 +1375,46 @@ StylisticSet = {
 RawFeature={+zero}, % slashed (actually dotted) zero
 ]
 }
+%-----------------------------------------------------------------
+% Kp fonts
+%-----------------------------------------------------------------
+% https://ctan.org/pkg/kpfonts-otf
+% Version 0.34 2021-01-30
+% Licenses  The LATEX Project Public License 1.3
+% The SIL Open Font License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\KpMonoMonoFont} {} {
+\setmonofont{KpMono}[
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+FontFace={xl}{n}{*-Regular},
+FontFace={xl}{it}{*-Italic},
+FontFace={li}{n}{*-Regular},
+FontFace={li}{it}{*-Italic},
+FontFace={md}{n}{*-Regular},
+FontFace={md}{it}{*-Italic},
+FontFace={sb}{n}{*-Bold},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={xb}{n}{*-Bold},
+FontFace={xb}{it}{*-BoldItalic}, 
+Numbers={OldStyle,Proportional},
+StylisticSet={
+},
+RawFeature={
++case, % case sensitive forms
++onum, % oldstyle figures (digits)
++swsh, % long tailed Q
+},
+]
+}
+
 %-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
@@ -1517,6 +1639,76 @@ Numbers={OldStyle,Proportional},
 ]
 }
 %-----------------------------------------------------------------
+% Kp fonts
+%-----------------------------------------------------------------
+% https://ctan.org/pkg/kpfonts-otf
+% Version 0.34 2021-01-30
+% Licenses  The LATEX Project Public License 1.3
+% The SIL Open Font License
+% Possiblly a harmonius set to use for all fonts
+% version 7.040 2021-03-01
+
+\NewDocumentCommand {\KpMathMathFont} {} {
+\setmathfont{KpMath-Regular.otf}[
+Extension=.otf,
+UprightFont=KpMath-Regular,
+BoldFont=KpMath-Bold,
+FontFace={sf}{n}{KpMath-Sans},
+FontFace={xl}{n}{KpMath-Light},
+FontFace={li}{n}{KpMath-Light},
+FontFace={md}{n}{KpMath-Regular},
+FontFace={sb}{n}{KpMath-Semibold},
+FontFace={xb}{n}{KpMath-Bold},
+FontFace={sf}{it}{KpMath-Sans},
+FontFace={xl}{it}{KpMath-Light},
+FontFace={li}{it}{KpMath-Light},
+FontFace={md}{it}{KpMath-Regular},
+FontFace={sb}{it}{KpMath-Semibold},
+FontFace={xb}{it}{KpMath-Bold},
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % simpler script capitals
+2, % sans \mathbb
+3, % integral kerning
+4, % better leq, etc.
+%5, % smaller \parallel
+6, % better subseteq
+%7, % slanted \parallel
+},
+RawFeature={
+%+cv00, % fraktur I, R -> Im, Re
++cv01, % horizontal h-bar
++cv02, % narrow slashed zero
+% other cvXX seem to be swaping various greek letter forms
++onum, % oldstyle figures (digits)
+},
+]
+}
+
+\NewDocumentCommand {\KpSansMathFont} {} {
+\setmathfont{KpMath-Sans}[
+Extension=.otf,
+Numbers={OldStyle,Proportional},
+StylisticSet={
+1, % simpler script capitals
+2, % sans \mathbb
+3, % integral kerning
+4, % better leq, etc.
+%5, % smaller \parallel
+6, % better subseteq
+%7, % slanted \parallel
+},
+RawFeature={
+%+cv00, % fraktur I, R -> Im, Re
++cv01, % horizontal h-bar
++cv02, % narrow slashed zero
+% other cvXX seem to be swaping various greek letter forms
++onum, % oldstyle figures (digits)
+},
+]
+}
+
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -1628,23 +1820,6 @@ StylisticSet={
 
 \NewDocumentCommand {\XITSMathFont} {} {
 \setmathfont{XITSMath-Regular.otf}[
-Extension=.otf,
-UprightFont=XITSMath-Regular,
-ItalicFont=XITSMath-Regular,
-BoldFont=XITSMath-Bold,
-BoldItalicFont=XITSMath-Bold,
-SlantedFont=XITSMath-Regular,
-BoldSlantedFont=XITSMath-Bold,
-FontFace={xl}{n}{XITSMath-Regular},
-FontFace={xl}{it}{XITSMath-Regular},
-FontFace={li}{n}{XITSMath-Regular},
-FontFace={li}{it}{XITSMath-Regular},
-FontFace={md}{n}{XITSMath-Regular},
-FontFace={md}{it}{XITSMath-Regular},
-FontFace={sb}{n}{XITSMath-Bold},
-FontFace={sb}{it}{XITSMath-Bold},
-FontFace={xb}{n}{XITSMath-Bold},
-FontFace={xb}{it}{XITSMath-Bold},
 Numbers={OldStyle,Proportional},
 Ligatures=TeX,
 StylisticSet = {
@@ -1749,6 +1924,13 @@ RawFeature={
 \GilliusADFSansFont
 \InconsolataMonoFont
 \GaramondMathFont
+}
+
+\NewDocumentCommand {\KpFonts} {} {
+\KpRomanMainFont
+\KpSansSansFont
+\KpMonoMonoFont
+\KpMathMathFont
 }
 
 \NewDocumentCommand {\LibertinusFonts} {} {
@@ -2145,8 +2327,8 @@ RawFeature={
 \NewDocumentCommand{\scalars}{}{\mathsf{scalars}}
 \NewDocumentCommand{\vectors}{}{\mathsf{vectors}}
 %-----------------------------------------------------------------
-\NewDocumentCommand{\OneToOne}{}{1{\!}{-}{\!}1}
-% TODO: just type in unicode diorectly instead?
+\NewDocumentCommand{\OneToOne}{}{1{\!}{\mathhyphen}{\!}1}
+% TODO: just type in unicode directly instead?
 \NewDocumentCommand{\Set}{m}{\symscr{#1}}
 \NewDocumentCommand{\Space}{m}{\symbb{#1}}
 \NewDocumentCommand{\Integers}{}{\Space{Z}}
@@ -2181,9 +2363,9 @@ RawFeature={
 \DeclareMathOperator{\Tangent}{\Pseudocode{tangent}}
 \DeclareMathOperator{\TangentSpace}{\Space{Tan}}
 \DeclareMathOperator{\convexspan}{\Affine{hull}} 
-\DeclareMathOperator{\linearCombination}{\Linear{linear-combination}} 
-\DeclareMathOperator{\affineCombination}{\Affine{affine-combination}} 
-\DeclareMathOperator{\convexCombination}{\Affine{convex-combination}} 
+\DeclareMathOperator{\linearCombination}{\Linear{linear\mathhyphen combination}} 
+\DeclareMathOperator{\affineCombination}{\Affine{affine\mathhyphen combination}} 
+\DeclareMathOperator{\convexCombination}{\Affine{convex\mathhyphen combination}} 
 \DeclareMathOperator{\volume}{\Pseudocode{volume}}
 
 \NewDocumentCommand{\SetSpec}{m m}{\left\{ #1\,|\,#2 \right\}}
