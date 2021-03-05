@@ -174,6 +174,7 @@ nabla=upright,
 \NewDocumentCommand {\CormorantMainFont} {} {
 \setmainfont{Cormorant}[
 %\setmainfont{CormorantGaramond}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -188,6 +189,7 @@ BoldSlantedFont=*-BoldItalic,
 FontFace={ul}{sc}{CormorantSC-Light.otf},
 FontFace={el}{sc}{CormorantSC-Light.otf},
 FontFace={l}{sc}{CormorantSC-Regular.otf},
+FontFace={sl}{sc}{CormorantSC-Regular.otf},
 FontFace={m}{sc}{CormorantSC-Medium.otf},
 FontFace={sb}{sc}{CormorantSC-SemiBold.otf},
 FontFace={b}{sc}{CormorantSC-Bold.otf},
@@ -197,6 +199,7 @@ FontFace={ub}{sc}{CormorantSC-Bold.otf},
 FontFace={ul}{n}{*-Light},
 FontFace={el}{n}{*-Light},
 FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
 FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
 FontFace={b}{n}{*-Bold},
@@ -206,7 +209,8 @@ FontFace={ub}{n}{*-Bold},
 FontFace={ul}{it}{*-LightItalic},
 FontFace={el}{it}{*-LightItalic},
 FontFace={l}{it}{*-Italic},
-FontFace={it}{it}{*-MediumItalic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-MediumItalic},
 FontFace={sb}{it}{*-SemiBoldItalic},
 FontFace={b}{it}{*-BoldItalic},
 FontFace={eb}{it}{*-BoldItalic},
@@ -216,6 +220,7 @@ FontFace={ul}{sl}{*-LightItalic},
 FontFace={el}{sl}{*-LightItalic},
 FontFace={l}{sl}{*-Italic},
 FontFace={sl}{sl}{*-MediumItalic},
+FontFace={m}{sl}{*-MediumItalic},
 FontFace={sb}{sl}{*-SemiBoldItalic},
 FontFace={b}{sl}{*-BoldItalic},
 FontFace={eb}{sl}{*-BoldItalic},
@@ -244,7 +249,7 @@ RawFeature={
 ]
 }
 %-----------------------------------------------------------------
-% EB Garamond
+% EB Garamond (Duffner version)
 % https://en.wikipedia.org/wiki/EB_Garamond
 % http://www.georgduffner.at/ebgaramond/download.html
 % https://github.com/georgd/EB-Garamond
@@ -258,15 +263,91 @@ RawFeature={
 % also, I like the look of the original small caps better.
 
 
-% \NewDocumentCommand {\EBGaramondDuffnerMainFont} {} {
-% \setmainfont[
-% Path,
-% UprightFont = *12-Regular,
-% ItalicFont  = *12-Italic,
+\NewDocumentCommand {\EBGaramondDuffnerMainFont} {} {
+\setmainfont[
+Path,
+{EBGaramond12}[
+Path,
+% TODO: regular, italic, smallcaps only: use FakeBold and FakeSlant?
+UprightFont = *12-Regular,
+ItalicFont  = *12-Italic,
 % BoldFont    = *08-Regular,
 % BoldItalicFont = *08-Italic ]
-% {EBGaramond}
-% }
+% SlantedFont=*-Italic,
+% BoldSlantedFont=*-BoldItalic,
+% SmallCapsFont=EBGaramondSC12-Regular.otf,
+%  SmallCapsFeatures={
+%  Letters=SmallCaps,
+%  },
+% % FontFace={ul}{sc}{CormorantSC-Light.otf},
+% % FontFace={el}{sc}{CormorantSC-Light.otf},
+% % FontFace={l}{sc}{CormorantSC-Regular.otf},
+% % FontFace={sl}{sc}{CormorantSC-Regular.otf},
+% % FontFace={m}{sc}{CormorantSC-Medium.otf},
+% % FontFace={sb}{sc}{CormorantSC-SemiBold.otf},
+% % FontFace={b}{sc}{CormorantSC-Bold.otf},
+% % FontFace={eb}{sc}{CormorantSC-Bold.otf},
+% % FontFace={ub}{sc}{CormorantSC-Bold.otf},
+% %
+% FontFace={ul}{n}{*-Regular},
+% FontFace={el}{n}{*-Regular},
+% FontFace={l}{n}{*-Regular},
+% FontFace={sl}{n}{*-Regular},
+% FontFace={m}{n}{*-Medium},
+% FontFace={sb}{n}{*-SemiBold},
+% FontFace={b}{n}{*-Bold},
+% FontFace={eb}{n}{*-Bold},
+% FontFace={ub}{n}{*-Bold},
+% %
+% FontFace={ul}{it}{*-Italic},
+% FontFace={el}{it}{*-Italic},
+% FontFace={l}{it}{*-Italic},
+% FontFace={sl}{it}{*-Italic},
+% FontFace={m}{it}{*-MediumItalic},
+% FontFace={sb}{it}{*-SemiBoldItalic},
+% FontFace={b}{it}{*-BoldItalic},
+% FontFace={eb}{it}{*-BoldItalic},
+% FontFace={ub}{it}{*-BoldItalic},
+% %
+% FontFace={ul}{sl}{*-LightItalic},
+% FontFace={el}{sl}{*-LightItalic},
+% FontFace={l}{sl}{*-Italic},
+% FontFace={sl}{sl}{*-MediumItalic},
+% FontFace={m}{sl}{*-MediumItalic},
+% FontFace={sb}{sl}{*-SemiBoldItalic},
+% FontFace={b}{sl}{*-BoldItalic},
+% FontFace={eb}{sl}{*-BoldItalic},
+% FontFace={ub}{sl}{*-BoldItalic},
+StylisticSet = {
+% 1, % pointed cyrillic capitals
+% 2, % %
+% 3, % schoolbook forms (Infant version)
+% 4, % a^e instead of \"{a}
+% 5, % unicase small caps
+% 6, % 'roman' greek latters
+7, % better acute accent placement
+},
+Numbers={OldStyle,Proportional},
+RawFeature={
++calt, % contextual alternates
++case, % case sensitive forms
++ccmp, % glyph (de)composition
+%+cv01, % s -> f
++cv02, % fancy @
+%+cv03, % IJ -> ij
++cv06, % fancy <,>
+%+cv11, % I -> 1?
+%+cv21, % round a
+%+cv27, % round g
+%+cv47, % german ss
+%+cv80, % ~ -> acute accent?
+%+cv83, % 'roman' chi
+% skipping more cvXX
++onum, % old style figures
+%+salt, % tilde theta, Theta 
++zero}, % slashed (actually dotted) zero
+]
+}
 
 %-----------------------------------------------------------------
 % EB Garamond12
@@ -284,16 +365,53 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-FontFace={xl}{n}{*-Regular},
-FontFace={xl}{it}{*-Italic},
-FontFace={li}{n}{*-Regular},
-FontFace={li}{it}{*-Italic},
-FontFace={md}{n}{*-Medium},
-FontFace={md}{it}{*-MediumItalic},
+% SmallCapsFont=EBGaramond-Regular.otf,
+% SmallCapsFeatures={
+% Letters=SmallCaps,
+% },
+% FontFace={ul}{sc}{*-Regular.otf},
+% FontFace={el}{sc}{*-Regular.otf},
+% FontFace={l}{sc}{*-Regular.otf},
+% FontFace={sl}{sc}{*-Regular.otf},
+% FontFace={m}{sc}{*-Medium.otf},
+% FontFace={sb}{sc}{*-SemiBold.otf},
+% FontFace={b}{sc}{*-Bold.otf},
+% FontFace={eb}{sc}{*-ExtraBold.otf},
+% FontFace={ub}{sc}{*-ExtraBold.otf},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-ExtraBold},
+FontFace={ub}{n}{*-ExtraBold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-MediumItalic},
 FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={xb}{n}{*-ExtraBold},
-FontFace={xb}{it}{*-ExtraBoldItalic}, 
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-ExtraBoldItalic},
+FontFace={ub}{it}{*-ExtraBoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-MediumItalic},
+FontFace={m}{sl}{*-MediumItalic},
+FontFace={sb}{sl}{*-SemiBoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-ExtraBoldItalic},
+FontFace={ub}{sl}{*-ExtraBoldItalic},
+RawFeature={
++case, % case sensitive forms
+%+swsh, % very long tailed Q
+},
 StylisticSet = {
 6,% long tailed Q
 },
@@ -308,7 +426,7 @@ Numbers={OldStyle,Proportional},
 % % % %+aalt, % all characters tiny
 % % % %+c2pc, % all caps petite
 % % % %+c2sc, % all caps small
-% % % +case, % effect not obvious, re-test
+% % % +case, % case sensitive forms
 % % % %+dlig, % some weird ligatures
 % % % %+frac, % small digits out of position
 % % % %+hist, % all s go to f-ish shape
@@ -374,30 +492,66 @@ Numbers={OldStyle,Proportional},
 
 %-----------------------------------------------------------------
 % Erewhon <- Heuristica <- Utopia
-% https://ctan.org/pkg/erewhon% OFL-1.1 License
+% https://ctan.org/pkg/erewhon
+% OFL-1.1 License
 % Version 1.114 2021-02-26
 % Licenses  The SIL Open Font License
 % The LATEX Project Public License 1.3
 
 \NewDocumentCommand {\ErewhonMainFont} {} {
-\setmainfont{Erewhon-Regular.otf}[
+\setmainfont{Erewhon}[
+Path,
 Extension=.otf,
-UprightFont=Erewhon-Regular,
-ItalicFont=Erewhon-Italic,
-BoldFont=Erewhon-Bold,
-BoldItalicFont=Erewhon-BoldItalic,
-SlantedFont=Erewhon-RegularSlanted,
-BoldSlantedFont=Erewhon-BoldSlanted,
-FontFace={xl}{n}{Erewhon-Regular},
-FontFace={xl}{it}{Erewhon-Italic},
-FontFace={li}{n}{Erewhon-Regular},
-FontFace={li}{it}{Erewhon-Italic},
-FontFace={md}{n}{Erewhon-Regular},
-FontFace={md}{it}{Erewhon-Italic},
-FontFace={sb}{n}{Erewhon-Bold},
-FontFace={sb}{it}{Erewhon-BoldItalic},
-FontFace={xb}{n}{Erewhon-Bold},
-FontFace={xb}{it}{Erewhon-BoldItalic}, 
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-RegularSlanted,
+BoldSlantedFont=*-BoldSlanted,
+%
+% FontFace={ul}{sc}{*-Thin},
+% FontFace={el}{sc}{*-Extralight},
+% FontFace={l}{sc}{*-Light},
+% FontFace={sl}{sc}{*-Semilight},
+% FontFace={m}{sc}{*-Book},
+% FontFace={m}{sc}{*-Regular},
+% FontFace={sb}{sc}{*-Semibold},
+% FontFace={b}{sc}{*-Bold},
+% FontFace={eb}{sc}{*-Ultrabold},
+% FontFace={ub}{sc}{*-Heavy},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-RegularSlanted},
+FontFace={el}{sl}{*-RegularSlanted},
+FontFace={l}{sl}{*-RegularSlanted},
+FontFace={sl}{sl}{*-RegularSlanted},
+FontFace={m}{sl}{*-RegularSlanted},
+FontFace={sb}{sl}{*-BoldSlanted},
+FontFace={b}{sl}{*-BoldSlanted},
+FontFace={eb}{sl}{*-BoldSlanted},
+FontFace={ub}{sl}{*-BoldSlanted},
+RawFeature={
++case, % case sensitive forms
+},
 StylisticSet = {
 },
 Numbers={OldStyle,Proportional},
@@ -415,6 +569,7 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\FiraGoMainFont} {} {
 \setmainfont{FiraGo}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -422,19 +577,60 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-% TODO: use more weights?
-FontFace={xl}{n}{*-ExtraLight},
-FontFace={xl}{it}{*-ExtraLightItalic},
-FontFace={li}{n}{*-Light},
-FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Medium},
-FontFace={md}{it}{*-MediumItalic},
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+%FontFace={ul}{n}{*-Hair},
+%FontFace={ul}{n}{*-Thin},
+FontFace={ul}{n}{*-UltraLight},
+FontFace={el}{n}{*-ExtraLight},
+FontFace={l}{n}{*-Light},
+%FontFace={sl}{n}{*-Book},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-ExtraBold},
+FontFace={ub}{n}{*-Heavy},
+%
+%FontFace={ul}{it}{*-HairItalic},
+%FontFace={ul}{it}{*-ThinItalic},
+FontFace={ul}{it}{*-UltraLightItalic},
+FontFace={el}{it}{*-ExtraLightItalic},
+FontFace={l}{it}{*-LightItalic},
+%FontFace={sl}{it}{*-Book},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-MediumItalic},
 FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={bf}{n}{*-Bold},
-FontFace={bf}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-ExtraBold},
-FontFace={xb}{it}{*-BoldItalic}, 
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-ExtraBoldItalic},
+FontFace={ub}{it}{*-HeavyItalic},
+%
+%FontFace={ul}{sl}{*-HairItalic},
+%FontFace={ul}{sl}{*-ThinItalic},
+FontFace={ul}{sl}{*-UltraLightItalic},
+FontFace={el}{sl}{*-ExtraLightItalic},
+FontFace={l}{sl}{*-LightItalic},
+%FontFace={sl}{sl}{*-Book},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-MediumItalic},
+FontFace={sb}{sl}{*-SemiBoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-ExtraBoldItalic},
+FontFace={ub}{sl}{*-HeavyItalic},
+%
 RawFeature={
 +calt,  % contextual alternatives (arabic?)
 +case, % case sensitive accents, etc.
@@ -458,26 +654,46 @@ RawFeature={
 % downloaded 2021-03-03
 
 \NewDocumentCommand {\GFSArtemisiaMainFont} {} {
-\setmainfont{GFSArtemisia.otf}[
+\setmainfont{GFSArtemisia}[
+Path,
 Extension=.otf,
 UprightFont=GFSArtemisia,
-ItalicFont=GFSArtemisiaIt,
-BoldFont=GFSArtemisiaBold,
-BoldItalicFont=GFSArtemisiaBoldIt,
-SlantedFont=GFSArtemisiaIt,
-BoldSlantedFont=GFSArtemisiaBoldIt,
-FontFace={xl}{n}{GFSArtemisia},
-FontFace={xl}{it}{GFSArtemisiaIt},
-FontFace={li}{n}{GFSArtemisia},
-FontFace={li}{it}{GFSArtemisiaIt},
-FontFace={md}{n}{GFSArtemisia},
-FontFace={md}{it}{GFSArtemisiaIt},
-FontFace={sb}{n}{GFSArtemisiaBold},
-FontFace={sb}{it}{GFSArtemisiaBoldIt},
-FontFace={bf}{n}{GFSArtemisiaBold},
-FontFace={bf}{it}{GFSArtemisiaBoldIt},
-FontFace={xb}{n}{GFSArtemisiaBold},
-FontFace={xb}{it}{GFSArtemisiaBoldIt}, 
+ItalicFont=*It,
+BoldFont=*Bold,
+BoldItalicFont=*BoldIt,
+SlantedFont=*It,
+BoldSlantedFont=*BoldIt,
+%
+FontFace={ul}{n}{GFSArtemisia},
+FontFace={el}{n}{GFSArtemisia},
+FontFace={l}{n}{GFSArtemisia},
+FontFace={sl}{n}{GFSArtemisia},
+FontFace={m}{n}{GFSArtemisia},
+FontFace={sb}{n}{*Bold},
+FontFace={b}{n}{*Bold},
+FontFace={eb}{n}{*Bold},
+FontFace={ub}{n}{*Bold},
+%
+FontFace={ul}{it}{*It},
+FontFace={el}{it}{*It},
+FontFace={l}{it}{*It},
+FontFace={sl}{it}{*It},
+FontFace={m}{it}{*It},
+FontFace={sb}{it}{*BoldIt},
+FontFace={b}{it}{*BoldIt},
+FontFace={eb}{it}{*BoldIt},
+FontFace={ub}{it}{*BoldIt},
+%
+FontFace={ul}{sl}{*It},
+FontFace={el}{sl}{*It},
+FontFace={l}{sl}{*It},
+FontFace={sl}{sl}{*It},
+FontFace={m}{sl}{*It},
+FontFace={sb}{sl}{*BoldIt},
+FontFace={b}{sl}{*BoldIt},
+FontFace={eb}{sl}{*BoldIt},
+FontFace={ub}{sl}{*BoldIt},
+%
 RawFeature={
 +fina, % terminal forms 
 +onum, % oldstyle figures
@@ -491,26 +707,46 @@ RawFeature={
 % downloaded 2021-03-03
 
 \NewDocumentCommand {\GFSBodoniMainFont} {} {
-\setmainfont{GFSBodoni.otf}[
+\setmainfont{GFSBodoni}[
+Path,
 Extension=.otf,
 UprightFont=GFSBodoni,
-ItalicFont=GFSBodoniIt,
-BoldFont=GFSBodoniBold,
-BoldItalicFont=GFSBodoniBoldIt,
-SlantedFont=GFSBodoniIt,
-BoldSlantedFont=GFSBodoniBoldIt,
-FontFace={xl}{n}{GFSBodoni},
-FontFace={xl}{it}{GFSBodoniIt},
-FontFace={li}{n}{GFSBodoni},
-FontFace={li}{it}{GFSBodoniIt},
-FontFace={md}{n}{GFSBodoni},
-FontFace={md}{it}{GFSBodoniIt},
-FontFace={sb}{n}{GFSBodoniBold},
-FontFace={sb}{it}{GFSBodoniBoldIt},
-FontFace={bf}{n}{GFSBodoniBold},
-FontFace={bf}{it}{GFSBodoniBoldIt},
-FontFace={xb}{n}{GFSBodoniBold},
-FontFace={xb}{it}{GFSBodoniBoldIt}, 
+ItalicFont=*It,
+BoldFont=*Bold,
+BoldItalicFont=*BoldIt,
+SlantedFont=*It,
+BoldSlantedFont=*BoldIt,
+%
+FontFace={ul}{n}{GFSBodoni},
+FontFace={el}{n}{GFSBodoni},
+FontFace={l}{n}{GFSBodoni},
+FontFace={sl}{n}{GFSBodoni},
+FontFace={m}{n}{GFSBodoni},
+FontFace={sb}{n}{*Bold},
+FontFace={b}{n}{*Bold},
+FontFace={eb}{n}{*Bold},
+FontFace={ub}{n}{*Bold},
+%
+FontFace={ul}{it}{*It},
+FontFace={el}{it}{*It},
+FontFace={l}{it}{*It},
+FontFace={sl}{it}{*It},
+FontFace={m}{it}{*It},
+FontFace={sb}{it}{*BoldIt},
+FontFace={b}{it}{*BoldIt},
+FontFace={eb}{it}{*BoldIt},
+FontFace={ub}{it}{*BoldIt},
+%
+FontFace={ul}{sl}{*It},
+FontFace={el}{sl}{*It},
+FontFace={l}{sl}{*It},
+FontFace={sl}{sl}{*It},
+FontFace={m}{sl}{*It},
+FontFace={sb}{sl}{*BoldIt},
+FontFace={b}{sl}{*BoldIt},
+FontFace={eb}{sl}{*BoldIt},
+FontFace={ub}{sl}{*BoldIt},
+%
 RawFeature={
 +fina, % terminal forms 
 +onum, % oldstyle figures
@@ -524,26 +760,46 @@ RawFeature={
 % downloaded 2021-03-03
 
 \NewDocumentCommand {\GFSDidotMainFont} {} {
-\setmainfont{GFSDidot.otf}[
+\setmainfont{GFSDidot}[
+Path,
 Extension=.otf,
 UprightFont=GFSDidot,
-ItalicFont=GFSDidotItalic,
-BoldFont=GFSDidotBold,
-BoldItalicFont=GFSDidotBoldItalic,
-SlantedFont=GFSDidotItalic,
-BoldSlantedFont=GFSDidotBoldItalic,
-FontFace={xl}{n}{GFSDidot},
-FontFace={xl}{it}{GFSDidotItalic},
-FontFace={li}{n}{GFSDidot},
-FontFace={li}{it}{GFSDidotItalic},
-FontFace={md}{n}{GFSDidot},
-FontFace={md}{it}{GFSDidotItalic},
-FontFace={sb}{n}{GFSDidotBold},
-FontFace={sb}{it}{GFSDidotBoldItalic},
-FontFace={bf}{n}{GFSDidotBold},
-FontFace={bf}{it}{GFSDidotBoldItalic},
-FontFace={xb}{n}{GFSDidotBold},
-FontFace={xb}{it}{GFSDidotBoldItalic}, 
+ItalicFont=*Italic,
+BoldFont=*Bold,
+BoldItalicFont=*BoldItalic,
+SlantedFont=*Italic,
+BoldSlantedFont=*BoldItalic,
+%
+FontFace={ul}{n}{GFSDidot},
+FontFace={el}{n}{GFSDidot},
+FontFace={l}{n}{GFSDidot},
+FontFace={sl}{n}{GFSDidot},
+FontFace={m}{n}{GFSDidot},
+FontFace={sb}{n}{*Bold},
+FontFace={b}{n}{*Bold},
+FontFace={eb}{n}{*Bold},
+FontFace={ub}{n}{*Bold},
+%
+FontFace={ul}{it}{*Italic},
+FontFace={el}{it}{*Italic},
+FontFace={l}{it}{*Italic},
+FontFace={sl}{it}{*Italic},
+FontFace={m}{it}{*Italic},
+FontFace={sb}{it}{*BoldItalic},
+FontFace={b}{it}{*BoldItalic},
+FontFace={eb}{it}{*BoldItalic},
+FontFace={ub}{it}{*BoldItalic},
+%
+FontFace={ul}{sl}{*Italic},
+FontFace={el}{sl}{*Italic},
+FontFace={l}{sl}{*Italic},
+FontFace={sl}{sl}{*Italic},
+FontFace={m}{sl}{*Italic},
+FontFace={sb}{sl}{*BoldItalic},
+FontFace={b}{sl}{*BoldItalic},
+FontFace={eb}{sl}{*BoldItalic},
+FontFace={ub}{sl}{*BoldItalic},
+%
 RawFeature={
 +fina, % terminal forms 
 +onum, % oldstyle figures
@@ -559,30 +815,50 @@ RawFeature={
 % Effectively a sans font
 
 \NewDocumentCommand {\GFSNeohellenicMainFont} {} {
-\setmainfont{GFSNeohellenic.otf}[
+\setmainfont{GFSNeohellenic}[
+Path,
 Extension=.otf,
 UprightFont=GFSNeohellenic,
-ItalicFont=GFSNeohellenicIt,
-BoldFont=GFSNeohellenicBold,
-BoldItalicFont=GFSNeohellenicBoldIt,
-SlantedFont=GFSNeohellenicIt,
-BoldSlantedFont=GFSNeohellenicBoldIt,
-FontFace={xl}{n}{GFSNeohellenic},
-FontFace={xl}{it}{GFSNeohellenicIt},
-FontFace={li}{n}{GFSNeohellenic},
-FontFace={li}{it}{GFSNeohellenicIt},
-FontFace={md}{n}{GFSNeohellenic},
-FontFace={md}{it}{GFSNeohellenicIt},
-FontFace={sb}{n}{GFSNeohellenicBold},
-FontFace={sb}{it}{GFSNeohellenicBoldIt},
-FontFace={bf}{n}{GFSNeohellenicBold},
-FontFace={bf}{it}{GFSNeohellenicBoldIt},
-FontFace={xb}{n}{GFSNeohellenicBold},
-FontFace={xb}{it}{GFSNeohellenicBoldIt}, 
-% RawFeature={
-% +fina, % terminal forms 
-% +onum, % oldstyle figures
-% },
+ItalicFont=*It,
+BoldFont=*Bold,
+BoldItalicFont=*BoldIt,
+SlantedFont=*It,
+BoldSlantedFont=*BoldIt,
+%
+FontFace={ul}{n}{GFSNeohellenic},
+FontFace={el}{n}{GFSNeohellenic},
+FontFace={l}{n}{GFSNeohellenic},
+FontFace={sl}{n}{GFSNeohellenic},
+FontFace={m}{n}{GFSNeohellenic},
+FontFace={sb}{n}{*Bold},
+FontFace={b}{n}{*Bold},
+FontFace={eb}{n}{*Bold},
+FontFace={ub}{n}{*Bold},
+%
+FontFace={ul}{it}{*It},
+FontFace={el}{it}{*It},
+FontFace={l}{it}{*It},
+FontFace={sl}{it}{*It},
+FontFace={m}{it}{*It},
+FontFace={sb}{it}{*BoldIt},
+FontFace={b}{it}{*BoldIt},
+FontFace={eb}{it}{*BoldIt},
+FontFace={ub}{it}{*BoldIt},
+%
+FontFace={ul}{sl}{*It},
+FontFace={el}{sl}{*It},
+FontFace={l}{sl}{*It},
+FontFace={sl}{sl}{*It},
+FontFace={m}{sl}{*It},
+FontFace={sb}{sl}{*BoldIt},
+FontFace={b}{sl}{*BoldIt},
+FontFace={eb}{sl}{*BoldIt},
+FontFace={ub}{sl}{*BoldIt},
+%
+RawFeature={
++fina, % terminal forms 
++onum, % oldstyle figures
+},
 ]
 }
 %-----------------------------------------------------------------
@@ -608,6 +884,7 @@ FontFace={xb}{it}{GFSNeohellenicBoldIt},
 
 \NewDocumentCommand {\KpRomanMainFont} {} {
 \setmainfont{KpRoman}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -615,16 +892,51 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-FontFace={xl}{n}{*-Light},
-FontFace={xl}{it}{*-LightItalic},
-FontFace={li}{n}{*-Light},
-FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Regular},
-FontFace={md}{it}{*-Italic},
-FontFace={sb}{n}{*-Semibold},
-FontFace={sb}{it}{*-SemiboldItalic},
-FontFace={xb}{n}{*-Bold},
-FontFace={xb}{it}{*-BoldItalic}, 
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+FontFace={ul}{n}{*-Light},
+FontFace={el}{n}{*-Light},
+FontFace={l}{n}{*-Light},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-LightItalic},
+FontFace={el}{it}{*-LightItalic},
+FontFace={l}{it}{*-LightItalic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-Italic},
+%
+FontFace={ul}{sl}{*-LightItalic},
+FontFace={el}{sl}{*-LightItalic},
+FontFace={l}{sl}{*-LightItalic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-SemiBoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-Italic},
+%
 Numbers={OldStyle,Proportional},
 StylisticSet={
 1, % ligatures
@@ -947,6 +1259,7 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\FiraGoSansFont} {} {
 \setsansfont{FiraGo}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -954,25 +1267,66 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-% TODO: use more weights?
-FontFace={xl}{n}{*-ExtraLight},
-FontFace={xl}{it}{*-ExtraLightItalic},
-FontFace={li}{n}{*-Light},
-FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Medium},
-FontFace={md}{it}{*-MediumItalic},
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+%FontFace={ul}{n}{*-Hair},
+%FontFace={ul}{n}{*-Thin},
+FontFace={ul}{n}{*-UltraLight},
+FontFace={el}{n}{*-ExtraLight},
+FontFace={l}{n}{*-Light},
+%FontFace={sl}{n}{*-Book},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-ExtraBold},
+FontFace={ub}{n}{*-Heavy},
+%
+%FontFace={ul}{it}{*-HairItalic},
+%FontFace={ul}{it}{*-ThinItalic},
+FontFace={ul}{it}{*-UltraLightItalic},
+FontFace={el}{it}{*-ExtraLightItalic},
+FontFace={l}{it}{*-LightItalic},
+%FontFace={sl}{it}{*-Book},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-MediumItalic},
 FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={bf}{n}{*-Bold},
-FontFace={bf}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-ExtraBold},
-FontFace={xb}{it}{*-BoldItalic}, 
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-ExtraBoldItalic},
+FontFace={ub}{it}{*-HeavyItalic},
+%
+%FontFace={ul}{sl}{*-HairItalic},
+%FontFace={ul}{sl}{*-ThinItalic},
+FontFace={ul}{sl}{*-UltraLightItalic},
+FontFace={el}{sl}{*-ExtraLightItalic},
+FontFace={l}{sl}{*-LightItalic},
+%FontFace={sl}{sl}{*-Book},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-MediumItalic},
+FontFace={sb}{sl}{*-SemiBoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-ExtraBoldItalic},
+FontFace={ub}{sl}{*-HeavyItalic},
+%
 RawFeature={
-+calt,,  % contextual alternatives (arabic?)
++calt,  % contextual alternatives (arabic?)
 +case, % case sensitive accents, etc.
 +ccmp, % glyph (de)composition
 +finas, % terminal forms (arabic?)
-+init, % terminal forms (arabic?)
++init, % initial forms (arabic?)
 +medi, % medial forms (arabic?)
 +onum, % oldstyle figures
 +zero, % slashed zero
@@ -989,29 +1343,49 @@ RawFeature={
 
 \NewDocumentCommand {\GFSNeohellenicSansFont} {} {
 \setsansfont{GFSNeohellenic.otf}[
+Path,
 Extension=.otf,
 UprightFont=GFSNeohellenic,
-ItalicFont=GFSNeohellenicIt,
-BoldFont=GFSNeohellenicBold,
-BoldItalicFont=GFSNeohellenicBoldIt,
-SlantedFont=GFSNeohellenicIt,
-BoldSlantedFont=GFSNeohellenicBoldIt,
-FontFace={xl}{n}{GFSNeohellenic},
-FontFace={xl}{it}{GFSNeohellenicIt},
-FontFace={li}{n}{GFSNeohellenic},
-FontFace={li}{it}{GFSNeohellenicIt},
-FontFace={md}{n}{GFSNeohellenic},
-FontFace={md}{it}{GFSNeohellenicIt},
-FontFace={sb}{n}{GFSNeohellenicBold},
-FontFace={sb}{it}{GFSNeohellenicBoldIt},
-FontFace={bf}{n}{GFSNeohellenicBold},
-FontFace={bf}{it}{GFSNeohellenicBoldIt},
-FontFace={xb}{n}{GFSNeohellenicBold},
-FontFace={xb}{it}{GFSNeohellenicBoldIt}, 
-% RawFeature={
-% +fina, % terminal forms 
-% +onum, % oldstyle figures
-% },
+ItalicFont=*It,
+BoldFont=*Bold,
+BoldItalicFont=*BoldIt,
+SlantedFont=*It,
+BoldSlantedFont=*BoldIt,
+%
+FontFace={ul}{n}{GFSNeohellenic},
+FontFace={el}{n}{GFSNeohellenic},
+FontFace={l}{n}{GFSNeohellenic},
+FontFace={sl}{n}{GFSNeohellenic},
+FontFace={m}{n}{GFSNeohellenic},
+FontFace={sb}{n}{*Bold},
+FontFace={b}{n}{*Bold},
+FontFace={eb}{n}{*Bold},
+FontFace={ub}{n}{*Bold},
+%
+FontFace={ul}{it}{*It},
+FontFace={el}{it}{*It},
+FontFace={l}{it}{*It},
+FontFace={sl}{it}{*It},
+FontFace={m}{it}{*It},
+FontFace={sb}{it}{*BoldIt},
+FontFace={b}{it}{*BoldIt},
+FontFace={eb}{it}{*BoldIt},
+FontFace={ub}{it}{*BoldIt},
+%
+FontFace={ul}{sl}{*It},
+FontFace={el}{sl}{*It},
+FontFace={l}{sl}{*It},
+FontFace={sl}{sl}{*It},
+FontFace={m}{sl}{*It},
+FontFace={sb}{sl}{*BoldIt},
+FontFace={b}{sl}{*BoldIt},
+FontFace={eb}{sl}{*BoldIt},
+FontFace={ub}{sl}{*BoldIt},
+%
+RawFeature={
++fina, % terminal forms 
++onum, % oldstyle figures
+},
 ]
 }
 %-----------------------------------------------------------------
@@ -1035,52 +1409,116 @@ StylisticSet={
 % Mar-12-11
 
 \NewDocumentCommand {\GilliusADFSansFont} {} {
-\setsansfont{GilliusADF-Regular.otf}[
+\setsansfont{GilliusADF}[
+Path,
 Scale=1.05,
 Extension=.otf,
-UprightFont=GilliusADF-Regular,
-ItalicFont=GilliusADF-Italic,
-BoldFont=GilliusADF-Bold,
-BoldItalicFont=GilliusADF-BoldItalic,
-SlantedFont=GilliusADF-CondItalic,
-BoldSlantedFont=GilliusADF-BoldCondItalic,
-FontFace={xl}{n}{GilliusADF-Regular},
-FontFace={xl}{it}{GilliusADF-Italic},
-FontFace={li}{n}{GilliusADF-Regular},
-FontFace={li}{it}{GilliusADF-Italic},
-FontFace={md}{n}{GilliusADF-Regular},
-FontFace={md}{it}{GilliusADF-Italic},
-FontFace={sb}{n}{GilliusADF-Bold},
-FontFace={sb}{it}{GilliusADF-BoldItalic},
-FontFace={bf}{n}{GilliusADF-Bold},
-FontFace={bf}{it}{GilliusADF-BoldItalic},
-FontFace={xb}{n}{GilliusADF-Bold},
-FontFace={xb}{it}{GilliusADF-BoldItalic}, 
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-CondItalic,
+BoldSlantedFont=*-BoldCondItalic,
+% SmallCapsFont=*-Regular.otf,
+% SmallCapsFeatures={
+% Letters=SmallCaps,
+% },
+% FontFace={ul}{sc}{*-Light.otf},
+% FontFace={el}{sc}{*-Light.otf},
+% FontFace={l}{sc}{*-Regular.otf},
+% FontFace={sl}{sc}{*-Regular.otf},
+% FontFace={m}{sc}{*-Medium.otf},
+% FontFace={sb}{sc}{*-SemiBold.otf},
+% FontFace={b}{sc}{*-Bold.otf},
+% FontFace={eb}{sc}{*-Bold.otf},
+% FontFace={ub}{sc}{*-Bold.otf},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
 ]
 }
 
 \NewDocumentCommand {\GilliusADFTwoSansFont} {} {
-\setsansfont{GilliusADFNo2-Regular.otf}[
+\setsansfont{GilliusADFNo2}[
+Path,
 Scale=1.05,
 Extension=.otf,
-UprightFont=GilliusADFNo2-Regular,
-ItalicFont=GilliusADFNo2-Italic,
-BoldFont=GilliusADFNo2-Bold,
-BoldItalicFont=GilliusADFNo2-BoldItalic,
-SlantedFont=GilliusADFNo2-CondItalic,
-BoldSlantedFont=GilliusADFNo2-BoldCondItalic,
-FontFace={xl}{n}{GilliusADFNo2-Regular},
-FontFace={xl}{it}{GilliusADFNo2-Italic},
-FontFace={li}{n}{GilliusADFNo2-Regular},
-FontFace={li}{it}{GilliusADFNo2-Italic},
-FontFace={md}{n}{GilliusADFNo2-Regular},
-FontFace={md}{it}{GilliusADFNo2-Italic},
-FontFace={sb}{n}{GilliusADFNo2-Bold},
-FontFace={sb}{it}{GilliusADFNo2-BoldItalic},
-FontFace={bf}{n}{GilliusADFNo2-Bold},
-FontFace={bf}{it}{GilliusADFNo2-BoldItalic},
-FontFace={xb}{n}{GilliusADFNo2-Bold},
-FontFace={xb}{it}{GilliusADFNo2-BoldItalic}, 
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-CondItalic,
+BoldSlantedFont=*-BoldCondItalic,
+% SmallCapsFont=*-Regular.otf,
+% SmallCapsFeatures={
+% Letters=SmallCaps,
+% },
+% FontFace={ul}{sc}{*-Light.otf},
+% FontFace={el}{sc}{*-Light.otf},
+% FontFace={l}{sc}{*-Regular.otf},
+% FontFace={sl}{sc}{*-Regular.otf},
+% FontFace={m}{sc}{*-Medium.otf},
+% FontFace={sb}{sc}{*-SemiBold.otf},
+% FontFace={b}{sc}{*-Bold.otf},
+% FontFace={eb}{sc}{*-Bold.otf},
+% FontFace={ub}{sc}{*-Bold.otf},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
 ]
 }
 
@@ -1095,24 +1533,68 @@ FontFace={xb}{it}{GilliusADFNo2-BoldItalic},
 % TODO: 8, 9, 10, 12 ,17 size fonts for differing faces?
 
 \NewDocumentCommand {\LatinModernSansFont} {} {
- \setsansfont{lmsans10-regular.otf}[
+\setsansfont{lmsans10}[
 Extension=.otf,
-UprightFont=lmsans10-regular,
-ItalicFont=lmsans10-oblique,
-BoldFont=lmsans10-bold,
-BoldItalicFont=lmsans10-boldoblique,
-SlantedFont=lmsans10-oblique,
-BoldSlantedFont=lmsans10-boldoblique,
-FontFace={xl}{n}{lmsans10-regular},
-FontFace={xl}{it}{lmsans10-oblique},
-FontFace={li}{n}{lmsans10-regular},
-FontFace={li}{it}{lmsans10-oblique},
-FontFace={md}{n}{lmsans10-regular},
-FontFace={md}{it}{lmsans10-oblique},
-FontFace={sb}{n}{lmsans10-bold},
-FontFace={sb}{it}{lmsans10-boldoblique},
-FontFace={xb}{n}{lmsans10-bold},
-FontFace={xb}{it}{lmsans10-boldoblique}, 
+FontFace={xl}{n}{*-regular},
+FontFace={xl}{it}{*-oblique},
+FontFace={li}{n}{*-regular},
+FontFace={li}{it}{*-oblique},
+FontFace={md}{n}{*-regular},
+FontFace={md}{it}{*-oblique},
+FontFace={sb}{n}{*-bold},
+FontFace={sb}{it}{*-boldoblique},
+FontFace={xb}{n}{*-bold},
+FontFace={xb}{it}{*-boldoblique}, 
+Path,
+Extension=.otf,
+UprightFont=*-regular,
+ItalicFont=*-oblique,
+BoldFont=*-bold,
+BoldItalicFont=*-boldoblique,
+SlantedFont=*-oblique,
+BoldSlantedFont=*-boldoblique,
+%
+% FontFace={ul}{sc}{*-Thin},
+% FontFace={el}{sc}{*-Extralight},
+% FontFace={l}{sc}{*-Light},
+% FontFace={sl}{sc}{*-Semilight},
+% FontFace={m}{sc}{*-Book},
+% FontFace={m}{sc}{*-Regular},
+% FontFace={sb}{sc}{*-Semibold},
+% FontFace={b}{sc}{*-Bold},
+% FontFace={eb}{sc}{*-Ultrabold},
+% FontFace={ub}{sc}{*-Heavy},
+%
+FontFace={ul}{n}{*-regular},
+FontFace={el}{n}{*-regular},
+FontFace={l}{n}{*-regular},
+FontFace={sl}{n}{*-regular},
+FontFace={m}{n}{*-regular},
+FontFace={sb}{n}{*-bold},
+FontFace={b}{n}{*-bold},
+FontFace={eb}{n}{*-bold},
+FontFace={ub}{n}{*-bold},
+%
+FontFace={ul}{it}{*-oblique},
+FontFace={el}{it}{*-oblique},
+FontFace={l}{it}{*-oblique},
+FontFace={sl}{it}{*-oblique},
+FontFace={m}{it}{*-oblique},
+FontFace={sb}{it}{*-boldoblique},
+FontFace={b}{it}{*-boldoblique},
+FontFace={eb}{it}{*-boldoblique},
+FontFace={ub}{it}{*-boldoblique},
+%
+FontFace={ul}{sl}{*-oblique},
+FontFace={el}{sl}{*-oblique},
+FontFace={l}{sl}{*-oblique},
+FontFace={sl}{sl}{*-oblique},
+FontFace={m}{sl}{*-oblique},
+FontFace={sb}{sl}{*-boldoblique},
+FontFace={b}{sl}{*-boldoblique},
+FontFace={eb}{sl}{*-boldoblique},
+FontFace={ub}{sl}{*-boldoblique},
+%
 Numbers={OldStyle,Proportional},
 Ligatures={Common,TeX},
 RawFeature={
@@ -1277,6 +1759,7 @@ StylisticSet={
 
 \NewDocumentCommand {\KpSansSansFont} {} {
 \setsansfont{KpSans}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1284,16 +1767,51 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-FontFace={xl}{n}{*-Regular},
-FontFace={xl}{it}{*-Italic},
-FontFace={li}{n}{*-Regular},
-FontFace={li}{it}{*-Italic},
-FontFace={md}{n}{*-Regular},
-FontFace={md}{it}{*-Italic},
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
 FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
 FontFace={sb}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-Bold},
-FontFace={xb}{it}{*-BoldItalic}, 
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
 Numbers={OldStyle,Proportional},
 StylisticSet={
 1, % ligatures
@@ -1315,6 +1833,7 @@ RawFeature={
 
 \NewDocumentCommand {\YsabeauSansFont} {} {
 \setsansfont{Ysabeau}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1324,58 +1843,59 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-%SmallcapsFont=YsabeauSC,
-%FontFace={ul}{sc}{YsabeauSC-Hairline.otf},
-FontFace={ul}{sc}{YsabeauSC-Thin.otf},
-FontFace={el}{sc}{YsabeauSC-Extralight.otf},
-FontFace={l}{sc}{YsabeauSC-Light.otf},
-FontFace={sl}{sc}{YsabeauSC-Semilight.otf},
-%FontFace={m}{sc}{YsabeauSC-Book.otf},
-FontFace={m}{sc}{YsabeauSC-Regular.otf},
-%FontFace={m}{sc}{YsabeauSC-Medium.otf},
-FontFace={sb}{sc}{YsabeauSC-Semibold.otf},
-FontFace={b}{sc}{YsabeauSC-Bold.otf},
-FontFace={eb}{sc}{YsabeauSC-Ultrabold.otf},
-FontFace={ub}{sc}{YsabeauSC-Heavy.otf},
-%FontFace={ub}{sc}{YsabeauSC-Black.otf},
+%SmallcapsFont=*SC,
+%FontFace={ul}{sc}{*SC-Hairline},
+FontFace={ul}{sc}{*SC-Thin},
+FontFace={el}{sc}{*SC-Extralight},
+FontFace={l}{sc}{*SC-Light},
+FontFace={sl}{sc}{*SC-Semilight},
+%FontFace={m}{sc}{*SC-Book},
+FontFace={m}{sc}{*SC-Regular},
+%FontFace={m}{sc}{*SC-Medium},
+FontFace={sb}{sc}{*SC-Semibold},
+FontFace={b}{sc}{*SC-Bold},
+FontFace={eb}{sc}{*SC-Ultrabold},
+FontFace={ub}{sc}{*SC-Heavy},
+%FontFace={ub}{sc}{*SC-Black},
 %
-%FontFace={ul}{n}{*-Hairline.otf},
-FontFace={ul}{n}{*-Thin.otf},
-FontFace={el}{n}{*-Extralight.otf},
-FontFace={l}{n}{*-Light.otf},
-FontFace={sl}{n}{*-Semilight.otf},
-%FontFace={m}{n}{*-Book.otf},
-FontFace={m}{n}{*-Regular.otf},
-%FontFace={m}{n}{*-Medium.otf},
-FontFace={sb}{n}{*-Semibold.otf},
-FontFace={b}{n}{*-Bold.otf},
-FontFace={eb}{n}{*-Ultrabold.otf},
-FontFace={ub}{n}{*-Heavy.otf},
-%FontFace={ub}{n}{*-Black.otf},
+%FontFace={ul}{n}{*-Hairline},
+FontFace={ul}{n}{*-Thin},
+FontFace={el}{n}{*-Extralight},
+FontFace={l}{n}{*-Light},
+FontFace={sl}{n}{*-Semilight},
+%FontFace={m}{n}{*-Book},
+FontFace={m}{n}{*-Regular},
+%FontFace={m}{n}{*-Medium},
+FontFace={sb}{n}{*-Semibold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Ultrabold},
+FontFace={ub}{n}{*-Heavy},
+%FontFace={ub}{n}{*-Black},
 %
-%FontFace={ul}{it}{*-HairlineItalic.otf},
-FontFace={ul}{it}{*-ThinItalic.otf},
-FontFace={el}{it}{*-ExtralightItalic.otf},
-FontFace={l}{it}{*-LightItalic.otf},
-FontFace={sl}{it}{*-SemilightItalic.otf},
-FontFace={m}{it}{*-Italic.otf},
-%FontFace={m}{it}{*-MediumItalic.otf},
-FontFace={sb}{it}{*-SemiboldItalic.otf},
-FontFace={b}{it}{*-BoldItalic.otf},
-FontFace={eb}{it}{*-BoldItalic.otf},
-FontFace={ub}{it}{*-BoldItalic.otf},
+%FontFace={ul}{it}{*-HairlineItalic},
+FontFace={ul}{it}{*-ThinItalic},
+FontFace={el}{it}{*-ExtralightItalic},
+FontFace={l}{it}{*-LightItalic},
+FontFace={sl}{it}{*-SemilightItalic},
+FontFace={m}{it}{*-Italic},
+%FontFace={m}{it}{*-MediumItalic},
+FontFace={sb}{it}{*-SemiboldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
 %
-%FontFace={ul}{sl}{*-HairlineItalic.otf},
-FontFace={ul}{sl}{*-ThinItalic.otf},
-FontFace={el}{sl}{*-ExtralightItalic.otf},
-FontFace={l}{sl}{*-LightItalic.otf},
-FontFace={sl}{sl}{*-SemilightItalic.otf},
-FontFace={m}{sl}{*-Italic.otf},
-%FontFace={m}{sl}{*-MediumItalic.otf},
-FontFace={sb}{sl}{*-SemiboldItalic.otf},
-FontFace={b}{sl}{*-BoldItalic.otf},
-FontFace={eb}{sl}{*-BoldItalic.otf},
-FontFace={ub}{sl}{*-BoldItalic.otf},
+%FontFace={ul}{sl}{*-HairlineItalic},
+FontFace={ul}{sl}{*-ThinItalic},
+FontFace={el}{sl}{*-ExtralightItalic},
+FontFace={l}{sl}{*-LightItalic},
+FontFace={sl}{sl}{*-SemilightItalic},
+FontFace={m}{sl}{*-Italic},
+%FontFace={m}{sl}{*-MediumItalic},
+FontFace={sb}{sl}{*-SemiboldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
 StylisticSet = {
 % 1, % tighter capitals, etc.
 2, % rounder capitals, etc.
@@ -1439,9 +1959,9 @@ FontFace={ul}{n}{*-Light},
 FontFace={el}{n}{*-Light},
 FontFace={l}{n}{*-Light},
 FontFace={sl}{n}{*-Regular},
-FontFace={m}{n}{*-Medium},
-FontFace={sb}{n}{*-SemiBold},
-FontFace={b}{n}{*-Bold},
+FontFace={m}{n}{*-Retina},
+FontFace={sb}{n}{*-Medium},
+FontFace={b}{n}{*-SemiBold},
 FontFace={eb}{n}{*-Bold},
 FontFace={ub}{n}{*-Bold},
 % TODO: what is 'Retina'?
@@ -1463,25 +1983,58 @@ RawFeature={
 
 \NewDocumentCommand {\InconsolataMonoFont} {} {
 \setmonofont{Inconsolata}[
+Path,
 Extension=.otf,
-UprightFont=*-Regular,
-%ItalicFont=*-Italic,
+UprightFont=*-Medium,
+ItalicFont=*-CondensedMedium,
 BoldFont=*-Bold,
-%BoldItalicFont=*-BoldItalic,
-%SlantedFont=*-Italic,
-%BoldSlantedFont=*-BoldItalic,
-FontFace={xl}{n}{*-ExtraLight},
-%FontFace={xl}{it}{*-ThinItalic},
-FontFace={li}{n}{*-Light},
-%FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Medium},
-%FontFace={md}{it}{*-MediumItalic},
+BoldItalicFont=*-CondensedBold,
+SlantedFont=*-CondensedRegular,
+BoldSlantedFont=*-CondensedBold,
+% SmallcapsFont=Inconsolata,
+% SmallCapsFeatures={
+% Letters=SmallCaps,
+% FontFace={ul}{sc}{*-ExtraLight},
+% FontFace={el}{sc}{*-ExtraLight},
+% FontFace={l}{sc}{*-Light},
+% FontFace={sl}{sc}{*-Regular},
+% FontFace={m}{sc}{*-Medium},
+% FontFace={sb}{sc}{*-SemiBold},
+% FontFace={b}{sc}{*-Bold},
+% FontFace={eb}{sc}{*-Black},
+% FontFace={ub}{sc}{*-Black},
+%
+FontFace={ul}{n}{*-ExtraLight},
+FontFace={el}{n}{*-ExtraLight},
+FontFace={l}{n}{*-Light},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
-%FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={bf}{n}{*-Bold},
-%FontFace={bf}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-Black},
-%FontFace={xb}{it}{*-BoldItalic}, 
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Black},
+FontFace={ub}{n}{*-Black},
+% no italic or slanted faces, try condensed
+% TODO: FakeSlant?
+% TODO: define 'emphasis', 'parameter' faces?
+FontFace={ul}{it}{*-CondensedExtraLight},
+FontFace={el}{it}{*-CondensedExtraLight},
+FontFace={l}{it}{*-CondensedLight},
+FontFace={sl}{it}{*-CondensedRegular},
+FontFace={m}{it}{*-CondensedMedium},
+FontFace={sb}{it}{*-CondensedSemiBold},
+FontFace={b}{it}{*-CondensedBold},
+FontFace={eb}{it}{*-CondensedBlack},
+FontFace={ub}{it}{*-CondensedBlack},
+%
+FontFace={ul}{it}{*-CondensedExtraLight},
+FontFace={el}{it}{*-CondensedExtraLight},
+FontFace={l}{it}{*-CondensedLight},
+FontFace={sl}{it}{*-CondensedRegular},
+FontFace={m}{it}{*-CondensedMedium},
+FontFace={sb}{it}{*-CondensedSemiBold},
+FontFace={b}{it}{*-CondensedBold},
+FontFace={eb}{it}{*-CondensedBlack},
+FontFace={ub}{it}{*-CondensedBlack},
 StylisticSet = {
 % 1, % different *, ~, etc.
 %2, % unslashed zero
@@ -1502,6 +2055,7 @@ RawFeature={+zero}, % slashed (actually dotted) zero
 
 \NewDocumentCommand {\KpMonoMonoFont} {} {
 \setmonofont{KpMono}[
+Path,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1509,16 +2063,51 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-FontFace={xl}{n}{*-Regular},
-FontFace={xl}{it}{*-Italic},
-FontFace={li}{n}{*-Regular},
-FontFace={li}{it}{*-Italic},
-FontFace={md}{n}{*-Regular},
-FontFace={md}{it}{*-Italic},
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
 FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
 FontFace={sb}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-Bold},
-FontFace={xb}{it}{*-BoldItalic}, 
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-Italic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-Italic},
+%
 Numbers={OldStyle,Proportional},
 StylisticSet={
 },
@@ -1769,7 +2358,7 @@ StylisticSet = {
 % 5, % extra bold for bold
 6, % horizontal h-bar etc.
 % 7, % inversion symmetry for \int
-%8, % experimental Garamond compatible script chars
+% 8, % experimental Garamond compatible script chars
 9, % normal tilde
 10, % outbending italic h
 11, % larger binary operators --- not always better
@@ -1800,27 +2389,67 @@ Numbers={OldStyle,Proportional},
 % Possiblly a harmonius set to use for all fonts
 % version 7.040 2021-03-01
 
+% TODO: select characters for appropriate ranges from KpMath-Sans,
+% etc.
 \NewDocumentCommand {\KpMathMathFont} {} {
 \setmathfont{KpMath-Regular.otf}[
+Path,
 Extension=.otf,
-UprightFont=KpMath-Regular,
-BoldFont=KpMath-Bold,
-FontFace={sf}{n}{KpMath-Sans},
-FontFace={xl}{n}{KpMath-Light},
-FontFace={li}{n}{KpMath-Light},
-FontFace={md}{n}{KpMath-Regular},
-FontFace={sb}{n}{KpMath-Semibold},
-FontFace={xb}{n}{KpMath-Bold},
-FontFace={sf}{it}{KpMath-Sans},
-FontFace={xl}{it}{KpMath-Light},
-FontFace={li}{it}{KpMath-Light},
-FontFace={md}{it}{KpMath-Regular},
-FontFace={sb}{it}{KpMath-Semibold},
-FontFace={xb}{it}{KpMath-Bold},
+% UprightFont=*-Regular,
+% % ItalicFont=*-Italic,
+% BoldFont=*-Bold,
+% % BoldItalicFont=*-BoldItalic,
+% % SlantedFont=*-Italic,
+% % BoldSlantedFont=*-BoldItalic,
+% %SmallcapsFont=*SC,
+% % %FontFace={ul}{sc}{*SC-Hairline},
+% % FontFace={ul}{sc}{*SC-Thin},
+% % FontFace={el}{sc}{*SC-Extralight},
+% % FontFace={l}{sc}{*SC-Light},
+% % FontFace={sl}{sc}{*SC-Semilight},
+% % %FontFace={m}{sc}{*SC-Book},
+% % FontFace={m}{sc}{*SC-Regular},
+% % %FontFace={m}{sc}{*SC-Medium},
+% % FontFace={sb}{sc}{*SC-Semibold},
+% % FontFace={b}{sc}{*SC-Bold},
+% % FontFace={eb}{sc}{*SC-Ultrabold},
+% % FontFace={ub}{sc}{*SC-Heavy},
+% % %FontFace={ub}{sc}{*SC-Black},
+% %
+% FontFace={ul}{n}{*-Light},
+% FontFace={el}{n}{*-Light},
+% FontFace={l}{n}{*-Light},
+% FontFace={sl}{n}{*-Regular},
+% FontFace={m}{n}{*-Regular},
+% FontFace={sb}{n}{*-SemiBold},
+% FontFace={b}{n}{*-Bold},
+% FontFace={eb}{n}{*-Bold},
+% FontFace={ub}{n}{*-Bold},
+% %
+% % FontFace={ul}{it}{*-LightItalic},
+% % FontFace={el}{it}{*-LightItalic},
+% % FontFace={l}{it}{*-LightItalic},
+% % FontFace={sl}{it}{*-Italic},
+% % FontFace={m}{it}{*-Italic},
+% % FontFace={sb}{it}{*-SemiBoldItalic},
+% % FontFace={b}{it}{*-BoldItalic},
+% % FontFace={eb}{it}{*-BoldItalic},
+% % FontFace={ub}{it}{*-Italic},
+% % %
+% % FontFace={ul}{sl}{*-LightItalic},
+% % FontFace={el}{sl}{*-LightItalic},
+% % FontFace={l}{sl}{*-LightItalic},
+% % FontFace={sl}{sl}{*-Italic},
+% % FontFace={m}{sl}{*-Italic},
+% % FontFace={sb}{sl}{*-SemiBoldItalic},
+% % FontFace={b}{sl}{*-BoldItalic},
+% % FontFace={eb}{sl}{*-BoldItalic},
+% % FontFace={ub}{sl}{*-Italic},
+% %
 Numbers={OldStyle,Proportional},
 StylisticSet={
 1, % simpler script capitals
-2, % sans \mathbb
+%2, % sans \mathbb
 3, % integral kerning
 4, % better leq, etc.
 %5, % smaller \parallel
@@ -2047,7 +2676,7 @@ RawFeature={
 %   Scale=MatchUppercase]
 
 \NewDocumentCommand {\AsanaFonts} {} {
- \defaultfontfeatures{ Scale=MatchLowercase }
+ %\defaultfontfeatures{ Scale=MatchLowercase }
  \PagellaMainFont
  % Optima -> Classico -> Biolinum -> Libertinus Sans
  \LibertinusSansFont
@@ -2059,6 +2688,14 @@ RawFeature={
 \CormorantMainFont
 \YsabeauSansFont
 \FiraCodeMonoFont
+\GaramondMathFont
+}
+
+\NewDocumentCommand {\EBGaramondFonts} {} {
+\EBGaramondPardoMainFont
+%\GilliusADFSansFont
+\GilliusADFTwoSansFont
+\InconsolataMonoFont
 \GaramondMathFont
 }
 
@@ -2080,21 +2717,14 @@ RawFeature={
 \NewDocumentCommand {\GFSNeohellenicFonts} {} {
 % TODO: How to distinguish sans and main?
 % Use a less 'sans' font than Neohellenic?
-\GFSArtemisiaMainFont % needs scaling compared to NeoHellenic
+%\GFSArtemisiaMainFont % needs scaling compared to NeoHellenic
 %\GFSBodoniMainFont % needs scaling compared to NeoHellenic
-%\GFSDidotMainFont % ugly
+\GFSDidotMainFont % ugly
 %\GFSNeohellenicMainFont % nice, but no contrast with sans
 \GFSNeohellenicSansFont
 %% no GFS mono font?
 \FiraCodeMonoFont
 \GFSNeohellenicMathFont
-}
-
-\NewDocumentCommand {\EBGaramondFonts} {} {
-\EBGaramondPardoMainFont
-\GilliusADFSansFont
-\InconsolataMonoFont
-\GaramondMathFont
 }
 
 \NewDocumentCommand {\KpFonts} {} {
