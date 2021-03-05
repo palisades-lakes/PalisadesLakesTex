@@ -158,6 +158,7 @@ nabla=upright,
 %-----------------------------------------------------------------
 % Cormorant (Garamond-like)
 % 2021-02-27
+% https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
 % https://fonts.google.com/specimen/Cormorant?preview.text_type=custom#standard-styles
 % https://github.com/CatharsisFonts/Cormorant%
 % These fonts are licensed under the Open Font License.
@@ -180,18 +181,45 @@ BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-SmallCapsFont=CormorantSC,
-SmallCapsFeatures={Letters=SmallCaps},
-FontFace={xl}{n}{*-Light},
-FontFace={xl}{it}{*-LightItalic},
-FontFace={li}{n}{*-Light},
-FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Medium},
-FontFace={md}{it}{*-MediumItalic},
+% SmallCapsFont=CormorantSC-Regular.otf,
+% SmallCapsFeatures={
+% Letters=SmallCaps,
+% },
+FontFace={ul}{sc}{CormorantSC-Light.otf},
+FontFace={el}{sc}{CormorantSC-Light.otf},
+FontFace={l}{sc}{CormorantSC-Regular.otf},
+FontFace={m}{sc}{CormorantSC-Medium.otf},
+FontFace={sb}{sc}{CormorantSC-SemiBold.otf},
+FontFace={b}{sc}{CormorantSC-Bold.otf},
+FontFace={eb}{sc}{CormorantSC-Bold.otf},
+FontFace={ub}{sc}{CormorantSC-Bold.otf},
+%
+FontFace={ul}{n}{*-Light},
+FontFace={el}{n}{*-Light},
+FontFace={l}{n}{*-Regular},
+FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-LightItalic},
+FontFace={el}{it}{*-LightItalic},
+FontFace={l}{it}{*-Italic},
+FontFace={it}{it}{*-MediumItalic},
 FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={xb}{n}{*-Bold},
-FontFace={xb}{it}{*-BoldItalic}, 
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-LightItalic},
+FontFace={el}{sl}{*-LightItalic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-MediumItalic},
+FontFace={sb}{sl}{*-SemiBoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
 StylisticSet = {
 % 1, % Calligraphic forms, large eyed g.
 2, % More traditional Garamond forms, recommended for text sizes
@@ -1288,29 +1316,66 @@ RawFeature={
 \NewDocumentCommand {\YsabeauSansFont} {} {
 \setsansfont{Ysabeau}[
 Extension=.otf,
-% UprightFont=*-Regular,
-% ItalicFont=*-Italic,
-UprightFont=*-Medium,
-ItalicFont=*-MediumItalic,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+% UprightFont=*-Medium,
+% ItalicFont=*-MediumItalic,
 BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
 SlantedFont=*-Italic,
 BoldSlantedFont=*-BoldItalic,
-%SmallcapsFont=CormorantSC,
-% FontFace={xl}{n}{*-ExtraLight},
-% FontFace={xl}{it}{*-ExtraLightItalic},
-FontFace={xl}{n}{*-Thin},
-FontFace={xl}{it}{*-ThinItalic},
-FontFace={li}{n}{*-Light},
-FontFace={li}{it}{*-LightItalic},
-FontFace={md}{n}{*-Medium},
-FontFace={md}{it}{*-MediumItalic},
-FontFace={sb}{n}{*-SemiBold},
-FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={bf}{n}{*-Bold},
-FontFace={bf}{it}{*-BoldItalic},
-FontFace={xb}{n}{*-UltraBold},
-FontFace={xb}{it}{*-BoldItalic}, 
+%SmallcapsFont=YsabeauSC,
+%FontFace={ul}{sc}{YsabeauSC-Hairline.otf},
+FontFace={ul}{sc}{YsabeauSC-Thin.otf},
+FontFace={el}{sc}{YsabeauSC-Extralight.otf},
+FontFace={l}{sc}{YsabeauSC-Light.otf},
+FontFace={sl}{sc}{YsabeauSC-Semilight.otf},
+%FontFace={m}{sc}{YsabeauSC-Book.otf},
+FontFace={m}{sc}{YsabeauSC-Regular.otf},
+%FontFace={m}{sc}{YsabeauSC-Medium.otf},
+FontFace={sb}{sc}{YsabeauSC-Semibold.otf},
+FontFace={b}{sc}{YsabeauSC-Bold.otf},
+FontFace={eb}{sc}{YsabeauSC-Ultrabold.otf},
+FontFace={ub}{sc}{YsabeauSC-Heavy.otf},
+%FontFace={ub}{sc}{YsabeauSC-Black.otf},
+%
+%FontFace={ul}{n}{*-Hairline.otf},
+FontFace={ul}{n}{*-Thin.otf},
+FontFace={el}{n}{*-Extralight.otf},
+FontFace={l}{n}{*-Light.otf},
+FontFace={sl}{n}{*-Semilight.otf},
+%FontFace={m}{n}{*-Book.otf},
+FontFace={m}{n}{*-Regular.otf},
+%FontFace={m}{n}{*-Medium.otf},
+FontFace={sb}{n}{*-Semibold.otf},
+FontFace={b}{n}{*-Bold.otf},
+FontFace={eb}{n}{*-Ultrabold.otf},
+FontFace={ub}{n}{*-Heavy.otf},
+%FontFace={ub}{n}{*-Black.otf},
+%
+%FontFace={ul}{it}{*-HairlineItalic.otf},
+FontFace={ul}{it}{*-ThinItalic.otf},
+FontFace={el}{it}{*-ExtralightItalic.otf},
+FontFace={l}{it}{*-LightItalic.otf},
+FontFace={sl}{it}{*-SemilightItalic.otf},
+FontFace={m}{it}{*-Italic.otf},
+%FontFace={m}{it}{*-MediumItalic.otf},
+FontFace={sb}{it}{*-SemiboldItalic.otf},
+FontFace={b}{it}{*-BoldItalic.otf},
+FontFace={eb}{it}{*-BoldItalic.otf},
+FontFace={ub}{it}{*-BoldItalic.otf},
+%
+%FontFace={ul}{sl}{*-HairlineItalic.otf},
+FontFace={ul}{sl}{*-ThinItalic.otf},
+FontFace={el}{sl}{*-ExtralightItalic.otf},
+FontFace={l}{sl}{*-LightItalic.otf},
+FontFace={sl}{sl}{*-SemilightItalic.otf},
+FontFace={m}{sl}{*-Italic.otf},
+%FontFace={m}{sl}{*-MediumItalic.otf},
+FontFace={sb}{sl}{*-SemiboldItalic.otf},
+FontFace={b}{sl}{*-BoldItalic.otf},
+FontFace={eb}{sl}{*-BoldItalic.otf},
+FontFace={ub}{sl}{*-BoldItalic.otf},
 StylisticSet = {
 % 1, % tighter capitals, etc.
 2, % rounder capitals, etc.
@@ -1367,12 +1432,18 @@ RawFeature={+zero}, % slashed (actually dotted) zero
 Extension=.ttf,
 UprightFont=*-Regular,
 BoldFont=*-Bold,
-FontFace={xl}{n}{*-Light},
-FontFace={li}{n}{*-Light},
-FontFace={md}{n}{*-Medium},
+AutoFakeSlant,
+ItalicFeatures={FakeSlant},
+BoldItalicFeatures={FakeSlant},
+FontFace={ul}{n}{*-Light},
+FontFace={el}{n}{*-Light},
+FontFace={l}{n}{*-Light},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
-FontFace={bf}{n}{*-Bold},
-FontFace={xb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
 % TODO: what is 'Retina'?
 StylisticSet = {},
 RawFeature={
@@ -2157,12 +2228,10 @@ RawFeature={
 % http://iginomarini.com/fell/the-revival-fonts/
 % \fontspec[
 %  SmallCapsFont=IM FELL English SC,
-%  SmallCapsFeatures={Letters=SmallCaps},
+%  SmallCapsFeatures={Let ters=SmallCaps},
 % ]{IM FELL English}
 % \setmainfont{IM FELL English}
  
-% https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
-
 %\setmainfont{Palatino Linotype}
 %\setmainfont{Perpetua}[Scale=1.1]
 %\setmainfont{Times New Roman}
