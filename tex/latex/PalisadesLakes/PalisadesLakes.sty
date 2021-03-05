@@ -147,12 +147,19 @@ nabla=upright,
 % individual fonts
 %-----------------------------------------------------------------
 % reusable setup commands, that can be used to create 'families'
+%
+% Font installation preferences:
+% (1) github, then to Windows
+% (2) font creator site, then to windows
+% (3) CTAN
+% Reasoning: want same fonts available for all apps/webpages, 
+% not just latex. CTAN packages mean updating out of my control,
+% though it mean getting updates I would miss on my own.
+% 
 % TODO: how to keep fonts up to date? clojure script to git fetch
 % and re-install?
 % TODO: specification that covers all possible weight, width, 
 % and shape combinations
-% TODO: replace 'xb', etc., with standard versions from
-% https://www.ctan.org/pkg/fntguide
 %-----------------------------------------------------------------
 % main fonts
 %-----------------------------------------------------------------
@@ -960,26 +967,63 @@ RawFeature={
 % TODO: 8, 9, 10, 12 ,17 size fonts for differing faces?
 
 \NewDocumentCommand {\LatinModernMainFont} {} {
-\setmainfont{lmroman10-regular.otf}[
+\setmainfont{lmroman10}[
+Path,
 Extension=.otf,
-UprightFont=lmroman10-regular,
-ItalicFont=lmroman10-italic,
-BoldFont=lmroman10-bold,
-BoldItalicFont=lmroman10-bolditalic,
-SlantedFont=lmromanslant10-regular,
-BoldSlantedFont=lmromanslant10-bold,
-SmallCapsFont={lmromancaps10-regular},
-SmallCapsFeatures={Letters=SmallCaps},
-FontFace={xl}{n}{lmroman10-regular},
-FontFace={xl}{it}{lmroman10-italic},
-FontFace={li}{n}{lmroman10-regular},
-FontFace={li}{it}{lmroman10-italic},
-FontFace={md}{n}{lmroman10-regular},
-FontFace={md}{it}{lmroman10-italic},
-FontFace={sb}{n}{lmroman10-bold},
-FontFace={sb}{it}{lmroman10-bolditalic},
-FontFace={xb}{n}{lmroman10-bold},
-FontFace={xb}{it}{lmroman10-bolditalic}, 
+UprightFont=*-regular,
+ItalicFont=*-italic,
+BoldFont=*-bold,
+BoldItalicFont=*-bolditalic,
+SlantedFont=*-italic,
+BoldSlantedFont=*-bolditalic,
+%
+SmallCapsFont=lmromancaps10-regular,
+SmallCapsFeatures={
+%Letters=SmallCaps,
+},
+% lmromancaps10-oblique?
+% TODO: FakeBold?
+% FontFace={ul}{sc}{lmromancaps10-regular},
+% FontFace={el}{sc}{lmromancaps10-regular},
+% FontFace={l}{sc}{lmromancaps10-regular},
+% FontFace={sl}{sc}{lmromancaps10-regular},
+% FontFace={m}{sc}{lmromancaps10-regular},
+% FontFace={m}{sc}{lmromancaps10-regular},
+% FontFace={sb}{sc}{lmromancaps10-regular},
+% FontFace={b}{sc}{lmromancaps10-regular},
+% FontFace={eb}{sc}{lmromancaps10-regular},
+% FontFace={ub}{sc}{lmromancaps10-regular},
+%
+FontFace={ul}{n}{*-regular},
+FontFace={el}{n}{*-regular},
+FontFace={l}{n}{*-regular},
+FontFace={sl}{n}{*-regular},
+FontFace={m}{n}{*-regular},
+FontFace={sb}{n}{*-bold},
+FontFace={b}{n}{*-bold},
+FontFace={eb}{n}{*-bold},
+FontFace={ub}{n}{*-bold},
+%
+FontFace={ul}{it}{*-italic},
+FontFace={el}{it}{*-italic},
+FontFace={l}{it}{*-italic},
+FontFace={sl}{it}{*-italic},
+FontFace={m}{it}{*-italic},
+FontFace={sb}{it}{*-bolditalic},
+FontFace={b}{it}{*-bolditalic},
+FontFace={eb}{it}{*-bolditalic},
+FontFace={ub}{it}{*-bolditalic},
+%
+FontFace={ul}{sl}{lmromanslant10-regular},
+FontFace={el}{sl}{lmromanslant10-regular},
+FontFace={l}{sl}{lmromanslant10-regular},
+FontFace={sl}{sl}{lmromanslant10-regular},
+FontFace={m}{sl}{lmromanslant10-bold},
+FontFace={sb}{sl}{lmromanslant10-bold},
+FontFace={b}{sl}{lmromanslant10-bold},
+FontFace={eb}{sl}{lmromanslant10-bold},
+FontFace={ub}{sl}{lmromanslant10-bold},
+%
 Numbers={OldStyle,Proportional},
 Ligatures={Common,TeX},
 RawFeature={
@@ -995,24 +1039,46 @@ RawFeature={
 % version 7.040 2021-03-01
 
 \NewDocumentCommand {\LibertinusMainFont} {} {
-\setmainfont{LibertinusSerif-Regular.otf}[
+\setmainfont{LibertinusSerif}[
+Path,
 Extension=.otf,
-UprightFont=LibertinusSerif-Regular,
-ItalicFont=LibertinusSerif-Italic,
-BoldFont=LibertinusSerif-Bold,
-BoldItalicFont=LibertinusSerif-BoldItalic,
-SlantedFont=LibertinusSerif-Italic,
-BoldSlantedFont=LibertinusSerif-BoldItalic,
-FontFace={xl}{n}{LibertinusSerif-Regular},
-FontFace={xl}{it}{LibertinusSerif-Italic},
-FontFace={li}{n}{LibertinusSerif-Regular},
-FontFace={li}{it}{LibertinusSerif-Italic},
-FontFace={md}{n}{LibertinusSerif-Regular},
-FontFace={md}{it}{LibertinusSerif-Italic},
-FontFace={sb}{n}{LibertinusSerif-Semibold},
-FontFace={sb}{it}{LibertinusSerif-SemiboldItalic},
-FontFace={xb}{n}{LibertinusSerif-Bold},
-FontFace={xb}{it}{LibertinusSerif-BoldItalic}, 
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-SemiBold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-SemiBoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-SemiBoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
 Numbers={OldStyle,Proportional},
 StylisticSet={
 1, % better uppercase umlauts
@@ -1534,17 +1600,6 @@ FontFace={ub}{sl}{*-BoldItalic},
 
 \NewDocumentCommand {\LatinModernSansFont} {} {
 \setsansfont{lmsans10}[
-Extension=.otf,
-FontFace={xl}{n}{*-regular},
-FontFace={xl}{it}{*-oblique},
-FontFace={li}{n}{*-regular},
-FontFace={li}{it}{*-oblique},
-FontFace={md}{n}{*-regular},
-FontFace={md}{it}{*-oblique},
-FontFace={sb}{n}{*-bold},
-FontFace={sb}{it}{*-boldoblique},
-FontFace={xb}{n}{*-bold},
-FontFace={xb}{it}{*-boldoblique}, 
 Path,
 Extension=.otf,
 UprightFont=*-regular,
@@ -1610,24 +1665,46 @@ RawFeature={
 % version 7.040 2021-03-01
 
 \NewDocumentCommand {\LibertinusSansFont} {} {
-\setsansfont{LibertinusSans-Regular.otf}[
+\setsansfont{LibertinusSans}[
+Path,
 Extension=.otf,
-UprightFont=LibertinusSans-Regular,
-ItalicFont=LibertinusSans-Italic,
-BoldFont=LibertinusSans-Bold,
-%BoldItalicFont=LibertinusSans-BoldItalic,
-SlantedFont=LibertinusSans-Italic,
-%BoldSlantedFont=LibertinusSans-BoldItalic,
-FontFace={xl}{n}{LibertinusSans-Regular},
-FontFace={xl}{it}{LibertinusSans-Italic},
-FontFace={li}{n}{LibertinusSans-Regular},
-FontFace={li}{it}{LibertinusSans-Italic},
-FontFace={md}{n}{LibertinusSans-Regular},
-FontFace={md}{it}{LibertinusSans-Italic},
-FontFace={sb}{n}{LibertinusSans-Bold},
-FontFace={sb}{it}{LibertinusSans-Italic},
-FontFace={xb}{n}{LibertinusSans-Bold},
-FontFace={xb}{it}{LibertinusSans-Italic}, 
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+%BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+%BoldSlantedFont=*-BoldItalic,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-Italic},
+FontFace={b}{it}{*-Italic},
+FontFace={eb}{it}{*-Italic},
+FontFace={ub}{it}{*-Italic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-Italic},
+FontFace={b}{sl}{*-Italic},
+FontFace={eb}{sl}{*-Italic},
+FontFace={ub}{sl}{*-Italic},
+%
 Numbers={OldStyle,Proportional},
 StylisticSet={
 1, % better uppercase umlauts
@@ -2130,24 +2207,57 @@ RawFeature={
 % TODO: 8, 9, 10, 12 ,17 size fonts for differing faces?
 
 \NewDocumentCommand {\LatinModernMonoFont} {} {
-\setmonofont{lmmonolt10-regular.otf}[
+\setmonofont{lmmonolt10}[
+Path,
 Extension=.otf,
-UprightFont=lmmonolt10-regular,
-ItalicFont=lmmonolt10-oblique,
-BoldFont=lmmonolt10-bold,
-BoldItalicFont=lmmonolt10-boldoblique,
-SlantedFont=lmmonoslant10-regular,
-BoldSlantedFont=lmmonolt10-bold,
-FontFace={xl}{n}{lmmonolt10-regular},
-FontFace={xl}{it}{lmmonolt10-oblique},
-FontFace={li}{n}{lmmonolt10-regular},
-FontFace={li}{it}{lmmonolt10-oblique},
-FontFace={md}{n}{lmmonolt10-regular},
-FontFace={md}{it}{lmmonolt10-oblique},
-FontFace={sb}{n}{lmmonolt10-bold},
-FontFace={sb}{it}{lmmonolt10-boldoblique},
-FontFace={xb}{n}{lmmonolt10-bold},
-FontFace={xb}{it}{lmmonolt10-boldoblique}, 
+UprightFont=*-regular,
+ItalicFont=*-oblique,
+BoldFont=*-bold,
+BoldItalicFont=*-boldoblique,
+SlantedFont=*-oblique,
+BoldSlantedFont=*-boldoblique,
+%
+% FontFace={ul}{sc}{*-Thin},
+% FontFace={el}{sc}{*-Extralight},
+% FontFace={l}{sc}{*-Light},
+% FontFace={sl}{sc}{*-Semilight},
+% FontFace={m}{sc}{*-Book},
+% FontFace={m}{sc}{*-Regular},
+% FontFace={sb}{sc}{*-Semibold},
+% FontFace={b}{sc}{*-Bold},
+% FontFace={eb}{sc}{*-Ultrabold},
+% FontFace={ub}{sc}{*-Heavy},
+%
+FontFace={ul}{n}{*-regular},
+FontFace={el}{n}{*-regular},
+FontFace={l}{n}{*-regular},
+FontFace={sl}{n}{*-regular},
+FontFace={m}{n}{*-regular},
+FontFace={sb}{n}{*-bold},
+FontFace={b}{n}{*-bold},
+FontFace={eb}{n}{*-bold},
+FontFace={ub}{n}{*-bold},
+%
+FontFace={ul}{it}{*-oblique},
+FontFace={el}{it}{*-oblique},
+FontFace={l}{it}{*-oblique},
+FontFace={sl}{it}{*-oblique},
+FontFace={m}{it}{*-oblique},
+FontFace={sb}{it}{*-boldoblique},
+FontFace={b}{it}{*-boldoblique},
+FontFace={eb}{it}{*-boldoblique},
+FontFace={ub}{it}{*-boldoblique},
+%
+FontFace={ul}{sl}{*-oblique},
+FontFace={el}{sl}{*-oblique},
+FontFace={l}{sl}{*-oblique},
+FontFace={sl}{sl}{*-oblique},
+FontFace={m}{sl}{*-oblique},
+FontFace={sb}{sl}{*-boldoblique},
+FontFace={b}{sl}{*-boldoblique},
+FontFace={eb}{sl}{*-boldoblique},
+FontFace={ub}{sl}{*-boldoblique},
+%
 Numbers={OldStyle,Proportional},
 Ligatures={Common,TeX},
 RawFeature={
@@ -2155,7 +2265,6 @@ RawFeature={
 },
 ]
 }
-
 %-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
@@ -2163,24 +2272,10 @@ RawFeature={
 % version 7.040 2021-03-01
 
 \NewDocumentCommand {\LibertinusMonoFont} {} {
-\setmonofont{LibertinusMono-Regular.otf}[
+\setmonofont{LibertinusMono}[
 Extension=.otf,
-UprightFont=LibertinusMono-Regular,
-% ItalicFont=LibertinusSans-Italic,
-% BoldFont=LibertinusSans-Bold,
-% %BoldItalicFont=LibertinusSans-BoldItalic,
-% SlantedFont=LibertinusSans-Italic,
-% %BoldSlantedFont=LibertinusSans-BoldItalic,
-% FontFace={xl}{n}{LibertinusSans-Regular},
-% FontFace={xl}{it}{LibertinusSans-Italic},
-% FontFace={li}{n}{LibertinusSans-Regular},
-% FontFace={li}{it}{LibertinusSans-Italic},
-% FontFace={md}{n}{LibertinusSans-Regular},
-% FontFace={md}{it}{LibertinusSans-Italic},
-% FontFace={sb}{n}{LibertinusSans-Bold},
-% FontFace={sb}{it}{LibertinusSans-Italic},
-% FontFace={xb}{n}{LibertinusSans-Bold},
-% FontFace={xb}{it}{LibertinusSans-Italic}, 
+UprightFont=*-Regular,
+% no other variations
 Numbers={OldStyle,Proportional},
 StylisticSet={
 1, % umlauts
