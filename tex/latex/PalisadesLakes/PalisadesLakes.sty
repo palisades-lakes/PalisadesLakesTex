@@ -1096,6 +1096,68 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% NewComputerModern
+% https://ctan.org/pkg/newcomputermodern
+%   The GUST Font License (GFL)
+
+% No bold small caps as of 2021-02-24
+\NewDocumentCommand {\NewComputerModernMainFont} {} {
+\setmainfont{NewCM10}[
+Path,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Book},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BookItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BookItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
+Numbers={OldStyle,Proportional},
+StylisticSet={
+%1, % re-arrange capital diacritics
+% 5, % serif beta, etc.
+},
+RawFeature={
++case, % case-sensitive alternatives
++cv01, % long tailed k
+%+cv02, % some swash lowercase
++zero, % slashed zero
+},
+]
+}
+
+
+%-----------------------------------------------------------------
 % STIX Two
 % https://github.com/stipub/stixfonts/
 % https://www.stixfonts.org/
@@ -1869,6 +1931,69 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% NewComputerModern
+% https://ctan.org/pkg/newcomputermodern
+%   The GUST Font License (GFL)
+
+% No bold small caps as of 2021-02-24
+\NewDocumentCommand {\NewComputerModernSansFont} {} {
+\setsansfont{NewCMSans10}[
+Path,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Oblique,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldOblique,
+SlantedFont=*-Oblique,
+BoldSlantedFont=*-BoldOblique,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Book},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Oblique},
+FontFace={el}{it}{*-Oblique},
+FontFace={l}{it}{*-Oblique},
+FontFace={sl}{it}{*-Oblique},
+FontFace={m}{it}{*-Oblique},
+FontFace={sb}{it}{*-BookOblique},
+FontFace={b}{it}{*-BoldOblique},
+FontFace={eb}{it}{*-BoldOblique},
+FontFace={ub}{it}{*-BoldOblique},
+%
+FontFace={ul}{sl}{*-Oblique},
+FontFace={el}{sl}{*-Oblique},
+FontFace={l}{sl}{*-Oblique},
+FontFace={sl}{sl}{*-Oblique},
+FontFace={m}{sl}{*-Oblique},
+FontFace={sb}{sl}{*-BookOblique},
+FontFace={b}{sl}{*-BoldOblique},
+FontFace={eb}{sl}{*-BoldOblique},
+FontFace={ub}{sl}{*-BoldOblique},
+%
+Numbers={OldStyle,Proportional},
+StylisticSet={
+%1, % re-arrange capital diacritics
+%2, % angular greek capitals
+%3, % angular greek capitals
+%4, % angular greek capitals
+% 5, % serif beta, etc.
+},
+RawFeature={
++case, % case-sensitive alternatives
++zero, % slashed zero
+},
+]
+}
+
+
+%-----------------------------------------------------------------
 % TeX Gyre Fonts
 % https://ctan.org/pkg/tex-gyre?lang=en
 % Version 2.501 2018-06-17
@@ -2516,6 +2641,64 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% NewComputerModern
+% https://ctan.org/pkg/newcomputermodern
+%   The GUST Font License (GFL)
+
+% No bold small caps as of 2021-02-24
+\NewDocumentCommand {\NewComputerModernMonoFont} {} {
+\setmonofont{NewCMMono10}[
+Path,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldOblique,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldOblique,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Book},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BookItalic},
+FontFace={b}{it}{*-BoldOblique},
+FontFace={eb}{it}{*-BoldOblique},
+FontFace={ub}{it}{*-BoldOblique},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BookItalic},
+FontFace={b}{sl}{*-BoldOblique},
+FontFace={eb}{sl}{*-BoldOblique},
+FontFace={ub}{sl}{*-BoldOblique},
+%
+Numbers={OldStyle,Proportional},
+StylisticSet={
+%1, % re-arrange capital diacritics
+},
+RawFeature={
++case, % case-sensitive alternatives
++zero, % slashed zero
+},
+]
+}
+
+%-----------------------------------------------------------------
 % TeX Gyre Fonts
 % https://ctan.org/pkg/tex-gyre?lang=en
 % Version 2.501 2018-06-17
@@ -2827,6 +3010,31 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% NewComputerModern
+% https://ctan.org/pkg/newcomputermodern
+%   The GUST Font License (GFL)
+
+\NewDocumentCommand {\NewComputerModernMathFont} {} {
+\setmathfont{NewCMMath-Regular.otf}[
+Numbers={OldStyle,Proportional},
+StylisticSet={
+%1, % ?
+%2, % ?
+},
+]
+}
+
+\NewDocumentCommand {\NewComputerModernBookMathFont} {} {
+\setmathfont{NewCMMath-Book.otf}[
+Numbers={OldStyle,Proportional},
+StylisticSet={
+%1, % ?
+%2, % ?
+},
+]
+}
+
+%-----------------------------------------------------------------
 % TeX Gyre Math Fonts
 % https://ctan.org/pkg/tex-gyre-math
 % Version 2016-05-19
@@ -3050,6 +3258,13 @@ RawFeature={
 \LibertinusMathFont
 }
 
+\NewDocumentCommand {\NewComputerModernFonts} {} {
+\NewComputerModernMainFont
+\NewComputerModernSansFont
+\NewComputerModernMonoFont
+\NewComputerModernMathFont
+}
+
 %-----------------------------------------------------------------
 % Tex Gyre Collections
 
@@ -3109,29 +3324,6 @@ RawFeature={
 }
 %-----------------------------------------------------------------
 % main fonts
-%-----------------------------------------------------------------
-% Latin Modern from CTAN
-
-%-----------------------------------------------------------------
-% NewComputerModern
-% https://ctan.org/pkg/newcomputermodern
-%   The GUST Font License (GFL)
-
-% No bold small caps as of 2021-02-24
-% 
-
-% \RequirePackage[default]{fontsetup}[2021-02-21] % (loads the Book weight)
-% % or
-% \RequirePackage{newcomputermodern}[2021-02-21]  % (loads the Book weight)
-% % or
-% \RequirePackage[olddefault]{fontsetup}[2021-02-21] % (loads the Regular weight)
-% % or
-
-%\RequirePackage[regular]{newcomputermodern}[2021-02-21]  % (loads the Regular weight)
-% FontFace={lb}{n}{Font=NewCM10-Book},
-% FontFace={sb}{n}{Font=NewCM10-Book},
-% FontFace={eb}{n}{Font=NewCM10-Bold},
-
 %-----------------------------------------------------------------
 % Libre Caslon 
 %
