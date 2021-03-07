@@ -183,7 +183,7 @@ nabla=upright,
 %\setmainfont{CormorantGaramond}[
 Path,
 Extension=.otf,
-UprightFont=*-Regular,
+UprightFont=*-Medium,
 ItalicFont=*-Italic,
 BoldFont=*-Bold,
 BoldItalicFont=*-BoldItalic,
@@ -2767,12 +2767,6 @@ StylisticSet={
 %-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
-% Asana
-%
-% https://www.ctan.org/tex-archive/fonts/Asana-Math/
-% Version 000.958 2019-04-14
-% Licenses  The SIL Open Font License
-
 % https://tex.stackexchange.com/questions/457630/what-font-is-this-exactly-asana-math
 % \setmainfont{Fira Sans Light}[
 %      Numbers       = OldStyle,
@@ -2815,26 +2809,22 @@ StylisticSet={
 %   range={scr,bfscr},
 %   StylisticSet=1,
 %   Scale=MatchUppercase]
+%
+%-----------------------------------------------------------------
+% Asana
+%
+% https://www.ctan.org/tex-archive/fonts/Asana-Math/
+% Version 000.958 2019-04-14
+% Licenses  The SIL Open Font License
+%
+% missing \mathhypen, so try to grab from XITS?
 
 \NewDocumentCommand {\AsanaMathFont} {} {
-
-\setmathfont{Asana-Math.otf}[
-Extension=.otf,
-StylisticSet = {},
-Numbers={OldStyle,Proportional},
-]
-
-% \setmathfont{Neo Euler}[
-%   range={up,bfup,cal,bfcal,frak,bffrak},
-%   ]
-%   
-% \setmathfont{STIX Two Math}[
-%   range={scr,bfscr},
-%   StylisticSet=1,
-%   Scale=MatchUppercase,
-%   ]
+\setmathfont{Asana-Math.otf}[Numbers={OldStyle,Proportional},]
+%\setmathfont{XITSMath-Regular.otf}[range={``2010}]%\mathhyphen
+\setmathfont{XITSMath-Regular.otf}[range={\mathhyphen,},]
+%\setmathfont{Asana-Math.otf}[Numbers={OldStyle,Proportional},]
 }
-
 %-----------------------------------------------------------------
 % Erewhon Math  <- Heuristica <- Utopia
 % https://ctan.org/pkg/erewhon% OFL-1.1 License
@@ -3153,35 +3143,6 @@ RawFeature={
 % attempt at harmonius main, sans, mono, math fonts
 % TODO: separate titlefont?
 %-----------------------------------------------------------------
-% https://tex.stackexchange.com/questions/350749/sans-and-monospace-font-match-for-stix-two
-
-% TeX Gyre Pagella is a clone of Palatino.  
-% You can use the real thing if you have it. 
-% Windows and MacOS both do.
-% \setmainfont{TeX Gyre Pagella}[
-%    Ligatures={Common,TeX},
-%    Scale=1.0]
-
-% %% URW Classico is a clone of Optima, available at
-% %% https://www.ctan.org/pkg/classico
-% %% It is gratis, but has a restrictive license.
-% \setsansfont{URW Classico}[
-%    Ligatures={Common,TeX}]
-
-
-% \setmonofont{Inconsolata}
-% \setmathfont{Asana Math}
-% %% Neo Euler is available at
-% %% https://github.com/khaledhosny/euler-otf
-% %% This lets you use, for example, \symup{e} and \symup{i}
-% %% for the constants.  It does not cover lowercase \mathcal.
-% \setmathfont{Neo Euler}[
-%   range={up,bfup,cal,bfcal,frak,bffrak}]
-% %% If you need \mathscr distinct from \mathcal:
-% \setmathfont{STIX Two Math}[
-%   range={scr,bfscr},
-%   StylisticSet=1,
-%   Scale=MatchUppercase]
 
 \NewDocumentCommand {\AsanaFonts} {} {
  %\defaultfontfeatures{ Scale=MatchLowercase }
@@ -3344,7 +3305,6 @@ RawFeature={
 %\setmainfont{Perpetua}
 %\setmainfont{Poor Richard}
 
-
 %\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
 
 % http://iginomarini.com/fell/the-revival-fonts/
@@ -3357,19 +3317,6 @@ RawFeature={
 %\setmainfont{Palatino Linotype}
 %\setmainfont{Perpetua}[Scale=1.1]
 %\setmainfont{Times New Roman}
-
-%-----------------------------------------------------------------
-% TODO: redefine \mdseries instead
-% TODO: one command that maps face abbrev. to series and text cmds
- 
-% \DeclareRobustCommand{\xlseries}{\fontseries{xl}\selectfont}
-% \DeclareTextFontCommand{\textxl}{\xlseries}
-% \DeclareRobustCommand{\liseries}{\fontseries{li}\selectfont}
-% \DeclareTextFontCommand{\textli}{\liseries}
-% \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
-% \DeclareTextFontCommand{\textsb}{\sbseries}
-% \DeclareRobustCommand{\xbseries}{\fontseries{xb}\selectfont}
-% \DeclareTextFontCommand{\textxb}{\xbseries}
 
 %-----------------------------------------------------------------
 % cjk fonts
@@ -3420,26 +3367,6 @@ RawFeature={
 % %\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
 
 %-----------------------------------------------------------------
-% Note: looks that same as EB Garamond as main font 
-% and no math font specified
-% Package fontspec Warning: 
-%  Font "EB Garamond" does not contain requested Script
-% (fontspec)                "Math".
-% \setmathfont{EB Garamond}
-% [
-% StylisticSet = 6,% log tailed Q
-% % FontFace={lb}{n}{Font=* Medium},
-% % FontFace={sb}{n}{Font=* SemiBold},
-% % FontFace={eb}{n}{Font=* ExtraBold},
-% % FontFace={sf}{n}{Font=Gill Sans MT},
-% % SmallCapsFeatures={
-% % Letters={UppercaseSmallCaps,PetiteCaps},
-% % Scale=1.2,
-% % FakeStretch=0.9,
-% % },
-% Numbers={OldStyle,Proportional},
-% ]
-%-----------------------------------------------------------------
 %  math sans fonts
 %-----------------------------------------------------------------
 % no light or semibold, use condensed and regular, or regular and bold
@@ -3459,50 +3386,6 @@ RawFeature={
 % only regluar:
 %\setmathfont{GFS Neohellenic Math}[range={sfup,bfsfup},Scale=MatchLowercase]
 %-----------------------------------------------------------------
-% GFS
-%-----------------------------------------------------------------
-
-% No bold math sans, probably no slanted or italic
-% all sans symbols looks nice, tho maybe not in certain cases.
-% default lowercase small compared to EB Garamond text
-%\setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
-
-% \setmathfont{GFS Neohellenic Math}[Scale=MatchLowercase]
-% % no light or semibold, use condensed and regular, or regular and bold
-% \setmathfont{GilliusADFNo2-Cond}[range={sfup},Scale=1.05]
-% \setmathfont{GilliusADFNo2-Regular}[range=bfsfup,Scale=1.05]
-% %\setmathfont{GilliusADFNo2-Bold}[range=bfsfup,Scale=MatchLowercase]
-
-%-----------------------------------------------------------------
-% Latin Modern Math
-%-----------------------------------------------------------------
-% works (no obvious missing symbols in font.tex):
-
-% TexWorks thinks this is the default
-%\setmathfont{Latin Modern Math}
-
-% lots of missing symbols
-%\setmathfont{Latin Modern Math}[version=lm]
-
-%-----------------------------------------------------------------
-% STIX Two
-%-----------------------------------------------------------------
-% https://github.com/stipub/stixfonts/
-% https://www.stixfonts.org/
-% STIX fonts are available for download at 
-% https://github.com/stipub/stixfonts 
-% and distributed under the SIL Open Font License, Version 1.1
-
-
-% works (no obvious missing symbols in font.tex):
-%\setmathfont{STIX Two Math}
-%\setmathfont{STIX Two Math}[StylisticSet={1,2,8}] 
-  
-% fails with metafont errors
-%\setmathfont{STIX Two Math}[version=stix2]  
-%\setmathfont{STIX Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
-
-%-----------------------------------------------------------------
 % Cambria
 %-----------------------------------------------------------------
 % with Windows 10
@@ -3512,13 +3395,6 @@ RawFeature={
 
 % lots of missing symbols
 %\setmathfont{Cambria Math}[version=cambria]
-
-%-----------------------------------------------------------------
-% Asana
-%-----------------------------------------------------------------
-
-% lots of missing symbols
-%\setmathfont{Asana Math}[version=asana]
 
 %-----------------------------------------------------------------
 % local symbol defs 
