@@ -3319,6 +3319,23 @@ RawFeature={
 %\setmainfont{Times New Roman}
 
 %-----------------------------------------------------------------
+% TODO: redefine \mdseries instead
+% TODO: one command that maps face abbrev. to series and text cmds
+ 
+% \DeclareRobustCommand{\ulseries}{\fontseries{ul}\selectfont}
+% \DeclareTextFontCommand{\textul}{\ulseries}
+% \DeclareRobustCommand{\elseries}{\fontseries{el}\selectfont}
+% \DeclareTextFontCommand{\textel}{\elseries}
+% \DeclareRobustCommand{\lseries}{\fontseries{l}\selectfont}
+% \DeclareTextFontCommand{\textl}{\lseries}
+\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+% \DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+% \DeclareTextFontCommand{\texteb}{\ebseries}
+% \DeclareRobustCommand{\ubseries}{\fontseries{ub}\selectfont}
+% \DeclareTextFontCommand{\textub}{\ubseries}
+
+%-----------------------------------------------------------------
 % cjk fonts
 %-----------------------------------------------------------------
 % TODO: what's the 'right' way to do CJK as of 2021?
