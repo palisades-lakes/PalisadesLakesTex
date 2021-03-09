@@ -270,91 +270,91 @@ RawFeature={
 % also, I like the look of the original small caps better.
 
 
-\NewDocumentCommand {\EBGaramondDuffnerMainFont} {} {
-\setmainfont[
-Path,
-{EBGaramond12}[
-Path,
-% TODO: regular, italic, smallcaps only: use FakeBold and FakeSlant?
-UprightFont = *12-Regular,
-ItalicFont  = *12-Italic,
-% BoldFont    = *08-Regular,
-% BoldItalicFont = *08-Italic ]
-% SlantedFont=*-Italic,
-% BoldSlantedFont=*-BoldItalic,
-% SmallCapsFont=EBGaramondSC12-Regular.otf,
-%  SmallCapsFeatures={
-%  Letters=SmallCaps,
-%  },
-% % FontFace={ul}{sc}{CormorantSC-Light.otf},
-% % FontFace={el}{sc}{CormorantSC-Light.otf},
-% % FontFace={l}{sc}{CormorantSC-Regular.otf},
-% % FontFace={sl}{sc}{CormorantSC-Regular.otf},
-% % FontFace={m}{sc}{CormorantSC-Medium.otf},
-% % FontFace={sb}{sc}{CormorantSC-SemiBold.otf},
-% % FontFace={b}{sc}{CormorantSC-Bold.otf},
-% % FontFace={eb}{sc}{CormorantSC-Bold.otf},
-% % FontFace={ub}{sc}{CormorantSC-Bold.otf},
-% %
-% FontFace={ul}{n}{*-Regular},
-% FontFace={el}{n}{*-Regular},
-% FontFace={l}{n}{*-Regular},
-% FontFace={sl}{n}{*-Regular},
-% FontFace={m}{n}{*-Medium},
-% FontFace={sb}{n}{*-SemiBold},
-% FontFace={b}{n}{*-Bold},
-% FontFace={eb}{n}{*-Bold},
-% FontFace={ub}{n}{*-Bold},
-% %
-% FontFace={ul}{it}{*-Italic},
-% FontFace={el}{it}{*-Italic},
-% FontFace={l}{it}{*-Italic},
-% FontFace={sl}{it}{*-Italic},
-% FontFace={m}{it}{*-MediumItalic},
-% FontFace={sb}{it}{*-SemiBoldItalic},
-% FontFace={b}{it}{*-BoldItalic},
-% FontFace={eb}{it}{*-BoldItalic},
-% FontFace={ub}{it}{*-BoldItalic},
-% %
-% FontFace={ul}{sl}{*-LightItalic},
-% FontFace={el}{sl}{*-LightItalic},
-% FontFace={l}{sl}{*-Italic},
-% FontFace={sl}{sl}{*-MediumItalic},
-% FontFace={m}{sl}{*-MediumItalic},
-% FontFace={sb}{sl}{*-SemiBoldItalic},
-% FontFace={b}{sl}{*-BoldItalic},
-% FontFace={eb}{sl}{*-BoldItalic},
-% FontFace={ub}{sl}{*-BoldItalic},
-StylisticSet = {
-% 1, % pointed cyrillic capitals
-% 2, % %
-% 3, % schoolbook forms (Infant version)
-% 4, % a^e instead of \"{a}
-% 5, % unicase small caps
-% 6, % 'roman' greek latters
-7, % better acute accent placement
-},
-Numbers={OldStyle,Proportional},
-RawFeature={
-+calt, % contextual alternates
-+case, % case sensitive forms
-+ccmp, % glyph (de)composition
-%+cv01, % s -> f
-+cv02, % fancy @
-%+cv03, % IJ -> ij
-+cv06, % fancy <,>
-%+cv11, % I -> 1?
-%+cv21, % round a
-%+cv27, % round g
-%+cv47, % german ss
-%+cv80, % ~ -> acute accent?
-%+cv83, % 'roman' chi
-% skipping more cvXX
-+onum, % old style figures
-%+salt, % tilde theta, Theta 
-+zero}, % slashed (actually dotted) zero
-]
-}
+% \NewDocumentCommand {\EBGaramondDuffnerMainFont} {} {
+% \setmainfont[
+% Path,
+% {EBGaramond12}[
+% Path,
+% % TODO: regular, italic, smallcaps only: use FakeBold and FakeSlant?
+% UprightFont = *12-Regular,
+% ItalicFont  = *12-Italic,
+% % BoldFont    = *08-Regular,
+% % BoldItalicFont = *08-Italic ]
+% % SlantedFont=*-Italic,
+% % BoldSlantedFont=*-BoldItalic,
+% % SmallCapsFont=EBGaramondSC12-Regular.otf,
+% %  SmallCapsFeatures={
+% %  Letters=SmallCaps,
+% %  },
+% % % FontFace={ul}{sc}{CormorantSC-Light.otf},
+% % % FontFace={el}{sc}{CormorantSC-Light.otf},
+% % % FontFace={l}{sc}{CormorantSC-Regular.otf},
+% % % FontFace={sl}{sc}{CormorantSC-Regular.otf},
+% % % FontFace={m}{sc}{CormorantSC-Medium.otf},
+% % % FontFace={sb}{sc}{CormorantSC-SemiBold.otf},
+% % % FontFace={b}{sc}{CormorantSC-Bold.otf},
+% % % FontFace={eb}{sc}{CormorantSC-Bold.otf},
+% % % FontFace={ub}{sc}{CormorantSC-Bold.otf},
+% % %
+% % FontFace={ul}{n}{*-Regular},
+% % FontFace={el}{n}{*-Regular},
+% % FontFace={l}{n}{*-Regular},
+% % FontFace={sl}{n}{*-Regular},
+% % FontFace={m}{n}{*-Medium},
+% % FontFace={sb}{n}{*-SemiBold},
+% % FontFace={b}{n}{*-Bold},
+% % FontFace={eb}{n}{*-Bold},
+% % FontFace={ub}{n}{*-Bold},
+% % %
+% % FontFace={ul}{it}{*-Italic},
+% % FontFace={el}{it}{*-Italic},
+% % FontFace={l}{it}{*-Italic},
+% % FontFace={sl}{it}{*-Italic},
+% % FontFace={m}{it}{*-MediumItalic},
+% % FontFace={sb}{it}{*-SemiBoldItalic},
+% % FontFace={b}{it}{*-BoldItalic},
+% % FontFace={eb}{it}{*-BoldItalic},
+% % FontFace={ub}{it}{*-BoldItalic},
+% % %
+% % FontFace={ul}{sl}{*-LightItalic},
+% % FontFace={el}{sl}{*-LightItalic},
+% % FontFace={l}{sl}{*-Italic},
+% % FontFace={sl}{sl}{*-MediumItalic},
+% % FontFace={m}{sl}{*-MediumItalic},
+% % FontFace={sb}{sl}{*-SemiBoldItalic},
+% % FontFace={b}{sl}{*-BoldItalic},
+% % FontFace={eb}{sl}{*-BoldItalic},
+% % FontFace={ub}{sl}{*-BoldItalic},
+% StylisticSet = {
+% % 1, % pointed cyrillic capitals
+% % 2, % %
+% % 3, % schoolbook forms (Infant version)
+% % 4, % a^e instead of \"{a}
+% % 5, % unicase small caps
+% % 6, % 'roman' greek latters
+% 7, % better acute accent placement
+% },
+% Numbers={OldStyle,Proportional},
+% RawFeature={
+% +calt, % contextual alternates
+% +case, % case sensitive forms
+% +ccmp, % glyph (de)composition
+% %+cv01, % s -> f
+% +cv02, % fancy @
+% %+cv03, % IJ -> ij
+% +cv06, % fancy <,>
+% %+cv11, % I -> 1?
+% %+cv21, % round a
+% %+cv27, % round g
+% %+cv47, % german ss
+% %+cv80, % ~ -> acute accent?
+% %+cv83, % 'roman' chi
+% % skipping more cvXX
+% +onum, % old style figures
+% %+salt, % tilde theta, Theta 
+% +zero}, % slashed (actually dotted) zero
+% ]
+% }
 
 %-----------------------------------------------------------------
 % EB Garamond12
@@ -367,11 +367,11 @@ RawFeature={
 \setmainfont{EBGaramond}[
 Extension=.otf,
 UprightFont=*-Regular,
-ItalicFont=*-Italic,
-BoldFont=*-Bold,
-BoldItalicFont=*-BoldItalic,
-SlantedFont=*-Italic,
-BoldSlantedFont=*-BoldItalic,
+ItalicFont=*-MediumItalic,
+BoldFont=*-SemiBold,
+BoldItalicFont=*-SemiBoldItalic,
+SlantedFont=*-MediumItalic,
+BoldSlantedFont=*-SemiBoldItalic,
 % SmallCapsFont=EBGaramond-Regular.otf,
 % SmallCapsFeatures={
 % Letters=SmallCaps,
@@ -392,8 +392,10 @@ FontFace={l}{n}{*-Regular},
 FontFace={sl}{n}{*-Regular},
 FontFace={m}{n}{*-Medium},
 FontFace={sb}{n}{*-SemiBold},
-FontFace={b}{n}{*-Bold},
-FontFace={eb}{n}{*-ExtraBold},
+FontFace={b}{n}{*-SemiBold},
+FontFace={eb}{n}{*-Bold},
+% FontFace={b}{n}{*-Bold},
+% FontFace={eb}{n}{*-ExtraBold},
 FontFace={ub}{n}{*-ExtraBold},
 %
 FontFace={ul}{it}{*-Italic},
@@ -402,18 +404,22 @@ FontFace={l}{it}{*-Italic},
 FontFace={sl}{it}{*-Italic},
 FontFace={m}{it}{*-MediumItalic},
 FontFace={sb}{it}{*-SemiBoldItalic},
-FontFace={b}{it}{*-BoldItalic},
-FontFace={eb}{it}{*-ExtraBoldItalic},
+FontFace={b}{it}{*-SemiBoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+% FontFace={b}{it}{*-BoldItalic},
+% FontFace={eb}{it}{*-ExtraBoldItalic},
 FontFace={ub}{it}{*-ExtraBoldItalic},
 %
 FontFace={ul}{sl}{*-Italic},
 FontFace={el}{sl}{*-Italic},
 FontFace={l}{sl}{*-Italic},
-FontFace={sl}{sl}{*-MediumItalic},
+FontFace={sl}{sl}{*-Italic},
 FontFace={m}{sl}{*-MediumItalic},
 FontFace={sb}{sl}{*-SemiBoldItalic},
-FontFace={b}{sl}{*-BoldItalic},
-FontFace={eb}{sl}{*-ExtraBoldItalic},
+FontFace={b}{sl}{*-SemiBoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+% FontFace={b}{sl}{*-BoldItalic},
+% FontFace={eb}{sl}{*-ExtraBoldItalic},
 FontFace={ub}{sl}{*-ExtraBoldItalic},
 RawFeature={
 +case, % case sensitive forms
@@ -3802,48 +3808,104 @@ backref=true,
 % complete sectioning outline toc.
 \RequirePackage[sc,bf,medium,compact,nobottomtitles*,noindentafter]
   {titlesec}[2019/10/16]
+\RequirePackage{titletoc}[2019/10/16]
 \RequirePackage[titletoc]{appendix}[2020/02/08]
+%\RequirePackage{appendix}[2020/02/08]
 
 % TODO: better handling of part/chapter/section as highest level.
 % TODO: consistent font size across sections and other chunks
 % TODO: spacing should be relative to font size
+\setcounter{secnumdepth}{7}
 
-\titleformat{\part}[hang]{\huge\mdseries\scshape}
-  {\thepart}{0.5em}{}
+\contentsmargin[0pt]{0pt}
 
-\titleformat{\chapter}[hang]{\LARGE\mdseries\scshape}
-  {\thechapter}{0.5em}{}
+%-----------------------------------------------------------------
+\titleformat{\part}[hang]{%
+\huge\mdseries\scshape}{\thepart}{0.5em}{}
 
-\titleformat{\section}[hang]{\Large\mdseries\scshape}
-  {\thesection}{0.5em}{}
+%-----------------------------------------------------------------
+\titleformat{\chapter}[hang]{%
+\LARGE\mdseries\scshape}{\thechapter}{0.5em}{}
+
+\titlecontents{chapter}%
+[0em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\contentsmargin[1pt]{0pt}%
+\large\sbseries\scshape}% above code
+{\contentslabel{1em}}%
+{\hspace*{-1em}}%
+{\mdseries\titlerule*[0.5em]{.}\contentspage}
+
+%-----------------------------------------------------------------
+\titleformat{\section}[hang]{%
+\Large\mdseries\scshape}{\thesection}{0.5em}{}
 \titlespacing\section{0pt}
   {16pt plus 16pt minus 2pt}
   {5pt plus 5pt minus 2pt}
+  
+\titlecontents{section}%
+[2em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\contentsmargin[1pt]{0pt}%
+\mdseries\scshape} % above code
+{\contentslabel{2em}}
+{\hspace*{-2.3em}}
+{\titlerule*[0.5em]{.}\contentspage}
 
+%-----------------------------------------------------------------
 \titleformat{\subsection}[hang]{\large\mdseries\scshape}
   {\thesubsection}{0.5em}{}
 \titlespacing\subsection{0pt}
   {14pt plus 14pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
+% \titlecontents{subsection}%
+% [4em]%[3.8em]
+% {\mdseries\scshape} % above code
+% {\contentslabel{3em}}
+% {\hspace*{-2.3em}}
+% {\titlerule*[0.5em]{.}\contentspage}
+
+%-----------------------------------------------------------------
 \titleformat{\subsubsection}[hang]{\large\mdseries\scshape}
   {\thesubsubsection}{0.5em}{}
 \titlespacing\subsubsection{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
+\titlecontents{subsubsection}%
+[5em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\contentsmargin[36pt]{0pt}%
+\mdseries\scshape} % above code
+{\contentslabel{4em}}
+{\hspace*{-4em}}
+{\titlerule*[0.7em]{.}\contentspage}
+
+%-----------------------------------------------------------------
 \titleformat{\paragraph}[hang]{\normalsize\mdseries\scshape}
 {\theparagraph}{0.5em}{}
 \titlespacing\paragraph{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
 
+\titlecontents{paragraph}%
+[6em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\mdseries\scshape} % above code
+{\contentslabel{5.3em}}
+{\hspace*{-2.3em}}
+{\titlerule*[0.5em]{.}\contentspage}
+
+%-----------------------------------------------------------------
 \titleformat{\subparagraph}[hang]{\normalsize\mdseries\scshape}
 {\thesubparagraph}{0.5em}{}
-\setcounter{secnumdepth}{7}
 \titlespacing\subparagraph{0pt}
   {12pt plus 12pt minus 2pt}
   {5pt plus 5pt minus 2pt}
+
+\titlecontents{subparagraph}%
+[7em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\mdseries\scshape} % above code
+{\contentslabel{6.3em}}
+{\hspace*{-2.3em}}
+{\titlerule*[0.5em]{.}\contentspage}
 
 %-----------------------------------------------------------------
 % \renewpagestyle{plain}{
@@ -3879,36 +3941,46 @@ backref=true,
 %\RequirePackage{etoc}[2020/05/15]
 %-----------------------------------------------------------------
 % TODO: what was this for?
-\ifundef{\thechapter}
-{
-\let\oldl@section\l@section
-\def\l@section#1#2{\oldl@section{#1}{\textrm{#2}}}
-\let\old@dottedcontentsline\@dottedtocline
-\def\@dottedtocline#1#2#3#4#5{%
-\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
-}
-{
-\let\oldl@chapter\l@chapter
-\def\l@chapter#1#2{\oldl@chapter{#1}{\textrm{#2}}}
-\let\old@dottedcontentsline\@dottedtocline
-\def\@dottedtocline#1#2#3#4#5{%
-\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
-}
+% \ifundef{\thechapter}
+% {
+% \let\oldl@section\l@section
+% \def\l@section#1#2{\oldl@section{#1}{\textrm{#2}}}
+% \let\old@dottedcontentsline\@dottedtocline
+% \def\@dottedtocline#1#2#3#4#5{%
+% \old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
+% }
+% {
+% \let\oldl@chapter\l@chapter
+% \def\l@chapter#1#2{\oldl@chapter{#1}{\textrm{#2}}}
+% \let\old@dottedcontentsline\@dottedtocline
+% \def\@dottedtocline#1#2#3#4#5{%
+% \old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
+% }
 %-----------------------------------------------------------------
 % TODO: get toc fonts from titlesec \titleformats
 % match shape and series and, ideally, relative size
+
+% \NewDocumentCommand{\PalisadesLakesTableOfContents}{}{
+% \begingroup
+% \let\onecolumn\twocolumn
+% \scshape
+% \renewcommand{\contentsname}{Chapters/sections}
+% \setcounter{tocdepth}{1}
+% \tableofcontents
+% \renewcommand{\contentsname}{Outline}
+% \setcounter{tocdepth}{6}%{\value{secnumdepth}}
+% \tableofcontents
+% \endgroup
+% }
+
 \NewDocumentCommand{\PalisadesLakesTableOfContents}{}{
-\begingroup
-\let\onecolumn\twocolumn
-\scshape 
-\renewcommand{\contentsname}{Chapters/sections}
-\setcounter{tocdepth}{1}
-\tableofcontents
-\renewcommand{\contentsname}{Outline}
-\setcounter{tocdepth}{6}%{\value{secnumdepth}}
-\tableofcontents
-\endgroup
+\startcontents[contents]
+\printcontents[contents]{1}{0}[0]{}
+\newpage
+\printcontents[contents]{1}{0}[7]{}
+\newpage
 }
+
 %-----------------------------------------------------------------
 % nested/scoped sections
 %-----------------------------------------------------------------
