@@ -3117,6 +3117,11 @@ StylisticSet={
 }
 
 %-----------------------------------------------------------------
+% Symbola - may have more symbol coverage than others.
+% https://dn-works.com/ufas/
+% License too restrictive to use comfortably:
+% https://dn-works.com/wp-content/uploads/2020/UFAS-Docs/License.pdf
+%-----------------------------------------------------------------
 % XITS
 % Times-like, accompanying main/math fonts
 % Open Font License, version 1.1.
@@ -3804,8 +3809,22 @@ backref=true,
 %-----------------------------------------------------------------
 % section title formatting
 %-----------------------------------------------------------------
-% TODO: high level (eg chapters only) toc and 
-% complete sectioning outline toc.
+% TODO: find some alternative to titletoc (and maybe titlesec).
+%   
+%  * Documentation is opaque, with almost no examples.
+%  * Default layout isn't implemented with the user api, so next 
+%      to impossible to start from the default layout and modify.
+%  * No apparant logical basis for parameter values, requiring 
+%      painful trial and error.
+%  * Parameter settings across different section levels 
+%      seem to interfere with one another; 
+%      changing one seems to require updating others to match.
+%  * Recomendation is to use absloute size values, which means
+%      the wqhole thing has to be redone if the font changes.
+% Possibilites:
+%   (1) \tcblistof --- seems to get things right without fuss.
+
+  
 \RequirePackage[sc,bf,medium,compact,nobottomtitles*,noindentafter]
   {titlesec}[2019/10/16]
 \RequirePackage{titletoc}[2019/10/16]
@@ -3816,97 +3835,66 @@ backref=true,
 % TODO: consistent font size across sections and other chunks
 % TODO: spacing should be relative to font size
 \setcounter{secnumdepth}{7}
-
-\contentsmargin[0pt]{0pt}
-
 %-----------------------------------------------------------------
 \titleformat{\part}[hang]{%
-\huge\mdseries\scshape}{\thepart}{0.5em}{}
-
+\huge\mdseries\scshape}{\thepart}{0.5em}{}%
 %-----------------------------------------------------------------
 \titleformat{\chapter}[hang]{%
-\LARGE\mdseries\scshape}{\thechapter}{0.5em}{}
-
-\titlecontents{chapter}%
-[0em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
-{\contentsmargin[1pt]{0pt}%
-\large\sbseries\scshape}% above code
-{\contentslabel{1em}}%
-{\hspace*{-1em}}%
-{\mdseries\titlerule*[0.5em]{.}\contentspage}
-
+\LARGE\mdseries\scshape}{\thechapter}{0.5em}{}%
 %-----------------------------------------------------------------
 \titleformat{\section}[hang]{%
-\Large\mdseries\scshape}{\thesection}{0.5em}{}
-\titlespacing\section{0pt}
-  {16pt plus 16pt minus 2pt}
-  {5pt plus 5pt minus 2pt}
-  
-\titlecontents{section}%
-[2em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
-{\contentsmargin[1pt]{0pt}%
-\mdseries\scshape} % above code
-{\contentslabel{2em}}
-{\hspace*{-2.3em}}
-{\titlerule*[0.5em]{.}\contentspage}
+\Large\mdseries\scshape}{\thesection}{0.5em}{}%
 
+\titlespacing\section{0pt}%
+{16pt plus 16pt minus 2pt}%
+{5pt plus 5pt minus 2pt}%
 %-----------------------------------------------------------------
-\titleformat{\subsection}[hang]{\large\mdseries\scshape}
-  {\thesubsection}{0.5em}{}
-\titlespacing\subsection{0pt}
-  {14pt plus 14pt minus 2pt}
-  {5pt plus 5pt minus 2pt}
+\titleformat{\subsection}[hang]{\large\mdseries\scshape}%
+{\thesubsection}{0.5em}{}%
 
-% \titlecontents{subsection}%
-% [4em]%[3.8em]
-% {\mdseries\scshape} % above code
-% {\contentslabel{3em}}
-% {\hspace*{-2.3em}}
-% {\titlerule*[0.5em]{.}\contentspage}
-
+\titlespacing\subsection{0pt}%
+{14pt plus 14pt minus 2pt}%
+{5pt plus 5pt minus 2pt}%
 %-----------------------------------------------------------------
-\titleformat{\subsubsection}[hang]{\large\mdseries\scshape}
-  {\thesubsubsection}{0.5em}{}
-\titlespacing\subsubsection{0pt}
-  {12pt plus 12pt minus 2pt}
-  {5pt plus 5pt minus 2pt}
-
-\titlecontents{subsubsection}%
-[5em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
-{\contentsmargin[36pt]{0pt}%
-\mdseries\scshape} % above code
-{\contentslabel{4em}}
-{\hspace*{-4em}}
-{\titlerule*[0.7em]{.}\contentspage}
-
+\titleformat{\subsubsection}[hang]{\large\mdseries\scshape}%
+{\thesubsubsection}{0.5em}{}%
+\titlespacing\subsubsection{0pt}%
+{12pt plus 12pt minus 2pt}%
+{5pt plus 5pt minus 2pt}%
 %-----------------------------------------------------------------
-\titleformat{\paragraph}[hang]{\normalsize\mdseries\scshape}
-{\theparagraph}{0.5em}{}
-\titlespacing\paragraph{0pt}
-  {12pt plus 12pt minus 2pt}
-  {5pt plus 5pt minus 2pt}
+\titleformat{\paragraph}[hang]{\normalsize\mdseries\scshape}%
+{\theparagraph}{0.5em}{}%
 
-\titlecontents{paragraph}%
-[6em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
-{\mdseries\scshape} % above code
-{\contentslabel{5.3em}}
-{\hspace*{-2.3em}}
-{\titlerule*[0.5em]{.}\contentspage}
-
+\titlespacing\paragraph{0pt}%
+{12pt plus 12pt minus 2pt}%
+{5pt plus 5pt minus 2pt}%
 %-----------------------------------------------------------------
-\titleformat{\subparagraph}[hang]{\normalsize\mdseries\scshape}
-{\thesubparagraph}{0.5em}{}
-\titlespacing\subparagraph{0pt}
-  {12pt plus 12pt minus 2pt}
-  {5pt plus 5pt minus 2pt}
+\titleformat{\subparagraph}[hang]{\normalsize\mdseries\scshape}%
+{\thesubparagraph}{0.5em}{}%
 
-\titlecontents{subparagraph}%
-[7em]%[3.8em] % ie, 1.5em (chapter) + 2.3em
-{\mdseries\scshape} % above code
-{\contentslabel{6.3em}}
-{\hspace*{-2.3em}}
-{\titlerule*[0.5em]{.}\contentspage}
+\titlespacing\subparagraph{0pt}%
+{12pt plus 12pt minus 2pt}%
+{5pt plus 5pt minus 2pt}%
+%-----------------------------------------------------------------
+% toc formatting
+%-----------------------------------------------------------------
+\NewDocumentCommand{\TitleContents}{m m m}{%
+\titlecontents{#1}%
+[#2]%
+{\contentsmargin[4em]{0em}\mdseries\scshape}%
+{\contentslabel{#3}}%
+{\hspace*{-#3}}%
+{{\normalfont\titlerule*[0.5em]{.}\contentspage}}%
+}%
 
+\TitleContents{chapter}      {0em}{2em}
+\TitleContents{section}      {1em}{3em}
+\TitleContents{subsection}   {2em}{4em}
+\TitleContents{subsubsection}{3em}{5em}
+\TitleContents{paragraph}    {4em}{6em}
+\TitleContents{subparagraph} {5em}{7em}
+%-----------------------------------------------------------------
+% page styles
 %-----------------------------------------------------------------
 % \renewpagestyle{plain}{
 % \sethead[][\scshape\chaptertitle][] % even
@@ -3975,9 +3963,13 @@ backref=true,
 
 \NewDocumentCommand{\PalisadesLakesTableOfContents}{}{
 \startcontents[contents]
+\begin{plSection}{Overview}
 \printcontents[contents]{1}{0}[0]{}
+\end{plSection}%{Overview}
 \newpage
+\begin{plSection}{Outline}
 \printcontents[contents]{1}{0}[7]{}
+\end{plSection}%{Outline}
 \newpage
 }
 
