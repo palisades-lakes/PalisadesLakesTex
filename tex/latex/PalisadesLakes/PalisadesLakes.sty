@@ -163,6 +163,74 @@ nabla=upright,
 %-----------------------------------------------------------------
 % main fonts
 %-----------------------------------------------------------------
+% atkinson-hyperlegible
+%-----------------------------------------------------------------
+% https://github.com/googlefonts/atkinson-hyperlegible/
+% initial commot 2021-03-10
+% OFL-1.1 License
+
+\NewDocumentCommand {\AtkinsonHyperlegibleMainFont} {} {
+\setmainfont{AtkinsonHyperlegible}[
+Path,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
+RawFeature={
++case, % case sensitive forms
+},
+]
+}
+
+%-----------------------------------------------------------------
 % Cormorant (Garamond-like)
 % 2021-02-27
 % https://github.com/CatharsisFonts/Cormorant/releases/tag/v3.3 
@@ -1532,6 +1600,74 @@ Numbers={OldStyle,Proportional},
 % Maybe later choose something to match the math sans, and use 
 % that for text pseudcode that matches math pseudocode as closely
 % as possible.
+%-----------------------------------------------------------------
+% atkinson-hyperlegible
+%-----------------------------------------------------------------
+% https://github.com/googlefonts/atkinson-hyperlegible/
+% initial commot 2021-03-10
+% OFL-1.1 License
+
+\NewDocumentCommand {\AtkinsonHyperlegibleSansFont} {} {
+\setsansfont{AtkinsonHyperlegible}[
+Path,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%SmallcapsFont=*SC,
+% %FontFace={ul}{sc}{*SC-Hairline},
+% FontFace={ul}{sc}{*SC-Thin},
+% FontFace={el}{sc}{*SC-Extralight},
+% FontFace={l}{sc}{*SC-Light},
+% FontFace={sl}{sc}{*SC-Semilight},
+% %FontFace={m}{sc}{*SC-Book},
+% FontFace={m}{sc}{*SC-Regular},
+% %FontFace={m}{sc}{*SC-Medium},
+% FontFace={sb}{sc}{*SC-Semibold},
+% FontFace={b}{sc}{*SC-Bold},
+% FontFace={eb}{sc}{*SC-Ultrabold},
+% FontFace={ub}{sc}{*SC-Heavy},
+% %FontFace={ub}{sc}{*SC-Black},
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
+RawFeature={
++case, % case sensitive forms
+},
+]
+}
+
 %-----------------------------------------------------------------
 % FiraGo <- FiraSans <- Metal
 % https://github.com/bBoxType/FiraGO
@@ -3175,6 +3311,7 @@ RawFeature={
 \EBGaramondPardoMainFont
 %\GilliusADFSansFont
 \GilliusADFTwoSansFont
+\AtkinsonHyperlegibleSansFont
 \InconsolataMonoFont
 \GaramondMathFont
 }
@@ -3221,6 +3358,12 @@ RawFeature={
 \LatinModernMathFont
 }
 
+\NewDocumentCommand {\LegibleFonts} {} {
+\AtkinsonHyperlegibleMainFont
+\AtkinsonHyperlegibleSansFont
+\FiraCodeMonoFont
+\GaramondMathFont % TODO: custom legible math font
+}
 \NewDocumentCommand {\LibertinusFonts} {} {
 % TODO: Libertinus Serif Display as title font?
 % TODO: Libertinus Serif Initials as a drop cap font?
@@ -3827,7 +3970,6 @@ backref=true,
   
 \RequirePackage[sc,bf,medium,compact,nobottomtitles*,noindentafter]
   {titlesec}[2019/10/16]
-\RequirePackage{titletoc}[2019/10/16]
 \RequirePackage[titletoc]{appendix}[2020/02/08]
 %\RequirePackage{appendix}[2020/02/08]
 
@@ -3875,24 +4017,6 @@ backref=true,
 \titlespacing\subparagraph{0pt}%
 {12pt plus 12pt minus 2pt}%
 {5pt plus 5pt minus 2pt}%
-%-----------------------------------------------------------------
-% toc formatting
-%-----------------------------------------------------------------
-\NewDocumentCommand{\TitleContents}{m m m}{%
-\titlecontents{#1}%
-[#2]%
-{\contentsmargin[4em]{0em}\mdseries\scshape}%
-{\contentslabel{#3}}%
-{\hspace*{-#3}}%
-{{\normalfont\titlerule*[0.5em]{.}\contentspage}}%
-}%
-
-\TitleContents{chapter}      {0em}{2em}
-\TitleContents{section}      {1em}{3em}
-\TitleContents{subsection}   {2em}{4em}
-\TitleContents{subsubsection}{3em}{5em}
-\TitleContents{paragraph}    {4em}{6em}
-\TitleContents{subparagraph} {5em}{7em}
 %-----------------------------------------------------------------
 % page styles
 %-----------------------------------------------------------------
@@ -3945,30 +4069,76 @@ backref=true,
 % \old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
 % }
 %-----------------------------------------------------------------
+% standard toc
+%-----------------------------------------------------------------
 % TODO: get toc fonts from titlesec \titleformats
 % match shape and series and, ideally, relative size
 
-% \NewDocumentCommand{\PalisadesLakesTableOfContents}{}{
+% \NewDocumentCommand{\PalisadesLakesTableOfContents}{m}{
 % \begingroup
 % \let\onecolumn\twocolumn
 % \scshape
-% \renewcommand{\contentsname}{Chapters/sections}
-% \setcounter{tocdepth}{1}
-% \tableofcontents
-% \renewcommand{\contentsname}{Outline}
-% \setcounter{tocdepth}{6}%{\value{secnumdepth}}
+% %\renewcommand{\contentsname}{Chapters/sections}
+% \setcounter{tocdepth}{#1}
 % \tableofcontents
 % \endgroup
 % }
 
-\NewDocumentCommand{\PalisadesLakesTableOfContents}{}{
+%-----------------------------------------------------------------
+% titletoc --- a complete mess
+%-----------------------------------------------------------------
+%\RequirePackage{calc}[2017-05-25]
+\RequirePackage{titletoc}[2019/10/16]
+
+% \NewDocumentCommand{\TitleContents}{m m m}{%
+% \dottedcontents{#1}%
+% [#2]%
+% {\contentsmargin[10ex]{0em}\mdseries\scshape}%
+% {#3}%
+% {1ex}%
+% }
+
+\NewDocumentCommand{\TitleContents}{m m m}{%
+\titlecontents{#1}%
+[#2]%
+{\contentsmargin[12ex]{0em}\mdseries\scshape}%
+{\contentslabel{#3}}%
+{\hspace*{-#3}}%
+{{\normalfont\titlerule*[0.5em]{.}\contentspage}}%
+}%
+
+\newlength{\TwoDigits}
+\settowidth{\TwoDigits}{221}
+\newlength{\TwoDigitsDot}
+\settowidth{\TwoDigitsDot}{221}
+
+\TitleContents{chapter}
+{0pt}
+{\TwoDigits}
+\TitleContents{section}
+{\TwoDigits}
+{\dimexpr(\TwoDigits +  \TwoDigitsDot)}
+\TitleContents{subsection}   
+{\dimexpr(\TwoDigits +  \TwoDigitsDot)}
+{\dimexpr(\TwoDigits + 2\TwoDigitsDot)}
+\TitleContents{subsubsection}
+{\dimexpr(\TwoDigits + 2\TwoDigitsDot)}
+{\dimexpr(\TwoDigits + 3\TwoDigitsDot)}
+\TitleContents{paragraph}    
+{\dimexpr(\TwoDigits + 3\TwoDigitsDot)}
+{\dimexpr(\TwoDigits + 4\TwoDigitsDot)}
+\TitleContents{subparagraph} 
+{\dimexpr(\TwoDigits + 4\TwoDigitsDot)}
+{\dimexpr(\TwoDigits + 5\TwoDigitsDot)}
+
+\NewDocumentCommand{\PalisadesLakesTableOfContents}{m}{
 \startcontents[contents]
 \begin{plSection}{Overview}
 \printcontents[contents]{1}{0}[0]{}
 \end{plSection}%{Overview}
 \newpage
 \begin{plSection}{Outline}
-\printcontents[contents]{1}{0}[7]{}
+\printcontents[contents]{1}{0}[#1]{}
 \end{plSection}%{Outline}
 \newpage
 }
