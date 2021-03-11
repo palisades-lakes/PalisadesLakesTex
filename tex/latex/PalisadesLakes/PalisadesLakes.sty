@@ -4074,74 +4074,86 @@ backref=true,
 % TODO: get toc fonts from titlesec \titleformats
 % match shape and series and, ideally, relative size
 
-% \NewDocumentCommand{\PalisadesLakesTableOfContents}{m}{
-% \begingroup
-% \let\onecolumn\twocolumn
-% \scshape
-% %\renewcommand{\contentsname}{Chapters/sections}
-% \setcounter{tocdepth}{#1}
-% \tableofcontents
-% \endgroup
-% }
+\NewDocumentCommand{\PalisadesLakesTableOfContents}{m}{
+\begingroup
+\let\onecolumn\twocolumn
+\scshape
+%\renewcommand{\contentsname}{Chapters/sections}
+\setcounter{tocdepth}{#1}
+\tableofcontents
+\endgroup
+}
+
+%-----------------------------------------------------------------
+% TODO: try tocstyle?
+%-----------------------------------------------------------------
 
 %-----------------------------------------------------------------
 % titletoc --- a complete mess
+% documentation is completly opaque, almost no examples.
+% default layout in m,urky code, essentially impossible
+% to reproduce via user api.
+% parameter settings have to be determined by trial and error,
+% no longer work if the font changes (though I did manage to get
+% apprximately what I want with \settowidth{}).
+% after 2 days of fiddling, still quite ugly.
+% not worth it just to have multiple tocs, which is probably not a
+% good idea anyway. 
 %-----------------------------------------------------------------
-%\RequirePackage{calc}[2017-05-25]
-\RequirePackage{titletoc}[2019/10/16]
-
+% \RequirePackage{titletoc}[2019/10/16]
+% 
+% % \NewDocumentCommand{\TitleContents}{m m m}{%
+% % \dottedcontents{#1}%
+% % [#2]%
+% % {\contentsmargin[10ex]{0em}\mdseries\scshape}%
+% % {#3}%
+% % {1ex}%
+% % }
+% 
 % \NewDocumentCommand{\TitleContents}{m m m}{%
-% \dottedcontents{#1}%
+% \titlecontents{#1}%
 % [#2]%
-% {\contentsmargin[10ex]{0em}\mdseries\scshape}%
-% {#3}%
-% {1ex}%
+% {\contentsmargin[12ex]{0em}\mdseries\scshape}%
+% {\contentslabel{#3}}%
+% {\hspace*{-#3}}%
+% {{\normalfont\titlerule*[0.5em]{.}\contentspage}}%
+% }%
+% 
+% \newlength{\TwoDigits}
+% \settowidth{\TwoDigits}{221}
+% \newlength{\TwoDigitsDot}
+% \settowidth{\TwoDigitsDot}{221}
+% 
+% \TitleContents{chapter}
+% {0pt}
+% {\TwoDigits}
+% \TitleContents{section}
+% {\TwoDigits}
+% {\dimexpr(\TwoDigits +  \TwoDigitsDot)}
+% \TitleContents{subsection}   
+% {\dimexpr(\TwoDigits +  \TwoDigitsDot)}
+% {\dimexpr(\TwoDigits + 2\TwoDigitsDot)}
+% \TitleContents{subsubsection}
+% {\dimexpr(\TwoDigits + 2\TwoDigitsDot)}
+% {\dimexpr(\TwoDigits + 3\TwoDigitsDot)}
+% \TitleContents{paragraph}    
+% {\dimexpr(\TwoDigits + 3\TwoDigitsDot)}
+% {\dimexpr(\TwoDigits + 4\TwoDigitsDot)}
+% \TitleContents{subparagraph} 
+% {\dimexpr(\TwoDigits + 4\TwoDigitsDot)}
+% {\dimexpr(\TwoDigits + 5\TwoDigitsDot)}
+% 
+% \NewDocumentCommand{\PalisadesLakesTableOfContents}{m}{
+% \startcontents[contents]
+% \begin{plSection}{Overview}
+% \printcontents[contents]{1}{0}[0]{}
+% \end{plSection}%{Overview}
+% \newpage
+% \begin{plSection}{Outline}
+% \printcontents[contents]{1}{0}[#1]{}
+% \end{plSection}%{Outline}
+% \newpage
 % }
-
-\NewDocumentCommand{\TitleContents}{m m m}{%
-\titlecontents{#1}%
-[#2]%
-{\contentsmargin[12ex]{0em}\mdseries\scshape}%
-{\contentslabel{#3}}%
-{\hspace*{-#3}}%
-{{\normalfont\titlerule*[0.5em]{.}\contentspage}}%
-}%
-
-\newlength{\TwoDigits}
-\settowidth{\TwoDigits}{221}
-\newlength{\TwoDigitsDot}
-\settowidth{\TwoDigitsDot}{221}
-
-\TitleContents{chapter}
-{0pt}
-{\TwoDigits}
-\TitleContents{section}
-{\TwoDigits}
-{\dimexpr(\TwoDigits +  \TwoDigitsDot)}
-\TitleContents{subsection}   
-{\dimexpr(\TwoDigits +  \TwoDigitsDot)}
-{\dimexpr(\TwoDigits + 2\TwoDigitsDot)}
-\TitleContents{subsubsection}
-{\dimexpr(\TwoDigits + 2\TwoDigitsDot)}
-{\dimexpr(\TwoDigits + 3\TwoDigitsDot)}
-\TitleContents{paragraph}    
-{\dimexpr(\TwoDigits + 3\TwoDigitsDot)}
-{\dimexpr(\TwoDigits + 4\TwoDigitsDot)}
-\TitleContents{subparagraph} 
-{\dimexpr(\TwoDigits + 4\TwoDigitsDot)}
-{\dimexpr(\TwoDigits + 5\TwoDigitsDot)}
-
-\NewDocumentCommand{\PalisadesLakesTableOfContents}{m}{
-\startcontents[contents]
-\begin{plSection}{Overview}
-\printcontents[contents]{1}{0}[0]{}
-\end{plSection}%{Overview}
-\newpage
-\begin{plSection}{Outline}
-\printcontents[contents]{1}{0}[#1]{}
-\end{plSection}%{Outline}
-\newpage
-}
 
 %-----------------------------------------------------------------
 % nested/scoped sections
