@@ -30,7 +30,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 
-\LoadClass[11pt,openany]{book}
+\LoadClass[openany]{book}
 
 %-----------------------------------------------------------------
 % test \PackageWarning with unknown option 'foo'.
@@ -52,5 +52,5 @@
 
 \toggletrue{printindex}
 
-\AtEndDocument {\appendix\FinishBook}
+\AtEndDocument {\FinishBook}
 %-----------------------------------------------------------------

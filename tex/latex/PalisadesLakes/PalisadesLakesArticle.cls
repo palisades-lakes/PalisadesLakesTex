@@ -30,7 +30,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
-\LoadClass[11pt]{article}
+\LoadClass{article}
 
 %-----------------------------------------------------------------
 % test \PackageWarning with unknown option 'foo'.
@@ -40,5 +40,5 @@
 %-----------------------------------------------------------------
 \input{glossary}
 
-\AtEndDocument {\appendix\FinishArticle}
+\AtEndDocument {\FinishArticle}
 %-----------------------------------------------------------------

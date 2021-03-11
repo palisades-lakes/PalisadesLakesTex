@@ -3970,7 +3970,7 @@ backref=true,
   
 \RequirePackage[sc,bf,medium,compact,nobottomtitles*,noindentafter]
   {titlesec}[2019/10/16]
-\RequirePackage[titletoc]{appendix}[2020/02/08]
+%\RequirePackage[titletoc]{appendix}[2020/02/08]
 %\RequirePackage{appendix}[2020/02/08]
 
 % TODO: better handling of part/chapter/section as highest level.
@@ -4729,11 +4729,29 @@ citecolor=citecolor,
 %-----------------------------------------------------------------
 \ExplSyntaxOff
 %-----------------------------------------------------------------
+\newtoggle{AppendicesStarted}
+\togglefalse{AppendicesStarted}
+
+\NewDocumentCommand{\BeginAppendices}{}{
+\iftoggle{AppendicesStarted}{}{%
+  \ifdefined\thechapter
+    \setcounter{chapter}{0}
+    \renewcommand{\thechapter}{\Alph{chapter}}
+  \else
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\Alph{section}}
+  \fi
+\toggletrue{AppendicesStarted}
+}}
+
+% TODO: \EndAppendices, \RestartAppendices, \ContinueAppendices?
 %-----------------------------------------------------------------
 % standard document endings
 % TODO: move to document classes?
 %-----------------------------------------------------------------
+
 \NewDocumentCommand {\FinishArticle} {} {
+\BeginAppendices
 \iftoggle{printbibliography}{
 \begin{plSection}{References}
 \printbibliography[heading=none,]
@@ -4750,6 +4768,7 @@ citecolor=citecolor,
 }
 
 \NewDocumentCommand {\FinishReport} {} {
+\BeginAppendices
 \iftoggle{printglossary}{%
 % \newglossarystyle{mystyle}{%
 %  \setglossarystyle{altlist}%
@@ -4772,6 +4791,7 @@ citecolor=citecolor,
 
 
 \NewDocumentCommand {\FinishBook} {} {
+\BeginAppendices
 \glsaddallunused
 \iftoggle{plData} {
 \begin{plSection}{Plots, Tables, etc.}

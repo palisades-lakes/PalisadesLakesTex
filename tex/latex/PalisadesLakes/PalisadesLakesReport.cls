@@ -30,7 +30,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
-\LoadClass[11pt,openany]{report}
+\LoadClass[openany]{report}
 
 %-----------------------------------------------------------------
 % test \PackageWarning with unknown option 'foo'.
@@ -43,5 +43,5 @@
 
 \toggletrue{printindex}
 
-\AtEndDocument {\appendix\FinishReport}
+\AtEndDocument {\FinishReport}
 %-----------------------------------------------------------------
