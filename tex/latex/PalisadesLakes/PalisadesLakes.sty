@@ -3243,6 +3243,38 @@ RawFeature={
 }
 
 %-----------------------------------------------------------------
+% Build a math font by combining others, to my taste.
+% Start with XITS
+
+\NewDocumentCommand {\LegibleMathFont} {} {
+\setmathfont{XITSMath-Regular.otf}[
+Numbers={OldStyle},
+StylisticSet = {
+1, % simpler script
+2, % sans greek
+8, % upright integrals
+9, % upright slashed logical operators
+10, % horizontal h-bar
+},
+]
+\setmathfont{AtkinsonHyperlegible-Regular.otf}[
+RawFeature={+case,},
+range={sfup,}
+]
+\setmathfont{AtkinsonHyperlegible-Italic.otf}[
+RawFeature={+case,},
+range={sfit,}
+]
+\setmathfont{AtkinsonHyperlegible-Bold.otf}[
+RawFeature={+case,},
+range={bfsfup,}
+]
+\setmathfont{AtkinsonHyperlegible-BoldItalic.otf}[
+RawFeature={+case,},
+range={bfsfit,}
+]
+}
+%-----------------------------------------------------------------
 % https://github.com/alerque/libertinus
 % OFL-1.1 License
 % Possiblly a harmonius set to use for all fonts
@@ -3486,11 +3518,10 @@ RawFeature={
 }
 
 \NewDocumentCommand {\LegibleFonts} {} {
-\GaramondLibreMainFont
-%\AtkinsonHyperlegibleMainFont
+\LibertinusMainFont
 \AtkinsonHyperlegibleSansFont
 \FiraCodeMonoFont
-\GaramondMathFont % TODO: custom legible math font
+\LegibleMathFont 
 \QTHeidelbergBlackLetterFont
 }
 \NewDocumentCommand {\LibertinusFonts} {} {
@@ -3797,7 +3828,7 @@ RawFeature={
 % just use Pseudocode formatting for all fns?
 
 \NewDocumentCommand{\Linear}{m}{\mathsfup{#1}}
-\NewDocumentCommand{\Affine}{m}{\mathbf{#1}}
+\NewDocumentCommand{\Affine}{m}{\mathbfsf{#1}}
 
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
