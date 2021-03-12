@@ -1,21 +1,39 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: biber
+%% arara: texindy: { markup: xelatex }
 %% arara: makeglossaries
-%% arara: makeindex
-% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
-% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
+% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
+% arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
 % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 %% arara: clean: { extensions: [ glg, glo, gls, ] }
-% arara: clean: { extensions: [ idx, ] }
-%% arara: clean: { extensions: [ ilg, ind, xdy, ] }
-%% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+%% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass{PalisadesLakesArticle}
-
+\documentclass[10pt]{PalisadesLakesArticle}
 \geomAfour
 \geomPortraitTwoColumn
+%-----------------------------------------------------------------
+
+%\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
+%\CormorantFonts % light, missing unicode greek, needs scaling relative to monfont
+%\EBGaramondFonts % fewest pages
+%\ErewhonFonts
+%\FiraFonts % tall lines, all sans, much less per page, missing \in?
+%\GFSNeohellenicFonts 
+%\KpFonts
+%\LatinModernFonts
+\LegibleFonts
+%\LibertinusFonts
+%\NewComputerModernFonts
+%\STIXTwoFonts
+%\BonumFonts % most pages
+%\PagellaFonts
+%\ScholaFonts
+%\TermesFonts
+%\XITSFonts
+
 %-----------------------------------------------------------------
 \title{Article template}
 \author{John Alan McDonald 
@@ -24,7 +42,9 @@
 %-----------------------------------------------------------------
 \begin{document}
 \maketitle
-\PalisadesLakesTableOfContents
+\PalisadesLakesTableOfContents{7}
+%-----------------------------------------------------------------
 \input{body}
+%-----------------------------------------------------------------
 \end{document}
 %-----------------------------------------------------------------

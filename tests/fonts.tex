@@ -1,32 +1,33 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 %% arara: biber
+%% arara: texindy: { markup: xelatex }
 %% arara: makeglossaries
-%% arara: makeindex
-%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
-%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
-% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
-%% arara: clean: { extensions: [ bbl, bcf, blg, ] }
-%% arara: clean: { extensions: [ glg, glo, gls, ] }
-%% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
-%% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
+%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
+% % arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
+% % arara: clean: { extensions: [ bbl, bcf, blg, ] }
+% % arara: clean: { extensions: [ glg, glo, gls, ] }
+% % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+% % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass{PalisadesLakesArticle}
+\documentclass[11pt]{PalisadesLakesArticle}
 \geomHDTV
 \geomLandscape
 
-%\AsanaFonts
-\CormorantFonts
-%\EBGaramondFonts
+%\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
+%\CormorantFonts % light, missing unicode greek, needs scaling relative to monfont
+%\EBGaramondFonts % fewest pages
 %\ErewhonFonts
-%\FiraFonts
-%\GFSNeohellenicFonts
+%\FiraFonts % tall lines, all sans, much less per page, missing \in?
+%\GFSNeohellenicFonts 
 %\KpFonts
 %\LatinModernFonts
+\LegibleFonts
 %\LibertinusFonts
 %\NewComputerModernFonts
 %\STIXTwoFonts
-%\BonumFonts
+%\BonumFonts % most pages
 %\PagellaFonts
 %\ScholaFonts
 %\TermesFonts
@@ -72,6 +73,8 @@ shape: #2\\
 %\ShowFont{\sffamily}{scit}\ShowFont{\sffamily}{scsl}
 \ShowFont{\sffamily}{it}\ShowFont{\sffamily}{sl}
 \ShowFont{\ttfamily}{n}\ShowFont{\ttfamily}{sl}
+\newpage
+\ShowFontA{\BlackLetterFont}{n}{m}
 % See 
 % \citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
 

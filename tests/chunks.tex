@@ -1,15 +1,15 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-%% arara: biber
+% arara: biber
+%% arara: texindy: { markup: xelatex }
 %% arara: makeglossaries
-%% arara: makeindex
-%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
-%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
-% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
-%% arara: clean: { extensions: [ bbl, bcf, blg, ] }
-%% arara: clean: { extensions: [ glg, glo, gls, ] }
-%% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
-%% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
+% % arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
+% % arara: clean: { extensions: [ bbl, bcf, blg, ] }
+% % arara: clean: { extensions: [ glg, glo, gls, ] }
+% % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+% % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %----------------------------------------------------------------
 \documentclass{PalisadesLakesArticle}
 
@@ -17,6 +17,26 @@
 %\geomLedger
 \geomHDTV
 \geomLandscape
+
+
+%\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
+%\CormorantFonts % light, missing unicode greek, needs scaling relative to monfont
+%\EBGaramondFonts % fewest pages
+%\ErewhonFonts
+%\FiraFonts % tall lines, all sans, much less per page, missing \in?
+%\GFSNeohellenicFonts 
+%\KpFonts
+%\LatinModernFonts
+\LegibleFonts
+%\LibertinusFonts
+%\NewComputerModernFonts
+%\STIXTwoFonts
+%\BonumFonts % most pages
+%\PagellaFonts
+%\ScholaFonts
+%\TermesFonts
+%\XITSFonts
+
 %-----------------------------------------------------------------
 \begin{document}
 %-----------------------------------------------------------------
@@ -398,31 +418,11 @@ which implies that
 from\\ \citeAuthorYearTitle{Dugac:1976:DedekindFondements},\\
 as quoted in\\ \citeAuthorYearTitle{Ferreiros:2007:Labyrinth}.}
 {dedekindklein}
-{\fraklines
-\textgoth{Und was wird der geduldige Leser am
+{\textBlackLetter{Und was wird der geduldige Leser am
 Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
 uns/iglicher Arbeit es gliicklich
 erreicht hat, die klarsten Vorstellungen 
 in ein unheimliches Dunkel zu hiillen!}
-\par
-\textswab{Und was wird der geduldige Leser am
-Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
-uns/iglicher Arbeit es gliicklich
-erreicht hat, die klarsten Vorstellungen 
-in ein unheimliches Dunkel zu hiillen!}
-\par
-\textfrak{Und was wird der geduldige Leser am
-Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
-uns/iglicher Arbeit es gliicklich
-erreicht hat, die klarsten Vorstellungen 
-in ein unheimliches Dunkel zu hiillen!}
-\par
-% \textinit{Und was wird der geduldige Leser am
-% Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
-% uns/iglicher Arbeit es gliicklich
-% erreicht hat, die klarsten Vorstellungen 
-% in ein unheimliches Dunkel zu hiillen!}
-% \par
 }
 What will the forbearing reader say at the end? That the author, 
 in a squandering of indescribable

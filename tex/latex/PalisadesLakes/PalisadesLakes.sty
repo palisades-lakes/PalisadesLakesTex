@@ -163,6 +163,39 @@ nabla=upright,
 %-----------------------------------------------------------------
 % main fonts
 %-----------------------------------------------------------------
+% Libre Caslon 
+%
+% TODO: other impallari fonts?
+%%
+% https://github.com/impallari/Libre-Caslon-Display/
+% https://github.com/impallari/Libre-Caslon-Text
+% Libre Caslon is licensed under the SIL Open Font License v1.1 
+%(http://scripts.sil.org/OFL)
+
+%\RequirePackage{librecaslon}[2020-07-29]
+%\setmainfont{Libre Caslon Text}%[Scale=0.85]
+%-----------------------------------------------------------------
+
+%\setmainfont{Baskerville Old Face}
+%\setmainfont{Centaur}
+%\setmainfont{Georgia}
+%\setmainfont{Perpetua}
+%\setmainfont{Poor Richard}
+
+%\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
+
+% http://iginomarini.com/fell/the-revival-fonts/
+% \fontspec[
+%  SmallCapsFont=IM FELL English SC,
+%  SmallCapsFeatures={Let ters=SmallCaps},
+% ]{IM FELL English}
+% \setmainfont{IM FELL English}
+ 
+%\setmainfont{Palatino Linotype}
+%\setmainfont{Perpetua}[Scale=1.1]
+%\setmainfont{Times New Roman}
+
+%-----------------------------------------------------------------
 % atkinson-hyperlegible
 %-----------------------------------------------------------------
 % https://github.com/googlefonts/atkinson-hyperlegible/
@@ -724,6 +757,65 @@ RawFeature={
 },
 ]
 }
+%-----------------------------------------------------------------
+% Garamond-Libre
+% These fonts are made available under the X11 license. See COPYING for details.
+% https://github.com/dbenjaminmiller/garamond-libre
+% https://dbmiller.org/type/garamond-libre.html
+% https://ctan.org/pkg/garamond-libre
+% Version 1.4 2020-05-03
+% Licenses  MIT License
+% Copyright 2019–2020 Daniel Benjamin Miller
+
+\NewDocumentCommand {\GaramondLibreMainFont} {} {
+\setmainfont{GaramondLibre}[
+Path,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
+Numbers={OldStyle,Proportional},
+RawFeature={
++case, % case sensitive forms
+},
+]
+}
+
+
 %-----------------------------------------------------------------
 % GFS Fonts <- Computer Modern Bright
 % https://greekfontsociety-gfs.gr/
@@ -1756,7 +1848,8 @@ RawFeature={
 % OFL-1.1 License
 % downloaded 2021-03-03
 
-% Effectively a sans font --- what to do when sans and main are the same?
+% Effectively a sans font --- what to do when sans 
+% and main are the same?
 
 \NewDocumentCommand {\GFSNeohellenicSansFont} {} {
 \setsansfont{GFSNeohellenic.otf}[
@@ -2907,6 +3000,32 @@ StylisticSet={
 }
 
 %-----------------------------------------------------------------
+% blackletter/fraktur fonts
+% TODO: rationalize serif/sans/mono/fraktur/etc dimensions
+% TODO: \setBlackLetterFont?
+%-----------------------------------------------------------------
+% QTHeidelbergType 
+% https://ctan.org/pkg/qualitype
+% Version 2019-12-26
+% Licenses  GNU General Public License, version 2 or newer
+% The SIL Open Font License
+% Copyright 1992 Qualitype
+
+\NewDocumentCommand {\QTHeidelbergBlackLetterFont} {} {
+\newfontfamily\BlackLetterFont{QTHeidelbergType}[
+Path,
+Extension=.otf,
+Ligatures={Common,TeX},
+Numbers={OldStyle,Proportional},
+Scale=MatchLowercase,
+]
+}
+
+%-----------------------------------------------------------------
+
+\DeclareTextFontCommand{\textBlackLetter}{\BlackLetterFont}
+
+%-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
 % https://tex.stackexchange.com/questions/457630/what-font-is-this-exactly-asana-math
@@ -3293,17 +3412,19 @@ RawFeature={
 
 \NewDocumentCommand {\AsanaFonts} {} {
  %\defaultfontfeatures{ Scale=MatchLowercase }
- \PagellaMainFont
+\PagellaMainFont
  % Optima -> Classico -> Biolinum -> Libertinus Sans
- \LibertinusSansFont
- \InconsolataMonoFont
- \AsanaMathFont
+\LibertinusSansFont
+\InconsolataMonoFont
+\QTHeidelbergBlackLetterFont
+\AsanaMathFont
 }
   
 \NewDocumentCommand {\CormorantFonts} {} {
 \CormorantMainFont
 \YsabeauSansFont
 \FiraCodeMonoFont
+\QTHeidelbergBlackLetterFont
 \GaramondMathFont
 }
 
@@ -3313,6 +3434,7 @@ RawFeature={
 \GilliusADFTwoSansFont
 \AtkinsonHyperlegibleSansFont
 \InconsolataMonoFont
+\QTHeidelbergBlackLetterFont
 \GaramondMathFont
 }
 
@@ -3320,6 +3442,7 @@ RawFeature={
 \ErewhonMainFont
 \LatinModernSansFont
 \InconsolataMonoFont
+\QTHeidelbergBlackLetterFont
 \ErewhonMathFont
 }
 
@@ -3328,6 +3451,7 @@ RawFeature={
 \FiraGoMainFont
 \FiraGoSansFont
 \FiraCodeMonoFont
+\QTHeidelbergBlackLetterFont
 \FiraMathFont
 }
 
@@ -3341,6 +3465,7 @@ RawFeature={
 \GFSNeohellenicSansFont
 %% no GFS mono font?
 \FiraCodeMonoFont
+\QTHeidelbergBlackLetterFont
 \GFSNeohellenicMathFont
 }
 
@@ -3348,6 +3473,7 @@ RawFeature={
 \KpRomanMainFont
 \KpSansSansFont
 \KpMonoMonoFont
+\QTHeidelbergBlackLetterFont
 \KpMathMathFont
 }
 
@@ -3355,14 +3481,17 @@ RawFeature={
 \LatinModernMainFont
 \LatinModernSansFont
 \LatinModernMonoFont
+\QTHeidelbergBlackLetterFont
 \LatinModernMathFont
 }
 
 \NewDocumentCommand {\LegibleFonts} {} {
-\AtkinsonHyperlegibleMainFont
+\GaramondLibreMainFont
+%\AtkinsonHyperlegibleMainFont
 \AtkinsonHyperlegibleSansFont
 \FiraCodeMonoFont
 \GaramondMathFont % TODO: custom legible math font
+\QTHeidelbergBlackLetterFont
 }
 \NewDocumentCommand {\LibertinusFonts} {} {
 % TODO: Libertinus Serif Display as title font?
@@ -3371,6 +3500,7 @@ RawFeature={
 \LibertinusSansFont
 \LibertinusMonoFont
 \LibertinusMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 \NewDocumentCommand {\NewComputerModernFonts} {} {
@@ -3378,6 +3508,7 @@ RawFeature={
 \NewComputerModernSansFont
 \NewComputerModernMonoFont
 \NewComputerModernMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 %-----------------------------------------------------------------
@@ -3391,6 +3522,7 @@ RawFeature={
 %\HerosCondensedSansFont
 \CursorMonoFont
 \BonumMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 % ok: 
@@ -3401,6 +3533,7 @@ RawFeature={
 %\HerosCondensedSansFont
 \CursorMonoFont
 \PagellaMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 % pagella > schola > bonum
@@ -3411,6 +3544,7 @@ RawFeature={
 %\HerosCondensedSansFont
 \CursorMonoFont
 \ScholaMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 % termes ~ pagella > schola > bonum
@@ -3421,6 +3555,7 @@ RawFeature={
 %\HerosCondensedSansFont
 \CursorMonoFont
 \TermesMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 %-----------------------------------------------------------------
@@ -3429,6 +3564,7 @@ RawFeature={
 \GilliusADFTwoSansFont
 \InconsolataMonoFont
 \XITSMathFont
+\QTHeidelbergBlackLetterFont
 }
 
 \NewDocumentCommand {\STIXTwoFonts} {} {
@@ -3436,42 +3572,10 @@ RawFeature={
 \GilliusADFTwoSansFont
 \InconsolataMonoFont
 \STIXTwoMathFont
+\QTHeidelbergBlackLetterFont
 }
 %-----------------------------------------------------------------
 % main fonts
-%-----------------------------------------------------------------
-% Libre Caslon 
-%
-% TODO: other impallari fonts?
-%%
-% https://github.com/impallari/Libre-Caslon-Display/
-% https://github.com/impallari/Libre-Caslon-Text
-% Libre Caslon is licensed under the SIL Open Font License v1.1 
-%(http://scripts.sil.org/OFL)
-
-%\RequirePackage{librecaslon}[2020-07-29]
-%\setmainfont{Libre Caslon Text}%[Scale=0.85]
-%-----------------------------------------------------------------
-
-%\setmainfont{Baskerville Old Face}
-%\setmainfont{Centaur}
-%\setmainfont{Georgia}
-%\setmainfont{Perpetua}
-%\setmainfont{Poor Richard}
-
-%\newfontfamily\scshape[Letters=SmallCaps,Scale=1.15]{Crimson}
-
-% http://iginomarini.com/fell/the-revival-fonts/
-% \fontspec[
-%  SmallCapsFont=IM FELL English SC,
-%  SmallCapsFeatures={Let ters=SmallCaps},
-% ]{IM FELL English}
-% \setmainfont{IM FELL English}
- 
-%\setmainfont{Palatino Linotype}
-%\setmainfont{Perpetua}[Scale=1.1]
-%\setmainfont{Times New Roman}
-
 %-----------------------------------------------------------------
 % TODO: redefine \mdseries instead
 % TODO: one command that maps face abbrev. to series and text cmds
