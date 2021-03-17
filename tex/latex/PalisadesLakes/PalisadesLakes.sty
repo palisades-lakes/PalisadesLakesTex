@@ -128,13 +128,49 @@
 %-----------------------------------------------------------------
 % fonts
 %-----------------------------------------------------------------
-%\RequirePackage[T1]{fontenc}
 \RequirePackage[]{fontspec}[2020/02/21]
 %\defaultfontfeatures{Scale=MatchLowercase}
-%\RequirePackage{yfonts}[2019/04/04]
 %-----------------------------------------------------------------
 % unicode-math
 %-----------------------------------------------------------------
+% As of 2021-03-16, I am defaulting to 'upright' math text.
+% I am considering trying sans symbols as the default as well,
+% but I'm not sure if the existing sans math fonts are as well
+% developed as the others, especially for non-letter symbols.
+%
+% Goals are:
+%
+% (1) readability (at least subjectively), Prefer top-down over
+%     bottom-up understanding. In particular, it should be easy to
+%     pick out the general structure of an expression, ignoring
+%     less important details.
+% 
+% (2) general appearance should be something like regularized,
+%     cleaned up, good handwriting. To me this suggests upright
+%     sans letters and compatible symbols.
+%
+% (3) math expressions should be visually distinct from regular
+%     text, especially when mixed together --- but not so much
+%     that it disturbs the flow of reading. To me, this suggests
+%     serif fonts for text and, agina, sans for math, upright
+%     for both, and restraint in weight variation.
+%
+% I am aware of ISO 80000-2:2019, but haven't read it, 
+% since the price is about US$170 and I doubt I would agree with
+% their choices. Indirect sources suggest that in ISO 80000-2
+% most symbols are set in italic, which I find difficult to read,
+% and believe should be resticted, if used at all, to placing
+% emphasis on very short pieces of text, on the order of a word
+% or short phrase. (And even in that case, and contrary to most
+% advice I've seen, I prefer slanted faces to italic.) 
+% My subjective feeling is that italic text,
+% in most fonts, is read more-or-less single letter at a time,
+% rather than word or phrase at a time. I think the same applies
+% to mathmatical expressions, forcing the reader work bottom up,
+% to first parse out individual letters/symbols and then 
+% consciously re-assemble them, rather than grasping 
+% the expression as a whole, and understanding it top-down.
+
 \RequirePackage[
 math-style=upright,
 bold-style=upright,
