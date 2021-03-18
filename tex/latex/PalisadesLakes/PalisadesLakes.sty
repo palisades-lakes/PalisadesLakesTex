@@ -68,7 +68,7 @@
 \definecolor{citecolor}{rgb}{0.05,0.3,0.05}
 \RequirePackage{graphicx}[2020/09/09]
 % TODO: is ulem needed?
-\PassOptionsToPackage{normalem}{ulem}
+%\PassOptionsToPackage{normalem}{ulem}
 %\RequirePackage{ulem}[2019/11/18]
 \RequirePackage{url}[2013/09/16]
  % just for babel:
@@ -1418,6 +1418,7 @@ RawFeature={
 
 %-----------------------------------------------------------------
 % TeX Gyre Fonts
+% http://www.gust.org.pl/projects/e-foundry/tex-gyre
 % https://ctan.org/pkg/tex-gyre?lang=en
 % Version 2.501 2018-06-17
 % Licenses  The GUST Font License (GFL)
@@ -1487,50 +1488,50 @@ StylisticSet={
 % TeX Gyre Pagella <- URW Palladio L <- Palatino
 
 \NewDocumentCommand {\PagellaMainFont} {} {
- \setmainfont{texgyrepagella}[
+ \setmainfont{TeXGyrePagella}[
 Path,
 Extension=.otf,
-UprightFont=*-regular,
-ItalicFont=*-italic,
-BoldFont=*-bold,
-BoldItalicFont=*-bolditalic,
-SlantedFont=*-italic,
-BoldSlantedFont=*-bolditalic,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
 %
 % SmallCapsFont=*-regular,
 % SmallCapsFeatures={
 % %Letters=SmallCaps,
 % },
 %
-FontFace={ul}{n}{*-regular},
-FontFace={el}{n}{*-regular},
-FontFace={l}{n}{*-regular},
-FontFace={sl}{n}{*-regular},
-FontFace={m}{n}{*-regular},
-FontFace={sb}{n}{*-bold},
-FontFace={b}{n}{*-bold},
-FontFace={eb}{n}{*-bold},
-FontFace={ub}{n}{*-bold},
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
 %
-FontFace={ul}{it}{*-italic},
-FontFace={el}{it}{*-italic},
-FontFace={l}{it}{*-italic},
-FontFace={sl}{it}{*-italic},
-FontFace={m}{it}{*-italic},
-FontFace={sb}{it}{*-bolditalic},
-FontFace={b}{it}{*-bolditalic},
-FontFace={eb}{it}{*-bolditalic},
-FontFace={ub}{it}{*-bolditalic},
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
 %
-FontFace={ul}{sl}{*-italic},
-FontFace={el}{sl}{*-italic},
-FontFace={l}{sl}{*-italic},
-FontFace={sl}{sl}{*-italic},
-FontFace={m}{sl}{*-italic},
-FontFace={sb}{sl}{*-bolditalic},
-FontFace={b}{sl}{*-bolditalic},
-FontFace={eb}{sl}{*-bolditalic},
-FontFace={ub}{sl}{*-bolditalic},
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
 %
 Ligatures={Common,TeX},
 Scale=1.0,
