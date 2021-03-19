@@ -11,7 +11,8 @@
 % % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
 % % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass{PalisadesLakesArticle}
+\XeTeXtracingfonts=1\relax
+\documentclass[12pt]{PalisadesLakesArticle}
 %\geomKindlePaperWhite
 \geomHDTV
 \geomLandscape
@@ -22,20 +23,20 @@
 %\ErewhonFonts
 %\FiraFonts % tall lines, all sans, much less per page, missing \in?
 %\GFSNeohellenicFonts 
-%\KpFonts
-%\LatinModernFonts
+%\KpFonts % ugly
+%\LatinModernFonts  % ugly
 %\LegibleFonts
 %\LibertinusFonts
-%\NewComputerModernFonts
+%\NewComputerModernFonts % ugly
 %\STIXTwoFonts
-%\BonumFonts % most pages
+%\BonumFonts % most pages, ugly
 %\PagellaFonts
-%\ScholaFonts
+%\ScholaFonts %ugly
 %\TermesFonts
-%\XITSFonts
+\XITSFonts
 
 %-----------------------------------------------------------------
-\title{Font tests}
+\title{Math Font tests}
 \author{John Alan McDonald 
 (palisades dot lakes at gmail dot com)}
 \date{draft of \today}
@@ -47,20 +48,6 @@
 \def\sharedFolder{../shared/}
 
 \begin{plSection}{Expressions}
-
-$
-\frac{\partial f}{\partial x} 
-\in \mathcal{F}\left(\symbb{R} \rightarrow \symbb{R}\right)$
-;
-$\nabla_{x} f (y) \in \codomain ( f )$
-
-{1lIiLij aα vν} \; \textbf{{1lIiLij aα vν}}\\
-{\textit{1lIiLij aα vν}} \; \textbf{{\textit{1lIiLij aα vν}}}\\
-\textsf{1lIiLij aα vν} \; \textbf{\textsf{1lIiLij aα vν}}\\
-\textsf{\textit{1lIiLij aα vν}} \; \textbf{\textsf{\textit{1lIiLij aα vν}}}\\
-$\mathsf{1lI
-iLij a\alpha v\nu} \; \mathbfsf{1lIiLij a\alpha v\nu}$\\
-$\mathsfit{1lIiLij a\alpha v\nu} \; \mathbfsfit{1lIiLij a\alpha v\nu}$
 
 \begin{eqnarray}
 \Vector{v_{01}} & = & \Point{p}_{0} - \Point{p}_{1} \in \symfrak{K}^n
@@ -132,12 +119,75 @@ $\mathsfit{1lIiLij a\alpha v\nu} \; \mathbfsfit{1lIiLij a\alpha v\nu}$
 \Derivative{\Vector{f}}[\Vector{v}][\Vector{u}] 
 \end{eqnarray}
 
+$
+\frac{\partial f}{\partial x} 
+\in \mathcal{F}\left(\symbb{R} \rightarrow \symbb{R}\right)$
+;
+$\nabla_{x} f (y) \in \codomain ( f )$
+
+{1lIiLij aα vν} \; \textbf{{1lIiLij aα vν}}\\
+{\textit{1lIiLij aα vν}} \; \textbf{{\textit{1lIiLij aα vν}}}\\
+\textsf{1lIiLij aα vν} \; \textbf{\textsf{1lIiLij aα vν}}\\
+\textsf{\textit{1lIiLij aα vν}} \; \textbf{\textsf{\textit{1lIiLij aα vν}}}\\
+$\mathsf{1lI
+iLij a\alpha v\nu} \; \mathbfsf{1lIiLij a\alpha v\nu}$\\
+$\mathsfit{1lIiLij a\alpha v\nu} \; \mathbfsfit{1lIiLij a\alpha v\nu}$
+
 
 See 
 \citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
 
 %-----------------------------------------------------------------
 \begin{plSection}{Spaces}
+%-----------------------------------------------------------------
+\begin{plSection}{Generating spaces by 'closure'}
+
+Generating these 'spaces' by closure under arithmetic operations
+\cite{PickertGorke:1974:RealNumbers}.
+
+A common pattern: a problem defined in terms of an existing mathematical
+structure. Some combination of convenience, simplicity, computational
+efficiency, and/or simplicity leads us to define a new structure, 
+often a larger enclosing one.
+
+We can use the number 'spaces' as an example.
+Imagine, for the moment, that you only know the 
+the natural numbers, $\glssymbol{NaturalNumbers}$, with a single operation: $+$.
+Suppose we have a problem to solve:
+\begin{math}
+a + b = c
+\end{math}
+where $a,b,c\in \glssymbol{NaturalNumbers}$ and we know $b$ and $c$,
+but not $a$.
+
+\begin{plListing}
+{Reinventing subtraction}
+{reinventSubtraction}
+\begin{lstlisting}
+(when (<= $b$ $c$)
+  (loop [$a$ 0]
+    (cond 
+      (= $c$ (+ $a$ $b$)) $a$
+      (< $c$ (+ $a$ $b$)) :no-solution
+      :else (recur (+ 1 $a$)))))
+\end{lstlisting}
+\end{plListing}
+
+Rationals: 
+\begin{math}
+a * b = c
+\end{math}
+
+Reals: closure under sequence limit.
+Suppose we have $x_0, x_1, \ldots \in \glssymbol{RealNumbers}$
+where, for any $\epsilon>0$ there exists an $n$ such that
+$|x_i - x_j| < \epsilon$ for any $i,, j > n$.
+
+Insert example sequence that converges to $\sqrt{2}$ or $\pi$
+with quick arg or ref to why it converges, but not to a rational
+number.
+
+\end{plSection}%{Generating spaces by 'closure'}
 %-----------------------------------------------------------------
 \begin{plSection}{Topological spaces}
 \label{sec:Topological-spaces}

@@ -32,6 +32,12 @@
 *.xdy
 *.ist
 *syntex*
+*.plCode
+*.plData
+*.plExercise
+*.plMath
+*.plNote
+*.plQuote
 /.externalToolBuilders/
 /.settings/
 /.texlipse/

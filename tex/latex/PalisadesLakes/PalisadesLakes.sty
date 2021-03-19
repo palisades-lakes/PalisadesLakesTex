@@ -128,7 +128,7 @@
 %-----------------------------------------------------------------
 % fonts
 %-----------------------------------------------------------------
-\RequirePackage[]{fontspec}[2020/02/21]
+\RequirePackage[quiet]{fontspec}[2020/02/21]
 %\defaultfontfeatures{Scale=MatchLowercase}
 %-----------------------------------------------------------------
 % unicode-math
@@ -161,8 +161,9 @@
 % most symbols are set in italic, which I find difficult to read,
 % and believe should be resticted, if used at all, to placing
 % emphasis on very short pieces of text, on the order of a word
-% or short phrase. (And even in that case, and contrary to most
-% advice I've seen, I prefer slanted faces to italic.) 
+% or short phrase. 
+% And even in that case, and contrary to most
+% advice I've seen, I prefer slanted faces to italic. 
 % My subjective feeling is that italic text,
 % in most fonts, is read more-or-less single letter at a time,
 % rather than word or phrase at a time. I think the same applies
@@ -240,7 +241,7 @@ nabla=upright,
 
 \NewDocumentCommand {\AtkinsonHyperlegibleMainFont} {} {
 \setmainfont{AtkinsonHyperlegible}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -318,7 +319,7 @@ RawFeature={
 \NewDocumentCommand {\CormorantMainFont} {} {
 \setmainfont{Cormorant}[
 %\setmainfont{CormorantGaramond}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Medium,
 ItalicFont=*-Italic,
@@ -409,9 +410,9 @@ RawFeature={
 
 % \NewDocumentCommand {\EBGaramondDuffnerMainFont} {} {
 % \setmainfont[
-% Path,
+% Path= c:/windows/fonts/ ,
 % {EBGaramond12}[
-% Path,
+% Path= c:/windows/fonts/ ,
 % % TODO: regular, italic, smallcaps only: use FakeBold and FakeSlant?
 % UprightFont = *12-Regular,
 % ItalicFont  = *12-Italic,
@@ -650,7 +651,7 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\ErewhonMainFont} {} {
 \setmainfont{Erewhon}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -719,7 +720,7 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\FiraGoMainFont} {} {
 \setmainfont{FiraGo}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -805,7 +806,7 @@ RawFeature={
 
 \NewDocumentCommand {\GaramondLibreMainFont} {} {
 \setmainfont{GaramondLibre}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -864,7 +865,7 @@ RawFeature={
 
 \NewDocumentCommand {\GFSArtemisiaMainFont} {} {
 \setmainfont{GFSArtemisia}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=GFSArtemisia,
 ItalicFont=*It,
@@ -917,7 +918,7 @@ RawFeature={
 
 \NewDocumentCommand {\GFSBodoniMainFont} {} {
 \setmainfont{GFSBodoni}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=GFSBodoni,
 ItalicFont=*It,
@@ -970,7 +971,7 @@ RawFeature={
 
 \NewDocumentCommand {\GFSDidotMainFont} {} {
 \setmainfont{GFSDidot}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=GFSDidot,
 ItalicFont=*Italic,
@@ -1025,7 +1026,7 @@ RawFeature={
 
 \NewDocumentCommand {\GFSNeohellenicMainFont} {} {
 \setmainfont{GFSNeohellenic}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=GFSNeohellenic,
 ItalicFont=*It,
@@ -1093,7 +1094,7 @@ RawFeature={
 
 \NewDocumentCommand {\KpRomanMainFont} {} {
 \setmainfont{KpRoman}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1170,7 +1171,7 @@ RawFeature={
 
 \NewDocumentCommand {\LatinModernMainFont} {} {
 \setmainfont{lmroman10}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -1242,7 +1243,7 @@ RawFeature={
 
 \NewDocumentCommand {\LibertinusMainFont} {} {
 \setmainfont{LibertinusSerif}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1305,7 +1306,7 @@ RawFeature={
 % No bold small caps as of 2021-02-24
 \NewDocumentCommand {\NewComputerModernMainFont} {} {
 \setmainfont{NewCM10}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1369,7 +1370,7 @@ RawFeature={
 
 \NewDocumentCommand {\STIXTwoMainFont} {} {
 \setmainfont{STIXTwoText}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1428,7 +1429,7 @@ RawFeature={
 
 \NewDocumentCommand {\BonumMainFont} {} {
  \setmainfont{texgyrebonum}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -1488,8 +1489,8 @@ StylisticSet={
 % TeX Gyre Pagella <- URW Palladio L <- Palatino
 
 \NewDocumentCommand {\PagellaMainFont} {} {
- \setmainfont{TeXGyrePagella}[
-Path,
+\setmainfont{TeXGyrePagella}[
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1549,8 +1550,8 @@ StylisticSet={
 % TeX Gyre Schola <- URW Century Schoolbook L <- Century Schoolbook
 
 \NewDocumentCommand {\ScholaMainFont} {} {
- \setmainfont{texgyreschola}[
-Path,
+\setmainfont{texgyreschola}[
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -1610,8 +1611,8 @@ StylisticSet={
 % TeX Gyre Termes <- URW Nimbus Roman No9 L <- Times New Roman
 
 \NewDocumentCommand {\TermesMainFont} {} {
- \setmainfont{texgyretermes}[
-Path,
+\setmainfont{texgyretermes}[
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -1675,7 +1676,7 @@ StylisticSet={
 
 \NewDocumentCommand {\XITSMainFont} {} {
 \setmainfont{XITS}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1738,7 +1739,7 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\AtkinsonHyperlegibleSansFont} {} {
 \setsansfont{AtkinsonHyperlegible}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1805,7 +1806,7 @@ RawFeature={
 
 \NewDocumentCommand {\FiraGoSansFont} {} {
 \setsansfont{FiraGo}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -1890,7 +1891,7 @@ RawFeature={
 
 \NewDocumentCommand {\GFSNeohellenicSansFont} {} {
 \setsansfont{GFSNeohellenic.otf}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=GFSNeohellenic,
 ItalicFont=*It,
@@ -1957,7 +1958,7 @@ StylisticSet={
 
 \NewDocumentCommand {\GilliusADFSansFont} {} {
 \setsansfont{GilliusADF}[
-Path,
+Path= c:/windows/fonts/ ,
 Scale=1.05,
 Extension=.otf,
 UprightFont=*-Regular,
@@ -2014,7 +2015,7 @@ FontFace={ub}{sl}{*-BoldItalic},
 
 \NewDocumentCommand {\GilliusADFTwoSansFont} {} {
 \setsansfont{GilliusADFNo2}[
-Path,
+Path= c:/windows/fonts/ ,
 Scale=1.05,
 Extension=.otf,
 UprightFont=*-Regular,
@@ -2081,7 +2082,7 @@ FontFace={ub}{sl}{*-BoldItalic},
 
 \NewDocumentCommand {\LatinModernSansFont} {} {
 \setsansfont{lmsans10}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-oblique,
@@ -2147,7 +2148,7 @@ RawFeature={
 
 \NewDocumentCommand {\LibertinusSansFont} {} {
 \setsansfont{LibertinusSans}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -2210,7 +2211,7 @@ RawFeature={
 % No bold small caps as of 2021-02-24
 \NewDocumentCommand {\NewComputerModernSansFont} {} {
 \setsansfont{NewCMSans10}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Oblique,
@@ -2274,7 +2275,7 @@ RawFeature={
 % TeX Gyre Adventor <-  URW Gothic L <- ITC Avant Garde Gothic
 \NewDocumentCommand {\AdventorSansFont} {} {
 \setsansfont{texgyreadventor}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -2336,7 +2337,7 @@ StylisticSet={
 
 \NewDocumentCommand {\HerosSansFont} {} {
 \setsansfont{texgyreheros}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -2394,7 +2395,7 @@ StylisticSet={
 
 \NewDocumentCommand {\HerosCondensedSansFont} {} {
 \setsansfont{texgyreheroscn-regular.otf}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -2462,7 +2463,7 @@ StylisticSet={
 
 \NewDocumentCommand {\KpSansSansFont} {} {
 \setsansfont{KpSans}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -2536,7 +2537,7 @@ RawFeature={
 
 \NewDocumentCommand {\YsabeauSansFont} {} {
 \setsansfont{Ysabeau}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -2686,14 +2687,14 @@ RawFeature={
 
 \NewDocumentCommand {\InconsolataMonoFont} {} {
 \setmonofont{Inconsolata}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
-UprightFont=*-Medium,
-ItalicFont=*-CondensedMedium,
-BoldFont=*-Bold,
-BoldItalicFont=*-CondensedBold,
-SlantedFont=*-CondensedRegular,
-BoldSlantedFont=*-CondensedBold,
+UprightFont=Inconsolata-Medium,
+ItalicFont=Inconsolata-CondensedMedium,
+BoldFont=Inconsolata-Bold,
+BoldItalicFont=Inconsolata-CondensedBold,
+SlantedFont=Inconsolata-CondensedRegular,
+BoldSlantedFont=Inconsolata-CondensedBold,
 % SmallcapsFont=Inconsolata,
 % SmallCapsFeatures={
 % Letters=SmallCaps,
@@ -2758,7 +2759,7 @@ RawFeature={+zero}, % slashed (actually dotted) zero
 
 \NewDocumentCommand {\KpMonoMonoFont} {} {
 \setmonofont{KpMono}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -2834,7 +2835,7 @@ RawFeature={
 
 \NewDocumentCommand {\LatinModernMonoFont} {} {
 \setmonofont{lmmonolt10}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-oblique,
@@ -2920,7 +2921,7 @@ RawFeature={
 % No bold small caps as of 2021-02-24
 \NewDocumentCommand {\NewComputerModernMonoFont} {} {
 \setmonofont{NewCMMono10}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-Italic,
@@ -2980,7 +2981,7 @@ RawFeature={
 
 \NewDocumentCommand {\CursorMonoFont} {} {
 \setmonofont{texgyrecursor}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-regular,
 ItalicFont=*-italic,
@@ -3050,7 +3051,7 @@ StylisticSet={
 
 \NewDocumentCommand {\QTHeidelbergBlackLetterFont} {} {
 \newfontfamily\BlackLetterFont{QTHeidelbergType}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 Ligatures={Common,TeX},
 Numbers={OldStyle,Proportional},
@@ -3118,9 +3119,13 @@ Scale=MatchLowercase,
 % missing \mathhypen, so try to grab from XITS?
 
 \NewDocumentCommand {\AsanaMathFont} {} {
-\setmathfont{Asana-Math.otf}[Numbers={OldStyle,Proportional},]
+\setmathfont{Asana-Math.otf}[
+Path= c:/windows/fonts/ ,
+Numbers={OldStyle,Proportional},]
 %\setmathfont{XITSMath-Regular.otf}[range={``2010}]%\mathhyphen
-\setmathfont{XITSMath-Regular.otf}[range={\mathhyphen,},]
+\setmathfont{XITSMath-Regular.otf}[
+Path= c:/windows/fonts/ ,
+range={\mathhyphen,},]
 %\setmathfont{Asana-Math.otf}[Numbers={OldStyle,Proportional},]
 }
 %-----------------------------------------------------------------
@@ -3132,6 +3137,7 @@ Scale=MatchLowercase,
 
 \NewDocumentCommand {\ErewhonMathFont} {} {
 \setmathfont{Erewhon-Math.otf}[
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 StylisticSet = {
 4, % better inequalities
@@ -3215,7 +3221,7 @@ Numbers={OldStyle,Proportional},
 % etc.
 \NewDocumentCommand {\KpMathMathFont} {} {
 \setmathfont{KpMath-Regular.otf}[
-Path,
+Path= c:/windows/fonts/ ,
 Extension=.otf,
 Numbers={OldStyle,Proportional},
 StylisticSet={
@@ -3484,7 +3490,7 @@ RawFeature={
 \PagellaMainFont
  % Optima -> Classico -> Biolinum -> Libertinus Sans
 \LibertinusSansFont
-\InconsolataMonoFont
+\FiraCodeMonoFont
 \QTHeidelbergBlackLetterFont
 \AsanaMathFont
 }
@@ -3502,7 +3508,7 @@ RawFeature={
 %\GilliusADFSansFont
 \GilliusADFTwoSansFont
 \AtkinsonHyperlegibleSansFont
-\InconsolataMonoFont
+\FiraCodeMonoFont
 \QTHeidelbergBlackLetterFont
 \GaramondMathFont
 }
@@ -3510,7 +3516,7 @@ RawFeature={
 \NewDocumentCommand {\ErewhonFonts} {} {
 \ErewhonMainFont
 \LatinModernSansFont
-\InconsolataMonoFont
+\FiraCodeMonoFont
 \QTHeidelbergBlackLetterFont
 \ErewhonMathFont
 }
@@ -3630,7 +3636,7 @@ RawFeature={
 \NewDocumentCommand {\XITSFonts} {} {
 \XITSMainFont
 \GilliusADFTwoSansFont
-\InconsolataMonoFont
+\FiraCodeMonoFont
 \XITSMathFont
 \QTHeidelbergBlackLetterFont
 }
@@ -3638,7 +3644,7 @@ RawFeature={
 \NewDocumentCommand {\STIXTwoFonts} {} {
 \STIXTwoMainFont
 \GilliusADFTwoSansFont
-\InconsolataMonoFont
+\FiraCodeMonoFont
 \STIXTwoMathFont
 \QTHeidelbergBlackLetterFont
 }
@@ -4998,3 +5004,6 @@ citecolor=citecolor,
 
 \FinishReport
 }
+%-----------------------------------------------------------------
+\RequirePackage{microtype}[2021/03/14]
+%-----------------------------------------------------------------

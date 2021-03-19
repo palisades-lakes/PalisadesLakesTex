@@ -17,21 +17,27 @@
 \usepackage{ragged2e,setspace,booktabs,catchfile,shortvrb,geometry,
 metalogo,textcomp,longtable,tabu,hyperref}
 
-\geometry{margin=2cm,landscape=true,paperheight=352mm,paperwidth=198mm,}
+\geometry{
+margin=2cm,
+landscape=true,
+paperheight=400mm,
+paperwidth=200mm,
+}
 \hypersetup{colorlinks,linkcolor=black}
 
 \usepackage{enumitem}
 
 \def\cmd#1{\texttt{\textbackslash\expandafter\@gobble\string#1}}
 
-\usepackage{fontspec}
-\setmainfont{texgyrepagella}%
+\usepackage[quiet]{fontspec}
+\setmainfont{TeXGyrePagella}%
  [
+  Path,
   Extension = .otf ,
-  UprightFont = *-regular,
-  ItalicFont = *-italic,
-  BoldFont = *-bold,
-  BoldItalicFont = *-bolditalic,
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  BoldFont = *-Bold,
+  BoldItalicFont = *-BoldItalic,
   Ligatures=TeX,
   Numbers={Lowercase,Monospaced},
  ]
@@ -48,6 +54,8 @@ metalogo,textcomp,longtable,tabu,hyperref}
   \newcounter{#1}
   \setcounter{#1}{-1}
   \setmathfont[version=#1,
+  %Path,
+  %Extension=.otf,
      SizeFeatures={
       {Size=-10, Colour=999999},
       {Size=10-, Colour=#3}},
@@ -61,7 +69,6 @@ metalogo,textcomp,longtable,tabu,hyperref}
 
 % https://tex.stackexchange.com/questions/425098/which-opentype-math-fonts-are-available
 \defmathfont{asana}{Asana-Math.otf}{660000}{AS}
-\defmathfont{cambria}{Cambria Math}{006600}{CA} % Windows proprietary
 \defmathfont{erewhon}{Erewhon-Math.otf}{441111}{ER}
 \defmathfont{fira}{FiraMath-Regular.otf}{000088}{FI}
 \defmathfont{garam}{Garamond-Math.otf}{112233}{GA}
@@ -70,9 +77,13 @@ metalogo,textcomp,longtable,tabu,hyperref}
 \defmathfont{ks}{KPMath-Sans.otf}{224422}{KS}
 \defmathfont{lm}{latinmodern-math.otf}{222222}{LA}
 \defmathfont{liber}{LibertinusMath-Regular.otf}{003333}{LI}
-\defmathfont{ncmr}{NewCMMath-Regular.otf}{331144}{NR}
-\defmathfont{ncmb}{NewCMMath-Book.otf}{331144}{NB}
+\defmathfont{ncmb}{NEWCMMATH-BOOK.OTF}{331144}{NB}
+% some conflict finding book and regular as system fonts,
+% texwroks always tries to autoload unnecessary newcomputermodern 
+% packagep
+%\defmathfont{ncmr}{newcmmath-regular.otf}{331144}{NR}
 \defmathfont{stix}{STIXTwoMath-Regular.otf}{006622}{ST}
+\defmathfont{symbola}{Symbola.otf}{113344}{SY}
 \defmathfont{xitsr}{XITSMath-Regular.otf}{2200AA}{XR}
 \defmathfont{xitsb}{XITSMath-Bold.otf}{2200AA}{XB}
 
@@ -82,6 +93,8 @@ metalogo,textcomp,longtable,tabu,hyperref}
 \defmathfont{schola}{texgyreschola-math.otf}{880044}{TO}
 \defmathfont{termes}{texgyretermes-math.otf}{880044}{TT}
 
+\defmathfont{cambria}{Cambria Math}{006600}{CA} % Windows proprietary
+
 \def\INPUT{\input{unicode-math-table.tex}}
 \def\TABLE{%
 \par\noindent
@@ -90,8 +103,10 @@ metalogo,textcomp,longtable,tabu,hyperref}
   \textsc{usv} & %
   \Lasana & \Lcambria & \Lerewhon & \Lfira & %
   \Lgaram & \Lgfsnh & %
-  \Lkr & \Lks & \Llm & \Lliber & \Lncmr &  \Lncmb & %
-  \Lstix & \Lxitsr & \Lxitsb & %
+  \Lkr & \Lks & \Llm & \Lliber & 
+  %\Lncmr & 
+   \Lncmb & %
+  \Lstix & \Lsymbola & \Lxitsr & \Lxitsb & %
   \Lbonum & \Ldejavu & \Lpagella  & \Lschola & \Ltermes & %
   Macro & Description \\
   \midrule \endhead
@@ -130,9 +145,10 @@ metalogo,textcomp,longtable,tabu,hyperref}
       \SYMB{#2}{kr}{#1} &
       \SYMB{#2}{ks}{#1} &
       \SYMB{#2}{liber}{#1} &
-      \SYMB{#2}{ncmr}{#1} &
+      %\SYMB{#2}{ncmr}{#1} &
       \SYMB{#2}{ncmb}{#1} &
       \SYMB{#2}{stix}{#1} &
+      \SYMB{#2}{symbola}{#1} &
       \SYMB{#2}{xitsr}{#1} &
       \SYMB{#2}{xitsb}{#1} &
       \SYMB{#2}{bonum}{#1} &
@@ -234,9 +250,10 @@ Symbols defined in \textsf{amssymb} are indicated with {\color[gray]{0.6} \texts
 \item[\Lks] \mathversion{ks} $\mathup{KP\ Math\ Sans}$ (\ref{count:ks})
 \item[\Llm] \mathversion{lm} $\mathup{Latin\ Modern\ Math}$ (\ref{count:lm})
 \item[\Lliber] \mathversion{lm} $\mathup{Libertinus\ Math}$ (\ref{count:liber})
-\item[\Lncmr] \mathversion{ncmr} $\mathup{New\ Computer\ Modern\ Math\ Regular}$ (\ref{count:ncmr})
+%\item[\Lncmr] \mathversion{ncmr} $\mathup{New\ Computer\ Modern\ Math\ Regular}$ (\ref{count:ncmr})
 \item[\Lncmb] \mathversion{ncmb} $\mathup{New\ Computer\ Modern\ Math\ Book}$ (\ref{count:ncmb})
 \item[\Lstix] \mathversion{stix} $\mathup{STIX\ Two\ Math}$ (\ref{count:stix})
+\item[\Lsymbola] \mathversion{symbola} $\mathup{Symbola}$ (\ref{count:symbola})
 \item[\Lxitsr] \mathversion{xitsr} $\mathup{XITS\ Math\ Regular}$ (\ref{count:xitsr})
 \item[\Lxitsb] \mathversion{xitsb} $\mathup{XITS\ Math\ Bold}$ (\ref{count:xitsb})
 \item[\Lbonum] \mathversion{bonum} $\mathup{TeX\ Gyre\ Bonum\ Math}$ (\ref{count:bonum})

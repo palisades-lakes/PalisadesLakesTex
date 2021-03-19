@@ -1,10 +1,10 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-%% arara: biber
-%% arara: texindy: { markup: xelatex }
-%% arara: makeglossaries
-%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
-%% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
+% % arara: biber
+% % arara: texindy: { markup: xelatex }
+% %% arara: makeglossaries
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
 % % arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
 % % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 % % arara: clean: { extensions: [ glg, glo, gls, ] }
@@ -18,7 +18,7 @@
 %\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
 %\CormorantFonts % light, missing unicode greek, needs scaling relative to monfont
 %\EBGaramondFonts % fewest pages
-%\ErewhonFonts
+\ErewhonFonts
 %\FiraFonts % tall lines, all sans, much less per page, missing \in?
 %\GFSNeohellenicFonts 
 %\KpFonts
@@ -33,7 +33,7 @@
 %\TermesFonts
 %\XITSFonts
 
-\NewDocumentCommand{\ShowFontA}{m m m}{%
+\NewDocumentCommand{\QuickBrownFox}{m m m}{%
 {#1\fontseries{#2}\fontshape{#3}\selectfont%
 The correct official (quick) brown fox jumps over the lazy dog [0123456789].\\%
 THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\%
@@ -42,9 +42,9 @@ THE CORRECT OFFICIAL (QUICK) BROWN FOX JUMPS OVER THE LAZY DOG [0123456789].\\%
 
 \NewDocumentCommand{\ShowFont}{m m}{%
 shape: #2\\
-\ShowFontA{#1}{ul}{#2}\ShowFontA{#1}{el}{#2}\ShowFontA{#1}{l}{#2}
-\ShowFontA{#1}{sl}{#2}\ShowFontA{#1}{m}{#2}\ShowFontA{#1}{sb}{#2}
-\ShowFontA{#1}{b}{#2}\ShowFontA{#1}{eb}{#2}\ShowFontA{#1}{ub}{#2}
+\QuickBrownFox{#1}{ul}{#2}\QuickBrownFox{#1}{el}{#2}\QuickBrownFox{#1}{l}{#2}
+\QuickBrownFox{#1}{sl}{#2}\QuickBrownFox{#1}{m}{#2}\QuickBrownFox{#1}{sb}{#2}
+\QuickBrownFox{#1}{b}{#2}\QuickBrownFox{#1}{eb}{#2}\QuickBrownFox{#1}{ub}{#2}
 \newpage
 }
 
@@ -74,7 +74,7 @@ shape: #2\\
 \ShowFont{\sffamily}{it}\ShowFont{\sffamily}{sl}
 \ShowFont{\ttfamily}{n}\ShowFont{\ttfamily}{sl}
 \newpage
-\ShowFontA{\BlackLetterFont}{n}{m}
+\QuickBrownFox{\BlackLetterFont}{n}{m}
 % See 
 % \citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
 
