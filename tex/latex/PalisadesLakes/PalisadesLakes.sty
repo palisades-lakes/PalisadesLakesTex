@@ -111,6 +111,11 @@
 \NewDocumentCommand {\geomHDTV} {} {
  \geomDefault
  \geometry{margin=2cm,paperheight=352mm,paperwidth=198mm,} }
+ % rough size and aspect for traditional math books
+ % TODO: margins should be bigger and two-sided assymetric
+\NewDocumentCommand {\geomTextbook} {} {
+ \geomDefault
+ \geometry{margin=2cm,paperheight=220mm,paperwidth=150mm,} }
 
 \NewDocumentCommand {\geomLandscape} {} {
  \geometry{twocolumn=true,landscape=true,} }
