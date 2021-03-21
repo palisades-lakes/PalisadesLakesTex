@@ -508,6 +508,7 @@ RawFeature={
 
 \NewDocumentCommand {\EBGaramondPardoMainFont} {} {
 \setmainfont{EBGaramond}[
+Scale=1.0,
 Extension=.otf,
 UprightFont=*-Regular,
 ItalicFont=*-MediumItalic,
@@ -2658,6 +2659,8 @@ RawFeature={+zero}, % slashed (actually dotted) zero
 
 \NewDocumentCommand {\FiraCodeMonoFont} {} {
 \setmonofont{FiraCode}[
+Scale=MatchLowercase,
+%Scale=MatchUppercase,
 Extension=.ttf,
 UprightFont=*-Regular,
 BoldFont=*-Bold,
@@ -3511,7 +3514,7 @@ RawFeature={
 \NewDocumentCommand {\EBGaramondFonts} {} {
 \EBGaramondPardoMainFont
 %\GilliusADFSansFont
-\GilliusADFTwoSansFont
+%\GilliusADFTwoSansFont
 \AtkinsonHyperlegibleSansFont
 \FiraCodeMonoFont
 \QTHeidelbergBlackLetterFont
