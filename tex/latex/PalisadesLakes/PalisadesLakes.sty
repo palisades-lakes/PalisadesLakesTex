@@ -3493,9 +3493,10 @@ RawFeature={
 % TODO: what's the 'right' way to do CJK as of 2021?
 \RequirePackage{xeCJK}[2020-02-19]
 %\defaultCJKfontfeatures {⟨font features⟩}
-\setCJKmainfont{NotoSansCJK.ttc}
-\setCJKsansfont{NotoSansCJK.ttc}
-\setCJKmonofont{NotoSansCJK.ttc}
+% -Regular seems too light
+\setCJKmainfont{NotoSerifCJKSC-Medium.otf}
+\setCJKsansfont{NotoSansCJKSC-Medium.otf}
+\setCJKmonofont{NotoSansMONOCJKSC-Regular.otf}
 %-----------------------------------------------------------------
 % font 'families' 
 % attempt at harmonius main, sans, mono, math fonts
