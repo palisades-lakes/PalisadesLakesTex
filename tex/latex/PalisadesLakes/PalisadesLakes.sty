@@ -4215,29 +4215,21 @@ backref=true,
 %-----------------------------------------------------------------
 % page styles
 %-----------------------------------------------------------------
-% \renewpagestyle{plain}{
-% \sethead[][\scshape\chaptertitle][] % even
-% {} {\scshape\chaptertitle} {} % odd
-% \setfoot[][\thepage][] % even
-% {}{\thepage}{} % odd
-% }
-% \newpagestyle{front}{
-% \sethead[][\scshape\chaptertitle][] % even
-% {} {\scshape\chaptertitle} {} % odd
-% \setfoot[][\thepage][] % even
-% {}{\thepage}{} % odd
-% }
-% \newpagestyle{back}{
-% \sethead[][\scshape\chaptertitle][] % even
-% {} {\scshape\chaptertitle}{} % odd
-% \setfoot[][\thepage][] % even
-% {}{\thepage}{} % odd
-% }
+% TODO: \ifthechapter, etc., to handle articles
+% also, as is doesn't use the section starting the page,
+% but rather the one ending the page, which seems strange.
+\renewpagestyle{plain}{
+\sethead[][\scshape\thesection\ \sectiontitle][] % even
+{} {\scshape\thesection\ \sectiontitle} {} % odd
+\setfoot[][\thepage][] % even
+{}{\thepage}{} % odd
+}
+\pagestyle{plain}
+
 % \renewpagestyle{empty}{
 % \sethead[][][] % even
 % {} {} {}% odd
 % }
-% \pagestyle{empty}
 %-----------------------------------------------------------------
 % tables of contents
 % TODO: put everything in detailed table of of contents,
