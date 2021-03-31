@@ -4041,13 +4041,20 @@ backref=true,
 
 \renewcommand\mkbibnamefamily[1]{\textsc{#1}}
 
+\DeclareFieldFormat{title}{\textmd{#1}}
+\DeclareFieldFormat{citetitle}{\textmd{#1}}
+\DeclareFieldFormat{journaltitle}{\textmd{#1}}
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished,journal]{title}{\textmd{#1}}
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished,journal]{citetitle}{\textmd{#1}}
+
 \DeclareCiteCommand{\citeAuthorTitle}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}%
   {\ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-   \printnames{labelname}\space%
+   \printnames{labelname}%
+   \space%
    \printfield[citetitle]{labeltitle}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
@@ -4070,7 +4077,9 @@ backref=true,
    \usebibmacro{prenote}}%
   {\ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-   \printnames{labelname}\space(\printfield{year})}}%
+   \printnames{labelname}%
+   \space%
+   (\printfield{year})}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
@@ -4080,8 +4089,11 @@ backref=true,
    \usebibmacro{prenote}}%
   {\ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-   \printnames{labelname}\space(\printfield{year})%
-   \space\printfield[citetitle]{labeltitle}%
+   \printnames{labelname}%
+   \space%
+   (\printfield{year})%
+   \space%
+   \printfield[citetitle]{labeltitle}%
    }}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
@@ -4095,7 +4107,7 @@ backref=true,
 %   {\multicitedelim}%
 %   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\citetitle}
+\DeclareCiteCommand{\citeTitle}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}%
