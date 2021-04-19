@@ -3494,9 +3494,141 @@ RawFeature={
 ]
 }
 
-%%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+% programming language fonts
+%-----------------------------------------------------------------
+% TODO: customize in the font families below?
+
+\newfontfamily\pseudocodeFont{AtkinsonHyperlegible}[
+Scale=MatchLowercase,
+Path= c:/windows/fonts/ ,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldItalic,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldItalic,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Bold},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BoldItalic},
+FontFace={b}{it}{*-BoldItalic},
+FontFace={eb}{it}{*-BoldItalic},
+FontFace={ub}{it}{*-BoldItalic},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BoldItalic},
+FontFace={b}{sl}{*-BoldItalic},
+FontFace={eb}{sl}{*-BoldItalic},
+FontFace={ub}{sl}{*-BoldItalic},
+%
+RawFeature={
++case, % case sensitive forms
+},
+]
+
+\newfontfamily\clojureFont{FiraCode}[
+Scale=0.8,
+%Scale=MatchLowercase,
+%Scale=MatchUppercase,
+Extension=.ttf,
+UprightFont=*-Regular,
+BoldFont=*-Bold,
+AutoFakeSlant,
+ItalicFeatures={FakeSlant},
+BoldItalicFeatures={FakeSlant},
+FontFace={ul}{n}{*-Light},
+FontFace={el}{n}{*-Light},
+FontFace={l}{n}{*-Light},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Retina},
+FontFace={sb}{n}{*-Medium},
+FontFace={b}{n}{*-SemiBold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+% TODO: what is 'Retina'?
+StylisticSet = {},
+RawFeature={
+%+aalt, % all alternates
++calt, % contextual alternatives
++case, % case sensitive parens, etc.
++onum, % oldstyle digits
++salt, % stylistic alternates
++zero ,% slashed (actually dotted) zero
+}, 
+]
+
+\newfontfamily\schemeFont{NewCMMono10}[
+Path= c:/windows/fonts/ ,
+Extension=.otf,
+UprightFont=*-Regular,
+ItalicFont=*-Italic,
+BoldFont=*-Bold,
+BoldItalicFont=*-BoldOblique,
+SlantedFont=*-Italic,
+BoldSlantedFont=*-BoldOblique,
+%
+FontFace={ul}{n}{*-Regular},
+FontFace={el}{n}{*-Regular},
+FontFace={l}{n}{*-Regular},
+FontFace={sl}{n}{*-Regular},
+FontFace={m}{n}{*-Regular},
+FontFace={sb}{n}{*-Book},
+FontFace={b}{n}{*-Bold},
+FontFace={eb}{n}{*-Bold},
+FontFace={ub}{n}{*-Bold},
+%
+FontFace={ul}{it}{*-Italic},
+FontFace={el}{it}{*-Italic},
+FontFace={l}{it}{*-Italic},
+FontFace={sl}{it}{*-Italic},
+FontFace={m}{it}{*-Italic},
+FontFace={sb}{it}{*-BookItalic},
+FontFace={b}{it}{*-BoldOblique},
+FontFace={eb}{it}{*-BoldOblique},
+FontFace={ub}{it}{*-BoldOblique},
+%
+FontFace={ul}{sl}{*-Italic},
+FontFace={el}{sl}{*-Italic},
+FontFace={l}{sl}{*-Italic},
+FontFace={sl}{sl}{*-Italic},
+FontFace={m}{sl}{*-Italic},
+FontFace={sb}{sl}{*-BookItalic},
+FontFace={b}{sl}{*-BoldOblique},
+FontFace={eb}{sl}{*-BoldOblique},
+FontFace={ub}{sl}{*-BoldOblique},
+%
+Numbers={OldStyle,Proportional},
+StylisticSet={
+%1, % re-arrange capital diacritics
+},
+RawFeature={
++case, % case-sensitive alternatives
++zero, % slashed zero
+},
+]
+%-----------------------------------------------------------------
 % cjk fonts
 %-----------------------------------------------------------------
+% TODO: customize in the font families below?
 % TODO: what's the 'right' way to do CJK as of 2021?
 \RequirePackage{xeCJK}[2020-02-19]
 %\defaultCJKfontfeatures {⟨font features⟩}
@@ -4486,17 +4618,18 @@ backref=true,
 
 \lstset{%
 backgroundcolor={\color{GhostWhite}},
-basicstyle={\ttfamily\small},
-breaklines=false,
 captionpos=b,
 %frame=tblr,
+}
+
+%-----------------------------------------------------------------
+\lstdefinelanguage{clojure}{%
+basicstyle=\clojureFont,
+breaklines=false,
 mathescape=true,
 escapechar=\%,
-keywordstyle={\ttfamily\color{Sepia}}}
-
-\lstdefinelanguage{clojure}%
-{morekeywords={
-%Math,Random,List,ArrayList,
+keywordstyle=\clojureFont\color{Sepia},
+morekeywords={
 deftest,testing,is,defrecord,
 *,*1,*2,*3,*agent*,*allow-unresolved-vars*,*assert*,
 *clojure-version*,*command-line-args*,%
@@ -4607,6 +4740,52 @@ zipmap
    morestring=[b]"%
   }[keywords,comments,strings]%
 
+%-----------------------------------------------------------------
+\lstdefinelanguage{scheme}{%
+  morekeywords=[1]{define, define-syntax, define-macro, 
+  lambda, define-stream, stream-lambda},
+  morekeywords=[2]{begin, call-with-current-continuation, call/cc,
+    call-with-input-file, call-with-output-file, case, cond,
+    do, else, for-each, if,
+    let*, let, let-syntax, letrec, letrec-syntax,
+    let-values, let*-values,
+    and, or, not, delay, force,
+    quasiquote, quote, unquote, unquote-splicing,
+    map, fold, syntax, syntax-rules, eval, environment, query },
+  morekeywords=[3]{import, export},
+  alsodigit=!\$\%&*+-./:<=>?@^_~,
+  sensitive=true,
+  morecomment=[l]{;},
+  morecomment=[s]{\#|}{|\#},
+  morestring=[b]",
+  breaklines=false,
+  mathescape=true,
+  escapechar=\%,
+  basicstyle=\schemeFont,
+  keywordstyle=\schemeFont\color{Sepia},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle={\color[rgb]{0.75,0.49,0.07}},
+  upquote=true,
+  %breaklines=true,
+  %breakatwhitespace=true,
+  %literate=*{`}{{`}}{1},
+  showstringspaces=false,
+}
+
+%-----------------------------------------------------------------
+\lstdefinelanguage{pseudocode}{
+  morekeywords=[1]{define, lambda, },
+  morekeywords=[2]{cond, do, else, for-each, if, let*, let, eval, },
+  alsodigit=!\$\%&*+-./:<=>?@^_~,
+  sensitive=true,
+  breaklines=false,
+  mathescape=true,
+  escapechar=\%,
+  basicstyle=\pseudocodeFont,
+  keywordstyle=\pseudocodeFont\color{Sepia},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle={\color[rgb]{0.75,0.49,0.07}},
+ }
 %-----------------------------------------------------------------
 % cross references / hyperlinks
 %-----------------------------------------------------------------
