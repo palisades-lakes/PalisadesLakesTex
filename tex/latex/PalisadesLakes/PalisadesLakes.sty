@@ -1741,7 +1741,7 @@ Numbers={OldStyle,Proportional},
 % Note: \setsansfont doesn't appear to affect math sans font
 % Currently avoiding sans in regular text, so leave as default
 % Maybe later choose something to match the math sans, and use 
-% that for text pseudcode that matches math pseudocode as closely
+% that for text pseudocode that matches math pseudocode as closely
 % as possible.
 %-----------------------------------------------------------------
 % atkinson-hyperlegible
@@ -3898,7 +3898,12 @@ RawFeature={
 %\setmathfont{Cambria Math}[version=cambria]
 
 %-----------------------------------------------------------------
-% local symbol defs 
+% non-math 'symbols'
+
+\NewDocumentCommand{\TODO}{}{{\textbf{\textsf{TODO: }}}}
+\NewDocumentCommand{\NOTE}{}{{\textbf{\textsf{NOTE: }}}}
+%-----------------------------------------------------------------
+% local math symbol defs 
 % TODO: replace by or incorporate glossary entries?
 % TODO: automatic indexing?
 %-----------------------------------------------------------------
@@ -4006,6 +4011,7 @@ RawFeature={
 % TODO: just type in unicode directly instead?
 \NewDocumentCommand{\Set}{m}{\symscr{#1}}
 \NewDocumentCommand{\Space}{m}{\symbb{#1}}
+\NewDocumentCommand{\Naturals}{}{\Space{N}}
 \NewDocumentCommand{\Integers}{}{\Space{Z}}
 \NewDocumentCommand{\Reals}{}{\Space{R}}
 \NewDocumentCommand{\Quaternions}{}{\Space{Q}}
@@ -4777,7 +4783,7 @@ zipmap
 
 %-----------------------------------------------------------------
 \lstdefinelanguage{pseudocode}{
-  morekeywords=[1]{define, lambda, },
+  morekeywords=[1]{def,defn, fn, and, or, map, reduce,},
   morekeywords=[2]{cond, do, else, for-each, if, let*, let, eval, },
   alsodigit=!\$\%&*+-./:<=>?@^_~,
   sensitive=true,
@@ -4786,8 +4792,9 @@ zipmap
   escapechar=\%,
   basicstyle=\pseudocodeFont,
   keywordstyle=\pseudocodeFont\color{Sepia},
-  commentstyle=\color[rgb]{0.133,0.545,0.133},
-  stringstyle={\color[rgb]{0.75,0.49,0.07}},
+  commentstyle=\color[rgb]{0.133,0.55,0.133},
+  stringstyle={\color[rgb]{0.75,0.5,0.07}},
+  columns=flexible,
  }
 %-----------------------------------------------------------------
 % cross references / hyperlinks
