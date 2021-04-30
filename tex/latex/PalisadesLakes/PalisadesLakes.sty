@@ -118,7 +118,7 @@
 \NewDocumentCommand {\geomHalfDTV} {} {
  \hypersetup{pdfpagelayout=TwoPageLeft,}
  \geomDefault
- \geometry{margin=2cm,paperheight=244mm,paperwidth=202mm,} }
+ \geometry{margin=2cm,paperheight=200mm,paperwidth=170mm,} }
 
 % rough size and aspect for traditional math books
 % TODO: margins should be bigger and two-sided assymetric
@@ -3546,41 +3546,97 @@ RawFeature={
 },
 ]
 
-\newfontfamily\clojureFont{FiraCode}[
-Scale=0.8,
-%Scale=MatchLowercase,
-%Scale=MatchUppercase,
-Extension=.ttf,
-UprightFont=*-Regular,
-BoldFont=*-Bold,
-AutoFakeSlant,
-ItalicFeatures={FakeSlant},
-BoldItalicFeatures={FakeSlant},
-FontFace={ul}{n}{*-Light},
-FontFace={el}{n}{*-Light},
-FontFace={l}{n}{*-Light},
-FontFace={sl}{n}{*-Regular},
-FontFace={m}{n}{*-Retina},
-FontFace={sb}{n}{*-Medium},
-FontFace={b}{n}{*-SemiBold},
-FontFace={eb}{n}{*-Bold},
-FontFace={ub}{n}{*-Bold},
-% TODO: what is 'Retina'?
-StylisticSet = {},
-RawFeature={
-%+aalt, % all alternates
-+calt, % contextual alternatives
-+case, % case sensitive parens, etc.
-+onum, % oldstyle digits
-+salt, % stylistic alternates
-+zero ,% slashed (actually dotted) zero
-}, 
-]
+%-----------------------------------------------------------------
+% 2021-04-30
+% problems with FiraCode when it's not used via \setmonofont':
+% depressed *, no ligatures
+
+% \newfontfamily\clojureFont{FiraCode}[
+% Scale=0.8,
+% %Scale=MatchLowercase,
+% %Scale=MatchUppercase,
+% Extension=.ttf,
+% UprightFont=*-Regular,
+% BoldFont=*-Bold,
+% AutoFakeSlant,
+% ItalicFeatures={FakeSlant},
+% BoldItalicFeatures={FakeSlant},
+% FontFace={ul}{n}{*-Light},
+% FontFace={el}{n}{*-Light},
+% FontFace={l}{n}{*-Light},
+% FontFace={sl}{n}{*-Regular},
+% FontFace={m}{n}{*-Retina},
+% FontFace={sb}{n}{*-Medium},
+% FontFace={b}{n}{*-SemiBold},
+% FontFace={eb}{n}{*-Bold},
+% FontFace={ub}{n}{*-Bold},
+% % TODO: what is 'Retina'?
+% StylisticSet = {},
+% RawFeature={
+% %+aalt, % all alternates
+% +calt, % contextual alternatives
+% +case, % case sensitive parens, etc.
+% +onum, % oldstyle digits
+% +salt, % stylistic alternates
+% +zero ,% slashed (actually dotted) zero
+% }, 
+% ]
+
+% Fira Mono <- Metal
+% https://fonts.google.com/specimen/Fira+Mono#glyphs
+% OFL-1.1 License
+% Version 3.206 Downloaded 2012-04-30
+
+% 2021-04-30
+% FIraMono has the same problems as FiraCode
+% problems with FiraCode when it's not used via \setmonofont':
+% depressed *, no ligatures
+
+% \newfontfamily\clojureFont{FiraMono}[
+% Scale=0.8,
+% %Scale=MatchLowercase,
+% %Scale=MatchUppercase,
+% Extension=.ttf,
+% UprightFont=*-Regular,
+% BoldFont=*-Bold,
+% AutoFakeSlant,
+% ItalicFeatures={FakeSlant},
+% BoldItalicFeatures={FakeSlant},
+% SlantedFeatures={FakeSlant},
+% BoldSlantedFeatures={FakeSlant},
+% RawFeature={
+% %+calt, % contextual alternatives
+% %+case, % case sensitive parens, etc.
+% %+onum, % oldstyle digits
+% %+zero ,% slashed zero
+% },
+% ]
+
+% Inconsolata too much inter-char space, even condensed 
+% LibertinusMono looks terrible, like monspaced Baskerville 
+% texgyrecursor too light
+% KpMono too wide and stroke terminals to thin
+
+% due to problems with FiraCode and newfontfamily,
+% and ugliness of of the other mono fonts I have at present
+% just use it via \setmonofont and \ttfamily (for now)
+% Note: this mean \clojureFont will be whatever the 
+% global mono font is.
+% TODO: either find a work-around for the Fira problems
+% or find another mono font I like.
+ 
+\NewDocumentCommand {\clojureFont} {} {\ttfamily}
+
+%-----------------------------------------------------------------
 
 % same font as clojure, for now.
 \NewDocumentCommand {\javaFont} {} {\clojureFont}
 
+%-----------------------------------------------------------------
+% Try to look like SICP, etc., book fonts
+
 \newfontfamily\schemeFont{NewCMMono10}[
+Scale=0.9,
 Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
@@ -3620,7 +3676,7 @@ FontFace={b}{sl}{*-BoldOblique},
 FontFace={eb}{sl}{*-BoldOblique},
 FontFace={ub}{sl}{*-BoldOblique},
 %
-Numbers={OldStyle,Proportional},
+%Numbers={OldStyle,Proportional},
 StylisticSet={
 %1, % re-arrange capital diacritics
 },
