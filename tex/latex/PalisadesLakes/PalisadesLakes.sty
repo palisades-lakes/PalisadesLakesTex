@@ -1753,6 +1753,8 @@ Numbers={OldStyle,Proportional},
 
 \NewDocumentCommand {\AtkinsonHyperlegibleSansFont} {} {
 \setsansfont{AtkinsonHyperlegible}[
+%Scale=MatchLowercase,
+Scale=MatchUppercase,
 Path= c:/windows/fonts/ ,
 Extension=.otf,
 UprightFont=*-Regular,
@@ -3958,7 +3960,7 @@ RawFeature={
 % non-math 'symbols'
 
 \NewDocumentCommand{\TODO}{}{{\textbf{\textsf{TODO: }}}}
-\NewDocumentCommand{\NOTE}{}{{\textbf{\textsf{NOTE: }}}}
+\NewDocumentCommand{\NOTE}{}{{\textsf{Note: }}}
 %-----------------------------------------------------------------
 % local math symbol defs 
 % TODO: replace by or incorporate glossary entries?
