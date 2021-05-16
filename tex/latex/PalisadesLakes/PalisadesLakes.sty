@@ -4067,6 +4067,11 @@ RawFeature={
 \NewDocumentCommand{\scalars}{}{\mathsf{scalars}}
 \NewDocumentCommand{\vectors}{}{\mathsf{vectors}}
 %-----------------------------------------------------------------
+% larger ``operators''
+% result seems too large in one example
+% \RequirePackage{relsize}[2013-05-27]
+% \NewDocumentCommand{\Sum}{}{\mathop{\mathlarger{\mathlarger{\sum}}}}
+%-----------------------------------------------------------------
 \NewDocumentCommand{\OneToOne}{}{{\text{one-to-one}}}
 % TODO: just type in unicode directly instead?
 \NewDocumentCommand{\Set}{m}{\symscr{#1}}
