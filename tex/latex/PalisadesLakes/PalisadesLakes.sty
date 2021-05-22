@@ -4098,9 +4098,15 @@ RawFeature={
 
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
+% field operations
 \NewDocumentCommand{\Add}{m}{\mathsf{+}_{\Space{#1}}}
+\NewDocumentCommand{\Sub}{m}{\mathsf{-}_{\Space{#1}}}
 \NewDocumentCommand{\Mul}{m}{\mathsf{\times}_{\Space{#1}}}
-\NewDocumentCommand{\Ide}{m}{\mathsf{identity}_{#1}}
+\NewDocumentCommand{\Div}{m}{\mathsf{\div}_{\Space{#1}}}
+\NewDocumentCommand{\Ide}{m}{\mathsf{identity}_{\Space{#1}}}
+\NewDocumentCommand{\One}{m}{\mathsf{1}_{\Space{#1}}}
+\NewDocumentCommand{\Zero}{m}{\mathsf{0}_{\Space{#1}}}
+
 \DeclareMathOperator{\domain}{\Pseudocode{domain}}
 \DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
 % \DeclareMathOperator{\domain}{\Set{Dom}}
