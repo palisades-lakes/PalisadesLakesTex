@@ -579,7 +579,7 @@ RawFeature={
 %+swsh, % very long tailed Q
 },
 StylisticSet = {
-6,% long tailed Q
+%6,% long tailed Q
 },
 Numbers={OldStyle,Proportional},
 ]
@@ -4100,6 +4100,8 @@ RawFeature={
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
 % field operations
+\NewDocumentCommand{\Eq}{m}{\mathsf{=}_{#1}}
+\NewDocumentCommand{\Leq}{m}{\mathsf{\leq}_{#1}}
 \NewDocumentCommand{\Add}{m}{\mathsf{+}_{#1}}
 \NewDocumentCommand{\Sub}{m}{\mathsf{-}_{#1}}
 \NewDocumentCommand{\Mul}{m}{\mathsf{\times}_{#1}}
@@ -5080,7 +5082,7 @@ citecolor=citecolor,
 \NewDocumentCommand {\plNewChunk} {O{} O{} m} {
  \pl_NewChunkB:nnn {#1}{#2}{#3} }
 %-----------------------------------------------------------------
-\colorlet{quoteBackground}{Tan!08!white}
+\colorlet{quoteBackground}{Tan!05!white}
 \plNewChunk[][]
 {ChunkType=quote,
  %ChunkHead={},
@@ -5103,7 +5105,7 @@ citecolor=citecolor,
   ChunkParent=plData,
   }
 
-\colorlet{codeBackground}{LightCyan1!20!white}
+\colorlet{codeBackground}{LightSteelBlue!10!white}
 \plNewChunk[][]
 {ChunkType=code,
  ChunkBackgroundColor=code}
