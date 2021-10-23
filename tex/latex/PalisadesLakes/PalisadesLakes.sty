@@ -36,7 +36,7 @@
 %-----------------------------------------------------------------
 
 \NeedsTeXFormat {LaTeX2e} [2020-10-01]
-\ProvidesPackage{PalisadesLakes}[2021-02-05]
+\ProvidesPackage{PalisadesLakes}[2021-10-22]
 
 \errorcontextlines 10000
 
@@ -79,10 +79,10 @@
 %-----------------------------------------------------------------
 % date/time formatting
 %-----------------------------------------------------------------
-\RequirePackage{datetime}[2015/03/20]
-\renewcommand{\dateseparator}{-}
-\renewcommand{\today}{
-\the\year \dateseparator \twodigit\month \dateseparator \twodigit\day}
+\RequirePackage[iso]{datetime}[2015/03/20]
+% \renewcommand{\dateseparator}{-}
+% \renewcommand{\today}{
+% \the\year \dateseparator \twodigit\month \dateseparator \twodigit\day}
 %-----------------------------------------------------------------
 % geometry commands --- make it easy to switch page layouts
 %-----------------------------------------------------------------
