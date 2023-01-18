@@ -28,7 +28,6 @@
 *.ilg
 *.ind
 *.mw
-*.out
 *.xdy
 *.ist
 *syntex*
@@ -43,3 +42,8 @@
 /.texlipse/
 /dummy/
 /.texlipse
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/PalisadesLakesTex.iml
+/.idea/vcs.xml
