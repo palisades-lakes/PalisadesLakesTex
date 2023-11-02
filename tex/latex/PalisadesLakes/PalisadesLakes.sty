@@ -118,7 +118,12 @@
 \NewDocumentCommand {\geomHalfDTV} {} {
  \hypersetup{pdfpagelayout=TwoPageLeft,}
  \geomDefault
- \geometry{margin=2cm,paperheight=200mm,paperwidth=170mm,} }
+ \geometry{margin=2cm,paperheight=180mm,paperwidth=170mm,} }
+
+%\NewDocumentCommand {\geomHalfDTV} {} {
+% \hypersetup{pdfpagelayout=TwoPageLeft,}
+% \geomDefault
+% \geometry{margin=2cm,paperheight=200mm,paperwidth=170mm,} }
 
 % rough size and aspect for traditional math books
 % TODO: margins should be bigger and two-sided assymetric
@@ -4090,6 +4095,7 @@ RawFeature={
 \NewDocumentCommand{\NatMod}{m m}{\Space{N}{\mathsf [#1, #2]}}
 \NewDocumentCommand{\Integers}{}{\Space{Z}}
 \NewDocumentCommand{\Reals}{}{\Space{R}}
+\NewDocumentCommand{\ComputableReals}{}{\Space{R}_{c}}
 \NewDocumentCommand{\Quaternions}{}{\Space{Q}}
 
 % Note: unicode-math
