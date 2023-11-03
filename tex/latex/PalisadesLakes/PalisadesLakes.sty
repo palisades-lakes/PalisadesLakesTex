@@ -4077,6 +4077,9 @@ RawFeature={
 %-----------------------------------------------------------------
 % logic
 \NewDocumentCommand{\liff}{}{\iff}
+\NewDocumentCommand{\RCA}{m}{\ensuremath{\mathsf{RCA}_{#1}}}
+\NewDocumentCommand{\PeanoA}{}{\ensuremath{\mathsf{PA}}}
+\NewDocumentCommand{\RobinsonA}{}{\ensuremath{\mathsf{Q}}}
 %-----------------------------------------------------------------
 % linear spaces
 \NewDocumentCommand{\scalars}{}{\mathsf{scalars}}
@@ -4094,6 +4097,7 @@ RawFeature={
 \NewDocumentCommand{\Naturals}{}{\Space{N}}
 \NewDocumentCommand{\NatMod}{m m}{\Space{N}{\mathsf [#1, #2]}}
 \NewDocumentCommand{\Integers}{}{\Space{Z}}
+\NewDocumentCommand{\Rationals}{}{\Space{Q}}
 \NewDocumentCommand{\Reals}{}{\Space{R}}
 \NewDocumentCommand{\ComputableReals}{}{\Space{R}_{c}}
 \NewDocumentCommand{\Quaternions}{}{\Space{Q}}
@@ -4116,15 +4120,16 @@ RawFeature={
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
 % field operations
-\NewDocumentCommand{\Eq}{m}{\mathsf{=}_{#1}}
-\NewDocumentCommand{\Leq}{m}{\mathsf{\leq}_{#1}}
-\NewDocumentCommand{\Add}{m}{\mathsf{+}_{#1}}
-\NewDocumentCommand{\Sub}{m}{\mathsf{-}_{#1}}
-\NewDocumentCommand{\Mul}{m}{\mathsf{\times}_{#1}}
-\NewDocumentCommand{\Div}{m}{\mathsf{\div}_{#1}}
-\NewDocumentCommand{\Ide}{m}{\mathsf{identity}_{#1}}
-\NewDocumentCommand{\One}{m}{\mathsf{1}_{#1}}
-\NewDocumentCommand{\Zero}{m}{\mathsf{0}_{#1}}
+\NewDocumentCommand{\Eq}{m}{\,\mathsf{=}_{#1}\,}
+\NewDocumentCommand{\Neq}{m}{\,\mathsf{\neq}_{#1}\,}
+\NewDocumentCommand{\Leq}{m}{\,\mathsf{\leq}_{#1}\,}
+\NewDocumentCommand{\Add}{m}{\,\mathsf{+}_{#1}\,}
+\NewDocumentCommand{\Sub}{m}{\,\mathsf{-}_{#1}\,}
+\NewDocumentCommand{\Mul}{m}{\,\mathsf{\times}_{#1}\,}
+\NewDocumentCommand{\Div}{m}{\,\mathsf{\div}_{#1}\,}
+\NewDocumentCommand{\Ide}{m}{\,\mathsf{identity}_{#1}\,}
+\NewDocumentCommand{\One}{m}{\,\mathsf{1}_{#1}\,}
+\NewDocumentCommand{\Zero}{m}{\,\mathsf{0}_{#1}\,}
 
 \DeclareMathOperator{\domain}{\Pseudocode{domain}}
 \DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
