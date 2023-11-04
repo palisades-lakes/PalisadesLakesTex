@@ -145,6 +145,12 @@
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
 %-----------------------------------------------------------------
+% math packages
+%-----------------------------------------------------------------
+\RequirePackage{amsmath}[2020/09/23]
+%\RequirePackage{amssymb}[2013/01/14] % should be covered by unicode-math
+\RequirePackage{mathtools}[2020/03/24] % for \splitfrac
+%-----------------------------------------------------------------
 % fonts
 %-----------------------------------------------------------------
 \RequirePackage[quiet]{fontspec}[2020/02/21]
@@ -3903,12 +3909,6 @@ RawFeature={
 % \DeclareTextFontCommand{\textub}{\ubseries}
 
 %-----------------------------------------------------------------
-% math packages
-%-----------------------------------------------------------------
-\RequirePackage{amsmath}[2020/09/23]
-%\RequirePackage{amssymb}[2013/01/14] % should be covered by unicode-math
-\RequirePackage{mathtools}[2020/03/24] % for \splitfrac
-%-----------------------------------------------------------------
 % math fonts
 %-----------------------------------------------------------------
 % https://tex.stackexchange.com/questions/425098/which-opentype-math-fonts-are-available
@@ -4078,8 +4078,8 @@ RawFeature={
 % logic
 \NewDocumentCommand{\liff}{}{\iff}
 \NewDocumentCommand{\RCA}{m}{\ensuremath{\mathsf{RCA}_{#1}}}
-\NewDocumentCommand{\PeanoA}{}{\ensuremath{\mathsf{PA}}}
-\NewDocumentCommand{\RobinsonA}{}{\ensuremath{\mathsf{Q}}}
+\NewDocumentCommand{\PeaAr}{}{\ensuremath{\mathsf{PA}}}
+\NewDocumentCommand{\RobAr}{}{\ensuremath{\mathsf{Q}}}
 %-----------------------------------------------------------------
 % linear spaces
 \NewDocumentCommand{\scalars}{}{\mathsf{scalars}}
@@ -4120,16 +4120,33 @@ RawFeature={
 \NewDocumentCommand{\Pseudocode}{m}{\mathsfup{#1}}
 
 % field operations
-\NewDocumentCommand{\Eq}{m}{\,\mathsf{=}_{#1}\,}
-\NewDocumentCommand{\Neq}{m}{\,\mathsf{\neq}_{#1}\,}
-\NewDocumentCommand{\Leq}{m}{\,\mathsf{\leq}_{#1}\,}
-\NewDocumentCommand{\Add}{m}{\,\mathsf{+}_{#1}\,}
-\NewDocumentCommand{\Sub}{m}{\,\mathsf{-}_{#1}\,}
-\NewDocumentCommand{\Mul}{m}{\,\mathsf{\times}_{#1}\,}
-\NewDocumentCommand{\Div}{m}{\,\mathsf{\div}_{#1}\,}
+
+%https://tex.stackexchange.com/questions/107217/put-subscript-underneath-instead-of-in-the-bottomright-corner
+% operator label placement
+% \NewDocumentCommand{\Olabel}{m m}{\underset{#2}{#1}}
+\NewDocumentCommand{\Olabel}{m m}{{#1}_{#2}}
+\NewDocumentCommand{\Eq}{m}{\,\Olabel{\mathsf{=}}{#1}\,}
+\NewDocumentCommand{\Neq}{m}{\,\Olabel{\mathsf{\neq}}{#1}\,}
+\NewDocumentCommand{\Leq}{m}{\,\Olabel{\mathsf{\leq}}{#1}\,}
+\NewDocumentCommand{\Add}{m}{\,\Olabel{\mathsf{+}}{#1}\,}
+\NewDocumentCommand{\Sub}{m}{\,\Olabel{\mathsf{-}}{#1}\,}
+\NewDocumentCommand{\Mul}{m}{\,\Olabel{\mathsf{\times}}{#1}\,}
+\NewDocumentCommand{\Div}{m}{\,\Olabel{\mathsf{\div}}{#1}\,}
+\NewDocumentCommand{\One}{m}{\,\Olabel{\mathsf{1}}{#1}\,}
+\NewDocumentCommand{\Zero}{m}{\,\Olabel{\mathsf{0}}{#1}\,}
+\NewDocumentCommand{\Successor}{m}{\mathsf{successor}_{#1}}
 \NewDocumentCommand{\Ide}{m}{\,\mathsf{identity}_{#1}\,}
-\NewDocumentCommand{\One}{m}{\,\mathsf{1}_{#1}\,}
-\NewDocumentCommand{\Zero}{m}{\,\mathsf{0}_{#1}\,}
+
+%\NewDocumentCommand{\Eq}{m}{\,\mathsf{=}_{#1}\,}
+%\NewDocumentCommand{\Neq}{m}{\,\mathsf{\neq}_{#1}\,}
+%\NewDocumentCommand{\Leq}{m}{\,\mathsf{\leq}_{#1}\,}
+%\NewDocumentCommand{\Add}{m}{\,\mathsf{+}_{#1}\,}
+%\NewDocumentCommand{\Sub}{m}{\,\mathsf{-}_{#1}\,}
+%\NewDocumentCommand{\Mul}{m}{\,\mathsf{\times}_{#1}\,}
+%\NewDocumentCommand{\Div}{m}{\,\mathsf{\div}_{#1}\,}
+%\NewDocumentCommand{\Ide}{m}{\,\mathsf{identity}_{#1}\,}
+%\NewDocumentCommand{\One}{m}{\,\mathsf{1}_{#1}\,}
+%\NewDocumentCommand{\Zero}{m}{\,\mathsf{0}_{#1}\,}
 
 \DeclareMathOperator{\domain}{\Pseudocode{domain}}
 \DeclareMathOperator{\codomain}{\Pseudocode{codomain}}
