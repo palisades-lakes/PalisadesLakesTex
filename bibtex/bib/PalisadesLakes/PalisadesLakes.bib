@@ -99,6 +99,22 @@ url={https://www.gnu.org/software/mit-scheme/} }
   url    = {http://www.jcp.org/en/jsr/detail?id=199},
   year   = {2006}}
 
+@article{AlamEtAl:2015:CartogramGenerationMeasures,
+  author = {Alam, Md. Jawaherul and Kobourov, Stephen G. and Veeramoni, Sankar},
+  title = {Quantitative Measures for Cartogram Generation Techniques},
+  year = {2015},
+  issue_date = {June 2015},
+  publisher = {The Eurographs Association \& John Wiley \& Sons, Ltd.},
+  address = {Chichester, GBR},
+  volume = {34},
+  number = {3},
+  issn = {0167-7055},
+  abstract = {Cartograms are used to visualize geographically distributed data by scaling the regions of a map e.g., US states such that their areas are proportional to some data associated with them e.g., population. Thus the cartogram computation problem can be considered as a map deformation problem where the input is a planar polygonal map M and an assignment of some positive weight for each region. The goal is to create a deformed map M', where the area of each region realizes the weight assigned to it no cartographic error while the overall map remains readable and recognizable e.g., the topology, relative positions and shapes of the regions remain as close to those before the deformation as possible. Although several such measures of cartogram quality are well-known, different cartogram generation methods optimize different features and there is no standard set of quantitative metrics. In this paper we define such a set of seven quantitative measures, designed to evaluate how faithfully a cartogram represents the desired weights and to estimate the readability of the final representation. We then study several cartogram-generation algorithms and compare them in terms of these quantitative measures.},
+  journal = {Comput. Graph. Forum},
+  month = {jun},
+  pages = {351–360},
+  numpages = {10}
+}
 @InCollection{sep:LambdaCalculus,
 author={Alama, Jesse and Korbmacher, Johannes},
 booktitle={The Stanford Encyclopedia of Philosophy},
@@ -138,6 +154,39 @@ year={2019} }
   year      = {1992},
 }
 
+@inproceedings{ArkinEtAl:1990:ComparingPolygonShapes,
+  author = {Arkin, Esther M. and Chew, L. Paul and Huttenlocher, David P. and Kedem, Klara and Mitchell, Joseph S. B.},
+  title = {An efficiently computable metric for comparing polygonal shapes},
+  year = {1990},
+  publisher = {Society for Industrial and Applied Mathematics},
+  booktitle = {Proceedings of the First Annual ACM-SIAM Symposium on Discrete Algorithms},
+  pages = {129–137},
+  numpages = {9},
+  series = {SODA '90},
+  url = {https://dl.acm.org/doi/10.5555/320176.320190},
+}
+@article{ArkinEtAl:1991:ComparingPolygonShapes,
+  author = {Arkin, Esther M. and Chew, L. Paul and Huttenlocher, Daniel P. and Kedem, Klara and Mitchell, Joseph S. B.},
+  title = {An Efficiently Computable Metric for Comparing Polygonal Shapes},
+  year = {1991},
+  issue_date = {March 1991},
+  publisher = {IEEE Computer Society},
+  volume = {13},
+  number = {3},
+  url = {https://www.cs.cornell.edu/~dph/papers/ACHKM-TPAMI-91.pdf},
+  abstract = {A method for comparing polygons that is a metric,
+  invariant under translation, rotation, and change of scale, reasonably easy to compute,
+  and intuitive is presented.
+  The method is based on the L/sub 2/ distance between the turning functions of the two polygons.
+  It works for both convex and nonconvex polygons and runs in time O(mn log mn),
+  where m is the number of vertices in one polygon and n is the number of vertices in the other.
+  Some examples showing that the method produces answers that are intuitively reasonable are presented.},
+  journal = {IEEE Trans. Pattern Anal. Mach. Intell.},
+  month = {mar},
+  pages = {209–216},
+  numpages = {8},
+  keywords = {L/sub 2/ distance, computational geometry, computer vision, convex, nonconvex, polygonal shapes, turning functions}
+}
 @Article{Arnon:1983:AlgebraicCurveDisplay,
   author  = {Dennis Arnon},
   title   = {Topologically Reliable Display of Algebraic Curves},
@@ -2236,6 +2285,15 @@ url={https://dspace.mit.edu/handle/1721.1/6060},
   year       = {1985},
 }
 
+@INPROCEEDINGS{HeilmannEtAl:2004:Recmap,
+  author={Heilmann, R. and Keim, D.A. and Panse, C. and Sips, M.},
+  booktitle={IEEE Symposium on Information Visualization},
+  title={RecMap: Rectangular Map Approximations},
+  year={2004},
+  pages={33-40},
+  keywords={Data visualization;Shape;Humans;Transaction databases;Data analysis;Information analysis;Topology;Computer displays;Automatic control;Visual databases;Geographic Visualization;Information Visualization;Database and Data Mining Visualization},
+  url = {https://ieeexplore.ieee.org/document/1382888},}
+
 @InBook{HenkRichterGebertZiegler:2004:ConvexPolytopes,
   author    = {Henk, Martin and Richter-Gebert, J\"{u}rgen and Ziegler, G\"{u}nter M.},
   booktitle = {Handbook of Discrete and Computational Geometry},
@@ -2632,6 +2690,36 @@ url={ttps://bugs.openjdk.java.net/browse/JDK-4879804},
   year      = {1999},
 }
 
+@article{KeimEtAl:2003:VisualPoints,
+  author = {Keim, Daniel A. and North, Stephen C. and Panse, Christian and Schneidewind, J\"{o}rn},
+  title = {Visualizing geographic information: VisualPoints vs CartoDraw},
+  year = {2003},
+  issue_date = {March 2003},
+  volume = {2},
+  number = {1},
+  url = {https://www.researchgate.net/publication/30012557_Visualizing_Geographic_Information_VisualPoints_vs_CartoDraw},
+  abstract = {Cartograms are a well-known technique for showing geography-related statistical information,
+  such as population demographics and epidemiological data.
+  The basic idea is to distort a map by resizing its regions according to a statistical parameter,
+  but in a way that keeps the map recognizable.
+  In this paper, we deal with the problem of making continuous cartograms that strictly retain
+  the topology of the input mesh.
+  We compare two algorithms that solve the continuous cartogram problem.
+  The first one uses an iterative relocation of vertices based on scanlines.
+  This algorithm explicitly accounts for induced shape error.
+  The second one is based on the Gridfit technique,
+  which uses pixel-based distortion based on a quadtree-like data structure.
+  The basic idea is to insert pixels, the number of which corresponds to a statistical parameter,
+  into the data structure and distort the pixels such that every pixel obtains a unique, nonoverlapping position.
+  Relocation of vertices of the map are positioned using the same distortion.
+  We discuss the results obtained from both methods,
+  compare their shape and area trade-offs as well as their efficiency, and show results from different applications.},
+  journal = {Information Visualization},
+  month = {mar},
+  pages = {58–67},
+  numpages = {10},
+  keywords = {visualization of geographic information, cartograms}
+}
 @Online{KewLoffler:2017:Texworks,
   author = {Jonathan Kew and Stefan L{\"o}ffler},
   title  = {{{\TeX}works}: A simple interface for working with {\TeX} documents.},
@@ -3760,6 +3848,20 @@ abstract = {This article investigates the short lived digital typography graduat
   year      = {2009},
 }
 
+@inproceedings{MeulemansEtAl:2010:AreaSchema,
+  title = "Area-preserving subdivision schematization",
+  abstract = "We describe an area-preserving subdivision schematization algorithm: the area of each region in the input equals the area of the corresponding region in the output. Our schematization is axis-aligned, the final output is a rectilinear subdivision. We first describe how to convert a given subdivision into an area-equivalent rectilinear subdivision. Then we define two area-preserving contraction operations and prove that at least one of these operations can always be applied to any given simple rectilinear polygon. We extend this approach to subdivisions and showcase experimental results. Finally, we give examples for standard distance metrics (symmetric difference, Hausdorff- and Fr{\'e}chet-distance) that show that better schematizations might result in worse shapes.",
+  author = "W. Meulemans and {Renssen, van}, A.M. and B. Speckmann",
+  year = "2010",
+  url = {https://research.tue.nl/en/publications/area-preserving-subdivision-schematization},
+  series = "Lecture Notes in Computer Science",
+  publisher = "Springer",
+  pages = "160--174",
+  booktitle = "6th International Conference on Geographic Information Science (GIScience)",
+  note = "6th International Conference on Geographic Information Science, GIScience 2010, GIScience 2010 ;
+  Conference date: 14-09-2010 Through 17-09-2010",
+}
+
 @InProceedings{Merriam:1992:Cyberware,
   author    = {Marshal L. Merriam},
   booktitle = {{NCGA} Proceedings},
@@ -3768,6 +3870,7 @@ abstract = {This article investigates the short lived digital typography graduat
   year      = {1992},
 }
 
+https://research.tue.nl/en/publications/area-preserving-subdivision-schematization
 @InProceedings{MeyersEtal:1991:Surfaces,
   author     = {David Meyers and Shelly Skinner and Kenneth Sloan},
   booktitle  = {Proceedings of Graphics Interface 1991},
@@ -6291,6 +6394,13 @@ url={https://www.quantamagazine.org/mathematicians-discover-the-perfect-way-to-m
   title       = {{MathLink} Reference Guide (Preliminary)},
   annote      = {email:info@wri.com},
   year        = {1992},
+}
+
+@online{Woodruff:2008:HateElectionMap,
+  author={Andy Woodruff},
+  title={I hate your favorite election map},
+  year={2008},
+  url={https://andywoodruff.com/blog/i-hate-your-favorite-election-map/},
 }
 
 @Article{WyvillEtal:1986:SoftObjects,
