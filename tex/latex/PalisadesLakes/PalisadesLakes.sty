@@ -4314,16 +4314,16 @@ backref=true,
 \DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished,journal]{citetitle}{\textmd{#1}}
 
 \DeclareCiteCommand{\citeAuthorTitle}
-  {\boolfalse{citetracker}%
-   \boolfalse{pagetracker}%
-   \usebibmacro{prenote}}%
-  {\ifciteindex{\indexnames{labelname}}{}%
-  \printtext[bibhyperref]{%
-   \printnames{labelname}%
-   \space%
-   \printfield[citetitle]{labeltitle}}}%
-  {\multicitedelim}%
-  {\usebibmacro{postnote}}%
+{\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}%
+{\ifciteindex{\indexnames{labelname}}{}%
+\printtext[bibhyperref]{%
+\printnames{labelname}%
+\space%
+\printfield[citetitle]{labeltitle}}}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}%
 
 % \DeclareCiteCommand{\citeAuthorTitleYear}{
 %    \boolfalse{citetracker}%
@@ -4338,31 +4338,30 @@ backref=true,
 %   {\usebibmacro{postnote}}%
 
 \DeclareCiteCommand{\citeAuthorYear}{
-   \boolfalse{citetracker}%
-   \boolfalse{pagetracker}%
-   \usebibmacro{prenote}}%
-  {\ifciteindex{\indexnames{labelname}}{}%
-  \printtext[bibhyperref]{%
-   \printnames{labelname}%
-   \space%
-   (\printfield{year})}}%
-  {\multicitedelim}%
-  {\usebibmacro{postnote}}%
+\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}%
+{\ifciteindex{\indexnames{labelname}}{}%
+\printtext[bibhyperref]{%
+\printnames{labelname}%
+\space%
+(\printfield{year})}}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}%
 
-\DeclareCiteCommand{\citeAuthorYearTitle}{
-   \boolfalse{citetracker}%
-   \boolfalse{pagetracker}%
-   \usebibmacro{prenote}}%
-  {\ifciteindex{\indexnames{labelname}}{}%
-  \printtext[bibhyperref]{%
-   \printnames{labelname}%
-   \space%
-   (\printfield{year})%
-   \space%
-   \printfield[citetitle]{labeltitle}%
-   }}%
-  {\multicitedelim}%
-  {\usebibmacro{postnote}}%
+\DeclareCiteCommand{\citeAuthorYearTitle}{%
+\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}%
+{\ifciteindex{\indexnames{labelname}}{}%
+\printtext[bibhyperref]{\printnames{labelname}%
+\space%
+(\printfield{year})%
+\space%
+\printfield[citetitle]{labeltitle}%
+}}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}%
 
 % \DeclareCiteCommand{\citeAuthor}
 %   {\boolfalse{citetracker}%
@@ -4374,13 +4373,13 @@ backref=true,
 %   {\usebibmacro{postnote}}
 
 \DeclareCiteCommand{\citeTitle}
-  {\boolfalse{citetracker}%
-   \boolfalse{pagetracker}%
-   \usebibmacro{prenote}}%
-  {\ifciteindex{\indexfield{indextitle}}{}%
-   \printtext[bibhyperref]{\printnames{labelname}}}%
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+{\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}%
+{\ifciteindex{\indexfield{indextitle}}{}%
+\printtext[bibhyperref]{\printnames{labelname}}}%
+{\multicitedelim}
+{\usebibmacro{postnote}}
 
 % control whether bibliography is printed or not; default true
 \newtoggle{printbibliography}
